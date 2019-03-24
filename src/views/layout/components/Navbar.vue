@@ -18,65 +18,93 @@
             alt="Vuetify"
           >
         </v-avatar>
-        <span>Application</span>
+        <span>{{ $t('toolbar.appname') }}</span>
       </v-toolbar-title>
     </v-toolbar>
-    <v-list dense>
-      <template v-for="item in items">
-        <v-layout
-          row
-          v-if="item.heading"
-          align-center
-          :key="item.heading"
-        >
-          <v-flex xs6>
-            <v-subheader v-if="item.heading">
-              {{ item.heading }}
-            </v-subheader>
-          </v-flex>
-          <v-flex xs6 class="text-xs-center">
-            <a href="#!" class="body-2 black--text">EDIT</a>
-          </v-flex>
-        </v-layout>
+    <v-list dense expand>
+      <template v-for="(item, i) in menus">
+        <!--group with subitems-->
         <v-list-group
-          v-else-if="item.children"
-          v-model="item.model"
-          :key="item.text"
-          :prepend-icon="item.model ? item.icon : item['icon-alt']"
-          append-icon=""
-        >
-          <v-list-tile slot="activator">
+          v-if="item.items"
+          :key="item.name"
+          :group="item.group"
+          :prepend-icon="item.icon"
+          no-action="no-action">
+          <v-list-tile slot="activator" ripple="ripple">
             <v-list-tile-content>
-              <v-list-tile-title>
-                {{ item.text }}
-              </v-list-tile-title>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
-          <v-list-tile
-            v-for="(child, i) in item.children"
-            :key="i"
-            @click="1"
-            :to="child.href ? child.href : null" :href="child.href"
-          >
-            <v-list-tile-action v-if="child.icon">
-              <v-icon>{{ child.icon }}</v-icon>
-            </v-list-tile-action>
-            <v-list-tile-content>
-              <v-list-tile-title>
-                {{ child.text }}
-              </v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+          <template
+            v-for="(subItem, i) in item.items">
+            <!--sub group-->
+            <v-list-group
+              v-if="subItem.items"
+              :key="subItem.name"
+              :group="subItem.group"
+              sub-group="sub-group">
+              <v-list-tile slot="activator" ripple="ripple">
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+              <v-list-tile
+                v-for="(grand, i) in subItem.children"
+                :key="i"
+                :to="genChildTarget(item, grand)"
+                :href="grand.href"
+                ripple="ripple">
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ grand.title }}</v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+            </v-list-group>
+            <!--child item-->
+            <v-list-tile
+              v-else
+              :key="i"
+              :to="genChildTarget(item, subItem)"
+              :href="subItem.href"
+              :disabled="subItem.disabled"
+              :target="subItem.target"
+              ripple="ripple">
+              <v-list-tile-content>
+                <v-list-tile-title><span>{{ subItem.title }}</span></v-list-tile-title>
+              </v-list-tile-content>
+              <v-list-tile-action v-if="subItem.action">
+                <v-icon
+                  :class="[subItem.actionClass || 'success--text']">{{ subItem.action }}</v-icon>
+              </v-list-tile-action>
+            </v-list-tile>
+          </template>
         </v-list-group>
-        <v-list-tile v-else @click="1" :key="item.text">
-          <v-list-tile-action>
+        <v-subheader
+          v-else-if="item.header"
+          :key="i">{{ item.header }}</v-subheader>
+        <v-divider
+          v-else-if="item.divider"
+          :key="i"></v-divider>
+        <!--top-level link-->
+        <v-list-tile
+          v-else
+          :to="!item.href ? { name: item.name } : null"
+          :href="item.href"
+          ripple="ripple"
+          :disabled="item.disabled"
+          :target="item.target"
+          rel="noopener"
+          :key="item.name">
+          <v-list-tile-action
+            v-if="item.icon">
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>
-              {{ item.text }}
-            </v-list-tile-title>
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
           </v-list-tile-content>
+          <v-list-tile-action
+            v-if="item.subAction">
+            <v-icon class="success--text">{{ item.subAction }}</v-icon>
+          </v-list-tile-action>
         </v-list-tile>
       </template>
     </v-list>
@@ -84,53 +112,33 @@
 </template>
 
 <script>
+import menu from '@/api/menu';
+
 export default {
   name: 'Navbar',
   data() {
     return {
       items: [
         {
+          icon: 'dashboard',
+          'icon-alt': 'dashboard',
+          text: 'route.dashboard',
+          href: 'dashboard',
+          model: true,
+        },
+        {
           icon: 'apps',
           'icon-alt': 'apps',
-          text: 'Components',
+          text: 'route.vuetify.components',
           model: true,
           children: [
-            { icon: 'add', text: 'Alert', href: 'alert' },
-            { icon: 'add', text: 'Buttons', href: 'buttons' },
-            { icon: 'add', text: 'Calendar', href: 'calendar' },
+            { icon: 'arrow_right', text: 'route.vuetify.alert', href: '/vuetify/alert' },
+            { icon: 'arrow_right', text: 'route.vuetify.buttons', href: '/vuetify/buttons' },
+            { icon: 'arrow_right', text: 'route.vuetify.calendar', href: '/vuetify/calendar' },
           ],
         },
-        /* { icon: 'contacts', text: 'Contacts' },
-        { icon: 'history', text: 'Frequently contacted' },
-        { icon: 'content_copy', text: 'Duplicates' },
-        {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'Labels',
-          model: true,
-          children: [
-            { icon: 'add', text: 'Create label' },
-          ],
-        },
-        {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'More',
-          model: false,
-          children: [
-            { text: 'Import' },
-            { text: 'Export' },
-            { text: 'Print' },
-            { text: 'Undo changes' },
-            { text: 'Other contacts' },
-          ],
-        },
-        { icon: 'settings', text: 'Settings' },
-        { icon: 'chat_bubble', text: 'Send feedback' },
-        { icon: 'help', text: 'Help' },
-        { icon: 'phonelink', text: 'App downloads' },
-        { icon: 'keyboard', text: 'Go to the old version' }, */
       ],
+      menus: menu,
     };
   },
   computed: {
@@ -141,6 +149,15 @@ export default {
   methods: {
     setNavbarShowState(state) {
       this.$store.dispatch('NAVBAR_STATE', { state });
+    },
+    genChildTarget(item, subItem) {
+      if (subItem.href) return subItem.href;
+      if (subItem.component) {
+        return {
+          name: subItem.component,
+        };
+      }
+      return { name: `${item.group}/${(subItem.name)}` };
     },
   },
 };

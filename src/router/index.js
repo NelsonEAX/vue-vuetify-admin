@@ -49,28 +49,35 @@ export default new Router({
       redirect: 'dashboard',
       children: [
         {
+          path: 'dashboard',
+          component: () => import('@/views/Dashboard.vue'),
+          name: 'Dashboard',
+          meta: { publick: true, title: 'dashboard', icon: 'dashboard', noCache: true, affix: true },
+        },
+      ],
+    },
+    {
+      path: '/vuetify',
+      component: Layout,
+      redirect: '/vuetify/alert',
+      children: [
+        {
           path: 'alert',
           component: () => import('@/views/vuetify/Alert.vue'),
           name: 'Alert',
-          meta: { publick: true, title: 'alert', icon: 'alert', noCache: true, affix: true },
+          meta: { publick: true, title: 'route.vuetify.alert', icon: 'alert', noCache: true, affix: true },
         },
         {
           path: 'buttons',
           component: () => import('@/views/vuetify/Buttons.vue'),
           name: 'Buttons',
-          meta: { publick: true, title: 'buttons', icon: 'buttons', noCache: true, affix: true },
+          meta: { publick: true, title: 'route.vuetify.buttons', icon: 'buttons', noCache: true, affix: true },
         },
         {
           path: 'calendar',
           component: () => import('@/views/vuetify/Calendar.vue'),
           name: 'Calendar',
-          meta: { publick: true, title: 'calendar', icon: 'calendar', noCache: true, affix: true },
-        },
-        {
-          path: 'dashboard',
-          component: () => import('@/views/About.vue'),
-          name: 'Dashboard',
-          meta: { publick: true, title: 'dashboard', icon: 'dashboard', noCache: true, affix: true },
+          meta: { publick: true, title: 'route.vuetify.calendar', icon: 'calendar', noCache: true, affix: true },
         },
       ],
     },

@@ -9,6 +9,8 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css';
 
 import Vue from 'vue';
 import Vuetify from 'vuetify';
+import i18n from './lang' // Internationalization
+
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -16,6 +18,9 @@ import store from './store';
 import './registerServiceWorker';
 
 Vue.use(Vuetify, {
+  lang: {
+    t: (key, ...params) => i18n.t(key, params)
+  },
   // iconfont: 'mdi' || 'md' || 'mdi' || 'fa' || 'fa4'
   theme: {
     primary: '#1976D2',
@@ -34,5 +39,6 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App),
 }).$mount('#app');

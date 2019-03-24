@@ -14,6 +14,22 @@
     </v-btn>
     <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
       <v-btn icon large flat slot="activator">
+        <v-icon>language</v-icon>
+      </v-btn>
+      <v-list class="pa-0">
+        <v-list-tile
+          v-for="(item,index) in langitems"
+          @click="item.click"
+          ripple="ripple"
+          :target="item.target" rel="noopener" :key="index">
+          <v-list-tile-content>
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-menu>
+    <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
+      <v-btn icon large flat slot="activator">
         <v-avatar size="36px">
           <img src="/img/avatars/13101802.jpg" alt="NelsonEAX"/>
         </v-avatar>
@@ -31,7 +47,7 @@
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            <v-list-tile-title>{{ $t(item.title) }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -67,11 +83,27 @@ export default {
   name: 'Toolbar',
   data() {
     return {
+      langitems: [
+        {
+          title: 'English',
+          click: (e) => {
+            console.log(e);
+            this.$i18n.locale = 'en';
+          },
+        },
+        {
+          title: 'Русский',
+          click: (e) => {
+            console.log(e);
+            this.$i18n.locale = 'ru';
+          },
+        },
+      ],
       menuitems: [
         {
           icon: 'account_circle',
           href: '#',
-          title: 'Profile',
+          title: 'toolbar.profile',
           click: (e) => {
             console.log(e);
           },
@@ -79,7 +111,7 @@ export default {
         {
           icon: 'settings',
           href: '#',
-          title: 'Settings',
+          title: 'toolbar.settings',
           click: (e) => {
             console.log(e);
           },
@@ -87,7 +119,7 @@ export default {
         {
           icon: 'exit_to_app',
           href: '#',
-          title: 'Logout',
+          title: 'toolbar.logout',
           click: (e) => {
             console.log(e);
             window.getApp.$emit('APP_LOGOUT');
