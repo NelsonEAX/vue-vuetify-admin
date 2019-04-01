@@ -86,51 +86,52 @@ export default {
       langitems: [
         {
           title: 'English',
-          click: (e) => {
+          click: e => {
             console.log(e);
             this.$i18n.locale = 'en';
-          },
+          }
         },
         {
           title: 'Русский',
-          click: (e) => {
+          click: e => {
             console.log(e);
             this.$i18n.locale = 'ru';
-          },
-        },
+          }
+        }
       ],
       menuitems: [
         {
           icon: 'account_circle',
           href: '#',
           title: 'toolbar.profile',
-          click: (e) => {
+          click: e => {
             console.log(e);
-          },
+          }
         },
         {
           icon: 'settings',
           href: '#',
           title: 'toolbar.settings',
-          click: (e) => {
+          click: e => {
             console.log(e);
-          },
+          }
         },
         {
           icon: 'exit_to_app',
           href: '#',
           title: 'toolbar.logout',
-          click: (e) => {
+          click: e => {
             console.log(e);
-            window.getApp.$emit('APP_LOGOUT');
-          },
-        },
+            // window.getApp.$emit('APP_LOGOUT');
+            this.toggleUser();
+          }
+        }
       ],
       bread: [
         { text: 'Dashboard' },
         { text: 'Profile' },
-        { text: 'Email' },
-      ],
+        { text: 'Email' }
+      ]
     };
   },
   methods: {
@@ -138,9 +139,12 @@ export default {
       toggleFullScreen();
     },
     toggleNavbar() {
-      this.$store.dispatch('NAVBAR_TOGGLE');
+      this.$store.dispatch('navbarToggle');
     },
-  },
+    toggleUser() {
+      this.$store.dispatch('GenerateRoutes', { roles: ['admin'] });
+    }
+  }
 };
 </script>
 

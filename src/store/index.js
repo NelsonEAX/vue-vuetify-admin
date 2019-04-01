@@ -1,16 +1,21 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-/* eslint-disable */
+import permission from './modules/permission';
+import getters from './getters';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  modules: {
+    permission
+  },
   state: {
     user: {},
     settings: {
       navbar: {
-        show: true,
-      },
-    },
+        show: true
+      }
+    }
   },
   mutations: {
     NAVBAR_TOGGLE: state => {
@@ -18,19 +23,17 @@ export default new Vuex.Store({
     },
     NAVBAR_STATE: (state, payload) => {
       state.settings.navbar.show = payload.state;
-    },
+    }
   },
   actions: {
-    NAVBAR_TOGGLE: async (context, payload) => {
+    navbarToggle: async (context, payload) => {
       context.commit('NAVBAR_TOGGLE', payload);
     },
-    NAVBAR_STATE: async (context, payload) => {
+    navbarState: async (context, payload) => {
       context.commit('NAVBAR_STATE', payload);
-    },
+    }
   },
   getters: {
-    NAVBAR_SHOW: state => {
-      return state.settings.navbar.show;
-    },
-  },
+    ...getters
+  }
 });

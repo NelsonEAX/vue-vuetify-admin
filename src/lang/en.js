@@ -8,17 +8,18 @@ export default {
     pagePermission: 'Page Permission',
     rolePermission: 'Role Permission',
     vuetify: {
+      vuetify: 'Vuetify',
       components: 'Components',
       alert: 'Alert',
       buttons: 'Buttons',
-      calendar: 'Calendar',
-    },
+      calendar: 'Calendar'
+    }
   },
   toolbar: {
     appname: 'Application',
     settings: 'Settings',
     profile: 'Profile',
-    logout: 'Logout',
+    logout: 'Logout'
   },
   login: {
     titleIn: 'Sing In Form',
@@ -27,6 +28,6 @@ export default {
     singUp: 'Sing up',
     email: 'Username',
     password: 'Password',
-    confirm: 'Confirm',
-  },
+    confirm: 'Confirm'
+  }
 };

@@ -1,6 +1,5 @@
-/* eslint-disable */
-//import 'normalize.css/normalize.css';
-import 'vuetify/dist/vuetify.min.css'
+// import 'normalize.css/normalize.css';
+import 'vuetify/dist/vuetify.min.css';
 /* icons */
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import 'font-awesome/css/font-awesome.css';
@@ -9,7 +8,7 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css';
 
 import Vue from 'vue';
 import Vuetify from 'vuetify';
-import i18n from './lang' // Internationalization
+import i18n from './lang'; // Internationalization
 
 import App from './App.vue';
 import router from './router';
@@ -29,9 +28,9 @@ Vue.use(Vuetify, {
     error: '#FF5252',
     info: '#2196F3',
     success: '#4CAF50',
-    warning: '#FFC107',
+    warning: '#FFC107'
   },
-  customProperties: true,
+  customProperties: true
 });
 
 Vue.config.productionTip = false;
@@ -40,5 +39,5 @@ new Vue({
   router,
   store,
   i18n,
-  render: h => h(App),
+  render: h => h(App)
 }).$mount('#app');

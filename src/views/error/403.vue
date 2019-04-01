@@ -1,15 +1,12 @@
 <template>
   <v-content>
-    <router-view></router-view>
+    404
   </v-content>
 </template>
 
 <script>
 export default {
-  name: 'Content',
-  data() {
-    return {};
-  },
+  name: '403',
 };
 </script>
 

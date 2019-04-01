@@ -8,17 +8,18 @@ export default {
     pagePermission: 'Page Permission',
     rolePermission: 'Role Permission',
     vuetify: {
+      vuetify: 'Вуетифи',
       components: 'Компоненты',
       alert: 'Предупреждения',
       buttons: 'Кнопки',
-      calendar: 'Календарь',
-    },
+      calendar: 'Календарь'
+    }
   },
   toolbar: {
     appname: 'Приложение',
     settings: 'Настройки',
     profile: 'Профиль',
-    logout: 'Выйти',
+    logout: 'Выйти'
   },
   login: {
     titleIn: 'Форма авторизации',
@@ -27,6 +28,6 @@ export default {
     singUp: 'Зарегистрироваться',
     email: 'Эл. почта',
     password: 'Пароль',
-    confirm: 'Подтвердить',
-  },
+    confirm: 'Подтвердить'
+  }
 };

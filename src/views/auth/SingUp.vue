@@ -18,7 +18,13 @@
                     type="text"
                     v-model="model.username"
                   ></v-text-field>
-                  <v-text-field append-icon="lock" name="password" label="Password" id="password" type="password" v-model="model.password"></v-text-field>
+                  <v-text-field
+                    append-icon="lock"
+                    name="password"
+                    label="Password"
+                    id="password"
+                    type="password"
+                    v-model="model.password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
@@ -44,24 +50,7 @@
 
 <script>
 export default {
-  name: 'SingIn',
-  data: () => ({
-    loading: false,
-    model: {
-      username: 'admin@isockde.com',
-      password: 'password'
-    }
-  }),
-
-  methods: {
-    login () {
-      this.loading = true;
-      setTimeout(() => {
-        this.$router.push('/dashboard');
-      }, 1000);
-    }
-  }
-
+  name: 'SingUp'
 };
 </script>
 

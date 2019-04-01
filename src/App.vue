@@ -2,8 +2,8 @@
   <v-app id="inspire">
      <transition>
       <keep-alive>
-        <router-view></router-view>
-        <layout></layout>
+        <router-view/>
+        <layout/>
       </keep-alive>
     </transition>
   </v-app>

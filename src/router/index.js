@@ -1,10 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-/* eslint-disable */
-Vue.use(Router);
 
 /* Layout */
-import Layout from '@/views/layout/Layout'
+import Layout from '@/views/layout/Layout.vue';
 
 /* Router Modules */
 // import componentsRouter from './modules/components'
@@ -13,13 +11,21 @@ import Layout from '@/views/layout/Layout'
 // import treeTableRouter from './modules/tree-table'
 // import nestedRouter from './modules/nested'
 
+import vuetifyRouter from './modules/vuetify';
+import errorsRouter from './modules/errors';
+import nestedRouter from './modules/nested';
+// import componentsRouter from './modules/components';
+
+Vue.use(Router);
+
 /** note: sub-menu only appear when children.length>=1
  *  detail see  https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
- **/
+ */
 
 /**
  * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
- * alwaysShow: true               if set true, will always show the root menu, whatever its child routes length
+ * alwaysShow: true               if set true, will always show the root menu, whatever its
+ *                                child routes length
  *                                if not set alwaysShow, only more than one route under the children
  *                                it will becomes nested mode, otherwise not show the root menu
  * redirect: noredirect           if `redirect:noredirect` will no redirect in the breadcrumb
@@ -32,8 +38,8 @@ import Layout from '@/views/layout/Layout'
     breadcrumb: false            if false, the item will hidden in breadcrumb(default is true)
     affix: true                  if true, the tag will affix in the tags-view
   }
- **/
-
+ */
+/*
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -50,42 +56,21 @@ export default new Router({
       children: [
         {
           path: 'dashboard',
-          component: () => import('@/views/Dashboard.vue'),
+          component: () => import('@/views/'),
           name: 'Dashboard',
-          meta: { publick: true, title: 'dashboard', icon: 'dashboard', noCache: true, affix: true },
+          // eslint-disable-next-line
+          meta: { public: true, title: 'dashboard', icon: 'dashboard', noCache: true, affix: true },
         },
       ],
     },
-    {
-      path: '/vuetify',
-      component: Layout,
-      redirect: '/vuetify/alert',
-      children: [
-        {
-          path: 'alert',
-          component: () => import('@/views/vuetify/Alert.vue'),
-          name: 'Alert',
-          meta: { publick: true, title: 'route.vuetify.alert', icon: 'alert', noCache: true, affix: true },
-        },
-        {
-          path: 'buttons',
-          component: () => import('@/views/vuetify/Buttons.vue'),
-          name: 'Buttons',
-          meta: { publick: true, title: 'route.vuetify.buttons', icon: 'buttons', noCache: true, affix: true },
-        },
-        {
-          path: 'calendar',
-          component: () => import('@/views/vuetify/Calendar.vue'),
-          name: 'Calendar',
-          meta: { publick: true, title: 'route.vuetify.calendar', icon: 'calendar', noCache: true, affix: true },
-        },
-      ],
-    },
+    /** When your routing table is too long, you can split it into small modules * /
+    // componentsRouter,
+    vuetifyRouter,
   ],
-});
+}); */
 
 
-/* export const constantRoutes = [
+export const constantRoutes = [
   {
     path: '/redirect',
     component: Layout,
@@ -98,25 +83,21 @@ export default new Router({
     ]
   },
   {
-    path: '/login',
-    component: () => import('@/views/login/index'),
+    path: '/singin',
+    component: () => import('@/views/auth/SingIn'),
     hidden: true
   },
   {
-    path: '/auth-redirect',
-    component: () => import('@/views/login/authredirect'),
+    path: '/singup',
+    component: () => import('@/views/auth/SingUp'),
     hidden: true
   },
   {
-    path: '/404',
-    component: () => import('@/views/errorPage/404'),
+    path: '/redirect',
+    component: () => import('@/views/auth/Redirect'),
     hidden: true
   },
-  {
-    path: '/401',
-    component: () => import('@/views/errorPage/401'),
-    hidden: true
-  },
+  errorsRouter,
   {
     path: '',
     component: Layout,
@@ -126,32 +107,8 @@ export default new Router({
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
+        // eslint-disable-next-line
         meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
-      }
-    ]
-  },
-  {
-    path: '/documentation',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/documentation/index'),
-        name: 'Documentation',
-        meta: { title: 'documentation', icon: 'documentation', affix: true }
-      }
-    ]
-  },
-  {
-    path: '/guide',
-    component: Layout,
-    redirect: '/guide/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/guide/index'),
-        name: 'Guide',
-        meta: { title: 'guide', icon: 'guide', noCache: true }
       }
     ]
   }
@@ -161,4 +118,11 @@ export default new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
-}); */
+});
+
+export const asyncRoutes = [
+  /** When your routing table is too long, you can split it into small modules */
+  vuetifyRouter,
+  nestedRouter,
+  { path: '*', redirect: '/404', hidden: true }
+];

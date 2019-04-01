@@ -3,7 +3,7 @@
     dark
     fixed
     app
-    :value="toggleNavbarShowState"
+    :value="navbarShow"
     @input="setNavbarShowState"
     width="250"
   >
@@ -22,37 +22,40 @@
       </v-toolbar-title>
     </v-toolbar>
     <v-list dense expand>
-      <template v-for="(item, i) in menus">
+      <!--<navbar-item v-for="(item, i) in permission_routes"></navbar-item>-->
+      <template v-for="(item, i) in permission_routes">
         <!--group with subitems-->
         <v-list-group
-          v-if="item.items"
+          v-if="item.children && !item.hidden"
           :key="item.name"
-          :group="item.group"
-          :prepend-icon="item.icon"
+          :group="item.name"
+          :prepend-icon="item.meta ? item.meta.icon : 'view_module'"
           no-action="no-action">
           <v-list-tile slot="activator" ripple="ripple">
             <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-title>
+                {{ item.meta ? $t(item.meta.title) : item.name }}
+              </v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
           <template
-            v-for="(subItem, i) in item.items">
+            v-for="(subItem, i) in item.children">
             <!--sub group-->
             <v-list-group
-              v-if="subItem.items"
+              v-if="subItem.children && !subItem.hidden"
               :key="subItem.name"
               :group="subItem.group"
               sub-group="sub-group">
               <v-list-tile slot="activator" ripple="ripple">
                 <v-list-tile-content>
-                  <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
+                  <v-list-tile-title>{{ subItem.path }}</v-list-tile-title>
                 </v-list-tile-content>
               </v-list-tile>
               <v-list-tile
                 v-for="(grand, i) in subItem.children"
                 :key="i"
-                :to="genChildTarget(item, grand)"
-                :href="grand.href"
+                :to="`${item.path}/${(subItem.path)}`"
+                :href="`${item.path}/${(subItem.path)}`"
                 ripple="ripple">
                 <v-list-tile-content>
                   <v-list-tile-title>{{ grand.title }}</v-list-tile-title>
@@ -63,8 +66,8 @@
             <v-list-tile
               v-else
               :key="i"
-              :to="genChildTarget(item, subItem)"
-              :href="subItem.href"
+              :to="`${item.path}/${(subItem.path)}`"
+              :href="`${item.path}/${(subItem.path)}`"
               :disabled="subItem.disabled"
               :target="subItem.target"
               ripple="ripple">
@@ -80,7 +83,7 @@
         </v-list-group>
         <v-subheader
           v-else-if="item.header"
-          :key="i">{{ item.header }}</v-subheader>
+          :key="i">{{ item.path }}</v-subheader>
         <v-divider
           v-else-if="item.divider"
           :key="i"></v-divider>
@@ -99,7 +102,7 @@
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            <v-list-tile-title>{{ item.path }}</v-list-tile-title>
           </v-list-tile-content>
           <v-list-tile-action
             v-if="item.subAction">
@@ -113,9 +116,14 @@
 
 <script>
 import menu from '@/api/menu';
+import { mapGetters } from 'vuex';
+// import NavbarItem from './NavbarItem.vue';
 
 export default {
   name: 'Navbar',
+  components: {
+    // NavbarItem
+  },
   data() {
     return {
       items: [
@@ -124,7 +132,7 @@ export default {
           'icon-alt': 'dashboard',
           text: 'route.dashboard',
           href: 'dashboard',
-          model: true,
+          model: true
         },
         {
           icon: 'apps',
@@ -134,32 +142,36 @@ export default {
           children: [
             { icon: 'arrow_right', text: 'route.vuetify.alert', href: '/vuetify/alert' },
             { icon: 'arrow_right', text: 'route.vuetify.buttons', href: '/vuetify/buttons' },
-            { icon: 'arrow_right', text: 'route.vuetify.calendar', href: '/vuetify/calendar' },
-          ],
-        },
+            { icon: 'arrow_right', text: 'route.vuetify.calendar', href: '/vuetify/calendar' }
+          ]
+        }
       ],
-      menus: menu,
+      menus: menu
     };
   },
   computed: {
     toggleNavbarShowState() {
-      return this.$store.getters.NAVBAR_SHOW;
+      return this.$store.getters.navbarShow;
     },
+    ...mapGetters([
+      'permission_routes',
+      'navbarShow'
+    ])
   },
   methods: {
     setNavbarShowState(state) {
-      this.$store.dispatch('NAVBAR_STATE', { state });
+      this.$store.dispatch('navbarState', { state });
     },
     genChildTarget(item, subItem) {
-      if (subItem.href) return subItem.href;
-      if (subItem.component) {
+      // if (subItem.path) return subItem.path;
+      /* if (subItem.component) {
         return {
-          name: subItem.component,
+          name: subItem.component
         };
-      }
-      return { name: `${item.group}/${(subItem.name)}` };
-    },
-  },
+      } */
+      return { name: `${item.path}/${(subItem.path)}` };
+    }
+  }
 };
 </script>
 
