@@ -48,6 +48,6 @@ const steps = [
     },
     padding: 0
   }
-]
+];
 
-export default steps
+export default steps;

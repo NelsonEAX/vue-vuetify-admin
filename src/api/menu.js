@@ -4,7 +4,7 @@ const Menu = [
     title: 'Dashboard',
     group: 'apps',
     icon: 'dashboard',
-    name: 'Dashboard',
+    name: 'Dashboard'
   },
   {
     title: 'Widgets',
@@ -15,8 +15,8 @@ const Menu = [
       { name: 'social', title: 'Social', component: 'components/social' },
       { name: 'statistic', title: 'Statistic', component: 'components/statistic' },
       { name: 'chart', title: 'Chart', component: 'components/chart' },
-      { name: 'list', title: 'List', component: 'components/widget-list' },
-    ],
+      { name: 'list', title: 'List', component: 'components/widget-list' }
+    ]
   },
   { header: 'UI Elements' },
   {
@@ -42,8 +42,8 @@ const Menu = [
       { name: 'tooltip', title: 'Tooltip', component: 'components/tooltips' },
       { name: 'pagination', title: 'Pagination', component: 'components/paginations' },
       { name: 'typography', title: 'Typography', component: 'components/typography' },
-      { name: 'color', title: 'Color', component: 'components/color' },
-    ],
+      { name: 'color', title: 'Color', component: 'components/color' }
+    ]
   },
   {
     title: 'Pickers',
@@ -52,8 +52,8 @@ const Menu = [
     icon: 'filter_vintage',
     items: [
       { name: 'timepicker', title: 'Timepicker', component: 'pickers/timepicker' },
-      { name: 'datepicker', title: 'Datepicker', component: 'pickers/datepicker' },
-    ],
+      { name: 'datepicker', title: 'Datepicker', component: 'pickers/datepicker' }
+    ]
   },
   {
     title: 'Layout',
@@ -69,8 +69,8 @@ const Menu = [
       { name: 'menus', title: 'Menus', component: 'components/menus' },
       { name: 'tabs', title: 'Tabs', component: 'components/tabs' },
       { name: 'toolbar', title: 'Toolbars', component: 'components/toolbar' },
-      { name: 'timeline', title: 'Timeline', component: 'components/timeline' },
-    ],
+      { name: 'timeline', title: 'Timeline', component: 'components/timeline' }
+    ]
   },
   {
     title: 'Forms & Controls',
@@ -83,8 +83,8 @@ const Menu = [
       { name: 'selection-controls', title: 'Selection Controls', component: 'components/selection-controls' },
       { name: 'text-fields', title: 'Text Fields', component: 'components/text-fields' },
       { name: 'steppers', title: 'Steppers', component: 'components/steppers' },
-      { name: 'editors', title: 'Editors', component: 'components/editors' },
-    ],
+      { name: 'editors', title: 'Editors', component: 'components/editors' }
+    ]
   },
   { divider: true },
   { header: 'Extras' },
@@ -96,12 +96,12 @@ const Menu = [
       { name: 'Login', title: 'Login', component: 'Login' },
       { name: '404', title: '404', component: 'NotFound' },
       { name: '403', title: '403', component: 'AccessDenied' },
-      { name: '500', title: '500', component: 'ServerError' },
-    ],
-  },
+      { name: '500', title: '500', component: 'ServerError' }
+    ]
+  }
 ];
 // reorder menu
-Menu.forEach((item) => {
+Menu.forEach(item => {
   if (item.items) {
     item.items.sort((x, y) => {
       const textA = x.title.toUpperCase();

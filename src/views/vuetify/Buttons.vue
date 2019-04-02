@@ -49,10 +49,6 @@
 
 <script>
 export default {
-  name: 'Buttons',
+  name: 'Buttons'
 };
 </script>
-
-<style scoped>
-
-</style>

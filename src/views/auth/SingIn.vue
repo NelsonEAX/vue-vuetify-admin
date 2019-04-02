@@ -55,8 +55,8 @@ export default {
     loading: false,
     model: {
       username: 'admin@isockde.com',
-      password: 'password',
-    },
+      password: 'password'
+    }
   }),
   methods: {
     login() {
@@ -64,11 +64,7 @@ export default {
       setTimeout(() => {
         this.$router.push('/dashboard');
       }, 1000);
-    },
-  },
+    }
+  }
 };
 </script>
-
-<style scoped>
-
-</style>

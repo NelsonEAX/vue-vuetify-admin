@@ -12,12 +12,12 @@ Vue.use(VueI18n);
 const messages = {
   en: {
     ...enLocale,
-    ...enLocaleVuetify,
+    ...enLocaleVuetify
   },
   ru: {
     ...ruLocale,
-    ...ruLocaleVuetify,
-  },
+    ...ruLocaleVuetify
+  }
 };
 
 const i18n = new VueI18n({
@@ -25,7 +25,7 @@ const i18n = new VueI18n({
   // options: en | ru
   locale: /* Cookies.get('language') || */ 'ru',
   // set locale messages
-  messages,
+  messages
 });
 
 export default i18n;

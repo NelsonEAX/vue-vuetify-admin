@@ -14,14 +14,10 @@ export default {
   components: {
     Navbar,
     Toolbar,
-    AppMain,
+    AppMain
   },
   data() {
     return {};
-  },
+  }
 };
 </script>
-
-<style scoped>
-
-</style>

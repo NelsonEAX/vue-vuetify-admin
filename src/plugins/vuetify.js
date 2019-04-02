@@ -20,5 +20,5 @@ Vue.use(Vuetify, {
   lang: {
     locales: { ru },
     current: 'ru'
-  },
-})
+  }
+});

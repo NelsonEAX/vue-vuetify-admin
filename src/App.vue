@@ -15,10 +15,11 @@ import Layout from './views/layout/Layout.vue';
 export default {
   name: 'App',
   components: {
-    Layout,
+    Layout
   },
   data() {
     return {};
-  },
+  }
 };
+
 </script>

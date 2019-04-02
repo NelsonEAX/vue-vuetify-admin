@@ -67,10 +67,6 @@
 
 <script>
 export default {
-  name: 'Alert',
+  name: 'Alert'
 };
 </script>
-
-<style scoped>
-
-</style>

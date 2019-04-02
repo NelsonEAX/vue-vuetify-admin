@@ -6,10 +6,6 @@
 
 <script>
 export default {
-  name: '500',
+  name: '500'
 };
 </script>
-
-<style scoped>
-
-</style>
