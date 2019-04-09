@@ -7,7 +7,7 @@
     <v-breadcrumbs class="hidden-sm-and-down" :items="bread" divider="/"></v-breadcrumbs>
     <v-spacer></v-spacer>
     <v-btn icon @click="toggleFullScreen()">
-      <v-icon>fullscreen</v-icon>
+      <v-icon>{{ toggleFullScreenIcon }}</v-icon>
     </v-btn>
     <v-btn icon>
       <v-icon>notifications</v-icon>
@@ -74,9 +74,11 @@ const toggleFullScreen = () => {
     && !doc.webkitFullscreenElement
     && !doc.msFullscreenElement) {
     requestFullScreen.call(docEl);
-  } else {
-    cancelFullScreen.call(doc);
+    return true;
   }
+
+  cancelFullScreen.call(doc);
+  return false;
 };
 
 export default {
@@ -136,13 +138,18 @@ export default {
   },
   methods: {
     toggleFullScreen() {
-      toggleFullScreen();
+      this.$store.dispatch('fullscreenToggle', { state: toggleFullScreen() });
     },
     toggleNavbar() {
       this.$store.dispatch('navbarToggle');
     },
     toggleUser() {
-      this.$store.dispatch('GenerateRoutes', { roles: ['admin'] });
+      this.$store.dispatch('generateRoutes', { roles: ['admin'] });
+    }
+  },
+  computed: {
+    toggleFullScreenIcon() {
+      return this.$store.getters.fullscreenState ? 'fullscreen_exit' : 'fullscreen';
     }
   }
 };

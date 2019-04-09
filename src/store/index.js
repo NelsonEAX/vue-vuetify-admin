@@ -14,7 +14,8 @@ export default new Vuex.Store({
     settings: {
       navbar: {
         show: true
-      }
+      },
+      fullscreen: false
     }
   },
   mutations: {
@@ -23,6 +24,9 @@ export default new Vuex.Store({
     },
     NAVBAR_STATE: (state, payload) => {
       state.settings.navbar.show = payload.state;
+    },
+    FULLSCREEN_TOGGLE: (state, payload) => {
+      state.settings.fullscreen = payload.state;
     }
   },
   actions: {
@@ -31,6 +35,9 @@ export default new Vuex.Store({
     },
     navbarState: async (context, payload) => {
       context.commit('NAVBAR_STATE', payload);
+    },
+    fullscreenToggle: async (context, payload) => {
+      context.commit('FULLSCREEN_TOGGLE', payload);
     }
   },
   getters: {

@@ -7,8 +7,6 @@
     @input="setNavbarShowState"
     width="250"
   >
-    <navbar-list :routes="permissionRoutes"/>
-    <v-divider></v-divider>
     <v-divider></v-divider>
     <v-list dense>
       <v-list-tile>
@@ -72,6 +70,8 @@
         </v-list-group>
       </v-list-group>
     </v-list>
+    <v-divider></v-divider>
+    <navbar-list :routes="permissionRoutes"/>
   </v-navigation-drawer>
 </template>
 

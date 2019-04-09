@@ -14,7 +14,8 @@ const getters = {
   // setting: state => state.user.setting,
   permissionRoutes: state => state.permission.routes,
   allRoutes: state => state.permission.allRoutes,
-  navbarShow: state => state.settings.navbar.show
+  navbarShow: state => state.settings.navbar.show,
+  fullscreenState: state => state.settings.fullscreen
   // errorLogs: state => state.errorLog.logs,
 };
 
