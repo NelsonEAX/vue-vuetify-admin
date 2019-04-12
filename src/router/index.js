@@ -99,6 +99,13 @@ export const constantRoutes = [
   },
   errorsRouter,
   {
+    path: 'dashboard',
+    component: () => import('@/views/dashboard/index'),
+    name: 'Dashboard',
+    // eslint-disable-next-line
+    meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
+  },
+  {
     path: '',
     component: Layout,
     redirect: 'dashboard',

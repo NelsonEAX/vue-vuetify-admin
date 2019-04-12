@@ -1,25 +1,50 @@
 <template>
-  <div>
+  <div >
     <v-list-tile
-      v-if="!route.children">
-      <v-list-tile-title>{{ route.name }}</v-list-tile-title>
+      v-if="!item.children && !item.hidden"
+      v-model="item.active"
+      :prepend-icon="item.meta ? item.meta.icon : ''"
+      @click="1"
+    >
       <v-list-tile-action>
-        <v-icon>{{ route.meta.icon }}</v-icon>
+        <v-icon>{{ item.meta ? item.meta.icon : '' }}</v-icon>
       </v-list-tile-action>
+
+      <v-list-tile-content class="font-weight-light">
+        <v-list-tile-title>{{ item.name }}</v-list-tile-title>
+      </v-list-tile-content>
+
+
     </v-list-tile>
 
-    <v-list-group
-      v-else
-      no-action
-      sub-group
-      value="true"
+    <v-list-group v-else-if="!item.hidden"
+                  v-model="item.active"
+                  :prepend-icon="item.meta ? item.meta.icon : ''"
+                  no-action
     >
       <template v-slot:activator>
         <v-list-tile>
-          <v-list-tile-title>{{ route.name }}</v-list-tile-title>
+          <v-list-tile-content class="font-weight-light">
+            <v-list-tile-title>{{ item.name }}</v-list-tile-title>
+          </v-list-tile-content>
         </v-list-tile>
       </template>
-      <navbar-item v-for="(route, i) in route.children" :key="i" :route="route"/>
+
+      <!--<v-list-tile-->
+      <!--v-for="subItem in item.children"-->
+      <!--:key="subItem.name"-->
+      <!--@click="1"-->
+      <!--&gt;-->
+
+      <!--<v-list-tile-action>-->
+      <!--<v-icon>{{ subItem.meta ? subItem.meta.icon : '' }}</v-icon>-->
+      <!--</v-list-tile-action>-->
+
+      <!--<v-list-tile-content class="font-weight-light">-->
+      <!--<v-list-tile-title>{{ subItem.name }}</v-list-tile-title>-->
+      <!--</v-list-tile-content>-->
+      <!--</v-list-tile>-->
+
     </v-list-group>
   </div>
 </template>
