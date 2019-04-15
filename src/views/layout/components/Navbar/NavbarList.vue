@@ -2,8 +2,8 @@
   <v-list>
     <div
       v-for="item in routes"
-      :key="item.title">
-
+      :key="item.title"
+    >
       <v-list-tile
         class="reset_vuetify_icon_padding"
         v-if="!item.children && !item.hidden"
@@ -16,7 +16,7 @@
         </v-list-tile-action>
 
         <v-list-tile-content class="font-weight-light">
-          <v-list-tile-title>{{ item.name }}</v-list-tile-title>
+          <v-list-tile-title>{{ item.meta ? $t( item.meta.title ) : '' }}</v-list-tile-title>
         </v-list-tile-content>
 
       </v-list-tile>
@@ -28,7 +28,7 @@
         <template v-slot:activator>
           <v-list-tile>
             <v-list-tile-content class="font-weight-light">
-              <v-list-tile-title>{{ item.name }}</v-list-tile-title>
+              <v-list-tile-title>{{  item.meta ? $t( item.meta.title ) : '' }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </template>

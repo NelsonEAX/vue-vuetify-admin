@@ -7,6 +7,20 @@
     @input="setNavbarShowState"
     width="250"
   >
+    <!--<v-toolbar-->
+      <!--dense-->
+      <!--dark-->
+    <!--&gt;-->
+      <!--<v-toolbar-title class="text-xs-center">-->
+        <!--<v-avatar size="32px" tile>-->
+          <!--<img-->
+            <!--src="https://cdn.vuetifyjs.com/images/logos/v-alt.svg"-->
+            <!--alt="Vuetify"-->
+          <!--&gt;-->
+        <!--</v-avatar>-->
+        <!--<span>{{ $t('toolbar.appname') }}</span>-->
+      <!--</v-toolbar-title>-->
+    <!--</v-toolbar>-->
     <v-divider></v-divider>
     <navbar-list :routes="permissionRoutes" :iconShow="true"/>
   </v-navigation-drawer>
