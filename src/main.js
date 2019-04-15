@@ -1,5 +1,7 @@
-// import 'normalize.css/normalize.css';
+import 'normalize.css/normalize.css';
+import './assets/normal.styl';
 import 'vuetify/dist/vuetify.min.css';
+
 /* icons */
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import 'font-awesome/css/font-awesome.css';

@@ -125,7 +125,6 @@ export default {
           click: e => {
             console.log(e);
             // window.getApp.$emit('APP_LOGOUT');
-            this.toggleUser();
           }
         }
       ],
@@ -142,9 +141,6 @@ export default {
     },
     toggleNavbar() {
       this.$store.dispatch('navbarToggle');
-    },
-    toggleUser() {
-      this.$store.dispatch('generateRoutes', { roles: ['admin'] });
     }
   },
   computed: {

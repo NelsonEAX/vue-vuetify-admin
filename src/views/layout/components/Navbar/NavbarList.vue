@@ -1,30 +1,28 @@
 <template>
   <v-list>
-    <!--<navbar-item v-for="(route, i) in routes" :key="i" :route="route"/>-->
     <div
       v-for="item in routes"
       :key="item.title">
 
       <v-list-tile
+        class="reset_vuetify_icon_padding"
         v-if="!item.children && !item.hidden"
-        v-model="item.active"
-        :prepend-icon="item.meta ? item.meta.icon : ''"
         @click="1"
       >
-        <v-list-tile-action>
-          <v-icon>{{ item.meta ? item.meta.icon : '' }}</v-icon>
+        <v-list-tile-action
+          v-if="iconShow"
+        >
+          <v-icon>{{ item.meta ? item.meta.icon : NaN }}</v-icon>
         </v-list-tile-action>
 
         <v-list-tile-content class="font-weight-light">
           <v-list-tile-title>{{ item.name }}</v-list-tile-title>
         </v-list-tile-content>
 
-
       </v-list-tile>
 
       <v-list-group v-else-if="!item.hidden"
-        v-model="item.active"
-        :prepend-icon="item.meta ? item.meta.icon : ''"
+        :prepend-icon="iconShow && item.meta ? item.meta.icon : NaN"
         no-action
       >
         <template v-slot:activator>
@@ -35,21 +33,8 @@
           </v-list-tile>
         </template>
 
-        <v-list-tile
-          v-for="subItem in item.children"
-          :key="subItem.name"
-          @click="1"
-        >
-          <!--<v-list-tile-action>-->
-            <!--<v-icon>{{ subItem.meta ? subItem.meta.icon : '' }}</v-icon>-->
-          <!--</v-list-tile-action>-->
+        <navbar-list :routes="item.children"/>
 
-          <v-list-tile-content class="font-weight-light">
-            <v-list-tile-title>{{ subItem.name }}</v-list-tile-title>
-          </v-list-tile-content>
-
-
-        </v-list-tile>
       </v-list-group>
     </div>
 
@@ -57,17 +42,16 @@
 </template>
 
 <script>
-// import NavbarItem from './NavbarItem.vue';
-
 export default {
   name: 'NavbarList',
-  components: {
-    // NavbarItem
-  },
   props: {
     routes: {
       type: Array,
       default: () => {}
+    },
+    iconShow: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -102,3 +86,6 @@ export default {
 };
 
 </script>
+
+<style >
+</style>
