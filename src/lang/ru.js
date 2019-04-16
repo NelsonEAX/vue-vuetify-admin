@@ -13,6 +13,17 @@ export default {
       alert: 'Предупреждения',
       buttons: 'Кнопки',
       calendar: 'Календарь'
+    },
+    errorPages: 'Ошибки',
+    page401: '401',
+    page403: '403',
+    page404: '404',
+    page500: '500',
+    nested: {
+      nested: 'Вложенные',
+      nested1: 'Уровень 1',
+      nested2: 'Уровень 2',
+      nested3: 'Уровень 3'
     }
   },
   toolbar: {

@@ -31,21 +31,21 @@ const nestedRouter = {
               component: () => import('@/views/dashboard/index'),
               name: 'Nested1_1_1',
               // eslint-disable-next-line
-              meta: { title: 'route.nested.nested2', icon: 'looks_4', noCache: true, affix: true }
+              meta: { title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true }
             },
             {
               path: 'nested1_1_2',
               component: () => import('@/views/dashboard/index'),
               name: 'Nested1_1_2',
               // eslint-disable-next-line
-              meta: { title: 'route.nested.nested2', icon: 'looks_4', noCache: true, affix: true }
+              meta: { title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true }
             },
             {
               path: 'nested1_1_3',
               component: () => import('@/views/dashboard/index'),
               name: 'Nested1_1_3',
               // eslint-disable-next-line
-              meta: { title: 'route.nested.nested2', icon: 'looks_4', noCache: true, affix: true }
+              meta: { title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true }
             }
           ]
         },

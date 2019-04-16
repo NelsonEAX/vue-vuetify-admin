@@ -1,5 +1,5 @@
 import 'normalize.css/normalize.css';
-import './assets/normal.styl';
+import './styles/index.styl';
 import 'vuetify/dist/vuetify.min.css';
 
 /* icons */
@@ -16,6 +16,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 /* import VueI18n from 'vue-i18n'; */
+// import './permission'; // permission control
 import './registerServiceWorker';
 
 Vue.use(Vuetify, {

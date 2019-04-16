@@ -1,6 +1,6 @@
 <template>
   <v-content>
-    404
+    403
   </v-content>
 </template>
 

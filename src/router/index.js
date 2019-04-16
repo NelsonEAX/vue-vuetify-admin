@@ -98,13 +98,13 @@ export const constantRoutes = [
     hidden: true
   },
   errorsRouter,
-  {
+  /* {
     path: 'dashboard',
     component: () => import('@/views/dashboard/index'),
     name: 'Dashboard',
     // eslint-disable-next-line
-    meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
-  },
+    meta: { title: 'route.dashboard', icon: 'dashboard', noCache: true, affix: true }
+  }, */
   {
     path: '',
     component: Layout,
@@ -115,7 +115,7 @@ export const constantRoutes = [
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
         // eslint-disable-next-line
-        meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
+        meta: { title: 'route.dashboard', icon: 'dashboard', noCache: true, affix: true }
       }
     ]
   }

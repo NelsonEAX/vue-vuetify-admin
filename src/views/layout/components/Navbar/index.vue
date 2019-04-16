@@ -23,6 +23,7 @@
     <!--</v-toolbar>-->
     <v-divider></v-divider>
     <navbar-list :routes="permissionRoutes" :iconShow="true"/>
+
   </v-navigation-drawer>
 </template>
 

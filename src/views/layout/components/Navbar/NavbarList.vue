@@ -1,27 +1,33 @@
 <template>
   <v-list>
     <div
-      v-for="item in routes"
+      v-for="item in routes.filter(item => { return !item.hidden; })"
       :key="item.title"
     >
       <v-list-tile
+        v-if="hasOneShowingChild(item.children, item) &&
+        (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow"
         class="reset_vuetify_icon_padding"
-        v-if="!item.children && !item.hidden"
+        :to="!onlyOneChild.href ? { name: onlyOneChild.name } : null"
+        :href="onlyOneChild.href"
         @click="1"
       >
         <v-list-tile-action
           v-if="iconShow"
         >
-          <v-icon>{{ item.meta ? item.meta.icon : NaN }}</v-icon>
+          <v-icon>{{ onlyOneChild.meta ? onlyOneChild.meta.icon : NaN }}</v-icon>
         </v-list-tile-action>
 
         <v-list-tile-content class="font-weight-light">
-          <v-list-tile-title>{{ item.meta ? $t( item.meta.title ) : '' }}</v-list-tile-title>
+          <v-list-tile-title>
+            {{ onlyOneChild.meta ? $t( onlyOneChild.meta.title ) : '' }}
+          </v-list-tile-title>
         </v-list-tile-content>
 
       </v-list-tile>
 
-      <v-list-group v-else-if="!item.hidden"
+      <v-list-group
+        v-else
         :prepend-icon="iconShow && item.meta ? item.meta.icon : NaN"
         no-action
       >
@@ -33,15 +39,18 @@
           </v-list-tile>
         </template>
 
-        <navbar-list :routes="item.children"/>
+        <navbar-list :routes="item.children" :basePath="resolvePath(item.path)"/>
 
       </v-list-group>
-    </div>
 
+    </div>
   </v-list>
 </template>
 
 <script>
+import path from 'path';
+import { isExternal } from '@/utils/validate';
+
 export default {
   name: 'NavbarList',
   props: {
@@ -52,6 +61,14 @@ export default {
     iconShow: {
       type: Boolean,
       default: false
+    },
+    isNest: {
+      type: Boolean,
+      default: false
+    },
+    basePath: {
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -81,6 +98,12 @@ export default {
       }
 
       return false;
+    },
+    resolvePath(routePath) {
+      if (isExternal(routePath)) {
+        return routePath;
+      }
+      return path.resolve(this.basePath, routePath);
     }
   }
 };

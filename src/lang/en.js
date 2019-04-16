@@ -13,6 +13,17 @@ export default {
       alert: 'Alert',
       buttons: 'Buttons',
       calendar: 'Calendar'
+    },
+    errorPages: 'Errors',
+    page401: '401',
+    page403: '403',
+    page404: '404',
+    page500: '500',
+    nested: {
+      nested: 'Nested',
+      nested1: 'Level 1',
+      nested2: 'Level 2',
+      nested3: 'Level 3'
     }
   },
   toolbar: {

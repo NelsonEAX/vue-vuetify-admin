@@ -8,7 +8,7 @@ const errorsRouter = {
   redirect: 'noredirect',
   name: 'ErrorPages',
   meta: {
-    title: 'errorPages',
+    title: 'route.errorPages',
     icon: 'error'
   },
   children: [
@@ -16,25 +16,25 @@ const errorsRouter = {
       path: '401',
       component: () => import('@/views/error/401'),
       name: 'Page401',
-      meta: { title: 'page401', noCache: true }
+      meta: { title: 'route.page401', noCache: true }
     },
     {
       path: '403',
       component: () => import('@/views/error/403'),
       name: 'Page403',
-      meta: { title: 'page404', noCache: true }
+      meta: { title: 'route.page403', noCache: true }
     },
     {
       path: '404',
       component: () => import('@/views/error/404'),
       name: 'Page404',
-      meta: { title: 'page404', noCache: true }
+      meta: { title: 'route.page404', noCache: true }
     },
     {
       path: '500',
       component: () => import('@/views/error/500'),
       name: 'Page500',
-      meta: { title: 'page404', noCache: true }
+      meta: { title: 'route.page500', noCache: true }
     }
   ]
 };
