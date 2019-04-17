@@ -1,7 +1,11 @@
 <template>
-  <v-content>
-    403
-  </v-content>
+  <v-container fluid fill-height>
+    <v-layout justify-center align-center>
+      <v-flex class="display-4" text-xs-center>
+        403
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
