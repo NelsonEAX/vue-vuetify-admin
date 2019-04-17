@@ -13,7 +13,7 @@ const vuetifyRouter = {
   },
   children: [
     {
-      path: 'alert',
+      path: '/alert',
       component: () => import('@/views/vuetify/Alert.vue'),
       name: 'Alert',
       // eslint-disable-next-line

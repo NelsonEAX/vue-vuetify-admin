@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: '500'
+  name: 'pg500'
 };
 </script>

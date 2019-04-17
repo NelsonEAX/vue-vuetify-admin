@@ -44,6 +44,9 @@ const permission = {
     SET_ROUTES: (state, routes) => {
       state.allRoutes = routes;
       state.routes = constantRoutes.concat(routes);
+
+      console.log('SET_ROUTES state.allRoutes', state.allRoutes);
+      console.log('SET_ROUTES state.routes', state.routes);
     }
   },
   actions: {
@@ -53,8 +56,10 @@ const permission = {
         let accessedRoutes;
         if (roles.includes('admin')) {
           accessedRoutes = asyncRoutes;
+          console.log('roles.includes(admin) ', accessedRoutes);
         } else {
           accessedRoutes = filterAsyncRoutes(asyncRoutes, roles);
+          console.log('!roles.includes(admin) ', accessedRoutes);
         }
         commit('SET_ROUTES', accessedRoutes);
         resolve(accessedRoutes);

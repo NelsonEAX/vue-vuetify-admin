@@ -8,14 +8,14 @@
         v-if="hasOneShowingChild(item.children, item) &&
         (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow"
         class="reset_vuetify_icon_padding"
-        :to="!onlyOneChild.href ? { name: onlyOneChild.name } : null"
-        :href="onlyOneChild.href"
+        :to="resolvePath(item.path)"
+        ripple="ripple"
         @click="1"
       >
         <v-list-tile-action
           v-if="iconShow"
         >
-          <v-icon>{{ onlyOneChild.meta ? onlyOneChild.meta.icon : NaN }}</v-icon>
+          <v-icon>{{ onlyOneChild.meta ? onlyOneChild.meta.icon : null }}</v-icon>
         </v-list-tile-action>
 
         <v-list-tile-content class="font-weight-light">
@@ -28,7 +28,7 @@
 
       <v-list-group
         v-else
-        :prepend-icon="iconShow && item.meta ? item.meta.icon : NaN"
+        :prepend-icon="iconShow && item.meta ? item.meta.icon : null"
         no-action
       >
         <template v-slot:activator>
@@ -103,7 +103,9 @@ export default {
       if (isExternal(routePath)) {
         return routePath;
       }
-      return path.resolve(this.basePath, routePath);
+      const full = path.resolve(this.basePath, routePath);
+      console.log(this.basePath, '|', routePath, '|', full);
+      return full; // path.resolve(this.basePath, routePath);
     }
   }
 };

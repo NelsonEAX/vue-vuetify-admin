@@ -1,11 +1,11 @@
 <template>
   <v-content>
-    401
+    403
   </v-content>
 </template>
 
 <script>
 export default {
-  name: '401'
+  name: 'pg403'
 };
 </script>

@@ -97,7 +97,6 @@ export const constantRoutes = [
     component: () => import('@/views/auth/Redirect'),
     hidden: true
   },
-  errorsRouter,
   /* {
     path: 'dashboard',
     component: () => import('@/views/dashboard/index'),
@@ -118,7 +117,8 @@ export const constantRoutes = [
         meta: { title: 'route.dashboard', icon: 'dashboard', noCache: true, affix: true }
       }
     ]
-  }
+  },
+  errorsRouter
 ];
 
 export default new Router({

@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: '404'
+  name: 'pg404'
 };
 </script>
