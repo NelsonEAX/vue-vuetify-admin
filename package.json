@@ -12,6 +12,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "driver.js": "^0.9.5",
     "font-awesome": "^4.7.0",
     "material-design-icons-iconfont": "^4.0.5",

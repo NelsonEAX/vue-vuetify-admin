@@ -38,14 +38,14 @@ export function filterAsyncRoutes(routes, roles) {
 const permission = {
   state: {
     routes: [],
-    allRoutes: []
+    addRoutes: []
   },
   mutations: {
     SET_ROUTES: (state, routes) => {
-      state.allRoutes = routes;
+      state.addRoutes = routes;
       state.routes = constantRoutes.concat(routes);
 
-      console.log('SET_ROUTES state.allRoutes', state.allRoutes);
+      console.log('SET_ROUTES state.addRoutes', state.addRoutes);
       console.log('SET_ROUTES state.routes', state.routes);
     }
   },
@@ -54,6 +54,10 @@ const permission = {
       return new Promise(resolve => {
         const { roles } = data;
         let accessedRoutes;
+
+        console.log('asyncRoutes ', asyncRoutes);
+        console.log('constantRoutes ', constantRoutes);
+
         if (roles.includes('admin')) {
           accessedRoutes = asyncRoutes;
           console.log('roles.includes(admin) ', accessedRoutes);

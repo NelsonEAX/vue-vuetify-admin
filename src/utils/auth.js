@@ -1,7 +1,7 @@
 const TokenKey = 'Token';
 
 export function getToken() {
-  return localStorage.getItem(TokenKey);
+  return 'admin'; //localStorage.getItem(TokenKey);
 }
 
 export function setToken(token) {
