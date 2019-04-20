@@ -16,7 +16,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 /* import VueI18n from 'vue-i18n'; */
-// import './permission'; // permission control
+import './permission'; // permission control
 import './registerServiceWorker';
 
 Vue.use(Vuetify, {

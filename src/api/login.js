@@ -21,12 +21,19 @@ export function logout() {
 
 export function getUserInfo(token) {
   console.log(`token ${token}`);
-  return {
-    roles: 'admin',
-    name: 'admin_name',
-    avatar: 'admin_avatar',
-    introduction: 'admin_intro'
-  };
+  return new Promise((resolve, reject) => {
+    if (token) {
+      return resolve({
+        data: {
+          roles: 'admin',
+          name: 'admin_name',
+          avatar: 'admin_avatar',
+          introduction: 'admin_intro'
+        }
+      });
+    }
+    return reject(new Error('Токен пуст'));
+  });
   // return request({
   //   url: '/user/info',
   //   method: 'get',

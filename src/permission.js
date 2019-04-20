@@ -17,10 +17,9 @@ const whiteList = ['/login', '/auth-redirect']; // no redirect whitelist
 
 router.beforeEach((to, from, next) => {
   NProgress.start(); // start progress bar
-  console.log(getToken());
+  console.log('beforeEach');
   if (getToken()) {
     // determine if there has token
-
     /* has token */
     if (to.path === '/login') {
       next({ path: '/' });
@@ -30,25 +29,26 @@ router.beforeEach((to, from, next) => {
       console.log('~4');
       if (store.getters.roles.length === 0) {
         // Determine whether the current user has pulled the user_info information
-        store
-          .dispatch('GetUserInfo')
+        store.dispatch('GetUserInfo')
           .then(res => {
             // Pull user_info
             const { roles } = res.data; // note: roles must be a object array! such as:
             // [{id: '1', name: 'editor'}, {id: '2', name: 'developer'}]
-            store.dispatch('generateRoutes', { roles }).then(accessRoutes => {
-              // Generate accessible routing tables based on roles
-              router.addRoutes(accessRoutes); // Dynamically add accessible routing tables
-              next({ ...to, replace: true }); // Hack method to ensure that addRoutes is complete,
-              // set the replace: true so the navigation will not leave a history record
-            });
+            store.dispatch('generateRoutes', { roles })
+              .then(accessRoutes => {
+                // Generate accessible routing tables based on roles
+                router.addRoutes(accessRoutes); // Dynamically add accessible routing tables
+                next({ ...to, replace: true }); // Hack method to ensure that addRoutes is complete,
+                // set the replace: true so the navigation will not leave a history record
+              });
           })
           .catch(err => {
-            store.dispatch('FedLogOut').then(() => {
-              // Message.error(err);
-              console.log(err);
-              next({ path: '/' });
-            });
+            store.dispatch('FedLogOut')
+              .then(() => {
+                // Message.error(err);
+                console.log(err);
+                next({ path: '/' });
+              });
           });
       } else {
         // No need to dynamically change permissions can be directly next()
