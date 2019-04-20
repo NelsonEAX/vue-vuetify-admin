@@ -48,6 +48,20 @@ export default {
       'navbarShow'
     ])
   },
+  beforeUpdate() {
+    console.groupCollapsed('NavbarItemsUpdate');
+  },
+  beforeMount() {
+    console.groupCollapsed('NavbarItemsMount');
+  },
+  updated() {
+    console.groupEnd();
+  },
+  mounted() {
+    this.$nextTick(() => {
+      console.groupEnd();
+    });
+  },
   methods: {
     setNavbarShowState(state) {
       this.$store.dispatch('navbarState', { state });

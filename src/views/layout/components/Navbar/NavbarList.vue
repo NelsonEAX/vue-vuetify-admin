@@ -10,7 +10,6 @@
         class="reset_vuetify_icon_padding"
         :to="resolvePath(item.path)"
         ripple="ripple"
-        @click="1"
       >
         <v-list-tile-action
           v-if="iconShow"
@@ -104,7 +103,7 @@ export default {
         return routePath;
       }
       const full = path.resolve(this.basePath, routePath);
-      console.log(this.basePath, '|', routePath, '|', full);
+      console.log(`${this.basePath} | ${routePath} | ${full}`);
       return full; // path.resolve(this.basePath, routePath);
     }
   }

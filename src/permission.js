@@ -17,25 +17,30 @@ const whiteList = ['/login', '/auth-redirect']; // no redirect whitelist
 
 router.beforeEach((to, from, next) => {
   NProgress.start(); // start progress bar
-  console.log('beforeEach');
+  console.groupCollapsed(`beforeEach ${to.path}`);
   if (getToken()) {
     // determine if there has token
     /* has token */
+    console.log('has token');
     if (to.path === '/login') {
+      console.log('/login');
       next({ path: '/' });
       // if current page is dashboard will not trigger afterEach hook, so manually handle it
       NProgress.done();
     } else {
-      console.log('~4');
+      console.log('not /login');
       if (store.getters.roles.length === 0) {
+        console.warn('roles.length === 0');
         // Determine whether the current user has pulled the user_info information
         store.dispatch('GetUserInfo')
           .then(res => {
+            console.log('GetUserInfo', res);
             // Pull user_info
             const { roles } = res.data; // note: roles must be a object array! such as:
             // [{id: '1', name: 'editor'}, {id: '2', name: 'developer'}]
             store.dispatch('generateRoutes', { roles })
               .then(accessRoutes => {
+                console.log('generateRoutes', accessRoutes);
                 // Generate accessible routing tables based on roles
                 router.addRoutes(accessRoutes); // Dynamically add accessible routing tables
                 next({ ...to, replace: true }); // Hack method to ensure that addRoutes is complete,
@@ -46,37 +51,40 @@ router.beforeEach((to, from, next) => {
             store.dispatch('FedLogOut')
               .then(() => {
                 // Message.error(err);
-                console.log(err);
+                console.log(`FedLogOut ${err}`);
                 next({ path: '/' });
               });
           });
       } else {
+        console.warn('roles.length !== 0');
         // No need to dynamically change permissions can be directly next()
         // delete the following permission judgment ↓
         if (hasPermission(store.getters.roles, to.meta.roles)) {
+          console.info(`hasPermission(${store.getters.roles}, ${to.meta.roles})`);
           next();
         } else {
+          console.warn(`not hasPermission(${store.getters.roles}, ${to.meta.roles})`);
           next({ path: '/401', replace: true, query: { noGoBack: true } });
         }
-        console.log('~1');
-        // can be deleted ↑
       }
-      console.log('~2');
     }
   } else {
     /* has no token */
+    console.log('has no token');
     if (whiteList.indexOf(to.path) !== -1) {
+      console.info(`whiteList.indexOf(${to.path})`);
       // In the free login whitelist, go directly
       next();
     } else {
+      console.warn(`not whiteList.indexOf(${to.path})`);
       next(`/login?redirect=${to.path}`); // Otherwise redirect all to the login page
       // if current page is login will not trigger afterEach hook, so manually handle it
       NProgress.done();
     }
-    console.log('~3');
   }
+  console.groupEnd();
 });
 
 router.afterEach(() => {
-  NProgress.done(); // finish progress bar
+  NProgress.done();
 });
