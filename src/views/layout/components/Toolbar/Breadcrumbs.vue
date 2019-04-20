@@ -15,12 +15,7 @@ export default {
   name: 'Breadcrumbs',
   data() {
     return {
-      levelList: null,
-      bread: [
-        { text: 'Dashboard' },
-        { text: 'Profile' },
-        { text: 'Email' }
-      ]
+      levelList: null
     };
   },
   watch: {
