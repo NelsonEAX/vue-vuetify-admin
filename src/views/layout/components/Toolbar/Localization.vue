@@ -5,8 +5,8 @@
     </v-btn>
     <v-list class="pa-0">
       <v-list-tile
-        v-for="(item,index) in langitems"
-        @click="item.click"
+        v-for="(item,index) in locales"
+        @click="changeLocale(item.locale)"
         ripple="ripple"
         :target="item.target" rel="noopener" :key="index">
         <v-list-tile-content>
@@ -18,27 +18,17 @@
 </template>
 
 <script>
+import { Locales, changeLocale } from '@/api/localization';
+
 export default {
   name: 'Localization',
   data() {
     return {
-      langitems: [
-        {
-          title: 'English',
-          click: e => {
-            console.log(e);
-            this.$i18n.locale = 'en';
-          }
-        },
-        {
-          title: 'Русский',
-          click: e => {
-            console.log(e);
-            this.$i18n.locale = 'ru';
-          }
-        }
-      ]
+      locales: Locales
     };
+  },
+  methods: {
+    changeLocale
   }
 };
 </script>

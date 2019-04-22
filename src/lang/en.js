@@ -37,7 +37,7 @@ export default {
     titleUn: 'Sing Un Form',
     singIn: 'Sing in',
     singUp: 'Sing up',
-    email: 'Username',
+    email: 'Email',
     password: 'Password',
     confirm: 'Confirm'
   }

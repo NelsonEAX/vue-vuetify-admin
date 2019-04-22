@@ -1,12 +1,12 @@
-import { loginByUsername, logout, getUserInfo } from '@/api/login';
-import { getToken, setToken, removeToken } from '@/utils/auth';
+import { loginByEmail, logout, getUserInfo } from '@/api/login';
+import { setToken, removeToken } from '@/utils/auth';
 
 const user = {
   state: {
     user: '',
     status: '',
     code: '',
-    token: getToken(),
+    token: '3b759a9ca80234563d87672350659b2b',
     name: '',
     avatar: '',
     introduction: '',
@@ -48,7 +48,7 @@ const user = {
     LoginByUsername({ commit }, userInfo) {
       const username = userInfo.username.trim();
       return new Promise((resolve, reject) => {
-        loginByUsername(username, userInfo.password).then(response => {
+        loginByEmail(username, userInfo.password).then(response => {
           const { data } = response;
           commit('SET_TOKEN', data.token);
           setToken(response.data.token);

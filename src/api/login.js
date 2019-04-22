@@ -1,42 +1,39 @@
-import request from '@/utils/request';
+import { userAdmin, userEditor } from '@/api/mock';
 
-export function loginByUsername(username, password) {
-  const data = {
-    username,
-    password
-  };
-  return request({
-    url: '/login/login',
-    method: 'post',
-    data
+export function loginByEmail(email, password) {
+  return new Promise((resolve, reject) => {
+    let user = false;
+    if (userEditor.email === email && userEditor.password === password) {
+      user = userEditor;
+    } else if (userAdmin.email === email && userAdmin.password === password) {
+      user = userAdmin;
+    }
+    if (user) {
+      return resolve({
+        data: { user }
+      });
+    }
+    return reject(new Error('Пользователь с такими учетными данными не обнаружен'));
   });
 }
 
 export function logout() {
-  return request({
-    url: '/login/logout',
-    method: 'post'
-  });
+  return false;
 }
 
 export function getUserInfo(token) {
   console.log(`token ${token}`);
   return new Promise((resolve, reject) => {
     if (token) {
+      let user = userEditor;
+      if (token === userAdmin.token) {
+        user = userAdmin;
+      }
+
       return resolve({
-        data: {
-          roles: 'admin',
-          name: 'admin_name',
-          avatar: 'admin_avatar',
-          introduction: 'admin_intro'
-        }
+        data: { user }
       });
     }
     return reject(new Error('Токен пуст'));
   });
-  // return request({
-  //   url: '/user/info',
-  //   method: 'get',
-  //   params: { token }
-  // });
 }

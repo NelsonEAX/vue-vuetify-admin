@@ -40,9 +40,6 @@ export default {
     return {};
   },
   computed: {
-    toggleNavbarShowState() {
-      return this.$store.getters.navbarShow;
-    },
     ...mapGetters([
       'permissionRoutes',
       'navbarShow'
