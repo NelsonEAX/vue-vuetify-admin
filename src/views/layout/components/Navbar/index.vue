@@ -73,7 +73,7 @@ export default {
       return { name: `${item.path}/${(subItem.path)}` };
     },
     toggleUser() {
-      this.$store.dispatch('generateRoutes', { roles: ['admin'] });
+      this.$store.dispatch('GenerateRoutes', { roles: ['admin'] });
     }
   },
   created() {

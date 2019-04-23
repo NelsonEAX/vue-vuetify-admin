@@ -18,7 +18,7 @@
                     :label="$t('login.email')"
                     type="email"
                     required
-                    v-model="model.username"
+                    v-model="model.email"
                   ></v-text-field>
                   <v-text-field
                     append-icon="lock"
@@ -31,8 +31,27 @@
                   ></v-text-field>
                 </v-form>
               </v-card-text>
-              <v-card-text>
-                dfgdfgdfg
+              <v-card-text fluid fill-height>
+                <v-layout column align-center>
+                  <v-flex xs12>
+                    <v-btn-toggle>
+                      <v-btn
+                        flat
+                        @click="setUserToLogin(0)"
+                        class="warning"
+                      >
+                        <span>editor</span>
+                      </v-btn>
+                      <v-btn
+                        flat
+                        @click="setUserToLogin(1)"
+                        class="warning"
+                      >
+                        <span>admin</span>
+                      </v-btn>
+                    </v-btn-toggle>
+                  </v-flex>
+                </v-layout>
               </v-card-text>
               <v-card-actions>
                 <localization/>
@@ -62,6 +81,7 @@
 
 <script>
 import Localization from '../layout/components/Toolbar/Localization.vue';
+import { userAdmin, userEditor } from '@/api/mock';
 
 export default {
   name: 'SingIn',
@@ -71,16 +91,30 @@ export default {
   data: () => ({
     loading: false,
     model: {
-      username: 'admin@isockde.com',
-      password: 'password'
+      email: userAdmin.email,
+      password: userAdmin.password
     }
   }),
   methods: {
     login() {
-      this.loading = true;
-      setTimeout(() => {
+      this.$store.dispatch('LoginByEmail', {
+        email: this.model.email,
+        password: this.model.password
+      }).then(res => {
+        console.info('LoginByEmail', res);
         this.$router.push('/dashboard');
-      }, 1000);
+      }).catch(err => {
+        console.error('LoginByEmail', err);
+      });
+    },
+    setUserToLogin(id) {
+      if (id) {
+        this.model.email = userAdmin.email;
+        this.model.password = userAdmin.password;
+      } else {
+        this.model.email = userEditor.email;
+        this.model.password = userEditor.password;
+      }
     }
   }
 };

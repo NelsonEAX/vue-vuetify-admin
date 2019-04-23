@@ -17,10 +17,6 @@ export function loginByEmail(email, password) {
   });
 }
 
-export function logout() {
-  return false;
-}
-
 export function getUserInfo(token) {
   console.log(`token ${token}`);
   return new Promise((resolve, reject) => {

@@ -50,11 +50,11 @@ const permission = {
     }
   },
   actions: {
-    generateRoutes({ commit }, data) {
+    GenerateRoutes({ commit }, data) {
       return new Promise(resolve => {
         const { roles } = data;
         let accessedRoutes;
-        console.groupCollapsed('generateRoutes');
+        console.groupCollapsed('GenerateRoutes');
         console.log('asyncRoutes ', asyncRoutes);
         console.log('constantRoutes ', constantRoutes);
 

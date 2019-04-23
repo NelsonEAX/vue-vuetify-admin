@@ -18,11 +18,11 @@ const whiteList = ['/login', '/auth-redirect']; // no redirect whitelist
 router.beforeEach((to, from, next) => {
   NProgress.start(); // start progress bar
   console.groupCollapsed(`beforeEach ${to.path}`);
-  if (getToken()) {
+  if (getToken() && store.getters.token) {
     // determine if there has token
     /* has token */
     console.log('has token');
-    if (to.path === '/login') {
+    if (['/login', '/singin', '/singup', '/registration'].includes(to.path)) {
       console.log('/login');
       next({ path: '/' });
       // if current page is dashboard will not trigger afterEach hook, so manually handle it
@@ -36,22 +36,26 @@ router.beforeEach((to, from, next) => {
           .then(res => {
             console.log('GetUserInfo', res);
             // Pull user_info
-            const { roles } = res.data; // note: roles must be a object array! such as:
+            const { roles } = res.data.user; // note: roles must be a object array! such as:
             // [{id: '1', name: 'editor'}, {id: '2', name: 'developer'}]
-            store.dispatch('generateRoutes', { roles })
+            store.dispatch('GenerateRoutes', { roles })
               .then(accessRoutes => {
-                console.log('generateRoutes', accessRoutes);
+                console.log('GenerateRoutes', accessRoutes);
                 // Generate accessible routing tables based on roles
                 router.addRoutes(accessRoutes); // Dynamically add accessible routing tables
                 next({ ...to, replace: true }); // Hack method to ensure that addRoutes is complete,
                 // set the replace: true so the navigation will not leave a history record
+              })
+              .catch(err => {
+                console.log(`GenerateRoutes ${err}`);
+                next({ path: '/' });
               });
           })
           .catch(err => {
-            store.dispatch('FedLogOut')
+            store.dispatch('LogOut')
               .then(() => {
                 // Message.error(err);
-                console.log(`FedLogOut ${err}`);
+                console.log(`LogOut ${err}`);
                 next({ path: '/' });
               });
           });
@@ -60,10 +64,10 @@ router.beforeEach((to, from, next) => {
         // No need to dynamically change permissions can be directly next()
         // delete the following permission judgment ↓
         if (hasPermission(store.getters.roles, to.meta.roles)) {
-          console.info(`hasPermission(${store.getters.roles}, ${to.meta.roles})`);
+          console.info(`hasPermission([${store.getters.roles}] => ${to.meta.roles})`);
           next();
         } else {
-          console.warn(`not hasPermission(${store.getters.roles}, ${to.meta.roles})`);
+          console.warn(`not hasPermission([${store.getters.roles}] => ${to.meta.roles})`);
           next({ path: '/401', replace: true, query: { noGoBack: true } });
         }
       }

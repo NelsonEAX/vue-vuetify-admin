@@ -51,13 +51,18 @@ export default {
           icon: 'exit_to_app',
           href: '#',
           title: 'toolbar.logout',
-          click: e => {
-            console.log(e);
-            // window.getApp.$emit('APP_LOGOUT');
+          click: () => {
+            this.logout();
           }
         }
       ]
     };
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('LogOut');
+      this.$router.push('/login');
+    }
   }
 };
 </script>

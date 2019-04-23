@@ -1,4 +1,4 @@
-import { loginByEmail, logout, getUserInfo } from '@/api/login';
+import { loginByEmail, getUserInfo } from '@/api/login';
 import { setToken, removeToken } from '@/utils/auth';
 
 const user = {
@@ -45,13 +45,12 @@ const user = {
 
   actions: {
     // Username login
-    LoginByUsername({ commit }, userInfo) {
-      const username = userInfo.username.trim();
+    LoginByEmail({ commit }, payload) {
       return new Promise((resolve, reject) => {
-        loginByEmail(username, userInfo.password).then(response => {
+        loginByEmail(payload.email.trim(), payload.password).then(response => {
           const { data } = response;
-          commit('SET_TOKEN', data.token);
-          setToken(response.data.token);
+          commit('SET_TOKEN', data.user.token);
+          setToken(response.data.user.token);
           resolve();
         }).catch(error => {
           reject(error);
@@ -69,15 +68,16 @@ const user = {
           }
           const { data } = response;
 
-          if (data.roles && data.roles.length > 0) { // Verify returned roles are a non-null array
-            commit('SET_ROLES', data.roles);
+          // Verify returned roles are a non-null array
+          if (data.user.roles && data.user.roles.length > 0) {
+            commit('SET_ROLES', data.user.roles);
           } else {
             reject(new Error('getInfo: roles must be a non-null array!'));
           }
 
-          commit('SET_NAME', data.name);
-          commit('SET_AVATAR', data.avatar);
-          commit('SET_INTRODUCTION', data.introduction);
+          commit('SET_NAME', data.user.name);
+          commit('SET_AVATAR', data.user.avatar);
+          commit('SET_INTRODUCTION', data.user.introduction);
           resolve(response);
         }).catch(error => {
           reject(error);
@@ -100,21 +100,21 @@ const user = {
     // },
 
     // Sign out
-    LogOut({ commit, state }) {
-      return new Promise((resolve, reject) => {
-        logout(state.token).then(() => {
-          commit('SET_TOKEN', '');
-          commit('SET_ROLES', []);
-          removeToken();
-          resolve();
-        }).catch(error => {
-          reject(error);
-        });
-      });
-    },
+    // LogOut({ commit, state }) {
+    //   return new Promise((resolve, reject) => {
+    //     logout(state.token).then(() => {
+    //       commit('SET_TOKEN', '');
+    //       commit('SET_ROLES', []);
+    //       removeToken();
+    //       resolve();
+    //     }).catch(error => {
+    //       reject(error);
+    //     });
+    //   });
+    // },
 
     // Front end
-    FedLogOut({ commit }) {
+    LogOut({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '');
         removeToken();

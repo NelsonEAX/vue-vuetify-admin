@@ -1,5 +1,5 @@
 export const userAdmin = {
-  email: 'nelsoneax@vvadmin.io',
+  email: 'admin@vvadmin.io',
   password: 'abcd1234',
   user: 'NelsonEAX',
   status: '',

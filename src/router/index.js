@@ -83,16 +83,16 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/login2',
+    path: '/login',
     alias: '/singin',
-    component: () => import('@/views/auth/SingIn') /* ,
-    hidden: true */
+    component: () => import('@/views/auth/SingIn'),
+    hidden: true
   },
   {
     path: '/registration',
     alias: '/singup',
-    component: () => import('@/views/auth/SingUp') /* ,
-    hidden: true */
+    component: () => import('@/views/auth/SingUp'),
+    hidden: true
   },
   {
     path: '/redirect',
