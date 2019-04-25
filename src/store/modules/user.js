@@ -16,6 +16,16 @@ const user = {
     }
   },
 
+  getters: {
+    token: state => state.token,
+    avatar: state => state.avatar,
+    name: state => state.name,
+    status: state => state.status,
+    introduction: state => state.introduction,
+    roles: state => state.roles,
+    setting: state => state.setting
+  },
+
   mutations: {
     SET_CODE: (state, code) => {
       state.code = code;
@@ -51,7 +61,7 @@ const user = {
           const { data } = response;
           commit('SET_TOKEN', data.user.token);
           setToken(response.data.user.token);
-          resolve();
+          resolve(data);
         }).catch(error => {
           reject(error);
         });
@@ -117,6 +127,7 @@ const user = {
     LogOut({ commit }) {
       return new Promise(resolve => {
         commit('SET_TOKEN', '');
+        // this.$storage.clear();
         removeToken();
         resolve();
       });

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import storage from './plugins/storage';
 import permission from './modules/permission';
 import user from './modules/user';
 import getters from './getters';
@@ -11,6 +12,11 @@ export default new Vuex.Store({
     permission,
     user
   },
+
+  plugins: [
+    storage
+  ],
+
   state: {
     user: {},
     settings: {
@@ -20,6 +26,7 @@ export default new Vuex.Store({
       fullscreen: false
     }
   },
+
   mutations: {
     NAVBAR_TOGGLE: state => {
       state.settings.navbar.show = !state.settings.navbar.show;
@@ -31,6 +38,7 @@ export default new Vuex.Store({
       state.settings.fullscreen = payload.state;
     }
   },
+
   actions: {
     navbarToggle: async (context, payload) => {
       context.commit('NAVBAR_TOGGLE', payload);
@@ -42,6 +50,7 @@ export default new Vuex.Store({
       context.commit('FULLSCREEN_TOGGLE', payload);
     }
   },
+
   getters: {
     ...getters
   }

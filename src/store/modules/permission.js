@@ -40,6 +40,12 @@ const permission = {
     routes: [],
     addRoutes: []
   },
+
+  getters: {
+    permissionRoutes: state => state.routes,
+    addRoutes: state => state.addRoutes
+  },
+
   mutations: {
     SET_ROUTES: (state, routes) => {
       state.addRoutes = routes;
