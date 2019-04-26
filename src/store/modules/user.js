@@ -3,14 +3,14 @@ import { setToken, removeToken } from '@/utils/auth';
 
 const user = {
   state: {
+    token: '',
+    roles: [],
     user: '',
-    status: '',
-    code: '',
-    token: '3b759a9ca80234563d87672350659b2b',
     name: '',
     avatar: '',
+    status: '',
+    code: '',
     introduction: '',
-    roles: [],
     setting: {
       articlePlatform: []
     }
@@ -18,29 +18,28 @@ const user = {
 
   getters: {
     token: state => state.token,
-    avatar: state => state.avatar,
+    roles: state => state.roles,
     name: state => state.name,
+    avatar: state => state.avatar,
     status: state => state.status,
     introduction: state => state.introduction,
-    roles: state => state.roles,
     setting: state => state.setting
   },
 
   mutations: {
-    SET_CODE: (state, code) => {
-      state.code = code;
+    SET_USER_INFO: (state, payload) => {
+      state.token = payload.token;
+      state.roles = payload.roles;
+      state.user = payload.user;
+      state.name = payload.name;
+      state.avatar = payload.avatar;
+      state.code = payload.code;
     },
     SET_TOKEN: (state, token) => {
       state.token = token;
     },
-    SET_INTRODUCTION: (state, introduction) => {
-      state.introduction = introduction;
-    },
-    SET_SETTING: (state, setting) => {
-      state.setting = setting;
-    },
-    SET_STATUS: (state, status) => {
-      state.status = status;
+    SET_ROLES: (state, roles) => {
+      state.roles = roles;
     },
     SET_NAME: (state, name) => {
       state.name = name;
@@ -48,8 +47,17 @@ const user = {
     SET_AVATAR: (state, avatar) => {
       state.avatar = avatar;
     },
-    SET_ROLES: (state, roles) => {
-      state.roles = roles;
+    SET_STATUS: (state, status) => {
+      state.status = status;
+    },
+    SET_CODE: (state, code) => {
+      state.code = code;
+    },
+    SET_INTRODUCTION: (state, introduction) => {
+      state.introduction = introduction;
+    },
+    SET_SETTING: (state, setting) => {
+      state.setting = setting;
     }
   },
 
@@ -79,15 +87,11 @@ const user = {
           const { data } = response;
 
           // Verify returned roles are a non-null array
-          if (data.user.roles && data.user.roles.length > 0) {
-            commit('SET_ROLES', data.user.roles);
-          } else {
+          if (data.user.roles && data.user.roles.length === 0) {
             reject(new Error('getInfo: roles must be a non-null array!'));
           }
 
-          commit('SET_NAME', data.user.name);
-          commit('SET_AVATAR', data.user.avatar);
-          commit('SET_INTRODUCTION', data.user.introduction);
+          commit('SET_USER_INFO', data.user);
           resolve(response);
         }).catch(error => {
           reject(error);
@@ -140,10 +144,7 @@ const user = {
         setToken(role);
         getUserInfo(role).then(response => {
           const { data } = response;
-          commit('SET_ROLES', data.roles);
-          commit('SET_NAME', data.name);
-          commit('SET_AVATAR', data.avatar);
-          commit('SET_INTRODUCTION', data.introduction);
+          commit('SET_USER_INFO', data);
           // Redraw the side menu after dynamically modifying the permissions
           dispatch('GenerateRoutes', data);
           resolve();
