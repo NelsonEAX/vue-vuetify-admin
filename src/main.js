@@ -10,7 +10,6 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css';
 
 import Vue from 'vue';
 import Vuetify from 'vuetify';
-import Vue2Storage from 'vue2-storage';
 import i18n from './lang'; // Internationalization
 
 import App from './App.vue';
@@ -35,12 +34,6 @@ Vue.use(Vuetify, {
     warning: '#FFC107'
   },
   customProperties: true
-});
-
-Vue.use(Vue2Storage, {
-  prefix: 'vva_',
-  driver: 'local',
-  ttl: 60 * 60 * 24 * 1000
 });
 
 Vue.config.productionTip = false;

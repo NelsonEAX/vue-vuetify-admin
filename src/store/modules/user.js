@@ -1,5 +1,4 @@
 import { loginByEmail, getUserInfo } from '@/api/login';
-import { setToken, removeToken } from '@/utils/auth';
 
 const user = {
   state: {
@@ -68,7 +67,6 @@ const user = {
         loginByEmail(payload.email.trim(), payload.password).then(response => {
           const { data } = response;
           commit('SET_TOKEN', data.user.token);
-          setToken(response.data.user.token);
           resolve(data);
         }).catch(error => {
           reject(error);
@@ -105,7 +103,6 @@ const user = {
     //     commit('SET_CODE', code)
     //     loginByThirdparty(state.status, state.email, state.code).then(response => {
     //       commit('SET_TOKEN', response.data.token)
-    //       setToken(response.data.token)
     //       resolve()
     //     }).catch(error => {
     //       reject(error)
@@ -119,7 +116,6 @@ const user = {
     //     logout(state.token).then(() => {
     //       commit('SET_TOKEN', '');
     //       commit('SET_ROLES', []);
-    //       removeToken();
     //       resolve();
     //     }).catch(error => {
     //       reject(error);
@@ -130,9 +126,7 @@ const user = {
     // Front end
     LogOut({ commit }) {
       return new Promise(resolve => {
-        commit('SET_TOKEN', '');
-        // this.$storage.clear();
-        removeToken();
+        commit('SET_USER_INFO', {});
         resolve();
       });
     },
@@ -141,7 +135,6 @@ const user = {
     ChangeRoles({ commit, dispatch }, role) {
       return new Promise(resolve => {
         commit('SET_TOKEN', role);
-        setToken(role);
         getUserInfo(role).then(response => {
           const { data } = response;
           commit('SET_USER_INFO', data);

@@ -1,8 +1,7 @@
+import NProgress from 'nprogress'; // progress bar
 import router from './router';
 import store from './store';
-import NProgress from 'nprogress'; // progress bar
 import 'nprogress/nprogress.css'; // progress bar style
-import { getToken } from '@/utils/auth'; // get token from cookie
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
@@ -18,7 +17,7 @@ const whiteList = ['/login', '/auth-redirect']; // no redirect whitelist
 router.beforeEach((to, from, next) => {
   NProgress.start(); // start progress bar
   console.groupCollapsed(`beforeEach ${to.path}`);
-  if (getToken() && store.getters.token) {
+  if (store.getters.token) {
     // determine if there has token
     /* has token */
     console.log('has token');
@@ -29,7 +28,7 @@ router.beforeEach((to, from, next) => {
       NProgress.done();
     } else {
       console.log('not /login');
-      if (store.getters.roles.length === 0) {
+      if (!store.getters.roles || store.getters.roles.length === 0) {
         console.warn('roles.length === 0');
         // Determine whether the current user has pulled the user_info information
         store.dispatch('GetUserInfo')

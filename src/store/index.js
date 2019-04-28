@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import storage from './plugins/storage';
+import syncStorage from './plugins/syncStorage';
 import permission from './modules/permission';
 import user from './modules/user';
 import getters from './getters';
@@ -14,7 +14,7 @@ export default new Vuex.Store({
   },
 
   plugins: [
-    storage
+    syncStorage({})
   ],
 
   state: {
