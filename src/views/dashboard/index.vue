@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container grid-list-md text-xs-center>
+    <v-container fluid grid-list-md text-xs-center>
       <v-layout row wrap>
         <v-flex xs12>
           <v-card dark color="primary">
@@ -138,12 +138,12 @@
 </template>
 
 <script>
+import { lorem } from '@/api/mock';
+
 export default {
   name: 'Dashboard',
   data: () => ({
-    lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus,
-   nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi
-   vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`
+    lorem
   })
 };
 </script>
