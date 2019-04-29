@@ -1,9 +1,17 @@
 import NProgress from 'nprogress'; // progress bar
 import router from './router';
 import store from './store';
+import authRouter from './router/modules/auth';
 import 'nprogress/nprogress.css'; // progress bar style
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
+
+// Generate white list
+const whiteList = (['/landing', '/land']
+  .concat(Array.from(authRouter, route => route.path))
+  .concat(Array.from(authRouter, route => route.alias)))
+  .filter(route => route); // remove undefined element
+console.log('whiteList', whiteList);
 
 // permission judge function
 function hasPermission(roles, permissionRoles) {
@@ -12,8 +20,6 @@ function hasPermission(roles, permissionRoles) {
   return roles.some(role => permissionRoles.indexOf(role) >= 0);
 }
 
-const whiteList = ['/login', '/auth-redirect']; // no redirect whitelist
-
 router.beforeEach((to, from, next) => {
   NProgress.start(); // start progress bar
   console.groupCollapsed(`beforeEach ${to.path}`);
@@ -21,7 +27,7 @@ router.beforeEach((to, from, next) => {
     // determine if there has token
     /* has token */
     console.log('has token');
-    if (['/login', '/singin', '/singup', '/registration'].includes(to.path)) {
+    if (whiteList.includes(to.path)) {
       console.log('/login');
       next({ path: '/' });
       // if current page is dashboard will not trigger afterEach hook, so manually handle it
@@ -74,7 +80,7 @@ router.beforeEach((to, from, next) => {
   } else {
     /* has no token */
     console.log('has no token');
-    if (whiteList.indexOf(to.path) !== -1) {
+    if (whiteList.includes(to.path)) {
       console.info(`whiteList.indexOf(${to.path})`);
       // In the free login whitelist, go directly
       next();

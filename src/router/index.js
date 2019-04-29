@@ -3,6 +3,7 @@ import Router from 'vue-router';
 
 /* Layout */
 import Layout from '@/views/layout/Layout.vue';
+import Landing from '@/views/Landing.vue';
 
 /* Router Modules */
 // import componentsRouter from './modules/components'
@@ -11,8 +12,10 @@ import Layout from '@/views/layout/Layout.vue';
 // import treeTableRouter from './modules/tree-table'
 // import nestedRouter from './modules/nested'
 
-import vuetifyRouter from './modules/vuetify';
+import authRouter from './modules/auth';
 import errorsRouter from './modules/errors';
+import permissionRouter from './modules/permission';
+import vuetifyRouter from './modules/vuetify';
 import nestedRouter from './modules/nested';
 // import componentsRouter from './modules/components';
 
@@ -39,36 +42,6 @@ Vue.use(Router);
     affix: true                  if true, the tag will affix in the tags-view
   }
  */
-/*
-export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('@/views/About.vue'),
-    },
-    {
-      path: '',
-      component: Layout,
-      redirect: 'dashboard',
-      children: [
-        {
-          path: 'dashboard',
-          component: () => import('@/views/'),
-          name: 'Dashboard',
-          // eslint-disable-next-line
-          meta: { public: true, title: 'dashboard', icon: 'dashboard', noCache: true, affix: true },
-        },
-      ],
-    },
-    /** When your routing table is too long, you can split it into small modules * /
-    // componentsRouter,
-    vuetifyRouter,
-  ],
-}); */
-
 
 export const constantRoutes = [
   {
@@ -83,34 +56,12 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/login',
-    alias: '/singin',
-    component: () => import('@/views/auth/SingIn'),
+    path: '/landing',
+    alias: '/land',
+    component: Landing,
     hidden: true
-  },
-  {
-    path: '/registration',
-    alias: '/singup',
-    component: () => import('@/views/auth/SingUp'),
-    hidden: true
-  },
-  {
-    path: '/redirect',
-    component: () => import('@/views/auth/Redirect'),
-    hidden: true
-  },
-  /* {
-    path: 'dashboard',
-    component: () => import('@/views/dashboard/index'),
-    name: 'Dashboard',
-    // eslint-disable-next-line
-    meta: { title: 'route.dashboard', icon: 'dashboard', noCache: true, affix: true }
-  }, */
-  {
-    path: '',
-    component: Layout,
-    redirect: 'dashboard',
-    children: [
+    // redirect: 'dashboard',
+    /* children: [
       {
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
@@ -118,9 +69,25 @@ export const constantRoutes = [
         // eslint-disable-next-line
         meta: { title: 'route.dashboard', icon: 'dashboard', noCache: true, affix: true }
       }
+    ] */
+  },
+  {
+    path: '/dashboard',
+    alias: '/dash',
+    component: Layout,
+    // redirect: 'dashboard',
+    children: [
+      {
+        path: '/dashboard',
+        component: () => import('@/views/dashboard/index'),
+        name: 'Dashboard',
+        // eslint-disable-next-line
+        meta: { title: 'route.dashboard', icon: 'dashboard', noCache: true, affix: true }
+      }
     ]
   },
-  errorsRouter
+  errorsRouter,
+  ...authRouter
 ];
 
 export default new Router({
@@ -131,6 +98,7 @@ export default new Router({
 
 export const asyncRoutes = [
   /** When your routing table is too long, you can split it into small modules */
+  permissionRouter,
   vuetifyRouter,
   nestedRouter,
   { path: '*', redirect: '/404', hidden: true }
