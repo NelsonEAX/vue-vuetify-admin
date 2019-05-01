@@ -17,7 +17,7 @@ console.log('whiteList', whiteList);
 function hasPermission(roles, permissionRoles) {
   if (roles.includes('admin')) return true; // admin permission passed directly
   if (!permissionRoles) return true;
-  return roles.some(role => permissionRoles.indexOf(role) >= 0);
+  return roles.some(role => permissionRoles.includes(role));
 }
 
 router.beforeEach((to, from, next) => {
@@ -65,7 +65,7 @@ router.beforeEach((to, from, next) => {
               });
           });
       } else {
-        console.warn('roles.length !== 0');
+        console.warn('roles.length !== 0', store.getters.roles);
         // No need to dynamically change permissions can be directly next()
         // delete the following permission judgment ↓
         if (hasPermission(store.getters.roles, to.meta.roles)) {

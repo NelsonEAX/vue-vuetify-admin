@@ -8,7 +8,7 @@ const vuetifyRouter = {
   redirect: 'noredirect',
   name: 'VuetifyDemo',
   meta: {
-    title: 'route.vuetify.vuetify',
+    title: 'route.vuetify',
     icon: 'view_compact'
   },
   children: [
@@ -17,21 +17,21 @@ const vuetifyRouter = {
       component: () => import('@/views/vuetify/Alert.vue'),
       name: 'Alert',
       // eslint-disable-next-line
-      meta: { title: 'route.vuetify.alert', icon: 'alert', noCache: true, affix: true }
+      meta: { title: 'route.vuetifyComponents.alert', icon: 'alert', noCache: true, affix: true }
     },
     {
       path: 'buttons',
       component: () => import('@/views/vuetify/Buttons.vue'),
       name: 'Buttons',
       // eslint-disable-next-line
-      meta: { title: 'route.vuetify.buttons', icon: 'buttons', noCache: true, affix: true }
+      meta: { title: 'route.vuetifyComponents.buttons', icon: 'buttons', noCache: true, affix: true }
     },
     {
       path: 'calendar',
       component: () => import('@/views/vuetify/Calendar.vue'),
       name: 'Calendar',
       // eslint-disable-next-line
-      meta: { title: 'route.vuetify.calendar', icon: 'calendar', noCache: true, affix: true }
+      meta: { title: 'route.vuetifyComponents.calendar', icon: 'calendar', noCache: true, affix: true }
     }
   ]
 };

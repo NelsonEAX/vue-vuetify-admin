@@ -8,7 +8,7 @@
         v-if="hasOneShowingChild(item.children, item) &&
         (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow"
         class="reset_vuetify_icon_padding"
-        :to="resolvePath(item.path)"
+        :to="resolvePath(onlyOneChild.path)"
         ripple="ripple"
       >
         <v-list-tile-action
@@ -38,7 +38,7 @@
           </v-list-tile>
         </template>
 
-        <navbar-list :routes="item.children" :basePath="resolvePath(item.path)"/>
+        <navbar-list :routes="item.children" :base-path="resolvePath(item.path)"/>
 
       </v-list-group>
 
@@ -77,9 +77,7 @@ export default {
   methods: {
     hasOneShowingChild(children = [], parent) {
       const showingChildren = children.filter(item => {
-        if (item.hidden) {
-          return false;
-        }
+        if (item.hidden) return false;
         // Temp set(will be used if only has one showing child)
         this.onlyOneChild = item;
         return true;
@@ -87,12 +85,13 @@ export default {
 
       // When there is only one child router, the child router is displayed by default
       if (showingChildren.length === 1) {
+        this.onlyOneChild.path = path.resolve(parent.path, this.onlyOneChild.path);
         return true;
       }
 
       // Show parent if there are no child router to display
       if (showingChildren.length === 0) {
-        this.onlyOneChild = { ...parent, path: '', noShowingChildren: true };
+        this.onlyOneChild = { ...parent, noShowingChildren: true };
         return true;
       }
 

@@ -1,4 +1,5 @@
 // import permission from '../modules/permission';
+import router from '../../router';
 import user from '../modules/user';
 
 class SyncStorage {
@@ -20,7 +21,17 @@ class SyncStorage {
       throw new Error('Invalid "Storage" instance given');
     }
 
-    if (!this.initUserState(store)) {
+    if (this.initUserState(store)) {
+      console.log(store.getters.roles);
+      store.dispatch('GenerateRoutes', { roles: store.getters.roles })
+        .then(accessRoutes => {
+          console.log('SyncStorage GenerateRoutes', accessRoutes);
+          router.addRoutes(accessRoutes);
+        })
+        .catch(err => {
+          console.log(`SyncStorage GenerateRoutes ${err}`);
+        });
+    } else {
       console.warn('No user state in "Storage"');
     }
 

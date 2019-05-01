@@ -1,24 +1,31 @@
 export default {
   route: {
     dashboard: 'Главная',
-    introduction: 'Introduction',
-    documentation: 'Documentation',
-    guide: 'Guide',
-    permission: 'Permission',
-    pagePermission: 'Page Permission',
-    rolePermission: 'Role Permission',
-    vuetify: {
-      vuetify: 'Вуетифи',
+    // introduction: 'Introduction',
+    // documentation: 'Documentation',
+    // guide: 'Guide',
+    // pagePermission: 'Page Permission',
+    // rolePermission: 'Role Permission',
+    permission: 'Разрешения',
+    permissions: {
+      admin: 'Админ',
+      editor: 'Редактор',
+      visitor: 'Посетитель'
+    },
+    vuetify: 'Vuetify',
+    vuetifyComponents: {
       components: 'Компоненты',
       alert: 'Предупреждения',
       buttons: 'Кнопки',
       calendar: 'Календарь'
     },
-    errorPages: 'Ошибки',
-    page401: '401',
-    page403: '403',
-    page404: '404',
-    page500: '500',
+    errors: 'Ошибки',
+    errorPages: {
+      page401: '401',
+      page403: '403',
+      page404: '404',
+      page500: '500'
+    },
     nested: {
       nested: 'Вложенные',
       nested1: 'Уровень 1',

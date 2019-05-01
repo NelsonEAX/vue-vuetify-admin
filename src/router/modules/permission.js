@@ -9,26 +9,26 @@ const permissionRouter = {
   name: 'Permission',
   meta: {
     title: 'route.permission',
-    icon: 'error'
+    icon: 'group'
   },
   children: [
     {
       path: 'admin',
       component: () => import('@/views/permission/admin'),
       name: 'PermissionAdmin',
-      meta: { title: 'route.page401', roles: ['admin'], noCache: true }
+      meta: { title: 'route.permissions.admin', roles: ['admin'], noCache: true }
     },
     {
       path: 'editor',
       component: () => import('@/views/permission/editor'),
       name: 'PermissionEditor',
-      meta: { title: 'route.page403', roles: ['admin', 'editor'], noCache: true }
+      meta: { title: 'route.permissions.editor', roles: ['editor'], noCache: true }
     },
     {
       path: 'visitor',
       component: () => import('@/views/permission/visitor'),
       name: 'PermissionVisitor',
-      meta: { title: 'route.page404', roles: ['visitor'], noCache: true }
+      meta: { title: 'route.permissions.visitor', roles: ['visitor'], noCache: true }
     }
   ]
 };

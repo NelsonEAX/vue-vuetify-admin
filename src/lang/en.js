@@ -1,24 +1,31 @@
 export default {
   route: {
     dashboard: 'Dashboard',
-    introduction: 'Introduction',
-    documentation: 'Documentation',
-    guide: 'Guide',
+    // introduction: 'Introduction',
+    // documentation: 'Documentation',
+    // guide: 'Guide',
+    // pagePermission: 'Page Permission',
+    // rolePermission: 'Role Permission',
     permission: 'Permission',
-    pagePermission: 'Page Permission',
-    rolePermission: 'Role Permission',
-    vuetify: {
-      vuetify: 'Vuetify',
+    permissions: {
+      admin: 'Admin',
+      editor: 'Editor',
+      visitor: 'Visitor'
+    },
+    vuetify: 'Vuetify',
+    vuetifyComponents: {
       components: 'Components',
       alert: 'Alert',
       buttons: 'Buttons',
       calendar: 'Calendar'
     },
-    errorPages: 'Errors',
-    page401: '401',
-    page403: '403',
-    page404: '404',
-    page500: '500',
+    errors: 'Errors',
+    errorPages: {
+      page401: '401',
+      page403: '403',
+      page404: '404',
+      page500: '500'
+    },
     nested: {
       nested: 'Nested',
       nested1: 'Level 1',
