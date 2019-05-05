@@ -46,8 +46,8 @@ router.beforeEach((to, from, next) => {
             store.dispatch('GenerateRoutes', { roles })
               .then(accessRoutes => {
                 console.log('GenerateRoutes', accessRoutes);
-                // Generate accessible routing tables based on roles
-                router.addRoutes(accessRoutes); // Dynamically add accessible routing tables
+                // Dynamically add accessible routing tables
+                router.addRoutes(accessRoutes, { override: true });
                 next({ ...to, replace: true }); // Hack method to ensure that addRoutes is complete,
                 // set the replace: true so the navigation will not leave a history record
               })

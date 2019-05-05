@@ -10,7 +10,7 @@ import 'roboto-fontface/css/roboto/roboto-fontface.css';
 
 import Vue from 'vue';
 import Vuetify from 'vuetify';
-import i18n from './lang'; // Internationalization
+import i18n from './locale'; // Internationalization
 
 import App from './App.vue';
 import router from './router';

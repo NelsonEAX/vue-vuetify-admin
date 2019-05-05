@@ -1,23 +1,25 @@
 <template>
   <v-app id="inspire">
-    <navbar/>
-    <toolbar/>
+    <app-drawer/>
+    <app-toolbar/>
     <app-main/>
+    <app-fab/>
   </v-app>
 </template>
 
 <script>
-import { Navbar, Toolbar, AppMain } from './components';
+import {
+  AppDrawer, AppToolbar, AppMain, AppFab
+} from './components';
 
 export default {
   name: 'Layout',
   components: {
-    Navbar,
-    Toolbar,
-    AppMain
+    AppDrawer,
+    AppToolbar,
+    AppMain,
+    AppFab
   },
-  data() {
-    return {};
-  }
+  data: () => ({})
 };
 </script>

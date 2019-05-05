@@ -18,17 +18,25 @@
 </template>
 
 <script>
-import { Locales, changeLocale } from '@/api/localization';
+import { locales, changeLocale } from '@/locale';
 
 export default {
   name: 'Localization',
   data() {
     return {
-      locales: Locales
+      locales
     };
   },
   methods: {
-    changeLocale
+    changeLocale(lang) {
+      changeLocale(lang)
+        .then(state => {
+          this.$store.dispatch('LanguageToggle', { state });
+        })
+        .catch(err => {
+          console.log(`${err}`);
+        });
+    }
   }
 };
 </script>

@@ -39,6 +39,12 @@ export default {
     profile: 'Profile',
     logout: 'Logout'
   },
+  settings: {
+    title: 'Theme Settings',
+    toolbarDense: 'Toolbar dense',
+    navbarLogo: 'Navbar logo',
+    settingsBtn: 'Setting btn'
+  },
   login: {
     titleIn: 'Sing In Form',
     titleUn: 'Sing Un Form',

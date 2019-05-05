@@ -80,7 +80,7 @@
 </template>
 
 <script>
-import Localization from '../layout/components/Toolbar/Localization.vue';
+import Localization from '../layout/components/AppToolbar/Localization.vue';
 import { userAdmin, userEditor } from '@/api/mock';
 
 export default {

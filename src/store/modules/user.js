@@ -19,6 +19,7 @@ const user = {
     token: state => state.token,
     roles: state => state.roles,
     name: state => state.name,
+    user: state => state.user,
     avatar: state => state.avatar,
     status: state => state.status,
     introduction: state => state.introduction,
@@ -27,36 +28,24 @@ const user = {
 
   mutations: {
     SET_USER_INFO: (state, payload) => {
-      state.token = payload.token;
-      state.roles = payload.roles;
-      state.user = payload.user;
-      state.name = payload.name;
-      state.avatar = payload.avatar;
-      state.code = payload.code;
+      if (payload.logout) {
+        state.token = '';
+        state.roles = '';
+        state.user = '';
+        state.name = '';
+        state.avatar = '';
+        state.code = '';
+      } else {
+        state.token = payload.token || state.token;
+        state.roles = payload.roles || state.roles;
+        state.user = payload.user || state.user;
+        state.name = payload.name || state.name;
+        state.avatar = payload.avatar || state.avatar;
+        state.code = payload.code || state.code;
+      }
     },
     SET_TOKEN: (state, token) => {
       state.token = token;
-    },
-    SET_ROLES: (state, roles) => {
-      state.roles = roles;
-    },
-    SET_NAME: (state, name) => {
-      state.name = name;
-    },
-    SET_AVATAR: (state, avatar) => {
-      state.avatar = avatar;
-    },
-    SET_STATUS: (state, status) => {
-      state.status = status;
-    },
-    SET_CODE: (state, code) => {
-      state.code = code;
-    },
-    SET_INTRODUCTION: (state, introduction) => {
-      state.introduction = introduction;
-    },
-    SET_SETTING: (state, setting) => {
-      state.setting = setting;
     }
   },
 
@@ -97,36 +86,10 @@ const user = {
       });
     },
 
-    // Third party verification login
-    // LoginByThirdparty({ commit, state }, code) {
-    //   return new Promise((resolve, reject) => {
-    //     commit('SET_CODE', code)
-    //     loginByThirdparty(state.status, state.email, state.code).then(response => {
-    //       commit('SET_TOKEN', response.data.token)
-    //       resolve()
-    //     }).catch(error => {
-    //       reject(error)
-    //     })
-    //   })
-    // },
-
-    // Sign out
-    // LogOut({ commit, state }) {
-    //   return new Promise((resolve, reject) => {
-    //     logout(state.token).then(() => {
-    //       commit('SET_TOKEN', '');
-    //       commit('SET_ROLES', []);
-    //       resolve();
-    //     }).catch(error => {
-    //       reject(error);
-    //     });
-    //   });
-    // },
-
     // Front end
     LogOut({ commit }) {
       return new Promise(resolve => {
-        commit('SET_USER_INFO', {});
+        commit('SET_USER_INFO', { logout: true });
         resolve();
       });
     },

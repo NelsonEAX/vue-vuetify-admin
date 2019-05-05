@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import Localization from '../layout/components/Toolbar/Localization.vue';
+import Localization from '../layout/components/AppToolbar/Localization.vue';
 
 export default {
   name: 'SingUp',

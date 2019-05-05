@@ -101,5 +101,5 @@ export const asyncRoutes = [
   permissionRouter,
   vuetifyRouter,
   nestedRouter,
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/error/404', hidden: true }
 ];

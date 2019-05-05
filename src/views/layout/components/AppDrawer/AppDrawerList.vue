@@ -38,7 +38,7 @@
           </v-list-tile>
         </template>
 
-        <navbar-list :routes="item.children" :base-path="resolvePath(item.path)"/>
+        <app-drawer-list :routes="item.children" :base-path="resolvePath(item.path)"/>
 
       </v-list-group>
 
@@ -51,7 +51,7 @@ import path from 'path';
 import { isExternal } from '@/utils/validate';
 
 export default {
-  name: 'NavbarList',
+  name: 'AppDrawerList',
   props: {
     routes: {
       type: Array,
@@ -86,6 +86,8 @@ export default {
       // When there is only one child router, the child router is displayed by default
       if (showingChildren.length === 1) {
         this.onlyOneChild.path = path.resolve(parent.path, this.onlyOneChild.path);
+        this.onlyOneChild.meta.icon = this.onlyOneChild.meta.icon || parent.meta.icon || '';
+
         return true;
       }
 

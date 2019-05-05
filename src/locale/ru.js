@@ -39,6 +39,12 @@ export default {
     profile: 'Профиль',
     logout: 'Выйти'
   },
+  settings: {
+    title: 'Внешний Вид',
+    toolbarDense: 'Toolbar dense',
+    navbarLogo: 'Navbar logo',
+    settingsBtn: 'Setting btn'
+  },
   login: {
     titleIn: 'Форма авторизации',
     titleUn: 'Форма регистрации',
