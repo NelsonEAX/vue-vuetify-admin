@@ -43,13 +43,16 @@ const i18n = new VueI18n({
 
 export function changeLocale(newLocale) {
   return new Promise((resolve, reject) => {
-    if (i18n.locale !== newLocale) {
-      console.info(`Change locale to "${newLocale}"`);
-      // eslint-disable-next-line
-      i18n.locale = newLocale || defaultLocale.locale;
-      resolve(newLocale);
-    } else {
-      reject(new Error(`"${newLocale}" is current locale `));
+    try {
+      if (i18n.locale !== newLocale) {
+        console.log(`Change locale to "${newLocale}"`);
+        i18n.locale = newLocale || defaultLocale.locale;
+      } else {
+        console.warn(`"${newLocale}" is current locale `);
+      }
+      resolve(i18n.locale);
+    } catch (e) {
+      reject(e);
     }
   });
 }

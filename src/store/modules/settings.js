@@ -1,20 +1,22 @@
-const settings = {
-  state: {
-    language: 'ru',
-    dense: true,
-    navbar: {
-      show: true,
-      logo: false
-    },
-    fullscreen: {
-      show: false,
-      btn: true
-    },
-    settingsPanel: {
-      show: false,
-      btn: true
-    }
+const settingsDefault = {
+  language: 'ru',
+  dense: true,
+  navbar: {
+    show: true,
+    logo: false
   },
+  fullscreen: {
+    show: false,
+    btn: true
+  },
+  settingsPanel: {
+    show: false,
+    btn: true
+  }
+};
+
+const settings = {
+  state: JSON.parse(JSON.stringify(settingsDefault)), // Deep Clone
 
   getters: {
     language: state => state.language,
@@ -30,10 +32,17 @@ const settings = {
   mutations: {
     SET_SETTINGS: (state, payload) => {
       state.language = payload.language || state.language;
-      state.dense = payload.dense || state.dense;
+      state.dense = typeof payload.dense === 'boolean' ? payload.dense : state.dense;
       state.navbar = payload.navbar || state.navbar;
       state.fullscreen = payload.fullscreen || state.fullscreen;
       state.settingsPanel = payload.settingsPanel || state.settingsPanel;
+    },
+    SET_SETTINGS_DEFAULT: (state, payload) => {
+      state.language = payload.language;
+      state.dense = payload.dense;
+      state.navbar = payload.navbar;
+      state.fullscreen = payload.fullscreen;
+      state.settingsPanel = payload.settingsPanel;
     },
     LANGUAGE_TOGGLE: (state, payload) => {
       state.language = payload.state;
@@ -96,6 +105,9 @@ const settings = {
     },
     SettingsPanelState: async (context, payload) => {
       context.commit('SETTINGS_PANEL_STATE', payload);
+    },
+    SettingsPanelDefault: async context => {
+      context.commit('SET_SETTINGS_DEFAULT', JSON.parse(JSON.stringify(settingsDefault)));
     }
   }
 };

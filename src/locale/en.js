@@ -41,6 +41,7 @@ export default {
   },
   settings: {
     title: 'Theme Settings',
+    default: 'Set Default',
     toolbarDense: 'Toolbar dense',
     navbarLogo: 'Navbar logo',
     settingsBtn: 'Setting btn'

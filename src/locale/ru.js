@@ -41,6 +41,7 @@ export default {
   },
   settings: {
     title: 'Внешний Вид',
+    default: 'По умолчанию',
     toolbarDense: 'Toolbar dense',
     navbarLogo: 'Navbar logo',
     settingsBtn: 'Setting btn'

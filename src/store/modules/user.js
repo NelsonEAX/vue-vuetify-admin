@@ -51,7 +51,8 @@ const user = {
 
   actions: {
     // Username login
-    LoginByEmail({ commit }, payload) {
+    LoginByEmail: async ({ commit }, payload) => {
+      console.log('LoginByEmail');
       return new Promise((resolve, reject) => {
         loginByEmail(payload.email.trim(), payload.password).then(response => {
           const { data } = response;
@@ -64,7 +65,8 @@ const user = {
     },
 
     // Get user information
-    GetUserInfo({ commit, state }) {
+    GetUserInfo: async ({ commit, state }) => {
+      console.log('GetUserInfo');
       return new Promise((resolve, reject) => {
         getUserInfo(state.token).then(response => {
           // Since mockjs does not support custom status codes, it can only be hacked like this
@@ -87,7 +89,8 @@ const user = {
     },
 
     // Front end
-    LogOut({ commit }) {
+    LogOut: async ({ commit }) => {
+      console.log('LogOut');
       return new Promise(resolve => {
         commit('SET_USER_INFO', { logout: true });
         resolve();
@@ -95,7 +98,8 @@ const user = {
     },
 
     // Dynamically modify permissions
-    ChangeRoles({ commit, dispatch }, role) {
+    ChangeRoles: async ({ commit, dispatch }, role) => {
+      console.log('ChangeRoles');
       return new Promise(resolve => {
         commit('SET_TOKEN', role);
         getUserInfo(role).then(response => {

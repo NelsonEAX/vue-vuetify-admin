@@ -55,7 +55,8 @@ const permission = {
     }
   },
   actions: {
-    GenerateRoutes({ commit }, data) {
+    GenerateRoutes: async ({ commit }, data) => {
+      console.log('GenerateRoutes');
       return new Promise(resolve => {
         const { roles } = data;
         let accessedRoutes;
@@ -71,8 +72,8 @@ const permission = {
           console.log('!roles.includes(admin) ', accessedRoutes);
         }
         commit('SET_ROUTES', accessedRoutes);
-        resolve(accessedRoutes);
         console.groupEnd();
+        resolve(accessedRoutes);
       });
     }
   }

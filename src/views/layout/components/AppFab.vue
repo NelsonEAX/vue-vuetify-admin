@@ -50,6 +50,13 @@
           :label="`${$t('settings.settingsBtn')}: ${settingsPanelBtn ? 'on' : 'off'}`"
           @change="toggleSettingsPanelBtn"
         ></v-switch>
+        <v-divider></v-divider>
+        <v-btn
+          color="error"
+          @click.stop="setDefaultSettingsPanel"
+        >
+          {{ $t('settings.default') }}
+        </v-btn>
       </v-container>
     </v-navigation-drawer>
   </v-content>
@@ -93,6 +100,9 @@ export default {
     },
     toggleSettingsPanelBtn() {
       this.$store.dispatch('SettingsPanelBtnToggle');
+    },
+    setDefaultSettingsPanel() {
+      this.$store.dispatch('SettingsPanelDefault');
     }
   }
 };
