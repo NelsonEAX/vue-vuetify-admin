@@ -2,8 +2,8 @@ export default {
   route: {
     dashboard: 'Главная',
     // introduction: 'Introduction',
-    // documentation: 'Documentation',
-    // guide: 'Guide',
+    documentation: 'Документация',
+    guide: 'Руководство',
     // pagePermission: 'Page Permission',
     // rolePermission: 'Role Permission',
     permission: 'Разрешения',
@@ -42,6 +42,8 @@ export default {
   settings: {
     title: 'Внешний Вид',
     default: 'По умолчанию',
+    position: 'Положение елементов',
+    theme: 'Цветовая схема',
     toolbarDense: 'Toolbar dense',
     navbarLogo: 'Navbar logo',
     settingsBtn: 'Setting btn'

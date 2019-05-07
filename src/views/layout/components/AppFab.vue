@@ -18,10 +18,10 @@
     </v-btn>
     <v-navigation-drawer
       class="setting-drawer"
-      temporary
       right
-      hide-overlay
-      fixed
+      :temporary="temporary"
+      :fixed="fixed"
+      :app="app"
       :value="settingsPanelShow"
       @input="stateSettingsPanel"
     >
@@ -33,31 +33,57 @@
         <v-toolbar-title>
           {{ $t('settings.title') }}
         </v-toolbar-title>
+        <v-tooltip left>
+          <template v-slot:activator="{ on }">
+            <v-btn
+              v-on="on"
+              absolute
+              dark
+              fab
+              bottom
+              right
+              small
+              color="error"
+              @click.stop="setDefaultSettingsPanel"
+            >
+              <v-icon>refresh</v-icon>
+            </v-btn>
+          </template>
+          <span>{{ $t('settings.default') }}</span>
+        </v-tooltip>
       </v-toolbar>
+
+      <v-subheader>{{ $t('settings.position') }}</v-subheader>
+      <v-divider></v-divider>
+
       <v-container fluid>
         <v-switch
           :input-value="toolbarDense"
           :label="`${$t('settings.toolbarDense')}: ${toolbarDense ? 'on' : 'off'}`"
           @change="toggleToolbarDense"
+          hide-details
         ></v-switch>
         <v-switch
           :input-value="navbarLogo"
           :label="`${$t('settings.navbarLogo')}: ${navbarLogo ? 'on' : 'off'}`"
           @change="toggleNavbarLogo"
+          hide-details
         ></v-switch>
         <v-switch
           :input-value="settingsPanelBtn"
           :label="`${$t('settings.settingsBtn')}: ${settingsPanelBtn ? 'on' : 'off'}`"
           @change="toggleSettingsPanelBtn"
+          hide-details
         ></v-switch>
-        <v-divider></v-divider>
-        <v-btn
-          color="error"
-          @click.stop="setDefaultSettingsPanel"
-        >
-          {{ $t('settings.default') }}
-        </v-btn>
       </v-container>
+
+      <v-subheader>{{ $t('settings.theme') }}</v-subheader>
+      <v-divider></v-divider>
+
+      <v-container fluid>
+
+      </v-container>
+
     </v-navigation-drawer>
   </v-content>
 </template>
@@ -68,13 +94,9 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'AppFab',
   data: () => ({
-    expanded: true,
-    rightDrawer: false,
-    snackbar: {
-      show: false,
-      text: '',
-      color: ''
-    }
+    temporary: false,
+    fixed: true,
+    app: true
   }),
   computed: {
     ...mapGetters([

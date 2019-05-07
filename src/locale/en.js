@@ -2,8 +2,8 @@ export default {
   route: {
     dashboard: 'Dashboard',
     // introduction: 'Introduction',
-    // documentation: 'Documentation',
-    // guide: 'Guide',
+    documentation: 'Documentation',
+    guide: 'Guide',
     // pagePermission: 'Page Permission',
     // rolePermission: 'Role Permission',
     permission: 'Permission',
@@ -42,6 +42,8 @@ export default {
   settings: {
     title: 'Theme Settings',
     default: 'Set Default',
+    position: 'Position of elements',
+    theme: 'Theme',
     toolbarDense: 'Toolbar dense',
     navbarLogo: 'Navbar logo',
     settingsBtn: 'Setting btn'

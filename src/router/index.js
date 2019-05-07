@@ -60,22 +60,11 @@ export const constantRoutes = [
     alias: '/land',
     component: Landing,
     hidden: true
-    // redirect: 'dashboard',
-    /* children: [
-      {
-        path: 'dashboard',
-        component: () => import('@/views/dashboard/index'),
-        name: 'Dashboard',
-        // eslint-disable-next-line
-        meta: { title: 'route.dashboard', icon: 'dashboard', noCache: true, affix: true }
-      }
-    ] */
   },
   {
     path: '/dashboard',
     alias: '/dash',
     component: Layout,
-    // redirect: 'dashboard',
     children: [
       {
         path: '/dashboard',
@@ -83,6 +72,34 @@ export const constantRoutes = [
         name: 'Dashboard',
         // eslint-disable-next-line
         meta: { title: 'route.dashboard', icon: 'dashboard', noCache: true, affix: true }
+      }
+    ]
+  },
+  {
+    path: '/dashboard',
+    alias: '/dash',
+    component: Layout,
+    children: [
+      {
+        path: '/documentation',
+        component: () => import('@/views/dashboard/documentation'),
+        name: 'Documentation',
+        // eslint-disable-next-line
+        meta: { title: 'route.documentation', icon: 'subject', noCache: true, affix: true }
+      }
+    ]
+  },
+  {
+    path: '/dashboard',
+    alias: '/dash',
+    component: Layout,
+    children: [
+      {
+        path: '/guide',
+        component: () => import('@/views/dashboard/guide'),
+        name: 'Guide',
+        // eslint-disable-next-line
+        meta: { title: 'route.guide', icon: 'near_me', noCache: true, affix: true }
       }
     ]
   },
