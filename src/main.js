@@ -1,5 +1,5 @@
 import 'normalize.css/normalize.css';
-import './styles/index.styl';
+import '@/styles/index.scss'; // global css
 import 'vuetify/dist/vuetify.min.css';
 
 /* icons */

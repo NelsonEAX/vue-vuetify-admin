@@ -2,6 +2,7 @@
   <v-content
     id="app-fab">
     <v-btn
+      id="app-fab-btn"
       v-if="settingsPanelBtn"
       small
       fab
@@ -10,14 +11,13 @@
       fixed
       top="top"
       right="right"
-      class="setting-panel"
       color="red"
       @click="toggleSettingsPanel"
     >
       <v-icon>settings</v-icon>
     </v-btn>
     <v-navigation-drawer
-      class="setting-drawer"
+      id="app-fab-drawer"
       right
       :temporary="temporary"
       :fixed="fixed"
@@ -130,11 +130,13 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-  #app-fab
-    position absolute;
-  .setting-panel
-    top:50%!important;
-    right:0;
-    border-radius:0
+<style lang="scss" scoped>
+  #app-fab {
+    position: absolute;
+    #app-fab-btn {
+      top: 50%!important;
+      right: 0;
+      border-radius: 0
+    }
+  }
 </style>

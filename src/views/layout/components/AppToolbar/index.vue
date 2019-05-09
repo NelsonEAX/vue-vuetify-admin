@@ -3,13 +3,16 @@
     app
     :dense="toolbarDense"
   >
-    <v-toolbar-side-icon @click.stop="toggleNavbar"></v-toolbar-side-icon>
-    <breadcrumbs/>
+    <v-toolbar-side-icon
+      class="hamburger-container"
+      @click.stop="toggleNavbar"
+    ></v-toolbar-side-icon>
+    <breadcrumbs class="breadcrumbs-container"/>
     <v-spacer></v-spacer>
-    <full-screen-toggle/>
-    <notification/>
-    <localization/>
-    <profile/>
+    <full-screen-toggle class="fullscreen-container"/>
+    <notification class="notification-container"/>
+    <localization class="localization-container"/>
+    <profile class="profile-container"/>
   </v-toolbar>
 </template>
 

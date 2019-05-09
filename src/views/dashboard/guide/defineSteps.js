@@ -8,7 +8,7 @@ const steps = [
     }
   },
   {
-    element: '.breadcrumb-container',
+    element: '.breadcrumbs-container',
     popover: {
       title: 'Breadcrumb',
       description: 'Indicate the current page location',
@@ -16,7 +16,7 @@ const steps = [
     }
   },
   {
-    element: '.screenfull',
+    element: '.fullscreen-container',
     popover: {
       title: 'Screenfull',
       description: 'Bring the page into fullscreen',
@@ -24,7 +24,15 @@ const steps = [
     }
   },
   {
-    element: '.international-icon',
+    element: '.notification-container',
+    popover: {
+      title: 'System notification',
+      description: '########################',
+      position: 'left'
+    }
+  },
+  {
+    element: '.localization-container',
     popover: {
       title: 'Switch language',
       description: 'Switch the system language',
@@ -32,19 +40,19 @@ const steps = [
     }
   },
   {
-    element: '.theme-switch',
+    element: '.profile-container',
     popover: {
-      title: 'Theme Switch',
-      description: 'Custom switch system theme',
+      title: 'Profile',
+      description: '########################',
       position: 'left'
     }
   },
   {
-    element: '.tags-view-container',
+    element: '#app-fab-btn',
     popover: {
-      title: 'Tags view',
-      description: 'The history of the page you visited',
-      position: 'bottom'
+      title: 'Fab Settings',
+      description: '########################',
+      position: 'left'
     },
     padding: 0
   }

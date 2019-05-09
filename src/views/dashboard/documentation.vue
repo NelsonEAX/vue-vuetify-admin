@@ -1,9 +1,20 @@
 <template>
   <v-container fluid fill-height>
-    <v-layout justify-center align-center>
-      <v-flex class="display-4" text-xs-center>
+    <v-layout justify-center align-center column>
+      <v-btn
+        color="info"
+        href="https://github.com/NelsonEAX/vue-vuetify-admin"
+        target="_blank"
+      >
         Documentation
-      </v-flex>
+      </v-btn>
+      <v-btn
+        color="info"
+        href="https://github.com/NelsonEAX/vue-vuetify-admin/blob/master/README.md"
+        target="_blank"
+      >
+        Github Repository
+      </v-btn>
     </v-layout>
   </v-container>
 </template>
@@ -13,7 +24,3 @@ export default {
   name: 'Documentation'
 };
 </script>
-
-<style scoped>
-
-</style>

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <github-corner class="github-corner"/>
     <v-container fluid grid-list-md text-xs-center>
       <v-layout row wrap>
         <v-flex xs12>
@@ -139,9 +140,13 @@
 
 <script>
 import { lorem } from '@/api/mock';
+import GithubCorner from '@/views/components/GithubCorner.vue';
 
 export default {
   name: 'Dashboard',
+  components: {
+    GithubCorner
+  },
   data: () => ({
     lorem
   })
