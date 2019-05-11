@@ -13,22 +13,29 @@ const vuetifyRouter = {
   },
   children: [
     {
+      path: '/grid',
+      component: () => import('@/views/components/Vuetify/Grid.vue'),
+      name: 'Grid',
+      // eslint-disable-next-line
+      meta: { title: 'route.vuetifyComponents.grid', icon: 'alert', noCache: true, affix: true }
+    },
+    {
       path: '/alert',
-      component: () => import('@/views/vuetify/Alert.vue'),
+      component: () => import('@/views/components/Vuetify/Alert.vue'),
       name: 'Alert',
       // eslint-disable-next-line
       meta: { title: 'route.vuetifyComponents.alert', icon: 'alert', noCache: true, affix: true }
     },
     {
       path: 'buttons',
-      component: () => import('@/views/vuetify/Buttons.vue'),
+      component: () => import('@/views/components/Vuetify/Buttons.vue'),
       name: 'Buttons',
       // eslint-disable-next-line
       meta: { title: 'route.vuetifyComponents.buttons', icon: 'buttons', noCache: true, affix: true }
     },
     {
       path: 'calendar',
-      component: () => import('@/views/vuetify/Calendar.vue'),
+      component: () => import('@/views/components/Vuetify/Calendar.vue'),
       name: 'Calendar',
       // eslint-disable-next-line
       meta: { title: 'route.vuetifyComponents.calendar', icon: 'calendar', noCache: true, affix: true }

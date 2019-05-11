@@ -17,7 +17,8 @@ export default {
       components: 'Components',
       alert: 'Alert',
       buttons: 'Buttons',
-      calendar: 'Calendar'
+      calendar: 'Calendar',
+      grid: 'Grid'
     },
     errors: 'Errors',
     errorPages: {

@@ -23,9 +23,7 @@
       </v-toolbar-title>
     </v-toolbar>
     <v-divider></v-divider>
-
     <app-drawer-list :routes="permissionRoutes" :iconShow="true"/>
-
   </v-navigation-drawer>
 </template>
 
@@ -49,40 +47,28 @@ export default {
       'toolbarDense'
     ])
   },
-  /* beforeUpdate() {
-    console.groupCollapsed('NavbarItemsUpdate');
-  }, */
+  methods: {
+    stateNavbarShow(state) {
+      this.$store.dispatch('NavbarState', { state });
+    }
+  },
   beforeMount() {
     console.groupCollapsed('NavbarItemsMount');
   },
-  /* updated() {
-    console.groupEnd();
-  }, */
   mounted() {
     this.$nextTick(() => {
       console.groupEnd();
     });
-  },
-  methods: {
-    stateNavbarShow(state) {
-      this.$store.dispatch('NavbarState', { state });
-    },
-    genChildTarget(item, subItem) {
-      // if (subItem.path) return subItem.path;
-      /* if (subItem.component) {
-        return {
-          name: subItem.component
-        };
-      } */
-      return { name: `${item.path}/${(subItem.path)}` };
-    },
-    toggleUser() {
-      // this.$store.dispatch('GenerateRoutes', { roles: ['admin'] });
-    }
-  },
-  created() {
-    this.toggleUser();
   }
 };
 
 </script>
+
+<style lang="scss">
+  .scroll-area {
+    position: relative;
+    margin: auto;
+    width: 400px;
+    height: 300px;
+  }
+</style>

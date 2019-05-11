@@ -3,7 +3,7 @@ import Router from 'vue-router';
 
 /* Layout */
 import Layout from '@/views/layout/Layout.vue';
-import Landing from '@/views/Landing.vue';
+import Landing from '@/views/auth/Landing.vue';
 
 /* Router Modules */
 // import componentsRouter from './modules/components'
@@ -68,7 +68,7 @@ export const constantRoutes = [
     children: [
       {
         path: '/dashboard',
-        component: () => import('@/views/dashboard/index'),
+        component: () => import('@/views/components/Dashboard/index'),
         name: 'Dashboard',
         // eslint-disable-next-line
         meta: { title: 'route.dashboard', icon: 'dashboard', noCache: true, affix: true }
@@ -82,7 +82,7 @@ export const constantRoutes = [
     children: [
       {
         path: '/documentation',
-        component: () => import('@/views/dashboard/documentation'),
+        component: () => import('@/views/components/Documentation'),
         name: 'Documentation',
         // eslint-disable-next-line
         meta: { title: 'route.documentation', icon: 'subject', noCache: true, affix: true }
@@ -96,7 +96,7 @@ export const constantRoutes = [
     children: [
       {
         path: '/guide',
-        component: () => import('@/views/dashboard/guide'),
+        component: () => import('@/views/components/Guide'),
         name: 'Guide',
         // eslint-disable-next-line
         meta: { title: 'route.guide', icon: 'near_me', noCache: true, affix: true }

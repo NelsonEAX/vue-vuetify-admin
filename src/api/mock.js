@@ -1,3 +1,5 @@
+export * from '@/api/mock_chart';
+
 export const lorem = `Lorem ipsum dolor sit amet, mel at clita quando.
    Te sit oratio vituperatoribus,
    nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi

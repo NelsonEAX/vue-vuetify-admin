@@ -19,6 +19,7 @@
     <v-navigation-drawer
       id="app-fab-drawer"
       right
+      disable-resize-watcher
       :temporary="temporary"
       :fixed="fixed"
       :app="app"

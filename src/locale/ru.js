@@ -14,10 +14,11 @@ export default {
     },
     vuetify: 'Vuetify',
     vuetifyComponents: {
-      components: 'Компоненты',
-      alert: 'Предупреждения',
-      buttons: 'Кнопки',
-      calendar: 'Календарь'
+      components: 'Components',
+      alert: 'Alert',
+      buttons: 'Buttons',
+      calendar: 'Calendar',
+      grid: 'Grid'
     },
     errors: 'Ошибки',
     errorPages: {

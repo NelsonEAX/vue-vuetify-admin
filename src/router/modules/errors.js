@@ -14,25 +14,25 @@ const errorsRouter = {
   children: [
     {
       path: '401',
-      component: () => import('@/views/error/pg401'),
+      component: () => import('@/views/components/Error/pg401'),
       name: 'Page401',
       meta: { title: 'route.errorPages.page401', noCache: true }
     },
     {
       path: '403',
-      component: () => import('@/views/error/pg403'),
+      component: () => import('@/views/components/Error/pg403'),
       name: 'Page403',
       meta: { title: 'route.errorPages.page403', noCache: true }
     },
     {
       path: '404',
-      component: () => import('@/views/error/pg404'),
+      component: () => import('@/views/components/Error/pg404'),
       name: 'Page404',
       meta: { title: 'route.errorPages.page404', noCache: true }
     },
     {
       path: '500',
-      component: () => import('@/views/error/pg500'),
+      component: () => import('@/views/components/Error/pg500'),
       name: 'Page500',
       meta: { title: 'route.errorPages.page500', noCache: true }
     }

@@ -38,7 +38,7 @@
 <style scoped>
   .github-corner {
     position: absolute;
-    z-index: 10;
+    z-index: 1;
     right: 0;
     border-radius: 0;
   }
