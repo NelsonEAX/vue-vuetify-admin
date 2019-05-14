@@ -17,6 +17,7 @@ import errorsRouter from './modules/errors';
 import permissionRouter from './modules/permission';
 import vuetifyRouter from './modules/vuetify';
 import nestedRouter from './modules/nested';
+import componentsRouter from './modules/components';
 // import componentsRouter from './modules/components';
 
 Vue.use(Router);
@@ -118,5 +119,6 @@ export const asyncRoutes = [
   permissionRouter,
   vuetifyRouter,
   nestedRouter,
+  componentsRouter,
   { path: '*', redirect: '/error/404', hidden: true }
 ];

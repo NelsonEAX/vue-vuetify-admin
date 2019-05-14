@@ -1,6 +1,6 @@
 /** When your routing table is too long, you can split it into small modules */
 
-import Layout from '@/views/layout/Layout';
+import Layout from '@/views/layout/Layout.vue';
 
 const componentsRouter = {
   path: '/components',
@@ -8,8 +8,8 @@ const componentsRouter = {
   redirect: 'noredirect',
   name: 'ComponentDemo',
   meta: {
-    title: 'components',
-    icon: 'component'
+    title: 'Components',
+    icon: 'view_module'
   },
   children: [
     {
@@ -23,7 +23,7 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/markdown'),
       name: 'MarkdownDemo',
       meta: { title: 'markdown' }
-    },
+    }/* ,
     {
       path: 'json-editor',
       component: () => import('@/views/components-demo/jsonEditor'),
@@ -95,7 +95,7 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/dragKanban'),
       name: 'DragKanbanDemo',
       meta: { title: 'dragKanban' }
-    }
+    } */
   ]
 };
 
