@@ -6,11 +6,28 @@ export default {
     guide: 'Guide',
     // pagePermission: 'Page Permission',
     // rolePermission: 'Role Permission',
-    permission: 'Permission',
-    permissions: {
+    permissions: 'Permission',
+    permission: {
       admin: 'Admin',
       editor: 'Editor',
       visitor: 'Visitor'
+    },
+    components: 'Components',
+    component: {
+      avatarUpload: 'Avatar Upload',
+      backToTop: 'Back To Top',
+      countTo: 'Count To',
+      dndList: 'Dnd List',
+      dragDialog: 'Drag Dialog',
+      dragKanban: 'Drag Kanban',
+      dragSelect: 'DragSelect',
+      dropzone: 'Dropzone',
+      jsonEditor: 'Json Editor',
+      markdown: 'Markdown',
+      mixin: 'Mixin',
+      splitPane: 'Split Pane',
+      sticky: 'Sticky',
+      tinymce: 'Tinymce'
     },
     vuetify: 'Vuetify',
     vuetifyComponents: {

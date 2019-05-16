@@ -1,8 +1,9 @@
 <template>
   <div :class="{fullscreen:fullscreen}" class="tinymce-container" :style="{width:containerWidth}">
+
     <textarea :id="tinymceId" class="tinymce-textarea" />
     <div class="editor-custom-btn-container">
-      <editorImage color="#1890ff" class="editor-upload-btn" @successCBK="imageSuccessCBK" />
+      <editor-image color="#1890ff" class="editor-upload-btn" @successCBK="imageSuccessCBK" />
     </div>
   </div>
 </template>
@@ -12,7 +13,7 @@
  * docs:
  * https://panjiachen.github.io/vue-element-admin-site/feature/component/rich-editor.html#tinymce
  */
-import editorImage from './components/EditorImage';
+import editorImage from './components/EditorImage.vue';
 import plugins from './plugins';
 import toolbar from './toolbar';
 
@@ -22,8 +23,9 @@ export default {
   props: {
     id: {
       type: String,
-      default: function() {
-        return 'vue-tinymce-' + +new Date() + ((Math.random() * 1000).toFixed(0) + '');
+      default: () => {
+        const time = +new Date() + ((Math.random() * 1000).toFixed(0));
+        return `vue-tinymce-${time}`;
       }
     },
     value: {
@@ -59,8 +61,8 @@ export default {
       tinymceId: this.id,
       fullscreen: false,
       languageTypeList: {
-        'en': 'en',
-        'ru': 'ru_RU'
+        en: 'en',
+        ru: 'ru_RU'
       }
     };
   },
@@ -69,7 +71,7 @@ export default {
       return this.languageTypeList[this.$store.getters.language];
     },
     containerWidth() {
-      const width = this.width;
+      const { width } = this;
       if (/^[\d]+(\.[\d]+)?$/.test(width)) { // matches `100`, `'100'`
         return `${width}px`;
       }
@@ -79,8 +81,7 @@ export default {
   watch: {
     value(val) {
       if (!this.hasChange && this.hasInit) {
-        this.$nextTick(() =>
-          window.tinymce.get(this.tinymceId).setContent(val || ''));
+        this.$nextTick(() => window.tinymce.get(this.tinymceId).setContent(val || ''));
       }
     },
     language() {
@@ -102,7 +103,7 @@ export default {
   },
   methods: {
     initTinymce() {
-      const _this = this;
+      const self = this;
       window.tinymce.init({
         language: this.language,
         // language cnd URL, detail see https://github.com/PanJiaChen/tinymce-lang
@@ -113,7 +114,7 @@ export default {
         object_resizing: false,
         toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar,
         menubar: this.menubar,
-        plugins: plugins,
+        plugins,
         end_container_on_empty_block: true,
         powerpaste_word_import: 'clean',
         code_dialog_height: 450,
@@ -123,21 +124,22 @@ export default {
         imagetools_cors_hosts: ['www.tinymce.com', 'codepen.io'],
         default_link_target: '_blank',
         link_title: false,
-        nonbreaking_force_tab: true, // inserting nonbreaking space &nbsp; need Nonbreaking Space Plugin
+        // inserting nonbreaking space &nbsp; need Nonbreaking Space Plugin
+        nonbreaking_force_tab: true,
         init_instance_callback: editor => {
-          if (_this.value) {
-            editor.setContent(_this.value);
+          if (self.value) {
+            editor.setContent(self.value);
           }
-          _this.hasInit = true;
+          self.hasInit = true;
           editor.on('NodeChange Change KeyUp SetContent', () => {
             this.hasChange = true;
             this.$emit('input', editor.getContent());
-          })
+          });
         },
         setup(editor) {
-          editor.on('FullscreenStateChanged', (e) => {
-            _this.fullscreen = e.state;
-          })
+          editor.on('FullscreenStateChanged', e => {
+            self.fullscreen = e.state;
+          });
         }
         // 整合七牛上传
         // images_dataimg_filter(img) {
@@ -172,7 +174,7 @@ export default {
         //     console.log(err);
         //   });
         // },
-      })
+      });
     },
     destroyTinymce() {
       const tinymce = window.tinymce.get(this.tinymceId);
@@ -191,13 +193,13 @@ export default {
       window.tinymce.get(this.tinymceId).getContent();
     },
     imageSuccessCBK(arr) {
-      const _this = this;
+      const self = this;
       arr.forEach(v => {
-        window.tinymce.get(_this.tinymceId).insertContent(`<img class="wscnph" src="${v.url}" >`);
-      })
+        window.tinymce.get(self.tinymceId).insertContent(`<img class="wscnph" src="${v.url}" >`);
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped>

@@ -12,6 +12,23 @@ export default {
       editor: 'Редактор',
       visitor: 'Посетитель'
     },
+    components: 'Компоненты',
+    component: {
+      avatarUpload: 'Avatar Upload',
+      backToTop: 'Back To Top',
+      countTo: 'Count To',
+      dndList: 'Dnd List',
+      dragDialog: 'Drag Dialog',
+      dragKanban: 'Drag Kanban',
+      dragSelect: 'DragSelect',
+      dropzone: 'Dropzone',
+      jsonEditor: 'Json Editor',
+      markdown: 'Markdown',
+      mixin: 'Mixin',
+      splitPane: 'Split Pane',
+      sticky: 'Sticky',
+      tinymce: 'Tinymce'
+    },
     vuetify: 'Vuetify',
     vuetifyComponents: {
       components: 'Components',

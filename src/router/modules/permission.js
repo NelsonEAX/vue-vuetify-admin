@@ -8,7 +8,7 @@ const permissionRouter = {
   redirect: 'noredirect',
   name: 'Permission',
   meta: {
-    title: 'route.permission',
+    title: 'route.permissions',
     icon: 'group'
   },
   children: [
@@ -16,19 +16,19 @@ const permissionRouter = {
       path: 'admin',
       component: () => import('@/views/components/Permission/admin'),
       name: 'PermissionAdmin',
-      meta: { title: 'route.permissions.admin', roles: ['admin'], noCache: true }
+      meta: { title: 'route.permission.admin', roles: ['admin'], noCache: true }
     },
     {
       path: 'editor',
       component: () => import('@/views/components/Permission/editor'),
       name: 'PermissionEditor',
-      meta: { title: 'route.permissions.editor', roles: ['editor'], noCache: true }
+      meta: { title: 'route.permission.editor', roles: ['editor'], noCache: true }
     },
     {
       path: 'visitor',
       component: () => import('@/views/components/Permission/visitor'),
       name: 'PermissionVisitor',
-      meta: { title: 'route.permissions.visitor', roles: ['visitor'], noCache: true }
+      meta: { title: 'route.permission.visitor', roles: ['visitor'], noCache: true }
     }
   ]
 };
