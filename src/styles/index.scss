@@ -1,1 +1,20 @@
 @import './transition.scss';
+
+$z_index_0: 1000;
+$z_index_1: 1010;
+$z_index_2: 1020;
+
+#app-drawer {
+  z-index: $z_index_1;
+}
+
+#app-toolbar {
+  z-index: $z_index_0;
+}
+
+#app-fab {
+  z-index: $z_index_0;
+  #app-fab-btn {
+    z-index: $z_index_0;
+  }
+}

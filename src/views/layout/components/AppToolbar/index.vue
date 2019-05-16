@@ -1,5 +1,6 @@
 <template>
   <v-toolbar
+    id="app-toolbar"
     app
     :dense="toolbarDense"
   >
