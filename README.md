@@ -1,5 +1,5 @@
 # vue-vuetify-admin
-Material admin panel based on vue2 and vuetify [Demo](https://nelsoneax.github.io/)
+Material admin panel based on vue2 and vuetify [Demo](https://nelsoneax.github.io/vue-vuetify-admin/)
 
 <p align="center">
   <img width="320" src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-300.png">
@@ -33,9 +33,9 @@ En | [Ru](./README.ru.md)
 
 ## Introduction
 
-[vue-vuetify-admin](https://NelsonEAX.github.io/vue-vuetify-admin) is a production-ready front-end solution 
+[vue-vuetify-admin](https://nelsoneax.github.io/vue-vuetify-admin/) is a production-ready front-end solution 
 for admin interfaces. It based on [vue](https://github.com/vuejs/vue) and use the 
-UI Toolkit [element-ui](https://github.com/ElemeFE/element).
+material design component framework [vuetify](https://github.com/vuetifyjs/vuetify).
 
 It is a magical vue admin based on the newest development stack of vue, built-in i18n solution, 
 typical templates for enterprise applications, lots of awesome features. It helps you build a 
