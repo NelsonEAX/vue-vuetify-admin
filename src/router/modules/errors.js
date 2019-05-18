@@ -29,13 +29,13 @@ const errorsRouter = {
       component: () => import('@/views/components/Error/pg404.vue'),
       name: 'Page404',
       meta: { title: 'route.errorPages.page404', noCache: true }
-    },
+    } /* ,
     {
       path: '500',
       component: () => import('@/views/components/Error/pg500.vue'),
       name: 'Page500',
       meta: { title: 'route.errorPages.page500', noCache: true }
-    }
+    } */
   ]
 };
 
