@@ -4,13 +4,13 @@ const authRouter = [
   {
     path: '/login',
     alias: '/singin',
-    component: () => import('@/views/auth/SingIn'),
+    component: () => import('@/views/auth/SingIn.vue'),
     hidden: true
   },
   {
     path: '/registration',
     alias: '/singup',
-    component: () => import('@/views/auth/SingUp'),
+    component: () => import('@/views/auth/SingUp.vue'),
     hidden: true
   }
 ];
