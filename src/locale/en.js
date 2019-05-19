@@ -22,6 +22,7 @@ export default {
     },
     errors: 'Errors',
     errorPages: {
+      page301: '301',
       page401: '401',
       page403: '403',
       page404: '404',
@@ -57,6 +58,15 @@ export default {
     email: 'Email',
     password: 'Password',
     confirm: 'Confirm'
+  },
+  errors: {
+    whoops: 'Whoops',
+    back: 'Get me out of here!',
+    301: 'Moved Permanently',
+    401: 'Unauthorized',
+    403: 'Forbidden',
+    404: 'Not Found',
+    500: 'Internal Server Error'
   },
   guide: {
     description: 'The guide page is useful for some people who entered the project for '

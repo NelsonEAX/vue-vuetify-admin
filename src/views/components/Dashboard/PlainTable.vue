@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { Projects } from '@/api/project';
+import { Projects } from '@/api/mock_project';
 
 export default {
   data() {

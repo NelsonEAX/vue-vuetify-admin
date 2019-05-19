@@ -1,6 +1,7 @@
 /** When your routing table is too long, you can split it into small modules */
 
 import Layout from '@/views/layout/Layout.vue';
+import ErrorPage from '@/views/components/Error/Page.vue';
 
 const errorsRouter = {
   path: '/error',
@@ -13,29 +14,40 @@ const errorsRouter = {
   },
   children: [
     {
+      path: '301',
+      component: ErrorPage,
+      name: 'Page301',
+      meta: { title: 'route.errorPages.page301', noCache: true },
+      props: { errorCode: 301 }
+    },
+    {
       path: '401',
-      component: () => import('@/views/components/Error/pg401.vue'),
+      component: ErrorPage,
       name: 'Page401',
-      meta: { title: 'route.errorPages.page401', noCache: true }
+      meta: { title: 'route.errorPages.page401', noCache: true },
+      props: { errorCode: 401 }
     },
     {
       path: '403',
-      component: () => import('@/views/components/Error/pg403.vue'),
+      component: ErrorPage,
       name: 'Page403',
-      meta: { title: 'route.errorPages.page403', noCache: true }
+      meta: { title: 'route.errorPages.page403', noCache: true },
+      props: { errorCode: 403 }
     },
     {
       path: '404',
-      component: () => import('@/views/components/Error/pg404.vue'),
+      component: ErrorPage,
       name: 'Page404',
-      meta: { title: 'route.errorPages.page404', noCache: true }
-    } /* ,
+      meta: { title: 'route.errorPages.page404', noCache: true },
+      props: { errorCode: 404 }
+    },
     {
       path: '500',
-      component: () => import('@/views/components/Error/pg500.vue'),
+      component: ErrorPage,
       name: 'Page500',
-      meta: { title: 'route.errorPages.page500', noCache: true }
-    } */
+      meta: { title: 'route.errorPages.page500', noCache: true },
+      props: { errorCode: 500 }
+    }
   ]
 };
 
