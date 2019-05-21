@@ -1,8 +1,8 @@
 @import './transition.scss';
 
-$z_index_0: 1000;
-$z_index_1: 1010;
-$z_index_2: 1020;
+$z_index_0: 10000;
+$z_index_1: 10100;
+$z_index_2: 10200;
 
 #app-drawer {
   z-index: $z_index_1;

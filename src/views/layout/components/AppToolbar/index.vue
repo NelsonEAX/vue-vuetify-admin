@@ -5,15 +5,15 @@
     :dense="toolbarDense"
   >
     <v-toolbar-side-icon
-      class="hamburger-container"
+      id="hamburger-container"
       @click.stop="toggleNavbar"
     ></v-toolbar-side-icon>
-    <breadcrumbs class="breadcrumbs-container"/>
+    <breadcrumbs id="breadcrumbs-container"/>
     <v-spacer></v-spacer>
-    <full-screen-toggle class="fullscreen-container"/>
-    <notification class="notification-container"/>
-    <localization class="localization-container"/>
-    <profile class="profile-container"/>
+    <full-screen-toggle id="fullscreen-container"/>
+    <notification id="notification-container"/>
+    <localization id="localization-container"/>
+    <profile id="profile-container"/>
   </v-toolbar>
 </template>
 
