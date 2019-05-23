@@ -4,37 +4,44 @@
  * @param {boolean} immediate
  * @return {*}
  */
-export function debounce(func, wait, immediate) {
-  let timeout, args, context, timestamp, result;
+function debounce(func, wait, immediate) {
+  let timeout;
+  let args;
+  let context;
+  let timestamp;
+  let result;
 
-  const later = function() {
-    // 据上一次触发时间间隔
+  const later = () => {
+    // According to the last trigger interval
     const last = +new Date() - timestamp;
 
-    // 上次被包装函数被调用时间间隔 last 小于设定时间间隔 wait
+    // The last time the wrapped function was called,
+    // the interval is last less than the set interval. wait
     if (last < wait && last > 0) {
       timeout = setTimeout(later, wait - last);
     } else {
       timeout = null;
-      // 如果设定为immediate===true，因为开始边界已经调用过了此处无需调用
+      // If it is set to immediate===true, since the start boundary has already been called,
+      // there is no need to call it here.
       if (!immediate) {
         result = func.apply(context, args);
-        if (!timeout) context = args = null;
+        if (!timeout) context = args == null;
       }
     }
   };
 
-  return function(...args) {
+  return (...args1) => {
     context = this;
     timestamp = +new Date();
     const callNow = immediate && !timeout;
-    // 如果延时不存在，重新设定延时
+    // If the delay does not exist, reset the delay
     if (!timeout) timeout = setTimeout(later, wait);
     if (callNow) {
-      result = func.apply(context, args);
-      context = args = null;
+      result = func.apply(context, args1);
+      context = args1 == null;
     }
-
     return result;
-  }
+  };
 }
+
+export default debounce;

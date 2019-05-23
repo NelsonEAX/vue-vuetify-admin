@@ -51,7 +51,7 @@ import {
   getPieChartOption,
   getBarChartOption
 } from '@/api/mock';
-import * as Activity from '@/api/activity';
+import * as Activity from '@/api/mock_activity';
 
 import GithubCorner from '@/views/components/Dashboard/GithubCorner.vue';
 import PanelGroup from '@/views/components/Dashboard/PanelGroup.vue';

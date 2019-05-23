@@ -1,6 +1,14 @@
 const steps = [
   {
-    element: '.hamburger-container',
+    element: '#app-drawer',
+    popover: {
+      title: 'Navbar',
+      description: 'Application navigation',
+      position: 'right'
+    }
+  },
+  {
+    element: '#hamburger-container',
     popover: {
       title: 'Hamburger',
       description: 'Open && Close sidebar',
@@ -8,7 +16,7 @@ const steps = [
     }
   },
   {
-    element: '.breadcrumbs-container',
+    element: '#breadcrumbs-container',
     popover: {
       title: 'Breadcrumb',
       description: 'Indicate the current page location',
@@ -16,7 +24,7 @@ const steps = [
     }
   },
   {
-    element: '.fullscreen-container',
+    element: '#fullscreen-container',
     popover: {
       title: 'Screenfull',
       description: 'Bring the page into fullscreen',
@@ -24,15 +32,15 @@ const steps = [
     }
   },
   {
-    element: '.notification-container',
+    element: '#notification-container',
     popover: {
       title: 'System notification',
-      description: '########################',
+      description: 'System and user messages',
       position: 'left'
     }
   },
   {
-    element: '.localization-container',
+    element: '#localization-container',
     popover: {
       title: 'Switch language',
       description: 'Switch the system language',
@@ -40,10 +48,10 @@ const steps = [
     }
   },
   {
-    element: '.profile-container',
+    element: '#profile-container',
     popover: {
       title: 'Profile',
-      description: '########################',
+      description: 'User information && actions',
       position: 'left'
     }
   },
@@ -51,7 +59,7 @@ const steps = [
     element: '#app-fab-btn',
     popover: {
       title: 'Fab Settings',
-      description: '########################',
+      description: 'Application settings',
       position: 'left'
     },
     padding: 0

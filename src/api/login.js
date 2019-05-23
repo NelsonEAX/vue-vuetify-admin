@@ -18,7 +18,7 @@ export function loginByEmail(email, password) {
 }
 
 export function getUserInfo(token) {
-  console.log(`token ${token}`);
+  console.log(`[getUserInfo] token ${token}`);
   return new Promise((resolve, reject) => {
     if (token) {
       let user = userEditor;

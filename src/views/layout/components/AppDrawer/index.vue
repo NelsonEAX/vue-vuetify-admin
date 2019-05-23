@@ -1,5 +1,6 @@
 <template>
   <v-navigation-drawer
+    id="app-drawer"
     dark
     fixed
     app
@@ -63,12 +64,3 @@ export default {
 };
 
 </script>
-
-<style lang="scss">
-  .scroll-area {
-    position: relative;
-    margin: auto;
-    width: 400px;
-    height: 300px;
-  }
-</style>

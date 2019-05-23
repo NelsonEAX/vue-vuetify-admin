@@ -3,14 +3,14 @@
     <v-layout justify-center align-center column>
       <v-btn
         color="info"
-        href="https://github.com/NelsonEAX/vue-vuetify-admin"
+        href="https://github.com/NelsonEAX/vue-vuetify-admin/blob/master/README.md"
         target="_blank"
       >
         Documentation
       </v-btn>
       <v-btn
         color="info"
-        href="https://github.com/NelsonEAX/vue-vuetify-admin/blob/master/README.md"
+        href="https://github.com/NelsonEAX/vue-vuetify-admin/"
         target="_blank"
       >
         Github Repository

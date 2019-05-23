@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { debounce } from '@/utils';
+import debounce from '@/utils';
 import echarts from 'echarts';
 
 require('echarts/theme/macarons'); // echarts theme
