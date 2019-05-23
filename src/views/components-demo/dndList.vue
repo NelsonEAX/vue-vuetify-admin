@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import DndList from '@/components/DndList'
-import { fetchList } from '@/api/article'
+import DndList from '@/components/DndList';
+import { fetchList } from '@/api/article';
 
 export default {
   name: 'DndListDemo',
@@ -20,19 +20,19 @@ export default {
     return {
       list1: [],
       list2: []
-    }
+    };
   },
   created() {
-    this.getData()
+    this.getData();
   },
   methods: {
     getData() {
-      this.listLoading = true
+      this.listLoading = true;
       fetchList().then(response => {
-        this.list1 = response.data.items.splice(0, 5)
-        this.list2 = response.data.items
-      })
+        this.list1 = response.data.items.splice(0, 5);
+        this.list2 = response.data.items;
+      });
     }
   }
-}
+};
 </script>

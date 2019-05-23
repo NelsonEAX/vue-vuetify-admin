@@ -95,7 +95,7 @@
 </template>
 
 <script>
-import Sticky from '@/components/Sticky'
+import Sticky from '@/components/Sticky';
 
 export default {
   name: 'StickyDemo',
@@ -112,12 +112,12 @@ export default {
       ],
       pickerOptions: {
         disabledDate(time) {
-          return time.getTime() > Date.now()
+          return time.getTime() > Date.now();
         }
       }
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped>

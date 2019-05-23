@@ -96,11 +96,11 @@
 </template>
 
 <script>
-import PanThumb from '@/components/PanThumb'
-import MdInput from '@/components/MDinput'
-import Mallki from '@/components/TextHoverEffect/Mallki'
-import DropdownMenu from '@/components/Share/dropdownMenu'
-import waves from '@/directive/waves/index.js' // 水波纹指令
+import PanThumb from '@/components/PanThumb';
+import MdInput from '@/components/MDinput';
+import Mallki from '@/components/TextHoverEffect/Mallki';
+import DropdownMenu from '@/components/Share/dropdownMenu';
+import waves from '@/directive/waves/index.js'; // 水波纹指令
 
 export default {
   name: 'ComponentMixinDemo',
@@ -116,11 +116,11 @@ export default {
   data() {
     const validate = (rule, value, callback) => {
       if (value.length !== 6) {
-        callback(new Error('请输入六个字符'))
+        callback(new Error('请输入六个字符'));
       } else {
-        callback()
+        callback();
       }
-    }
+    };
     return {
       demo: {
         title: ''
@@ -135,9 +135,9 @@ export default {
         { title: 'vue-admin-template 篇', href: 'https://juejin.im/post/595b4d776fb9a06bbe7dba56' },
         { title: '优雅的使用 icon', href: 'https://juejin.im/post/59bb864b5188257e7a427c09' }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped>

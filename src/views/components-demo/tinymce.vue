@@ -12,7 +12,7 @@
             <a
               target="_blank"
               class="link-type"
-              href="https://panjiachen.github.io/vue-element-admin-site/component/rich-editor.html"
+              href="https://www.tiny.cloud/docs/"
             >
               {{ $t('components.documentation') }}
             </a>

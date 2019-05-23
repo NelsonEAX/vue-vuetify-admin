@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import countTo from 'vue-count-to'
+import countTo from 'vue-count-to';
 
 export default {
   name: 'CountToDemo',
@@ -64,60 +64,56 @@ export default {
       setSeparator: ',',
       setSuffix: ' rmb',
       setPrefix: '¥ '
-    }
+    };
   },
   computed: {
     _startVal() {
       if (this.setStartVal) {
-        return this.setStartVal
-      } else {
-        return 0
+        return this.setStartVal;
       }
+      return 0;
     },
     _endVal() {
       if (this.setEndVal) {
-        return this.setEndVal
-      } else {
-        return 0
+        return this.setEndVal;
       }
+      return 0;
     },
     _duration() {
       if (this.setDuration) {
-        return this.setDuration
-      } else {
-        return 100
+        return this.setDuration;
       }
+      return 100;
     },
     _decimals() {
       if (this.setDecimals) {
         if (this.setDecimals < 0 || this.setDecimals > 20) {
-          alert('digits argument must be between 0 and 20')
-          return 0
+          alert('digits argument must be between 0 and 20');
+          return 0;
         }
-        return this.setDecimals
-      } else {
-        return 0
+        return this.setDecimals;
       }
+      return 0;
     },
     _separator() {
-      return this.setSeparator
+      return this.setSeparator;
     },
     _suffix() {
-      return this.setSuffix
+      return this.setSuffix;
     },
     _prefix() {
-      return this.setPrefix
+      return this.setPrefix;
     }
   },
   methods: {
     start() {
-      this.$refs.example.start()
+      this.$refs.example.start();
     },
     pauseResume() {
-      this.$refs.example.pauseResume()
+      this.$refs.example.pauseResume();
     }
   }
-}
+};
 </script>
 
 <style scoped>
