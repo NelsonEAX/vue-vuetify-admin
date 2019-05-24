@@ -23,13 +23,13 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/markdown'),
       name: 'MarkdownDemo',
       meta: { title: 'route.component.markdown' }
-    }/* ,
+    },
     {
       path: 'json-editor',
       component: () => import('@/views/components-demo/jsonEditor'),
       name: 'JsonEditorDemo',
       meta: { title: 'route.component.jsonEditor' }
-    },
+    } /* ,
     {
       path: 'splitpane',
       component: () => import('@/views/components-demo/splitpane'),
