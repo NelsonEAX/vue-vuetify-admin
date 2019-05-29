@@ -9,25 +9,25 @@ import CodeMirror from 'codemirror';
 import 'codemirror/addon/lint/lint.css';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/rubyblue.css';
-// require('script-loader!jsonlint');
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/addon/lint/lint';
 import 'codemirror/addon/lint/json-lint';
+// eslint-disable-next-line
+require('script-loader!jsonlint');
 
 export default {
   name: 'JsonEditor',
-  /* eslint-disable vue/require-prop-types */
   props: ['value'],
   data() {
     return {
       jsonEditor: false
-    }
+    };
   },
   watch: {
     value(value) {
-      const editorValue = this.jsonEditor.getValue()
+      const editorValue = this.jsonEditor.getValue();
       if (value !== editorValue) {
-        this.jsonEditor.setValue(JSON.stringify(this.value, null, 2))
+        this.jsonEditor.setValue(JSON.stringify(this.value, null, 2));
       }
     }
   },
@@ -40,11 +40,11 @@ export default {
       lint: true
     });
 
-    this.jsonEditor.setValue(JSON.stringify(this.value, null, 2))
+    this.jsonEditor.setValue(JSON.stringify(this.value, null, 2));
     this.jsonEditor.on('change', cm => {
       this.$emit('changed', cm.getValue());
       this.$emit('input', cm.getValue());
-    })
+    });
   },
   methods: {
     getValue() {

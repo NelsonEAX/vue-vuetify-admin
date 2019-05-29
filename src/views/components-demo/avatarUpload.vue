@@ -1,32 +1,49 @@
 <template>
-  <div class="components-container">
-    <code>This is based on
-      <a class="link-type" href="//github.com/dai-siki/vue-image-crop-upload"> vue-image-crop-upload</a>.
-      {{ $t('components.imageUploadTips') }}
-    </code>
+  <v-container fluid grid-list-md>
+    <v-layout row wrap>
+      <v-flex d-flex xs12>
+        <v-alert
+          :value="true"
+          color="info"
+          outline
+        >
+          {{ $t('components.thisBaseOn') }}
+          <a
+            class="link-type"
+            href="//github.com/dai-siki/vue-image-crop-upload"
+          >vue-image-crop-upload</a>.
+          {{ $t('components.imageUploadTips') }}
+        </v-alert>
+      </v-flex>
+      <v-flex d-flex xs12 sm5 md3>
+        <pan-thumb :image="image" />
 
-    <pan-thumb :image="image" />
+        <v-btn
+          color="info"
+          @click="imagecropperShow=true"
+        >
+          Change Avatar
+          <v-icon right dark>cloud_upload</v-icon>
+        </v-btn>
 
-    <el-button type="primary" icon="upload" style="position: absolute;bottom: 15px;margin-left: 40px;" @click="imagecropperShow=true">
-      Change Avatar
-    </el-button>
-
-    <image-cropper
-      v-show="imagecropperShow"
-      :key="imagecropperKey"
-      :width="300"
-      :height="300"
-      url="https://httpbin.org/post"
-      lang-type="en"
-      @close="close"
-      @crop-upload-success="cropSuccess"
-    />
-  </div>
+        <image-cropper
+          v-show="imagecropperShow"
+          :key="imagecropperKey"
+          :width="300"
+          :height="300"
+          url="https://httpbin.org/post"
+          lang-type="en"
+          @close="close"
+          @crop-upload-success="cropSuccess"
+        />
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
-import ImageCropper from '@/components/ImageCropper';
-import PanThumb from '@/components/PanThumb';
+import ImageCropper from '@/components/ImageCropper/index.vue';
+import PanThumb from '@/components/PanThumb/index.vue';
 
 export default {
   name: 'AvatarUploadDemo',
@@ -50,11 +67,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-  .avatar{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-  }
-</style>

@@ -29,7 +29,7 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/jsonEditor'),
       name: 'JsonEditorDemo',
       meta: { title: 'route.component.jsonEditor' }
-    } /* ,
+    },
     {
       path: 'splitpane',
       component: () => import('@/views/components-demo/splitpane'),
@@ -53,7 +53,7 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/sticky'),
       name: 'StickyDemo',
       meta: { title: 'route.component.sticky' }
-    },
+    } /* ,
     {
       path: 'count-to',
       component: () => import('@/views/components-demo/countTo'),

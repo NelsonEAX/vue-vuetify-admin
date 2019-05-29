@@ -7,11 +7,11 @@
           color="info"
           outline
         >
-          JsonEditor is base on
+          JsonEditor {{ $t('components.baseOn') }}
           <a
             target="_blank"
             href="https://github.com/codemirror/CodeMirror"
-          >CodeMirrorr</a>, lint base on json-lint
+          >CodeMirrorr</a>, lint {{ $t('components.baseOn') }} json-lint
         </v-alert>
       </v-flex>
       <v-flex d-flex xs12>
@@ -22,7 +22,8 @@
 </template>
 
 <script>
-import JsonEditor from '@/components/JsonEditor';
+import JsonEditor from '@/components/JsonEditor/index.vue';
+
 const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},'
   + '{"market_type":"forexdata","symbol":"UKOIL"},'
   + '{"market_type":"forexdata","symbol":"CORN"}],"name":""},'

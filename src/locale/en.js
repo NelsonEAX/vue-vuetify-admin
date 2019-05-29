@@ -91,7 +91,13 @@ export default {
     button: 'Show Guide'
   },
   components: {
+    thisBaseOn: 'This is based on',
+    baseOn: 'is based on',
     documentation: 'Documentation',
-    tinymceTips: 'Online rich-text editor released as open-source software under the LGPL.'
+    dropHere: 'Drop files here to upload',
+    tinymceTips: 'Online rich-text editor released as open-source software under the LGPL.',
+    imageUploadTips: 'Modified. If you are going to use it, it is better to use official version.',
+    dropzoneTips: '',
+    stickyTips: 'when the page is scrolled to the preset position will be sticky on the top.'
   }
 };

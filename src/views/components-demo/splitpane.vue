@@ -1,26 +1,37 @@
 <template>
-  <div class="components-container">
-    <code><strong>SplitPane</strong> If you've used
-      <a href="http://codepen.io/" target="_blank"> codepen</a>,
-      <a href="https://jsfiddle.net/" target="_blank"> jsfiddle </a>will not be unfamiliar.
-      <a href="https://github.com/PanJiaChen/vue-split-pane" target="_blank"> Github repository</a>
-    </code>
-    <split-pane split="vertical" @resize="resize">
-      <template slot="paneL">
-        <div class="left-container" />
-      </template>
-      <template slot="paneR">
-        <split-pane split="horizontal">
+  <v-container fluid grid-list-md>
+    <v-layout row wrap>
+      <v-flex d-flex xs12>
+        <v-alert
+          :value="true"
+          color="info"
+          outline
+        >
+          <strong>SplitPane</strong> If you've used
+          <a href="http://codepen.io/" target="_blank">codepen</a>,
+          <a href="https://jsfiddle.net/" target="_blank">jsfiddle</a>will not be unfamiliar.
+          <a href="https://github.com/PanJiaChen/vue-split-pane" target="_blank">Github</a>
+        </v-alert>
+      </v-flex>
+      <v-flex d-flex xs12 class="components-container">
+        <split-pane split="vertical" @resize="resize">
           <template slot="paneL">
-            <div class="top-container" />
+            <div class="left-container"/>
           </template>
           <template slot="paneR">
-            <div class="bottom-container" />
+            <split-pane split="horizontal">
+              <template slot="paneL">
+                <div class="top-container"/>
+              </template>
+              <template slot="paneR">
+                <div class="bottom-container"/>
+              </template>
+            </split-pane>
           </template>
         </split-pane>
-      </template>
-    </split-pane>
-  </div>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
