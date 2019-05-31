@@ -53,25 +53,25 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/sticky'),
       name: 'StickyDemo',
       meta: { title: 'route.component.sticky' }
-    } /* ,
+    },
     {
       path: 'count-to',
       component: () => import('@/views/components-demo/countTo'),
       name: 'CountToDemo',
       meta: { title: 'route.component.countTo' }
-    },
+    } /* ,
     {
       path: 'mixin',
       component: () => import('@/views/components-demo/mixin'),
       name: 'ComponentMixinDemo',
       meta: { title: 'route.component.mixin' }
-    },
+    } */ ,
     {
       path: 'back-to-top',
       component: () => import('@/views/components-demo/backToTop'),
       name: 'BackToTopDemo',
       meta: { title: 'backToTop' }
-    },
+    } /* ,
     {
       path: 'drag-dialog',
       component: () => import('@/views/components-demo/dragDialog'),

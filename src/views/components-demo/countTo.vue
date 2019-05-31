@@ -1,52 +1,58 @@
 <template>
-  <div class="components-container">
-    <p class="warn-content">
-      <a href="https://github.com/PanJiaChen/vue-countTo" target="_blank">countTo-component</a>
-    </p>
-    <count-to
-      ref="example"
-      :start-val="_startVal"
-      :end-val="_endVal"
-      :duration="_duration"
-      :decimals="_decimals"
-      :separator="_separator"
-      :prefix="_prefix"
-      :suffix="_suffix"
-      :autoplay="false"
-      class="example"
-    />
-    <div style="margin-left: 25%;margin-top: 40px;">
-      <label class="label" for="startValInput">startVal:
-        <input v-model.number="setStartVal" type="number" name="startValInput">
-      </label>
-      <label class="label" for="endValInput">endVal:
-        <input v-model.number="setEndVal" type="number" name="endVaInput">
-      </label>
-      <label class="label" for="durationInput">duration:
-        <input v-model.number="setDuration" type="number" name="durationInput">
-      </label>
-      <div class="startBtn example-btn" @click="start">开始</div>
-      <div class="pause-resume-btn example-btn" @click="pauseResume">暂停/恢复</div>
-      <br>
-      <label class="label" for="decimalsInput">decimals:
-        <input v-model.number="setDecimals" type="number" name="decimalsInput">
-      </label>
-      <label class="label" for="separatorInput">separator:
-        <input v-model="setSeparator" name="separatorInput">
-      </label>
-      <label class="label" for="prefixInput">prefix:
-        <input v-model="setPrefix" name="prefixInput">
-      </label>
-      <label class="label" for="suffixInput">suffix:
-        <input v-model="setSuffix" name="suffixInput">
-      </label>
-    </div>
-    <code>
-      &lt;count-to :start-val=&#x27;{{ _startVal }}&#x27; :end-val=&#x27;{{ _endVal }}&#x27; :duration=&#x27;{{ _duration }}&#x27;
-      :decimals=&#x27;{{ _decimals }}&#x27; :separator=&#x27;{{ _separator }}&#x27; :prefix=&#x27;{{ _prefix }}&#x27; :suffix=&#x27;{{ _suffix }}&#x27;
-      :autoplay=false&gt;
-    </code>
-  </div>
+  <v-container fluid grid-list-md>
+    <v-layout row wrap align-center>
+      <v-flex xs12 text-xs-center>
+        <v-alert
+          :value="true"
+          color="info"
+          outline
+        >
+          <a href="https://github.com/PanJiaChen/vue-countTo" target="_blank">countTo-component</a>
+        </v-alert>
+        <count-to
+          ref="example"
+          :start-val="_startVal"
+          :end-val="_endVal"
+          :duration="_duration"
+          :decimals="_decimals"
+          :separator="_separator"
+          :prefix="_prefix"
+          :suffix="_suffix"
+          :autoplay="false"
+          class="example"
+        />
+        <div style="margin-left: 25%;margin-top: 40px;">
+          <label class="label" for="startValInput">startVal:
+            <input v-model.number="setStartVal" type="number" id="startValInput">
+          </label>
+          <label class="label" for="endValInput">endVal:
+            <input v-model.number="setEndVal" type="number" id="endValInput">
+          </label>
+          <label class="label" for="durationInput">duration:
+            <input v-model.number="setDuration" type="number" id="durationInput">
+          </label>
+          <div class="startBtn example-btn" @click="start">Start</div>
+          <div class="pause-resume-btn example-btn" @click="pauseResume">Pause/Resume</div>
+          <br>
+          <label class="label" for="decimalsInput">decimals:
+            <input v-model.number="setDecimals" type="number" id="decimalsInput">
+          </label>
+          <label class="label" for="separatorInput">separator:
+            <input v-model="setSeparator" id="separatorInput">
+          </label>
+          <label class="label" for="prefixInput">prefix:
+            <input v-model="setPrefix" id="prefixInput">
+          </label>
+          <label class="label" for="suffixInput">suffix:
+            <input v-model="setSuffix" id="suffixInput">
+          </label>
+        </div>
+        <code>
+&lt;count-to :start-val=&#x27;{{ _startVal }}&#x27; :end-val=&#x27;{{ _endVal }}&#x27; :duration=&#x27;{{ _duration }}&#x27; :decimals=&#x27;{{ _decimals }}&#x27; :separator=&#x27;{{ _separator }}&#x27; :prefix=&#x27;{{ _prefix }}&#x27; :suffix=&#x27;{{ _suffix }}&#x27; :autoplay=false &gt;
+        </code>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -58,12 +64,12 @@ export default {
   data() {
     return {
       setStartVal: 0,
-      setEndVal: 2017,
+      setEndVal: 2019,
       setDuration: 4000,
       setDecimals: 0,
       setSeparator: ',',
-      setSuffix: ' rmb',
-      setPrefix: '¥ '
+      setSuffix: ' usd',
+      setPrefix: '$ '
     };
   },
   computed: {
@@ -88,7 +94,7 @@ export default {
     _decimals() {
       if (this.setDecimals) {
         if (this.setDecimals < 0 || this.setDecimals > 20) {
-          alert('digits argument must be between 0 and 20');
+          // alert('digits argument must be between 0 and 20');
           return 0;
         }
         return this.setDecimals;
