@@ -59,18 +59,18 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/countTo'),
       name: 'CountToDemo',
       meta: { title: 'route.component.countTo' }
-    } /* ,
+    }, /* ,
     {
       path: 'mixin',
       component: () => import('@/views/components-demo/mixin'),
       name: 'ComponentMixinDemo',
       meta: { title: 'route.component.mixin' }
-    } */ ,
+    }, */
     {
       path: 'back-to-top',
       component: () => import('@/views/components-demo/backToTop'),
       name: 'BackToTopDemo',
-      meta: { title: 'backToTop' }
+      meta: { title: 'route.component.backToTop' }
     } /* ,
     {
       path: 'drag-dialog',

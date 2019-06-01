@@ -11,44 +11,85 @@
         </v-alert>
         <count-to
           ref="example"
-          :start-val="_startVal"
-          :end-val="_endVal"
-          :duration="_duration"
-          :decimals="_decimals"
-          :separator="_separator"
-          :prefix="_prefix"
-          :suffix="_suffix"
+          :start-val="Number(startVal)"
+          :end-val="Number(endVal)"
+          :duration="Number(duration)"
+          :decimals="Number(decimals)"
+          :separator="separator"
+          :prefix="prefix"
+          :suffix="suffix"
           :autoplay="false"
           class="example"
         />
-        <div style="margin-left: 25%;margin-top: 40px;">
-          <label class="label" for="startValInput">startVal:
-            <input v-model.number="setStartVal" type="number" id="startValInput">
-          </label>
-          <label class="label" for="endValInput">endVal:
-            <input v-model.number="setEndVal" type="number" id="endValInput">
-          </label>
-          <label class="label" for="durationInput">duration:
-            <input v-model.number="setDuration" type="number" id="durationInput">
-          </label>
-          <div class="startBtn example-btn" @click="start">Start</div>
-          <div class="pause-resume-btn example-btn" @click="pauseResume">Pause/Resume</div>
-          <br>
-          <label class="label" for="decimalsInput">decimals:
-            <input v-model.number="setDecimals" type="number" id="decimalsInput">
-          </label>
-          <label class="label" for="separatorInput">separator:
-            <input v-model="setSeparator" id="separatorInput">
-          </label>
-          <label class="label" for="prefixInput">prefix:
-            <input v-model="setPrefix" id="prefixInput">
-          </label>
-          <label class="label" for="suffixInput">suffix:
-            <input v-model="setSuffix" id="suffixInput">
-          </label>
-        </div>
+      </v-flex>
+
+      <v-flex xs4 sm2 offset-sm2>
+        <v-text-field
+          v-model="startVal"
+          label="startVal"
+        ></v-text-field>
+      </v-flex>
+
+      <v-flex xs4 sm2>
+        <v-text-field
+          v-model="endVal"
+          label="endVal"
+        ></v-text-field>
+      </v-flex>
+
+      <v-flex xs4 sm2>
+        <v-text-field
+          v-model="duration"
+          label="duration"
+        ></v-text-field>
+      </v-flex>
+
+      <v-flex xs4 sm2>
+        <v-text-field
+          v-model="decimals"
+          label="decimals"
+        ></v-text-field>
+      </v-flex>
+
+      <v-flex xs4 sm2 offset-sm3>
+        <v-text-field
+          v-model="separator"
+          label="separator"
+        ></v-text-field>
+      </v-flex>
+
+      <v-flex xs4 sm2>
+        <v-text-field
+          v-model="prefix"
+          label="prefix"
+        ></v-text-field>
+      </v-flex>
+
+      <v-flex xs4 sm2 offset-xs4 offset-sm0>
+        <v-text-field
+          v-model="suffix"
+          label="suffix"
+        ></v-text-field>
+      </v-flex>
+
+      <v-flex xs12 text-xs-center>
+        <v-btn
+          color="success"
+          @click.stop="start"
+        >
+          Start
+        </v-btn>
+        <v-btn
+          color="error"
+          @click.stop="pauseResume"
+        >
+          Pause/Resume
+        </v-btn>
+      </v-flex>
+
+      <v-flex xs12 text-xs-center>
         <code>
-&lt;count-to :start-val=&#x27;{{ _startVal }}&#x27; :end-val=&#x27;{{ _endVal }}&#x27; :duration=&#x27;{{ _duration }}&#x27; :decimals=&#x27;{{ _decimals }}&#x27; :separator=&#x27;{{ _separator }}&#x27; :prefix=&#x27;{{ _prefix }}&#x27; :suffix=&#x27;{{ _suffix }}&#x27; :autoplay=false &gt;
+          {{ countTo }}
         </code>
       </v-flex>
     </v-layout>
@@ -61,54 +102,21 @@ import countTo from 'vue-count-to';
 export default {
   name: 'CountToDemo',
   components: { countTo },
-  data() {
-    return {
-      setStartVal: 0,
-      setEndVal: 2019,
-      setDuration: 4000,
-      setDecimals: 0,
-      setSeparator: ',',
-      setSuffix: ' usd',
-      setPrefix: '$ '
-    };
-  },
+  data: () => ({
+    startVal: 0,
+    endVal: 2019,
+    duration: 4000,
+    decimals: 0,
+    separator: ',',
+    suffix: ' usd',
+    prefix: '$ '
+  }),
   computed: {
-    _startVal() {
-      if (this.setStartVal) {
-        return this.setStartVal;
-      }
-      return 0;
-    },
-    _endVal() {
-      if (this.setEndVal) {
-        return this.setEndVal;
-      }
-      return 0;
-    },
-    _duration() {
-      if (this.setDuration) {
-        return this.setDuration;
-      }
-      return 100;
-    },
-    _decimals() {
-      if (this.setDecimals) {
-        if (this.setDecimals < 0 || this.setDecimals > 20) {
-          // alert('digits argument must be between 0 and 20');
-          return 0;
-        }
-        return this.setDecimals;
-      }
-      return 0;
-    },
-    _separator() {
-      return this.setSeparator;
-    },
-    _suffix() {
-      return this.setSuffix;
-    },
-    _prefix() {
-      return this.setPrefix;
+    countTo() {
+      return `<count-to :start-val="${this.startVal}"; :end-val="${this.endVal}" `
+        + `:duration="${this.duration}" :decimals="${this.decimals}" `
+        + `:separator="${this.separator}" :prefix="${this.prefix}" `
+        + `:suffix="${this.suffix}" :autoplay=false >`;
     }
   },
   methods: {
@@ -123,38 +131,7 @@ export default {
 </script>
 
 <style scoped>
-.example-btn {
-  display: inline-block;
-  margin-bottom: 0;
-  font-weight: 500;
-  text-align: center;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  white-space: nowrap;
-  line-height: 1.5;
-  padding: 4px 15px;
-  font-size: 12px;
-  border-radius: 4px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
-  transition: all .3s cubic-bezier(.645, .045, .355, 1);
-  position: relative;
-  color: rgba(0, 0, 0, .65);
-  background-color: #fff;
-  border-color: #d9d9d9;
-}
 
-.example-btn:hover {
-  color: #4AB7BD;
-  background-color: #fff;
-  border-color: #4AB7BD;
-}
 .example {
   font-size: 50px;
   color: #F6416C;
@@ -163,55 +140,5 @@ export default {
   text-align: center;
   font-size: 80px;
   font-weight: 500;
-}
-
-.label {
-  color: #2f4f4f;
-  font-size: 16px;
-  display: inline-block;
-  margin: 15px 30px 15px 0;
-}
-
-input {
-  position: relative;
-  display: inline-block;
-  padding: 4px 7px;
-  width: 70px;
-  height: 28px;
-  cursor: text;
-  font-size: 12px;
-  line-height: 1.5;
-  color: rgba(0, 0, 0, .65);
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-}
-
-.startBtn {
-  margin-left: 20px;
-  font-size: 20px;
-  color: #30B08F;
-  background-color: #fff;
-}
-
-.startBtn:hover {
-  background-color: #30B08F;
-  color: #fff;
-  border-color: #30B08F;
-}
-
-.pause-resume-btn {
-  font-size: 20px;
-  color: #E65D6E;
-  background-color: #fff;
-}
-
-.pause-resume-btn:hover {
-  background-color: #E65D6E;
-  color: #fff;
-  border-color: #E65D6E;
 }
 </style>

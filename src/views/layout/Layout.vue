@@ -4,12 +4,13 @@
     <app-toolbar/>
     <app-main/>
     <app-fab/>
+    <app-to-top-fab/>
   </v-app>
 </template>
 
 <script>
 import {
-  AppDrawer, AppToolbar, AppMain, AppFab
+  AppDrawer, AppToolbar, AppMain, AppFab, AppToTopFab
 } from './components';
 
 export default {
@@ -18,7 +19,8 @@ export default {
     AppDrawer,
     AppToolbar,
     AppMain,
-    AppFab
+    AppFab,
+    AppToTopFab
   },
   data: () => ({})
 };

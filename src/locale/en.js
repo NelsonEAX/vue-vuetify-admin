@@ -98,6 +98,8 @@ export default {
     tinymceTips: 'Online rich-text editor released as open-source software under the LGPL.',
     imageUploadTips: 'Modified. If you are going to use it, it is better to use official version.',
     dropzoneTips: '',
-    stickyTips: 'when the page is scrolled to the preset position will be sticky on the top.'
+    stickyTips: 'when the page is scrolled to the preset position will be sticky on the top.',
+    backToTop: 'When the page is scrolled to the specified position, '
+      + 'the Back to Top button appears in the lower right corner'
   }
 };
