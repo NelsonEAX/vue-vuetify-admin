@@ -71,7 +71,7 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/backToTop'),
       name: 'BackToTopDemo',
       meta: { title: 'route.component.backToTop' }
-    } /* ,
+    }, /*
     {
       path: 'drag-dialog',
       component: () => import('@/views/components-demo/dragDialog'),
@@ -89,13 +89,13 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/dndList'),
       name: 'DndListDemo',
       meta: { title: 'route.component.dndList' }
-    },
+    }, */
     {
       path: 'drag-kanban',
       component: () => import('@/views/components-demo/dragKanban'),
       name: 'DragKanbanDemo',
       meta: { title: 'route.component.dragKanban' }
-    } */
+    }
   ]
 };
 

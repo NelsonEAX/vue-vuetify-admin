@@ -1,67 +1,171 @@
 <template>
-  <div class="components-container board">
-    <Kanban :key="1" :list="list1" :options="options" class="kanban todo" header-text="Todo" />
-    <Kanban :key="2" :list="list2" :options="options" class="kanban working" header-text="Working" />
-    <Kanban :key="3" :list="list3" :options="options" class="kanban done" header-text="Done" />
-  </div>
+  <v-container fluid grid-list-md>
+    <v-layout row wrap>
+      <v-flex d-flex xs12>
+        <v-alert
+          :value="true"
+          color="info"
+          outline
+        >
+          {{ $t('components.thisBaseOn') }}
+          <a
+            class="link-type"
+            href="//github.com/SortableJS/Vue.Draggable"
+          >Vue.Draggable</a>.
+          {{ $t('components.draggable') }}
+        </v-alert>
+      </v-flex>
+    </v-layout>
+    <draggable class="layout row wrap">
+      <kanban
+        :key="1"
+        :list="items1"
+        :options="{ group: 'kanban', class: 'v-list two-line' }"
+        header-text="Kanban1"
+        header-color="pink"
+      ></kanban>
+      <kanban
+        :key="2"
+        :list="items2"
+        :options="{ group: 'kanban', class: 'v-list two-line' }"
+        header-text="Kanban2"
+        header-color="blue"
+      ></kanban>
+      <kanban
+        :key="3"
+        :list="items3"
+        :options="{ group: 'kanban', class: 'v-list two-line' }"
+        header-text="Kanban3"
+        header-color="green"
+      ></kanban>
+    </draggable>
+  </v-container>
 </template>
+
 <script>
-import Kanban from '@/components/Kanban';
+import draggable from 'vuedraggable';
+import Kanban from '@/components/Kanban/index.vue';
 
 export default {
   name: 'DragKanbanDemo',
   components: {
-    Kanban
+    Kanban,
+    draggable
   },
   data() {
     return {
-      options: {
-        group: 'mission'
-      },
-      list1: [
-        { name: 'Mission', id: 1 },
-        { name: 'Mission', id: 2 },
-        { name: 'Mission', id: 3 },
-        { name: 'Mission', id: 4 }
+      items1: [
+        {
+          id: 1,
+          action: '15 min',
+          headline: 'Brunch this weekend?',
+          title: 'Ali Connors',
+          subtitle: "I'll be in your neighborhood doing errands this weekend."
+        },
+        {
+          id: 2,
+          action: '2 hr',
+          headline: 'Summer BBQ',
+          title: 'me, Scrott, Jennifer',
+          subtitle: "Wish I could come, but I'm out of town this weekend."
+        },
+        {
+          id: 3,
+          action: '6 hr',
+          headline: 'Oui oui',
+          title: 'Sandra Adams',
+          subtitle: 'Do you have Paris recommendations? Have you ever been?'
+        },
+        {
+          id: 4,
+          action: '12 hr',
+          headline: 'Birthday gift',
+          title: 'Trevor Hansen',
+          subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+        },
+        {
+          id: 5,
+          action: '18hr',
+          headline: 'Recipe to try',
+          title: 'Britta Holt',
+          subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+        }
       ],
-      list2: [
-        { name: 'Mission', id: 5 },
-        { name: 'Mission', id: 6 },
-        { name: 'Mission', id: 7 }
+      items2: [
+        {
+          id: 6,
+          action: '15 min',
+          headline: 'Brunch this weekend?',
+          title: 'Ali Connors',
+          subtitle: "I'll be in your neighborhood doing errands this weekend."
+        },
+        {
+          id: 7,
+          action: '2 hr',
+          headline: 'Summer BBQ',
+          title: 'me, Scrott, Jennifer',
+          subtitle: "Wish I could come, but I'm out of town this weekend."
+        },
+        {
+          id: 8,
+          action: '6 hr',
+          headline: 'Oui oui',
+          title: 'Sandra Adams',
+          subtitle: 'Do you have Paris recommendations? Have you ever been?'
+        },
+        {
+          id: 9,
+          action: '12 hr',
+          headline: 'Birthday gift',
+          title: 'Trevor Hansen',
+          subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+        }
       ],
-      list3: [
-        { name: 'Mission', id: 8 },
-        { name: 'Mission', id: 9 },
-        { name: 'Mission', id: 10 }
+      items3: [
+        {
+          id: 10,
+          action: '15 min',
+          headline: 'Brunch this weekend?',
+          title: 'Ali Connors',
+          subtitle: "I'll be in your neighborhood doing errands this weekend."
+        },
+        {
+          id: 16,
+          action: '18hr',
+          headline: 'Recipe to try',
+          title: 'Britta Holt',
+          subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+        },
+        {
+          id: 17,
+          action: '2 hr',
+          headline: 'Summer BBQ',
+          title: 'me, Scrott, Jennifer',
+          subtitle: "Wish I could come, but I'm out of town this weekend."
+        },
+        {
+          id: 18,
+          action: '6 hr',
+          headline: 'Oui oui',
+          title: 'Sandra Adams',
+          subtitle: 'Do you have Paris recommendations? Have you ever been?'
+        },
+        {
+          id: 19,
+          action: '12 hr',
+          headline: 'Birthday gift',
+          title: 'Trevor Hansen',
+          subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+        },
+        {
+          id: 20,
+          action: '18hr',
+          headline: 'Recipe to try',
+          title: 'Britta Holt',
+          subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+        }
       ]
     };
   }
 };
 </script>
-<style lang="scss">
-.board {
-  width: 1000px;
-  margin-left: 20px;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  align-items: flex-start;
-}
-.kanban {
-  &.todo {
-    .board-column-header {
-      background: #4A9FF9;
-    }
-  }
-  &.working {
-    .board-column-header {
-      background: #f9944a;
-    }
-  }
-  &.done {
-    .board-column-header {
-      background: #2ac06d;
-    }
-  }
-}
-</style>
