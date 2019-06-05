@@ -59,37 +59,13 @@ const componentsRouter = {
       component: () => import('@/views/components-demo/countTo'),
       name: 'CountToDemo',
       meta: { title: 'route.component.countTo' }
-    }, /* ,
-    {
-      path: 'mixin',
-      component: () => import('@/views/components-demo/mixin'),
-      name: 'ComponentMixinDemo',
-      meta: { title: 'route.component.mixin' }
-    }, */
+    },
     {
       path: 'back-to-top',
       component: () => import('@/views/components-demo/backToTop'),
       name: 'BackToTopDemo',
       meta: { title: 'route.component.backToTop' }
-    }, /*
-    {
-      path: 'drag-dialog',
-      component: () => import('@/views/components-demo/dragDialog'),
-      name: 'DragDialogDemo',
-      meta: { title: 'route.component.dragDialog' }
     },
-    {
-      path: 'drag-select',
-      component: () => import('@/views/components-demo/dragSelect'),
-      name: 'DragSelectDemo',
-      meta: { title: 'route.component.dragSelect' }
-    },
-    {
-      path: 'dnd-list',
-      component: () => import('@/views/components-demo/dndList'),
-      name: 'DndListDemo',
-      meta: { title: 'route.component.dndList' }
-    }, */
     {
       path: 'drag-kanban',
       component: () => import('@/views/components-demo/dragKanban'),
