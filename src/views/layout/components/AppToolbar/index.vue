@@ -34,9 +34,7 @@ export default {
     Notification,
     Profile
   },
-  data() {
-    return {};
-  },
+  data: () => ({}),
   computed: {
     ...mapGetters([
       'toolbarDense'

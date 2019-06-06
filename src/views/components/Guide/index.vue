@@ -21,11 +21,9 @@ import steps from './defineSteps';
 
 export default {
   name: 'Guide',
-  data() {
-    return {
-      driver: null
-    };
-  },
+  data: () => ({
+    driver: null
+  }),
   mounted() {
     this.driver = new Driver();
   },

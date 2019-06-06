@@ -22,11 +22,9 @@ import { locales, changeLocale } from '@/locale';
 
 export default {
   name: 'Localization',
-  data() {
-    return {
-      locales
-    };
-  },
+  data: () => ({
+    locales
+  }),
   methods: {
     changeLocale(lang) {
       changeLocale(lang)

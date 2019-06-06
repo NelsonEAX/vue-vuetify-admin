@@ -85,9 +85,7 @@ import { userAdmin, userEditor } from '@/api/mock';
 
 export default {
   name: 'SingIn',
-  components: {
-    Localization
-  },
+  components: { Localization },
   data: () => ({
     loading: false,
     model: {

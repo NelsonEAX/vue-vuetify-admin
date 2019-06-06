@@ -19,7 +19,7 @@
           :prefix="prefix"
           :suffix="suffix"
           :autoplay="false"
-          class="example"
+          class="display-4 font-weight-medium red--text text--lighten-1"
         />
       </v-flex>
 
@@ -129,16 +129,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-
-.example {
-  font-size: 50px;
-  color: #F6416C;
-  display: block;
-  margin: 10px 0;
-  text-align: center;
-  font-size: 80px;
-  font-weight: 500;
-}
-</style>

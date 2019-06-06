@@ -106,17 +106,15 @@ const content = `
 export default {
   name: 'MarkdownDemo',
   components: { MarkdownEditor },
-  data() {
-    return {
-      content,
-      html: '',
-      languageTypeList: {
-        en: 'en_US',
-        ru: 'ru_RU',
-        es: 'es_ES'
-      }
-    };
-  },
+  data: () => ({
+    content,
+    html: '',
+    languageTypeList: {
+      en: 'en_US',
+      ru: 'ru_RU',
+      es: 'es_ES'
+    }
+  }),
   computed: {
     language() {
       return this.languageTypeList[this.$store.getters.language];

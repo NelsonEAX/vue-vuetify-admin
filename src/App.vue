@@ -17,9 +17,6 @@ export default {
   components: {
     Layout
   },
-  data() {
-    return {};
-  }
+  data: () => ({})
 };
-
 </script>

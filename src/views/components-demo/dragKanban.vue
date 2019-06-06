@@ -52,120 +52,118 @@ export default {
     Kanban,
     draggable
   },
-  data() {
-    return {
-      items1: [
-        {
-          id: 1,
-          action: '15 min',
-          headline: 'Brunch this weekend?',
-          title: 'Ali Connors',
-          subtitle: "I'll be in your neighborhood doing errands this weekend."
-        },
-        {
-          id: 2,
-          action: '2 hr',
-          headline: 'Summer BBQ',
-          title: 'me, Scrott, Jennifer',
-          subtitle: "Wish I could come, but I'm out of town this weekend."
-        },
-        {
-          id: 3,
-          action: '6 hr',
-          headline: 'Oui oui',
-          title: 'Sandra Adams',
-          subtitle: 'Do you have Paris recommendations? Have you ever been?'
-        },
-        {
-          id: 4,
-          action: '12 hr',
-          headline: 'Birthday gift',
-          title: 'Trevor Hansen',
-          subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
-        },
-        {
-          id: 5,
-          action: '18hr',
-          headline: 'Recipe to try',
-          title: 'Britta Holt',
-          subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
-        }
-      ],
-      items2: [
-        {
-          id: 6,
-          action: '15 min',
-          headline: 'Brunch this weekend?',
-          title: 'Ali Connors',
-          subtitle: "I'll be in your neighborhood doing errands this weekend."
-        },
-        {
-          id: 7,
-          action: '2 hr',
-          headline: 'Summer BBQ',
-          title: 'me, Scrott, Jennifer',
-          subtitle: "Wish I could come, but I'm out of town this weekend."
-        },
-        {
-          id: 8,
-          action: '6 hr',
-          headline: 'Oui oui',
-          title: 'Sandra Adams',
-          subtitle: 'Do you have Paris recommendations? Have you ever been?'
-        },
-        {
-          id: 9,
-          action: '12 hr',
-          headline: 'Birthday gift',
-          title: 'Trevor Hansen',
-          subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
-        }
-      ],
-      items3: [
-        {
-          id: 10,
-          action: '15 min',
-          headline: 'Brunch this weekend?',
-          title: 'Ali Connors',
-          subtitle: "I'll be in your neighborhood doing errands this weekend."
-        },
-        {
-          id: 16,
-          action: '18hr',
-          headline: 'Recipe to try',
-          title: 'Britta Holt',
-          subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
-        },
-        {
-          id: 17,
-          action: '2 hr',
-          headline: 'Summer BBQ',
-          title: 'me, Scrott, Jennifer',
-          subtitle: "Wish I could come, but I'm out of town this weekend."
-        },
-        {
-          id: 18,
-          action: '6 hr',
-          headline: 'Oui oui',
-          title: 'Sandra Adams',
-          subtitle: 'Do you have Paris recommendations? Have you ever been?'
-        },
-        {
-          id: 19,
-          action: '12 hr',
-          headline: 'Birthday gift',
-          title: 'Trevor Hansen',
-          subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
-        },
-        {
-          id: 20,
-          action: '18hr',
-          headline: 'Recipe to try',
-          title: 'Britta Holt',
-          subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
-        }
-      ]
-    };
-  }
+  data: () => ({
+    items1: [
+      {
+        id: 1,
+        action: '15 min',
+        headline: 'Brunch this weekend?',
+        title: 'Ali Connors',
+        subtitle: "I'll be in your neighborhood doing errands this weekend."
+      },
+      {
+        id: 2,
+        action: '2 hr',
+        headline: 'Summer BBQ',
+        title: 'me, Scrott, Jennifer',
+        subtitle: "Wish I could come, but I'm out of town this weekend."
+      },
+      {
+        id: 3,
+        action: '6 hr',
+        headline: 'Oui oui',
+        title: 'Sandra Adams',
+        subtitle: 'Do you have Paris recommendations? Have you ever been?'
+      },
+      {
+        id: 4,
+        action: '12 hr',
+        headline: 'Birthday gift',
+        title: 'Trevor Hansen',
+        subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+      },
+      {
+        id: 5,
+        action: '18hr',
+        headline: 'Recipe to try',
+        title: 'Britta Holt',
+        subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+      }
+    ],
+    items2: [
+      {
+        id: 6,
+        action: '15 min',
+        headline: 'Brunch this weekend?',
+        title: 'Ali Connors',
+        subtitle: "I'll be in your neighborhood doing errands this weekend."
+      },
+      {
+        id: 7,
+        action: '2 hr',
+        headline: 'Summer BBQ',
+        title: 'me, Scrott, Jennifer',
+        subtitle: "Wish I could come, but I'm out of town this weekend."
+      },
+      {
+        id: 8,
+        action: '6 hr',
+        headline: 'Oui oui',
+        title: 'Sandra Adams',
+        subtitle: 'Do you have Paris recommendations? Have you ever been?'
+      },
+      {
+        id: 9,
+        action: '12 hr',
+        headline: 'Birthday gift',
+        title: 'Trevor Hansen',
+        subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+      }
+    ],
+    items3: [
+      {
+        id: 10,
+        action: '15 min',
+        headline: 'Brunch this weekend?',
+        title: 'Ali Connors',
+        subtitle: "I'll be in your neighborhood doing errands this weekend."
+      },
+      {
+        id: 16,
+        action: '18hr',
+        headline: 'Recipe to try',
+        title: 'Britta Holt',
+        subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+      },
+      {
+        id: 17,
+        action: '2 hr',
+        headline: 'Summer BBQ',
+        title: 'me, Scrott, Jennifer',
+        subtitle: "Wish I could come, but I'm out of town this weekend."
+      },
+      {
+        id: 18,
+        action: '6 hr',
+        headline: 'Oui oui',
+        title: 'Sandra Adams',
+        subtitle: 'Do you have Paris recommendations? Have you ever been?'
+      },
+      {
+        id: 19,
+        action: '12 hr',
+        headline: 'Birthday gift',
+        title: 'Trevor Hansen',
+        subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+      },
+      {
+        id: 20,
+        action: '18hr',
+        headline: 'Recipe to try',
+        title: 'Britta Holt',
+        subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+      }
+    ]
+  })
 };
 </script>

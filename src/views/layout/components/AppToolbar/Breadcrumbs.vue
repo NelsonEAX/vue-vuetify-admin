@@ -13,11 +13,9 @@ import pathToRegexp from 'path';
 
 export default {
   name: 'Breadcrumbs',
-  data() {
-    return {
-      levelList: null
-    };
-  },
+  data: () => ({
+    levelList: null
+  }),
   watch: {
     $route() {
       this.getBreadcrumb();
@@ -53,7 +51,6 @@ export default {
         && item.meta.title && item.meta.breadcrumb !== false);
     },
     pathCompile(path) {
-      // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
       const { params } = this.$route;
       const toPath = pathToRegexp.compile(path);
       return toPath(params);

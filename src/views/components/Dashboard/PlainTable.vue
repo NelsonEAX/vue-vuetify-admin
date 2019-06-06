@@ -43,26 +43,24 @@
 import { Projects } from '@/api/mock_project';
 
 export default {
-  data() {
-    return {
-      headers: [
-        {
-          text: '#',
-          align: 'center',
-          sortable: false,
-          value: 'avatar'
-        },
-        {
-          text: 'Name',
-          align: 'left',
-          value: 'name'
-        },
-        { text: 'Deadline', value: 'deadline' },
-        { text: 'Progress', value: 'progress' },
-        { text: 'Action', value: 'action', align: 'right' }
-      ]
-    };
-  },
+  data: () => ({
+    headers: [
+      {
+        text: '#',
+        align: 'center',
+        sortable: false,
+        value: 'avatar'
+      },
+      {
+        text: 'Name',
+        align: 'left',
+        value: 'name'
+      },
+      { text: 'Deadline', value: 'deadline' },
+      { text: 'Progress', value: 'progress' },
+      { text: 'Action', value: 'action', align: 'right' }
+    ]
+  }),
   computed: {
     projects() {
       return Projects;

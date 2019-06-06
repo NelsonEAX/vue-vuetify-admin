@@ -28,11 +28,9 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      chart: null
-    };
-  },
+  data: () => ({
+    chart: null
+  }),
   watch: {
     chartData: {
       deep: true,

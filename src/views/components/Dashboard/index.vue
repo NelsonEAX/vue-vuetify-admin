@@ -73,6 +73,11 @@ export default {
   data: () => ({
     lineChartData: lineChartData.newVisitis
   }),
+  computed: {
+    activity() {
+      return Activity.default.getActivity();
+    }
+  },
   methods: {
     handleSetLineChartData(type) {
       this.lineChartData = lineChartData[type];
@@ -90,11 +95,6 @@ export default {
         default:
           return {};
       }
-    }
-  },
-  computed: {
-    activity() {
-      return Activity.default.getActivity();
     }
   }
 };

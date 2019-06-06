@@ -58,37 +58,35 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'Profile',
-  data() {
-    return {
-      menuitems: [
-        {
-          icon: 'account_circle',
-          href: '#',
-          title: 'toolbar.profile',
-          click: e => {
-            console.log(e);
-          }
-        },
-        {
-          icon: 'settings',
-          href: '#',
-          title: 'toolbar.settings',
-          click: () => {
-            console.log('this.toggleSettingsPanel()');
-            this.toggleSettingsPanel();
-          }
-        },
-        {
-          icon: 'exit_to_app',
-          href: '#',
-          title: 'toolbar.logout',
-          click: () => {
-            this.logout();
-          }
+  data: () => ({
+    menuitems: [
+      {
+        icon: 'account_circle',
+        href: '#',
+        title: 'toolbar.profile',
+        click: e => {
+          console.log(e);
         }
-      ]
-    };
-  },
+      },
+      {
+        icon: 'settings',
+        href: '#',
+        title: 'toolbar.settings',
+        click: () => {
+          console.log('this.toggleSettingsPanel()');
+          this.toggleSettingsPanel();
+        }
+      },
+      {
+        icon: 'exit_to_app',
+        href: '#',
+        title: 'toolbar.logout',
+        click: () => {
+          this.logout();
+        }
+      }
+    ]
+  }),
   computed: {
     ...mapGetters([
       'user',

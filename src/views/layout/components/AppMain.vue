@@ -9,8 +9,6 @@
 <script>
 export default {
   name: 'AppMain',
-  data() {
-    return {};
-  }
+  data: () => ({})
 };
 </script>

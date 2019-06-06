@@ -70,9 +70,7 @@ import Localization from '../layout/components/AppToolbar/Localization.vue';
 
 export default {
   name: 'SingUp',
-  components: {
-    Localization
-  },
+  components: { Localization },
   data: () => ({
     loading: false,
     model: {

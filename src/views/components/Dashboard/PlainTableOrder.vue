@@ -34,27 +34,22 @@
 import items from '@/api/mock_order';
 
 export default {
-  data() {
-    return {
-      headers: [
-        {
-          text: '#',
-          align: 'left',
-          sortable: false,
-          value: 'id'
-        },
-        { text: 'Product', value: 'deadline' },
-        { text: 'Price', value: 'progress' },
-        { text: 'Status', value: 'status' }
-      ],
-      items,
-      colors: {
-        processing: 'blue',
-        sent: 'red',
-        delivered: 'green'
-      }
-    };
-  },
+  data: () => ({
+    headers: [
+      {
+        text: '#', align: 'left', sortable: false, value: 'id'
+      },
+      { text: 'Product', value: 'deadline' },
+      { text: 'Price', value: 'progress' },
+      { text: 'Status', value: 'status' }
+    ],
+    items,
+    colors: {
+      processing: 'blue',
+      sent: 'red',
+      delivered: 'green'
+    }
+  }),
   methods: {
     getColorByStatus(status) {
       return this.colors[status];

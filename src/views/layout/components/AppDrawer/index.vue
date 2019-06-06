@@ -37,9 +37,7 @@ export default {
   components: {
     AppDrawerList
   },
-  data() {
-    return {};
-  },
+  data: () => ({}),
   computed: {
     ...mapGetters([
       'permissionRoutes',
@@ -62,5 +60,4 @@ export default {
     });
   }
 };
-
 </script>

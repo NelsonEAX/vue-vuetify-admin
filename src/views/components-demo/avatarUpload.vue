@@ -48,13 +48,11 @@ import PanThumb from '@/components/PanThumb/index.vue';
 export default {
   name: 'AvatarUploadDemo',
   components: { ImageCropper, PanThumb },
-  data() {
-    return {
-      imagecropperShow: false,
-      imagecropperKey: 0,
-      image: 'https://wpimg.wallstcn.com/577965b9-bb9e-4e02-9f0c-095b41417191'
-    };
-  },
+  data: () => ({
+    imagecropperShow: false,
+    imagecropperKey: 0,
+    image: 'https://wpimg.wallstcn.com/577965b9-bb9e-4e02-9f0c-095b41417191'
+  }),
   methods: {
     cropSuccess(resData) {
       this.imagecropperShow = false;
