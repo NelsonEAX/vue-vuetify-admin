@@ -41,6 +41,12 @@ export default {
       page404: '404',
       page500: '500'
     },
+    charts: 'Charts',
+    chart: {
+      keyboardChart: 'Keyboard Chart',
+      lineChart: 'Line Chart',
+      mixChart: 'Mix Chart'
+    },
     nested: {
       nested: 'Nested',
       nested1: 'Level 1',

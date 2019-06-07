@@ -41,6 +41,12 @@ export default {
       page404: '404',
       page500: '500'
     },
+    charts: 'Графики',
+    chart: {
+      keyboardChart: 'Гистограмма',
+      lineChart: 'Линейный',
+      mixChart: 'Смешанный'
+    },
     nested: {
       nested: 'Вложенные',
       nested1: 'Уровень 1',

@@ -70,9 +70,10 @@ export default {
       default: ''
     }
   },
-  data: () => ({
-    onlyOneChild: null
-  }),
+  data() {
+    this.onlyOneChild = null;
+    return {};
+  },
   methods: {
     hasOneShowingChild(children = [], parent) {
       const showingChildren = children.filter(item => {
@@ -108,4 +109,8 @@ export default {
     }
   }
 };
+
 </script>
+
+<style >
+</style>
