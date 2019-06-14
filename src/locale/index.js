@@ -12,22 +12,24 @@ Vue.use(VueI18n);
 const messages = {
   en: {
     ...enLocale,
-    ...enLocaleVuetify
+    $vuetify: enLocaleVuetify
   },
   ru: {
     ...ruLocale,
-    ...ruLocaleVuetify
+    $vuetify: ruLocaleVuetify
   }
 };
 
 export const locales = [
   {
     title: 'English',
-    locale: 'en'
+    locale: 'en',
+    abbr: 'ENG'
   },
   {
     title: 'Русский',
-    locale: 'ru'
+    locale: 'ru',
+    abbr: 'RUS'
   }
 ];
 

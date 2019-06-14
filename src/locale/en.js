@@ -52,7 +52,11 @@ export default {
       nested1: 'Level 1',
       nested2: 'Level 2',
       nested3: 'Level 3'
-    }
+    },
+    i18n: 'i18n',
+    theme: 'Theme',
+    clipboard: 'Clipboard',
+    externalLink: 'External Link'
   },
   toolbar: {
     appname: 'Application',
@@ -94,6 +98,7 @@ export default {
   },
   components: {
     thisBaseOn: 'This is based on',
+    baseOnL18n: 'The internationalization of this project is based on',
     baseOn: 'is based on',
     documentation: 'Documentation',
     dropHere: 'Drop files here to upload',
@@ -104,5 +109,19 @@ export default {
     backToTop: 'When the page is scrolled to the specified position, '
       + 'the Back to Top button appears in the lower right corner',
     draggable: 'Allows you to drag and panel and items inside'
+  },
+  ui: {
+    switch: 'Switch Language',
+    theme: 'Switch Theme',
+    success: 'Success',
+    error: 'Error',
+    warning: 'Warning',
+    info: 'Info',
+    primary: 'Primary',
+    secondary: 'Secondary',
+    default: 'Default',
+    firstName: 'First Name',
+    lastName: 'Last Name',
+    email: 'E-mail'
   }
 };

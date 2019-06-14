@@ -3,7 +3,7 @@ import store from '@/store';
 
 // create an axios instance
 const service = axios.create({
-  baseURL: 'http://swapi.co/api/', // process.env.BASE_API,
+  baseURL: 'https://jsonplaceholder.typicode.com/', // process.env.BASE_API,
   timeout: 5000 // request timeout
 });
 
@@ -15,7 +15,7 @@ service.interceptors.request.use(
       // Let each request carry a token-- ['X-Token']
       // For the custom key, please modify it according to the actual situation.
       // eslint-disable-next-line
-      config.headers['X-Token'] = getToken();
+      config.headers['X-Token'] = store.getters.token; // getToken();
     }
     return config;
   },

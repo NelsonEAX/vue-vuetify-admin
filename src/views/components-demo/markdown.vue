@@ -6,19 +6,13 @@
           :value="true"
           color="info"
           outline
-        >Markdown is based on
+        >Markdown {{ $t('components.baseOn') }}
           <a
             href="https://github.com/nhnent/tui.editor"
             target="_blank"
           >
             tui.editor
-          </a> ，Simply encapsulated in Vue.
-          <a
-            target="_blank"
-            href="https://panjiachen.github.io/vue-element-admin-site/feature/component/markdown-editor.html"
-          >
-            Documentation
-          </a>
+          </a>.
         </v-alert>
       </v-flex>
     </v-layout>

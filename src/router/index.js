@@ -6,20 +6,12 @@ import Layout from '@/views/layout/Layout.vue';
 import Landing from '@/views/auth/Landing.vue';
 
 /* Router Modules */
-// import componentsRouter from './modules/components'
-// import chartsRouter from './modules/charts'
-// import tableRouter from './modules/table'
-// import treeTableRouter from './modules/tree-table'
-// import nestedRouter from './modules/nested'
-
 import authRouter from './modules/auth';
 import errorsRouter from './modules/errors';
 import permissionRouter from './modules/permission';
 import vuetifyRouter from './modules/vuetify';
 import nestedRouter from './modules/nested';
 import componentsRouter from './modules/components';
-import chartsRouter from './modules/charts';
-// import componentsRouter from './modules/components';
 
 Vue.use(Router);
 
@@ -120,7 +112,7 @@ export const asyncRoutes = [
   permissionRouter,
   vuetifyRouter,
   nestedRouter,
-  componentsRouter,
-  chartsRouter,
+  ...componentsRouter,
+  // chartsRouter,
   { path: '*', redirect: '/error/404', hidden: true }
 ];
