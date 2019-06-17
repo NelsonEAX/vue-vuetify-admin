@@ -120,6 +120,7 @@ export default {
     primary: 'Primary',
     secondary: 'Secondary',
     default: 'Default',
+    accent: 'Accent',
     firstName: 'First Name',
     lastName: 'Last Name',
     email: 'E-mail'

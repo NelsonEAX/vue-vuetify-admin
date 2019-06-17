@@ -1,6 +1,7 @@
 <template>
   <v-fab-transition>
     <v-btn
+      id="app-to-top-btn"
       v-show="fab"
       v-scroll="onScroll"
       fab
@@ -8,7 +9,7 @@
       fixed
       bottom
       right
-      color="red"
+      color="error"
       @click="toTop"
     >
       <v-icon>keyboard_arrow_up</v-icon>

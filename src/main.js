@@ -14,6 +14,7 @@ import i18n from './locale'; // Internationalization
 
 import App from './App.vue';
 import router from './router';
+import themes from './styles/themes';
 import store from './store';
 /* import VueI18n from 'vue-i18n'; */
 import './permission'; // permission control
@@ -24,15 +25,7 @@ Vue.use(Vuetify, {
     t: (key, ...params) => i18n.t(key, params)
   },
   // iconfont: 'mdi' || 'md' || 'mdi' || 'fa' || 'fa4'
-  theme: {
-    primary: '#1976D2',
-    secondary: '#424242',
-    accent: '#82B1FF',
-    error: '#FF5252',
-    info: '#2196F3',
-    success: '#4CAF50',
-    warning: '#FFC107'
-  },
+  theme: themes[0],
   customProperties: true
 });
 

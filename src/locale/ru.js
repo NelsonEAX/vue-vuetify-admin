@@ -121,6 +121,7 @@ export default {
     primary: 'Основной',
     secondary: 'Вторичный',
     default: 'Стандартный',
+    accent: 'Акцент',
     firstName: 'Имя',
     lastName: 'Фамилия',
     email: 'Электронная почта'

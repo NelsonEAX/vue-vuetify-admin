@@ -33,10 +33,23 @@
             </div>
           </v-card-title>
 
-          <v-card-actions>
-            <v-btn flat @click.stop="changeTheme()">Share</v-btn>
-            <v-btn flat color="purple">Explore</v-btn>
-          </v-card-actions>
+          <v-card-title primary-title>
+            <v-flex
+              xs3
+              text-xs-center
+              v-for="(item, index) in themes"
+              :key="index"
+              @click.stop="changeTheme(index)"
+            >
+              <div class="white--text" :style="{ background: item.primary }">primary</div>
+              <div class="white--text" :style="{ background: item.secondary }">secondary</div>
+              <div class="white--text" :style="{ background: item.accent }">accent</div>
+              <div class="white--text" :style="{ background: item.success }">success</div>
+              <div class="white--text" :style="{ background: item.error }">error</div>
+              <div class="white--text" :style="{ background: item.warning }">warning</div>
+              <div class="white--text" :style="{ background: item.info }">info</div>
+            </v-flex>
+          </v-card-title>
 
         </v-card>
       </v-flex>
@@ -92,16 +105,19 @@
 <script>
 import { mapGetters } from 'vuex';
 import colors from 'vuetify/es5/util/colors';
+import themes from '@/styles/themes';
 
 export default {
   name: 'Theme',
   data: () => ({
-    colors: colors,
+    colors,
+    themes,
     sw_on: true,
     items: [
       // { color: 'default', icon: 'check_circle' },
       { color: 'primary', icon: 'check_circle' },
       { color: 'secondary', icon: 'check_circle' },
+      { color: 'accent', icon: 'check_circle' },
       { color: 'success', icon: 'check_circle' },
       { color: 'error', icon: 'warning' },
       { color: 'warning', icon: 'priority_high' },
@@ -114,9 +130,9 @@ export default {
     ])
   },
   methods: {
-    changeTheme() {
-      this.$vuetify.theme.primary = this.colors['cyan'].base;
-      this.$vuetify.dark = true;
+    changeTheme(index) {
+      console.log(this.$vuetify.theme);
+      this.$vuetify.theme = this.themes[index];
     }
   }
 };

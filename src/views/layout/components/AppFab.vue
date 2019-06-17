@@ -11,7 +11,7 @@
       fixed
       top="top"
       right="right"
-      color="red"
+      color="error"
       @click="toggleSettingsPanel"
     >
       <v-icon>settings</v-icon>
@@ -28,7 +28,7 @@
     >
       <v-toolbar
         :dense="toolbarDense"
-        color="blue"
+        color="secondary"
         dark
       >
         <v-toolbar-title>
@@ -59,18 +59,21 @@
 
       <v-container fluid>
         <v-switch
+          color="secondary"
           :input-value="toolbarDense"
           :label="`${$t('settings.toolbarDense')}: ${toolbarDense ? 'on' : 'off'}`"
           @change="toggleToolbarDense"
           hide-details
         ></v-switch>
         <v-switch
+          color="secondary"
           :input-value="navbarLogo"
           :label="`${$t('settings.navbarLogo')}: ${navbarLogo ? 'on' : 'off'}`"
           @change="toggleNavbarLogo"
           hide-details
         ></v-switch>
         <v-switch
+          color="secondary"
           :input-value="settingsPanelBtn"
           :label="`${$t('settings.settingsBtn')}: ${settingsPanelBtn ? 'on' : 'off'}`"
           @change="toggleSettingsPanelBtn"
