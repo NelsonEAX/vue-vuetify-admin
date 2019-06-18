@@ -101,6 +101,8 @@ export default {
     baseOnL18n: 'The internationalization of this project is based on',
     baseOn: 'is based on',
     documentation: 'Documentation',
+    palette: 'You can generate your palette on',
+    theme: 'Choose a color scheme:',
     dropHere: 'Drop files here to upload',
     tinymceTips: 'Online rich-text editor released as open-source software under the LGPL.',
     imageUploadTips: 'Modified. If you are going to use it, it is better to use official version.',

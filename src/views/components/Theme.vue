@@ -7,11 +7,11 @@
           color="info"
           outline
         >
-          {{ $t('components.baseOn') }}
+          {{ $t('components.palette') }}
           <a
             class="link-type"
-            href="//vuetifyjs.com/en/framework/theme"
-          >vue-i18n</a>
+            href="//theme-generator.vuetifyjs.com"
+          >Theme Generator</a>
         </v-alert>
       </v-flex>
 
@@ -27,10 +27,7 @@
           </v-toolbar>
 
           <v-card-title primary-title>
-            <div>
-              <div class="headline">Top western road trips</div>
-              <span class="grey--text">1,000 miles of wonder</span>
-            </div>
+            {{ $t('components.theme') }}
           </v-card-title>
 
           <v-card-title primary-title>
@@ -39,7 +36,8 @@
               text-xs-center
               v-for="(item, index) in themes"
               :key="index"
-              @click.stop="changeTheme(index)"
+              @click.stop="toggleTheme(index)"
+              :class="{'elevation-10 pa-2': themeIndex == index }"
             >
               <div class="white--text" :style="{ background: item.primary }">primary</div>
               <div class="white--text" :style="{ background: item.secondary }">secondary</div>
@@ -126,13 +124,14 @@ export default {
   }),
   computed: {
     ...mapGetters([
-      'toolbarDense'
+      'toolbarDense',
+      'themeIndex'
     ])
   },
   methods: {
-    changeTheme(index) {
-      console.log(this.$vuetify.theme);
+    toggleTheme(index) {
       this.$vuetify.theme = this.themes[index];
+      this.$store.dispatch('ThemeToggle', { index });
     }
   }
 };

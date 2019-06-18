@@ -12,6 +12,9 @@ const settingsDefault = {
   settingsPanel: {
     show: false,
     btn: true
+  },
+  theme: {
+    index: 0
   }
 };
 
@@ -26,7 +29,8 @@ const settings = {
     fullscreenBtn: state => state.fullscreen.btn,
     fullscreenShow: state => state.fullscreen.show,
     settingsPanelBtn: state => state.settingsPanel.btn,
-    settingsPanelShow: state => state.settingsPanel.show
+    settingsPanelShow: state => state.settingsPanel.show,
+    themeIndex: state => state.theme.index
   },
 
   mutations: {
@@ -36,6 +40,7 @@ const settings = {
       state.navbar = payload.navbar || state.navbar;
       state.fullscreen = payload.fullscreen || state.fullscreen;
       state.settingsPanel = payload.settingsPanel || state.settingsPanel;
+      state.theme = payload.theme || state.theme;
     },
     SET_SETTINGS_DEFAULT: (state, payload) => {
       state.language = payload.language;
@@ -43,9 +48,13 @@ const settings = {
       state.navbar = payload.navbar;
       state.fullscreen = payload.fullscreen;
       state.settingsPanel = payload.settingsPanel;
+      state.theme = payload.theme;
     },
     LANGUAGE_TOGGLE: (state, payload) => {
       state.language = payload.state;
+    },
+    THEME_TOGGLE: (state, payload) => {
+      state.theme.index = payload.index;
     },
     TOOLBAR_DENSE_TOGGLE: state => {
       state.dense = !state.dense;
@@ -78,6 +87,9 @@ const settings = {
   actions: {
     LanguageToggle: async (context, payload) => {
       context.commit('LANGUAGE_TOGGLE', payload);
+    },
+    ThemeToggle: async (context, payload) => {
+      context.commit('THEME_TOGGLE', payload);
     },
     ToolbarDenseToggle: async context => {
       context.commit('TOOLBAR_DENSE_TOGGLE');

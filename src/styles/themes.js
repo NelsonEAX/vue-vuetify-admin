@@ -20,13 +20,49 @@ const themes = [
     info: colors.cyan.base
   },
   {
-    primary: '#333333',
-    secondary: colors.blue.base,
-    accent: colors.blue.base,
-    success: colors.blue.base,
-    error: colors.blue.base,
-    warning: colors.blue.base,
-    info: colors.blue.base
+    primary: colors.blue.darken3,
+    secondary: colors.blueGrey.darken3,
+    accent: colors.lightBlue.darken3,
+    success: colors.green.darken3,
+    error: colors.red.darken3,
+    warning: colors.amber.darken3,
+    info: colors.cyan.darken3
+  },
+  {
+    primary: colors.amber.darken3,
+    secondary: colors.green.base,
+    accent: colors.indigo.base,
+    error: colors.red.base,
+    warning: colors.deepOrange.base,
+    info: colors.cyan.base,
+    success: colors.lime.darken3
+  },
+  {
+    primary: colors.cyan.base,
+    secondary: colors.purple.base,
+    accent: colors.lightBlue.base,
+    error: colors.red.base,
+    warning: colors.orange.base,
+    info: colors.indigo.base,
+    success: colors.teal.base
+  },
+  {
+    primary: colors.indigo.base,
+    secondary: colors.cyan.base,
+    accent: colors.red.base,
+    error: colors.pink.base,
+    warning: colors.purple.base,
+    info: colors.deepPurple.base,
+    success: colors.teal.base
+  },
+  {
+    primary: colors.red.base,
+    secondary: colors.cyan.base,
+    accent: colors.blueGrey.base,
+    error: colors.brown.base,
+    warning: colors.amber.base,
+    info: colors.indigo.base,
+    success: colors.teal.base
   }
 ];
 export default themes;
