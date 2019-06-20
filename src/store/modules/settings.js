@@ -40,7 +40,7 @@ const settings = {
       state.navbar = payload.navbar || state.navbar;
       state.fullscreen = payload.fullscreen || state.fullscreen;
       state.settingsPanel = payload.settingsPanel || state.settingsPanel;
-      state.theme = payload.theme || state.theme;
+      state.theme = payload.theme || state.theme || 0;
     },
     SET_SETTINGS_DEFAULT: (state, payload) => {
       state.language = payload.language;

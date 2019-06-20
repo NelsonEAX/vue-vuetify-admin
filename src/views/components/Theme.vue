@@ -102,13 +102,11 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import colors from 'vuetify/es5/util/colors';
 import themes from '@/styles/themes';
 
 export default {
   name: 'Theme',
   data: () => ({
-    colors,
     themes,
     sw_on: true,
     items: [
@@ -130,8 +128,13 @@ export default {
   },
   methods: {
     toggleTheme(index) {
-      this.$vuetify.theme = this.themes[index];
-      this.$store.dispatch('ThemeToggle', { index });
+      if (this.$vuetify.theme !== this.themes[index]) {
+        console.log(`Change theme to "${index}"`);
+        this.$vuetify.theme = this.themes[index] || this.themes[0];
+        this.$store.dispatch('ThemeToggle', { index });
+      } else {
+        console.warn(`"${index}" is current theme `);
+      }
     }
   }
 };

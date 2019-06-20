@@ -25,7 +25,7 @@ Vue.use(Vuetify, {
     t: (key, ...params) => i18n.t(key, params)
   },
   // iconfont: 'mdi' || 'md' || 'mdi' || 'fa' || 'fa4'
-  theme: themes[0],
+  theme: themes[store.getters.themeIndex || 0],
   customProperties: true
 });
 

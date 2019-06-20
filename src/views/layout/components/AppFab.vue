@@ -98,7 +98,7 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'AppFab',
   data: () => ({
-    temporary: false,
+    temporary: true,
     fixed: true,
     app: true
   }),
