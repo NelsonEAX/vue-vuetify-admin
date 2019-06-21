@@ -31,24 +31,8 @@
           </v-card-title>
 
           <v-card-title primary-title>
-            <v-flex
-              xs3
-              text-xs-center
-              v-for="(item, index) in themes"
-              :key="index"
-              @click.stop="toggleTheme(index)"
-              :class="{'elevation-10 pa-2': themeIndex == index }"
-            >
-              <div class="white--text" :style="{ background: item.primary }">primary</div>
-              <div class="white--text" :style="{ background: item.secondary }">secondary</div>
-              <div class="white--text" :style="{ background: item.accent }">accent</div>
-              <div class="white--text" :style="{ background: item.success }">success</div>
-              <div class="white--text" :style="{ background: item.error }">error</div>
-              <div class="white--text" :style="{ background: item.warning }">warning</div>
-              <div class="white--text" :style="{ background: item.info }">info</div>
-            </v-flex>
+            <theme-widget xs="xs3"/>
           </v-card-title>
-
         </v-card>
       </v-flex>
     </v-layout>
@@ -102,12 +86,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import themes from '@/styles/themes';
+import ThemeWidget from '@/styles/Theme.vue';
 
 export default {
   name: 'Theme',
+  components: { ThemeWidget },
   data: () => ({
-    themes,
     sw_on: true,
     items: [
       // { color: 'default', icon: 'check_circle' },
@@ -122,20 +106,8 @@ export default {
   }),
   computed: {
     ...mapGetters([
-      'toolbarDense',
-      'themeIndex'
+      'toolbarDense'
     ])
-  },
-  methods: {
-    toggleTheme(index) {
-      if (this.$vuetify.theme !== this.themes[index]) {
-        console.log(`Change theme to "${index}"`);
-        this.$vuetify.theme = this.themes[index] || this.themes[0];
-        this.$store.dispatch('ThemeToggle', { index });
-      } else {
-        console.warn(`"${index}" is current theme `);
-      }
-    }
   }
 };
 </script>

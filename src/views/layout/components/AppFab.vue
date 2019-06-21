@@ -84,8 +84,8 @@
       <v-subheader>{{ $t('settings.theme') }}</v-subheader>
       <v-divider></v-divider>
 
-      <v-container fluid>
-
+      <v-container grid-list-md>
+        <theme xs="xs6"/>
       </v-container>
 
     </v-navigation-drawer>
@@ -94,9 +94,11 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import Theme from '@/styles/Theme.vue';
 
 export default {
   name: 'AppFab',
+  components: { Theme },
   data: () => ({
     temporary: true,
     fixed: true,
