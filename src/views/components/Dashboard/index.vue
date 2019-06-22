@@ -5,37 +5,60 @@
       <panel-group @handleSetLineChartData="handleSetLineChartData"/>
       <v-layout row wrap>
         <v-flex d-flex xs12>
-          <d-widget header-title="Line Chart">
-            <option-chart height="350px" width="100%" :chart-data="getChartOption('line')"/>
+          <d-widget title="Line Chart">
+            <v-btn icon slot="widget-header-action">
+              <v-icon>flare</v-icon>
+            </v-btn>
+            <option-chart
+              slot="widget-content"
+              height="350px"
+              width="100%"
+              :chart-data="getChartOption('line')"
+            />
           </d-widget>
         </v-flex>
       </v-layout>
       <v-layout row wrap>
         <v-flex xs12 sm6 md4>
-          <d-widget header-title="Raddar Chart">
-            <option-chart height="300px" width="100%" :chart-data="getChartOption('raddar')"/>
+          <d-widget title="Raddar Chart">
+            <option-chart
+              slot="widget-content"
+              height="300px"
+              width="100%"
+              :chart-data="getChartOption('raddar')"
+            />
           </d-widget>
         </v-flex>
         <v-flex xs12 sm6 md4>
-          <d-widget header-title="Pie Chart">
-            <option-chart height="300px" width="100%" :chart-data="getChartOption('pie')"/>
+          <d-widget title="Pie Chart">
+            <option-chart
+              slot="widget-content"
+              height="300px"
+              width="100%"
+              :chart-data="getChartOption('pie')"
+            />
           </d-widget>
         </v-flex>
         <v-flex xs12 sm6 md4>
-          <d-widget header-title="Bar Chart">
-            <option-chart height="300px" width="100%" :chart-data="getChartOption('bar')"/>
+          <d-widget title="Bar Chart">
+            <option-chart
+              slot="widget-content"
+              height="300px"
+              width="100%"
+              :chart-data="getChartOption('bar')"
+            />
           </d-widget>
         </v-flex>
       </v-layout>
       <v-layout row wrap>
         <v-flex lg7 sm12 xs12>
-          <d-widget header-title="Projects">
-            <plain-table/>
+          <d-widget title="Projects" :padding="false">
+            <plain-table slot="widget-content"/>
           </d-widget>
         </v-flex>
         <v-flex lg5 sm12 xs12>
-          <d-widget header-title="Orders">
-            <plain-table-order/>
+          <d-widget title="Orders" :padding="false">
+            <plain-table-order slot="widget-content"/>
           </d-widget>
         </v-flex>
       </v-layout>

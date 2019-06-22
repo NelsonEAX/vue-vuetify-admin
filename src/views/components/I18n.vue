@@ -52,8 +52,10 @@
 
         </v-card>
       </v-flex>
+    </v-layout>
 
-      <v-flex d-flex xs12 sm8 offset-sm2>
+    <v-layout row wrap align-center>
+      <v-flex xs12 sm8 offset-sm2>
         <v-btn>{{ $t('ui.default') }}</v-btn>
         <v-btn color="primary">{{ $t('ui.primary') }}</v-btn>
         <v-btn color="secondary">{{ $t('ui.secondary') }}</v-btn>
@@ -75,7 +77,7 @@
         </v-flex>
       </v-flex>
 
-      <v-flex d-flex xs12 sm8 offset-sm2>
+      <v-flex xs12 sm8 offset-sm2>
         <v-data-table
           :headers="headers"
           :items="desserts"

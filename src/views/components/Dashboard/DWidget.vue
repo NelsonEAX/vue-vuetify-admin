@@ -2,15 +2,22 @@
   <v-card>
     <v-toolbar v-if="headerShow" card dense color="transparent">
       <v-toolbar-title class="headline">
-        {{ headerTitle }}
+        {{ title }}
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>{{ icon }}</v-icon>
-      </v-btn>
+      <slot name="widget-header-action">
+        <v-btn icon>
+          <v-icon>{{ icon }}</v-icon>
+        </v-btn>
+      </slot>
     </v-toolbar>
-    <v-divider></v-divider>
-    <slot></slot>
+    <v-divider v-if="headerShow"></v-divider>
+
+    <v-card-text v-if="padding">
+      <slot name="widget-content"></slot>
+    </v-card-text>
+    <slot v-else name="widget-content"></slot>
+
   </v-card>
 </template>
 
@@ -18,7 +25,7 @@
 export default {
   name: 'DWidget',
   props: {
-    headerTitle: {
+    title: {
       type: String,
       default: ''
     },
@@ -29,6 +36,10 @@ export default {
     icon: {
       type: String,
       default: 'more_vert'
+    },
+    padding: {
+      type: Boolean,
+      default: true
     }
   },
   data: () => ({})

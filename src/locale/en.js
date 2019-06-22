@@ -25,7 +25,7 @@ export default {
       sticky: 'Sticky',
       tinymce: 'Tinymce'
     },
-    vuetify: 'Vuetify',
+    vuetify: 'Vuetify UI',
     vuetifyComponents: {
       components: 'Components',
       alert: 'Alert',
