@@ -31,21 +31,21 @@ const errorsRouter = {
       path: '403',
       component: ErrorPage,
       name: 'Page403',
-      meta: { title: 'route.errorPages.page403', noCache: true },
+      meta: { title: 'route.errorPages.page403' },
       props: { errorCode: 403 }
     },
     {
       path: '404',
       component: ErrorPage,
       name: 'Page404',
-      meta: { title: 'route.errorPages.page404', noCache: true },
+      meta: { title: 'route.errorPages.page404' },
       props: { errorCode: 404 }
     },
     {
       path: '500',
       component: ErrorPage,
       name: 'Page500',
-      meta: { title: 'route.errorPages.page500', noCache: true },
+      meta: { title: 'route.errorPages.page500' },
       props: { errorCode: 500 }
     }
   ]

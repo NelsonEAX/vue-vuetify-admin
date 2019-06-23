@@ -14,10 +14,10 @@
             <v-spacer></v-spacer>
 
             <v-flex xs4>
-              <v-select
+              <v-autocomplete
                 :items="items"
                 label="Box style"
-              ></v-select>
+              ></v-autocomplete>
             </v-flex>
 
             <v-btn icon>

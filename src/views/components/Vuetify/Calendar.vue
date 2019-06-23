@@ -36,11 +36,11 @@
         xs12
         class="text-xs-center"
       >
-        <v-select
+        <v-autocomplete
           v-model="type"
           :items="typeOptions"
           label="Type"
-        ></v-select>
+        ></v-autocomplete>
       </v-flex>
       <v-flex
         sm4

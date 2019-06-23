@@ -17,36 +17,41 @@ const nestedRouter = {
       path: 'nested1',
       component: Nasted,
       name: 'Nested1',
-      // eslint-disable-next-line
-      meta: { title: 'route.nested.nested1', icon: 'looks_two', noCache: true, affix: true },
+      meta: {
+        title: 'route.nested.nested1', icon: 'looks_two', noCache: true, affix: true
+      },
       children: [
         {
           path: 'nested1_1',
           component: Nasted,
           name: 'Nested1_1',
-          // eslint-disable-next-line
-          meta: { title: 'route.nested.nested2', icon: 'looks_3', noCache: true, affix: true },
+          meta: {
+            title: 'route.nested.nested2', icon: 'looks_3', noCache: true, affix: true
+          },
           children: [
             {
               path: 'nested1_1_1',
               component: Nasted,
               name: 'Nested1_1_1',
-              // eslint-disable-next-line
-              meta: { title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true }
+              meta: {
+                title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true
+              }
             },
             {
               path: 'nested1_1_2',
               component: Nasted,
               name: 'Nested1_1_2',
-              // eslint-disable-next-line
-              meta: { title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true }
+              meta: {
+                title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true
+              }
             },
             {
               path: 'nested1_1_3',
               component: Nasted,
               name: 'Nested1_1_3',
-              // eslint-disable-next-line
-              meta: { title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true }
+              meta: {
+                title: 'route.nested.nested3', icon: 'looks_4', noCache: true, affix: true
+              }
             }
           ]
         },
@@ -54,15 +59,17 @@ const nestedRouter = {
           path: 'nested1_2',
           component: Nasted,
           name: 'Nested1_2',
-          // eslint-disable-next-line
-          meta: { title: 'route.nested.nested2', icon: 'looks_3', noCache: true, affix: true }
+          meta: {
+            title: 'route.nested.nested2', icon: 'looks_3', noCache: true, affix: true
+          }
         },
         {
           path: 'nested1_3',
           component: Nasted,
           name: 'Nested1_3',
-          // eslint-disable-next-line
-          meta: { title: 'route.nested.nested2', icon: 'looks_3', noCache: true, affix: true }
+          meta: {
+            title: 'route.nested.nested2', icon: 'looks_3', noCache: true, affix: true
+          }
         }
       ]
     },
@@ -70,15 +77,17 @@ const nestedRouter = {
       path: 'nested2',
       component: Nasted,
       name: 'Nested2',
-      // eslint-disable-next-line
-      meta: { title: 'route.nested.nested1', icon: 'looks_two', noCache: true, affix: true }
+      meta: {
+        title: 'route.nested.nested1', icon: 'looks_two', noCache: true, affix: true
+      }
     },
     {
       path: 'nested3',
       component: Nasted,
       name: 'Nested3',
-      // eslint-disable-next-line
-      meta: { title: 'route.nested.nested1', icon: 'looks_two', noCache: true, affix: true }
+      meta: {
+        title: 'route.nested.nested1', icon: 'looks_two', noCache: true, affix: true
+      }
     }
   ]
 };

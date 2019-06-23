@@ -29,9 +29,18 @@ export default {
     vuetifyComponents: {
       components: 'Components',
       alert: 'Alert',
+      avatar: 'Avatars',
+      badge: 'Badges',
       buttons: 'Buttons',
       calendar: 'Calendar',
-      grid: 'Grid'
+      cards: 'Cards',
+      carousels: 'Carousels',
+      chip: 'Chip',
+      colors: 'Colors',
+      datepicker: 'Datepicker',
+      dialogs: 'Dialogs',
+      grid: 'Grid',
+      icon: 'Icons'
     },
     errors: 'Ошибки',
     errorPages: {

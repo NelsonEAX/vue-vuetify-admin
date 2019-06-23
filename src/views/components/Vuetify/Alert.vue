@@ -1,7 +1,7 @@
 <template>
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
-      <v-flex sm12 sm6>
+      <v-flex xs12 sm6>
         <v-widget title="Basic Usage">
           <div slot="widget-content">
             <v-alert type="success" :value="true">
@@ -19,7 +19,7 @@
           </div>
         </v-widget>
       </v-flex>
-      <v-flex sm12 sm6>
+      <v-flex xs12 sm6>
         <v-widget title="Custom Icons">
           <div slot="widget-content">
             <v-alert color="success" icon="new_releases" :value="true">
@@ -37,7 +37,7 @@
           </div>
         </v-widget>
       </v-flex>
-      <v-flex sm12 sm6>
+      <v-flex xs12 sm6>
         <v-widget title="Outline Alerts">
           <div slot="widget-content">
             <v-alert outline color="success" icon="check_circle" :value="true">
@@ -55,7 +55,7 @@
           </div>
         </v-widget>
       </v-flex>
-      <v-flex sm12 sm6>
+      <v-flex xs12 sm6>
         <v-widget title="Closable Alerts">
           <div slot="widget-content">
             <v-alert
