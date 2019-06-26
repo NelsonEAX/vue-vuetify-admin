@@ -2,7 +2,7 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex lg4>
-        <v-widget title="Basic Usage">
+        <v-widget title="Basic Usage" class="text-xs-center">
           <div slot="widget-content">
             <v-dialog
               attach=".application--wrap"
@@ -89,7 +89,7 @@
         </v-widget>
       </v-flex>
       <v-flex xl4>
-        <v-widget title="Fullscreen Dialog">
+        <v-widget title="Fullscreen Dialog" class="text-xs-center">
           <div slot="widget-content">
             <v-dialog
               v-model="fullscreen.dialog"
@@ -171,7 +171,7 @@
         </v-widget>
       </v-flex>
       <v-flex xl4>
-        <v-widget title="Scrollable Dialog">
+        <v-widget title="Scrollable Dialog" class="text-xs-center">
           <div slot="widget-content" >
             <v-dialog
               v-model="scrollable.dialog"

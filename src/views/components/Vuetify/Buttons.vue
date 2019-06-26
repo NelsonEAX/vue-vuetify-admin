@@ -4,7 +4,7 @@
       <v-flex xl6>
         <v-widget title="Basic Usage">
           <div slot="widget-content">
-            <div>
+            <div class="text-xs-center">
               <v-btn color="success">Success</v-btn>
               <v-btn color="error">Error</v-btn>
               <v-btn color="warning">Warning</v-btn>
@@ -14,7 +14,7 @@
         </v-widget>
         <v-widget title="Flat button" class="mt-3">
           <div slot="widget-content">
-            <div>
+            <div class="text-xs-center">
               <v-btn color="success" flat>Success</v-btn>
               <v-btn color="error" flat>Error</v-btn>
               <v-btn color="warning" flat>Warning</v-btn>
@@ -24,7 +24,7 @@
         </v-widget>
         <v-widget title="Depressed button" class="mt-3">
           <div slot="widget-content">
-            <div>
+            <div class="text-xs-center">
               <v-btn color="success" depressed="">Success</v-btn>
               <v-btn color="error" depressed>Error</v-btn>
               <v-btn color="warning" depressed>Warning</v-btn>
@@ -34,7 +34,7 @@
         </v-widget>
         <v-widget title="Outline button" class="mt-3">
           <div slot="widget-content">
-            <div>
+            <div class="text-xs-center">
               <v-btn color="success" outline="">Success</v-btn>
               <v-btn color="error" outline>Error</v-btn>
               <v-btn color="warning" outline>Warning</v-btn>
@@ -44,7 +44,7 @@
         </v-widget>
         <v-widget title="Rounded button" class="mt-3">
           <div slot="widget-content">
-            <div>
+            <div class="text-xs-center">
               <v-btn color="success" round>Success</v-btn>
               <v-btn color="error" round>Error</v-btn>
               <v-btn color="warning" round>Warning</v-btn>
@@ -54,7 +54,7 @@
         </v-widget>
         <v-widget title="Floating button" class="mt-3">
           <div slot="widget-content">
-            <div>
+            <div class="text-xs-center">
               <v-btn color="success" dark fab>
                 <v-icon dark>remove</v-icon>
               </v-btn>
@@ -69,7 +69,7 @@
         </v-widget>
         <v-widget title="Loading button" class="mt-3">
           <div slot="widget-content">
-            <div>
+            <div class="text-xs-center">
               <v-btn
                 color="secondary"
                 :loading="loading"

@@ -16,46 +16,38 @@
       </v-flex>
 
       <v-flex d-flex xs12 sm4 offset-sm4>
-        <v-card>
-          <v-toolbar
-            :dense="toolbarDense"
-          >
-            <v-toolbar-side-icon>
-              <v-icon>language</v-icon>
-            </v-toolbar-side-icon>
-            <v-toolbar-title>{{ $t('ui.switch') }}</v-toolbar-title>
-          </v-toolbar>
-
-          <v-list
-            :dense="toolbarDense"
-            v-for="item in locales"
-            :key="item.abbr"
-          >
-            <v-list-tile
-              @click="changeLocale(item.locale)"
-              ripple="ripple"
-              :target="item.target"
+        <v-widget :title="$t('ui.switch')" class="text-xs-center" :padding="false" icon="language">
+          <div slot="widget-content">
+            <v-list
+              :dense="toolbarDense"
+              v-for="item in locales"
+              :key="item.abbr"
             >
-              <v-list-tile-action>
-                <v-icon
-                  v-if="item.locale === language"
-                  color="success"
-                >radio_button_checked</v-icon>
-                <v-icon v-else>radio_button_unchecked</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-              </v-list-tile-content>
-              <v-list-tile-avatar>{{ item.abbr }}</v-list-tile-avatar>
-            </v-list-tile>
-          </v-list>
-
-        </v-card>
+              <v-list-tile
+                @click="changeLocale(item.locale)"
+                ripple="ripple"
+                :target="item.target"
+              >
+                <v-list-tile-action>
+                  <v-icon
+                    v-if="item.locale === language"
+                    color="success"
+                  >radio_button_checked</v-icon>
+                  <v-icon v-else>radio_button_unchecked</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                </v-list-tile-content>
+                <v-list-tile-avatar>{{ item.abbr }}</v-list-tile-avatar>
+              </v-list-tile>
+            </v-list>
+          </div>
+        </v-widget>
       </v-flex>
     </v-layout>
 
     <v-layout row wrap align-center>
-      <v-flex xs12 sm8 offset-sm2>
+      <v-flex xs12 sm8 offset-sm2 class="text-xs-center">
         <v-btn>{{ $t('ui.default') }}</v-btn>
         <v-btn color="primary">{{ $t('ui.primary') }}</v-btn>
         <v-btn color="secondary">{{ $t('ui.secondary') }}</v-btn>
@@ -65,7 +57,7 @@
         <v-btn color="info">{{ $t('ui.info') }}</v-btn>
       </v-flex>
 
-      <v-flex d-flex xs12 sm8 offset-sm2>
+      <v-flex d-flex xs12 sm8 offset-sm2 class="text-xs-center">
         <v-flex xs12 md4>
           <v-text-field :counter="10" :label="$t('ui.firstName')"></v-text-field>
         </v-flex>
@@ -77,7 +69,7 @@
         </v-flex>
       </v-flex>
 
-      <v-flex xs12 sm8 offset-sm2>
+      <v-flex xs12 sm8 offset-sm2 class="text-xs-center">
         <v-data-table
           :headers="headers"
           :items="desserts"
@@ -101,9 +93,13 @@
 import { locales, changeLocale } from '@/locale';
 import { mapGetters } from 'vuex';
 import { headers, desserts } from '@/api/mock_table';
+import VWidget from '@/views/components/Dashboard/DWidget.vue';
 
 export default {
   name: 'I18n',
+  components: {
+    VWidget
+  },
   data: () => ({
     locales,
     headers,

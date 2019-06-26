@@ -16,24 +16,17 @@
       </v-flex>
 
       <v-flex d-flex xs12 sm4 offset-sm4>
-        <v-card>
-          <v-toolbar
-            :dense="toolbarDense"
-          >
-            <v-toolbar-side-icon>
-              <v-icon>color_lens</v-icon>
-            </v-toolbar-side-icon>
-            <v-toolbar-title>{{ $t('ui.theme') }}</v-toolbar-title>
-          </v-toolbar>
+        <v-widget :title="$t('ui.theme')" class="text-xs-center" :padding="false" icon="color_lens">
+          <div slot="widget-content">
+            <v-card-title primary-title>
+              {{ $t('components.theme') }}
+            </v-card-title>
 
-          <v-card-title primary-title>
-            {{ $t('components.theme') }}
-          </v-card-title>
-
-          <v-card-title primary-title>
-            <theme-widget xs="xs3"/>
-          </v-card-title>
-        </v-card>
+            <v-card-title primary-title>
+              <theme-widget xs="xs3"/>
+            </v-card-title>
+          </div>
+        </v-widget>
       </v-flex>
     </v-layout>
 
@@ -87,10 +80,11 @@
 <script>
 import { mapGetters } from 'vuex';
 import ThemeWidget from '@/styles/Theme.vue';
+import VWidget from '@/views/components/Dashboard/DWidget.vue';
 
 export default {
   name: 'Theme',
-  components: { ThemeWidget },
+  components: { ThemeWidget, VWidget },
   data: () => ({
     sw_on: true,
     items: [

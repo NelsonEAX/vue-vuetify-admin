@@ -4,7 +4,7 @@
       <v-flex lg6 sm12>
         <v-widget title="Basic Usage">
           <div slot="widget-content">
-            <div class="flexbox-centering">
+            <div class="flexbox-centering text-xs-center">
               <v-date-picker
                 color="green lighten-1"
                 v-model="picker"
@@ -32,7 +32,7 @@
       <v-flex lg6 sm12>
         <v-widget title="Month Picker">
           <div slot="widget-content">
-            <div class="center">
+            <div class="text-xs-center">
               <v-date-picker
                 type="month"
                 color="teal lighten-1"

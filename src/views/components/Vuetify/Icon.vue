@@ -67,17 +67,17 @@ export default {
     };
   },
   created() {
-    fetch('/static/data/material.json')
+    fetch('./static/data/material.json')
       .then(response => {
-        console.log('fetch /static/data/material.json');
+        console.log('fetch ./static/data/material.json');
         return response.json();
       })
       .then(json => {
         this.material = json.icons.splice(0, 100);
       });
-    fetch('/static/data/font-awesome.json')
+    fetch('./static/data/font-awesome.json')
       .then(response => {
-        console.log('fetch /static/data/font-awesome.json');
+        console.log('fetch ./static/data/font-awesome.json');
         return response.json();
       })
       .then(json => {
