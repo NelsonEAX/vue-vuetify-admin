@@ -50,7 +50,7 @@
       </v-flex>
       <v-flex lg4 sm12>
         <v-card>
-          <v-img src="/static/bg/8.jpg" height="250">
+          <v-img src="./static/bg/8.jpg" height="250">
             <h2 class="white--text pa-3">
               Card with image
             </h2>
@@ -68,7 +68,7 @@
       </v-flex>
       <v-flex lg4 sm12>
         <v-card>
-          <v-img src="/static/nature/n3.jpeg" height="250">
+          <v-img src="./static/nature/n3.jpeg" height="250">
             <h2 class="white--text pa-3">
               Card with image
             </h2>
@@ -89,7 +89,7 @@
       </v-flex>
       <v-flex lg4 sm12>
         <v-card>
-          <v-img src="/static/nature/n4.jpeg" height="250">
+          <v-img src="./static/nature/n4.jpeg" height="250">
             <h2 class="white--text pa-3">
               Card with image
             </h2>

@@ -89,6 +89,60 @@ const vuetifyRouter = {
       component: () => import('@/views/components/Vuetify/Icon.vue'),
       name: 'Icon',
       meta: { title: 'route.vuetifyComponents.icon', icon: 'icon', affix: true }
+    },
+    {
+      path: 'pagination',
+      component: () => import('@/views/components/Vuetify/Pagination.vue'),
+      name: 'Pagination',
+      meta: { title: 'route.vuetifyComponents.pagination', icon: 'pagination', affix: true }
+    },
+    {
+      path: 'parallax',
+      component: () => import('@/views/components/Vuetify/Parallax.vue'),
+      name: 'Parallax',
+      meta: { title: 'route.vuetifyComponents.parallax', icon: 'parallax', affix: true }
+    },
+    {
+      path: 'progress',
+      component: () => import('@/views/components/Vuetify/Progress.vue'),
+      name: 'Progress',
+      meta: { title: 'route.vuetifyComponents.progress', icon: 'progress', affix: true }
+    },
+    {
+      path: 'slider',
+      component: () => import('@/views/components/Vuetify/Slider.vue'),
+      name: 'Slider',
+      meta: { title: 'route.vuetifyComponents.slider', icon: 'slider', affix: true }
+    },
+    {
+      path: 'snackbar',
+      component: () => import('@/views/components/Vuetify/Snackbar.vue'),
+      name: 'Snackbar',
+      meta: { title: 'route.vuetifyComponents.snackbar', icon: 'snackbar', affix: true }
+    },
+    {
+      path: 'tables',
+      component: () => import('@/views/components/Vuetify/Tables.vue'),
+      name: 'Tables',
+      meta: { title: 'route.vuetifyComponents.tables', icon: 'tables', affix: true }
+    },
+    {
+      path: 'timepicker',
+      component: () => import('@/views/components/Vuetify/Timepicker.vue'),
+      name: 'timepicker',
+      meta: { title: 'route.vuetifyComponents.Timepicker', icon: 'timepicker', affix: true }
+    },
+    {
+      path: 'tooltip',
+      component: () => import('@/views/components/Vuetify/Tooltip.vue'),
+      name: 'Tooltip',
+      meta: { title: 'route.vuetifyComponents.tooltip', icon: 'tooltip', affix: true }
+    },
+    {
+      path: 'typography',
+      component: () => import('@/views/components/Vuetify/Typography.vue'),
+      name: 'Typography',
+      meta: { title: 'route.vuetifyComponents.typography', icon: 'typography', affix: true }
     }
   ]
 };
