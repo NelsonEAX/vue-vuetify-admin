@@ -1,13 +1,9 @@
 <template>
   <v-container grid-list-xl fluid>
-    <v-layout row wrap>
-      <v-flex sm12>
-        <h3>Complex Table</h3>
-      </v-flex>
-      <v-flex lg12>
-        <v-card>
-          <v-toolbar card color="white">
-            <v-text-field
+    <app-widget title="Complex Table" :padding="false">
+      <div slot="widget-content">
+        <v-toolbar card color="white">
+          <v-text-field
             flat
             solo
             prepend-icon="search"
@@ -15,24 +11,24 @@
             v-model="search"
             hide-details
             class="hidden-sm-and-down"
-            ></v-text-field>
-            <v-btn icon>
-              <v-icon>filter_list</v-icon>
-            </v-btn>
-          </v-toolbar>
-          <v-divider></v-divider>
-          <v-card-text class="pa-0">
-            <v-data-table
-              :headers="complex.headers"
-              :search="search"
-              :items="complex.items"
-              :rows-per-page-items="[10,25,50,{text:'All','value':-1}]"
-              class="elevation-1"
-              item-key="name"
-              select-all
-              v-model="complex.selected"
-              >
-              <template slot="items" slot-scope="props">
+          ></v-text-field>
+          <v-btn icon>
+            <v-icon>filter_list</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-divider></v-divider>
+        <v-card-text class="pa-0">
+          <v-data-table
+            :headers="complex.headers"
+            :search="search"
+            :items="complex.items"
+            :rows-per-page-items="[10,25,50,{text:'All','value':-1}]"
+            class="elevation-1"
+            item-key="name"
+            select-all
+            v-model="complex.selected"
+          >
+            <template slot="items" slot-scope="props">
               <td>
                 <v-checkbox
                   primary
@@ -40,31 +36,30 @@
                   v-model="props.selected"
                 ></v-checkbox>
               </td>
-                <td>
-                  <v-avatar size="32">
-                    <img :src="props.item.avatar" alt="">
-                  </v-avatar>
-                </td>
-                <td>{{ props.item.name }}</td>
-                <td>{{ props.item.email }}</td>
-                <td>{{ props.item.phone }}</td>
-                <td>
-                  <v-btn depressed outline icon fab dark color="primary" small>
-                    <v-icon>edit</v-icon>
-                  </v-btn>
-                  <v-btn depressed outline icon fab dark color="pink" small>
-                    <v-icon>delete</v-icon>
-                  </v-btn>
-                </td>
-              </template>
-            </v-data-table>
-          </v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex sm12>
-        <h3>Basic Table</h3>
-      </v-flex>
-      <v-flex lg12>
+              <td>
+                <v-avatar size="32">
+                  <img :src="props.item.avatar" alt="">
+                </v-avatar>
+              </td>
+              <td>{{ props.item.name }}</td>
+              <td>{{ props.item.email }}</td>
+              <td>{{ props.item.phone }}</td>
+              <td>
+                <v-btn depressed outline icon fab dark color="primary" small>
+                  <v-icon>edit</v-icon>
+                </v-btn>
+                <v-btn depressed outline icon fab dark color="pink" small>
+                  <v-icon>delete</v-icon>
+                </v-btn>
+              </td>
+            </template>
+          </v-data-table>
+        </v-card-text>
+      </div>
+    </app-widget>
+    <br>
+    <app-widget title="Basic Table" :padding="false">
+      <div slot="widget-content">
         <v-data-table
           :headers="basic.headers"
           :items="basic.items"
@@ -80,17 +75,21 @@
             <td class="text-xs-right">{{ props.item.iron }}</td>
           </template>
         </v-data-table>
-      </v-flex>
-
-    </v-layout>
+      </div>
+    </app-widget>
   </v-container>
 </template>
 
 <script>
 import { Items as Users } from '@/api/mock_user';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
+
 
 export default {
   name: 'Tables',
+  components: {
+    AppWidget
+  },
   data: () => ({
     search: '',
     complex: {
