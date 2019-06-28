@@ -2,7 +2,7 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex lg12 sm12>
-        <v-widget title="Basic Usage">
+        <app-widget title="Basic Usage">
           <section slot="widget-content">
             <v-container fluid>
               <v-layout row wrap>
@@ -48,7 +48,7 @@
             </v-container>
             <v-btn block color="primary" @click.native="snackbar = true" dark>Show Snackbar</v-btn>
           </section>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
     <v-snackbar
@@ -69,12 +69,12 @@
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Snackbar',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     snackbar: false,

@@ -2,14 +2,14 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex lg6 sm12>
-        <v-widget title="Basic Usage">
-          <div slot="widget-content">
+        <app-widget title="Basic Usage">
+          <div slot="widget-content" class="text-xs-center">
             <v-time-picker color="primary lighten-1" v-model="picker"></v-time-picker>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex lg6 sm12 class="hidden-sm-and-down">
-        <v-widget title="Full Width">
+        <app-widget title="Full Width">
           <div slot="widget-content">
             <v-time-picker
               landscape
@@ -18,10 +18,10 @@
               v-model="picker"
             ></v-time-picker>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex lg6 sm12>
-        <v-widget title="In dialog and menu" class="mt-3">
+        <app-widget title="In dialog and menu" class="mt-3">
           <div slot="widget-content">
             <v-container>
               <v-layout row wrap>
@@ -80,19 +80,19 @@
               </v-layout>
             </v-container>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Timepicker',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     picker: null,

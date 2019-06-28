@@ -16,7 +16,12 @@
       </v-flex>
 
       <v-flex d-flex xs12 sm4 offset-sm4>
-        <v-widget :title="$t('ui.switch')" class="text-xs-center" :padding="false" icon="language">
+        <app-widget
+          :title="$t('ui.switch')"
+          class="text-xs-center"
+          :padding="false"
+          icon="language"
+        >
           <div slot="widget-content">
             <v-list
               :dense="toolbarDense"
@@ -42,7 +47,7 @@
               </v-list-tile>
             </v-list>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
 
@@ -93,12 +98,12 @@
 import { locales, changeLocale } from '@/locale';
 import { mapGetters } from 'vuex';
 import { headers, desserts } from '@/api/mock_table';
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'I18n',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     locales,

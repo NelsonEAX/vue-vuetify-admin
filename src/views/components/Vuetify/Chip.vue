@@ -2,7 +2,7 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex lg6>
-        <v-widget title="Icon Chip">
+        <app-widget title="Icon Chip">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-chip color="indigo" text-color="white">
@@ -31,8 +31,8 @@
               </v-chip>
             </div>
           </div>
-        </v-widget>
-        <v-widget title="Colored Chip" class="mt-3">
+        </app-widget>
+        <app-widget title="Colored Chip" class="mt-3">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-chip color="primary" text-color="white">Primary</v-chip>
@@ -41,8 +41,8 @@
               <v-chip color="green" text-color="white">Colored Chip</v-chip>
             </div>
           </div>
-        </v-widget>
-        <v-widget title="Outline Chip" class="mt-3">
+        </app-widget>
+        <app-widget title="Outline Chip" class="mt-3">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-chip color="primary" outline>Primary</v-chip>
@@ -51,8 +51,8 @@
               <v-chip color="green" outline>Colored Chip</v-chip>
             </div>
           </div>
-        </v-widget>
-        <v-widget title="Lable Chip" class="mt-3">
+        </app-widget>
+        <app-widget title="Lable Chip" class="mt-3">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-chip label>Label</v-chip>
@@ -62,10 +62,10 @@
               <v-chip label outline color="red">Outline</v-chip>
             </div>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex lg6>
-        <v-widget title="Basic Usage">
+        <app-widget title="Basic Usage">
           <div slot="widget-content">
             <v-container fluid class="pa-0">
               <v-layout row wrap>
@@ -96,8 +96,8 @@
               </v-layout>
             </v-container>
           </div>
-        </v-widget>
-        <v-widget title="Complex usage" class="mt-3">
+        </app-widget>
+        <app-widget title="Complex usage" class="mt-3">
           <div slot="widget-content">
             <v-combobox multiple
               label="Your favorite hobbies"
@@ -121,19 +121,19 @@
               </template>
             </v-combobox>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Chip',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     chips: ['Programming', 'Watching', 'Sleeping'],

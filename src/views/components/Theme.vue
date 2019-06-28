@@ -16,7 +16,12 @@
       </v-flex>
 
       <v-flex d-flex xs12 sm4 offset-sm4>
-        <v-widget :title="$t('ui.theme')" class="text-xs-center" :padding="false" icon="color_lens">
+        <app-widget
+          :title="$t('ui.theme')"
+          class="text-xs-center"
+          :padding="false"
+          icon="color_lens"
+        >
           <div slot="widget-content">
             <v-card-title primary-title>
               {{ $t('components.theme') }}
@@ -26,7 +31,7 @@
               <theme-widget xs="xs3"/>
             </v-card-title>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
 
@@ -80,11 +85,11 @@
 <script>
 import { mapGetters } from 'vuex';
 import ThemeWidget from '@/styles/Theme.vue';
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Theme',
-  components: { ThemeWidget, VWidget },
+  components: { ThemeWidget, AppWidget },
   data: () => ({
     sw_on: true,
     items: [

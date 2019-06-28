@@ -87,7 +87,7 @@
 </template>
 
 <script>
-// import { Items as Users } from '@/api/user';
+import { Items as Users } from '@/api/mock_user';
 
 export default {
   name: 'Tables',
@@ -117,7 +117,7 @@ export default {
           value: ''
         }
       ],
-      items: [] // Users
+      items: Users
     },
     basic: {
       headers: [

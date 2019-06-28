@@ -5,7 +5,7 @@
       <panel-group @handleSetLineChartData="handleSetLineChartData"/>
       <v-layout row wrap>
         <v-flex d-flex xs12>
-          <d-widget title="Line Chart">
+          <app-widget title="Line Chart">
             <v-btn icon slot="widget-header-action">
               <v-icon>flare</v-icon>
             </v-btn>
@@ -15,51 +15,51 @@
               width="100%"
               :chart-data="getChartOption('line')"
             />
-          </d-widget>
+          </app-widget>
         </v-flex>
       </v-layout>
       <v-layout row wrap>
         <v-flex xs12 sm6 md4>
-          <d-widget title="Raddar Chart">
+          <app-widget title="Raddar Chart">
             <option-chart
               slot="widget-content"
               height="300px"
               width="100%"
               :chart-data="getChartOption('raddar')"
             />
-          </d-widget>
+          </app-widget>
         </v-flex>
         <v-flex xs12 sm6 md4>
-          <d-widget title="Pie Chart">
+          <app-widget title="Pie Chart">
             <option-chart
               slot="widget-content"
               height="300px"
               width="100%"
               :chart-data="getChartOption('pie')"
             />
-          </d-widget>
+          </app-widget>
         </v-flex>
         <v-flex xs12 sm6 md4>
-          <d-widget title="Bar Chart">
+          <app-widget title="Bar Chart">
             <option-chart
               slot="widget-content"
               height="300px"
               width="100%"
               :chart-data="getChartOption('bar')"
             />
-          </d-widget>
+          </app-widget>
         </v-flex>
       </v-layout>
       <v-layout row wrap>
         <v-flex lg7 sm12 xs12>
-          <d-widget title="Projects" :padding="false">
+          <app-widget title="Projects" :padding="false">
             <plain-table slot="widget-content"/>
-          </d-widget>
+          </app-widget>
         </v-flex>
         <v-flex lg5 sm12 xs12>
-          <d-widget title="Orders" :padding="false">
+          <app-widget title="Orders" :padding="false">
             <plain-table-order slot="widget-content"/>
-          </d-widget>
+          </app-widget>
         </v-flex>
       </v-layout>
     </v-container>
@@ -79,7 +79,7 @@ import * as Activity from '@/api/mock_activity';
 import GithubCorner from '@/views/components/Dashboard/GithubCorner.vue';
 import PanelGroup from '@/views/components/Dashboard/PanelGroup.vue';
 import OptionChart from '@/views/components/Dashboard/OptionChart.vue';
-import DWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 import PlainTable from '@/views/components/Dashboard/PlainTable.vue';
 import PlainTableOrder from '@/views/components/Dashboard/PlainTableOrder.vue';
 
@@ -91,7 +91,7 @@ export default {
     OptionChart,
     PlainTable,
     PlainTableOrder,
-    DWidget
+    AppWidget
   },
   data: () => ({
     lineChartData: lineChartData.newVisitis

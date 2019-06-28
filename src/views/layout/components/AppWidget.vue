@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'DWidget',
+  name: 'AppWidget',
   props: {
     title: {
       type: String,

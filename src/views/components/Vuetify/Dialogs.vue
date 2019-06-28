@@ -2,7 +2,7 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex lg4>
-        <v-widget title="Basic Usage" class="text-xs-center">
+        <app-widget title="Basic Usage" class="text-xs-center">
           <div slot="widget-content">
             <v-dialog
               attach=".application--wrap"
@@ -86,10 +86,10 @@
               </v-card>
             </v-dialog>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex xl4>
-        <v-widget title="Fullscreen Dialog" class="text-xs-center">
+        <app-widget title="Fullscreen Dialog" class="text-xs-center">
           <div slot="widget-content">
             <v-dialog
               v-model="fullscreen.dialog"
@@ -168,10 +168,10 @@
               </v-card>
             </v-dialog>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex xl4>
-        <v-widget title="Scrollable Dialog" class="text-xs-center">
+        <app-widget title="Scrollable Dialog" class="text-xs-center">
           <div slot="widget-content" >
             <v-dialog
               v-model="scrollable.dialog"
@@ -216,19 +216,19 @@
               </v-card>
             </v-dialog>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Dialogs',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     basic: {

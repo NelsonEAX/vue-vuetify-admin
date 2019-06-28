@@ -2,7 +2,7 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex lg12>
-        <v-widget title="Basic Usage">
+        <app-widget title="Basic Usage">
           <div slot="widget-content">
             <v-layout wrap justify-space-around align-center class="ma-0">
               <v-avatar class="indigo">
@@ -25,10 +25,10 @@
               </v-avatar>
             </v-layout>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex lg12>
-        <v-widget title="Advance usage">
+        <app-widget title="Advance usage">
           <div slot="widget-content">
             <v-layout justify-center column class="ma-0">
               <v-subheader>Today</v-subheader>
@@ -80,10 +80,10 @@
               </v-expansion-panel>
             </v-layout>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex lg12>
-        <v-widget title="Resizable">
+        <app-widget title="Resizable">
           <div slot="widget-content">
             <v-container grid-list-md>
               <v-layout row wrap>
@@ -120,19 +120,19 @@
               </v-layout>
             </v-container>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Avatar',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     messages: [

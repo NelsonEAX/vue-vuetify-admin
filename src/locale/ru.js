@@ -40,7 +40,16 @@ export default {
       datepicker: 'Datepicker',
       dialogs: 'Dialogs',
       grid: 'Grid',
-      icon: 'Icons'
+      icon: 'Icons',
+      pagination: 'Pagination',
+      parallax: 'Parallax',
+      progress: 'Progress',
+      slider: 'Slider',
+      snackbar: 'Snackbar',
+      tables: 'Tables',
+      timepicker: 'Timepicker',
+      tooltip: 'Tooltip',
+      typography: 'Typography'
     },
     errors: 'Ошибки',
     errorPages: {

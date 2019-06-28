@@ -2,7 +2,7 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex lg4 sm12>
-        <v-widget title="Basic Usage">
+        <app-widget title="Basic Usage">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-badge left>
@@ -16,10 +16,10 @@
               <v-label>Label</v-label>
             </div>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex lg4 sm12>
-        <v-widget title="Inline Badge">
+        <app-widget title="Inline Badge">
           <div slot="widget-content">
             <div class="text-xs-center">
             <v-badge left>
@@ -33,10 +33,10 @@
             </v-badge>
             </div>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex lg4 sm12>
-        <v-widget title="Icon Badge">
+        <app-widget title="Icon Badge">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-badge left color="purple">
@@ -54,19 +54,19 @@
               </v-badge>
             </div>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Badge',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({})
 };

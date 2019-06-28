@@ -3,13 +3,13 @@
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
         <v-flex lg12>
-          <v-widget title="Default">
+          <app-widget title="Default">
             <div slot="widget-content" class="text-xs-center">
               <v-parallax src="/static/bg/12.jpg">
               </v-parallax>
             </div>
-          </v-widget>
-          <v-widget title="Content inside" class="mt-3">
+          </app-widget>
+          <app-widget title="Content inside" class="mt-3">
             <div slot="widget-content" class="text-xs-center">
               <v-parallax src="/static/bg/1.jpg">
                 <v-layout column align-center justify-center>
@@ -18,8 +18,8 @@
                 </v-layout>
               </v-parallax>
             </div>
-          </v-widget>
-          <v-widget title="Jumbotron inside" class="mt-3">
+          </app-widget>
+          <app-widget title="Jumbotron inside" class="mt-3">
             <div slot="widget-content" class="text-xs-center">
               <v-parallax
                 src="/static/bg/21.jpg"
@@ -27,7 +27,7 @@
                 jumbotron
               ></v-parallax>
             </div>
-          </v-widget>
+          </app-widget>
         </v-flex>
       </v-layout>
     </v-container>
@@ -35,12 +35,12 @@
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Parallax',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     page: 1

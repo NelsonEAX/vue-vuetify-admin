@@ -130,7 +130,7 @@ const vuetifyRouter = {
       path: 'timepicker',
       component: () => import('@/views/components/Vuetify/Timepicker.vue'),
       name: 'timepicker',
-      meta: { title: 'route.vuetifyComponents.Timepicker', icon: 'timepicker', affix: true }
+      meta: { title: 'route.vuetifyComponents.timepicker', icon: 'timepicker', affix: true }
     },
     {
       path: 'tooltip',

@@ -2,7 +2,7 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex xl6>
-        <v-widget title="Basic Usage">
+        <app-widget title="Basic Usage">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-btn color="success">Success</v-btn>
@@ -11,8 +11,8 @@
               <v-btn color="info">Info</v-btn>
             </div>
           </div>
-        </v-widget>
-        <v-widget title="Flat button" class="mt-3">
+        </app-widget>
+        <app-widget title="Flat button" class="mt-3">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-btn color="success" flat>Success</v-btn>
@@ -21,8 +21,8 @@
               <v-btn color="info" flat>Info</v-btn>
             </div>
           </div>
-        </v-widget>
-        <v-widget title="Depressed button" class="mt-3">
+        </app-widget>
+        <app-widget title="Depressed button" class="mt-3">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-btn color="success" depressed="">Success</v-btn>
@@ -31,8 +31,8 @@
               <v-btn color="info" depressed>Info</v-btn>
             </div>
           </div>
-        </v-widget>
-        <v-widget title="Outline button" class="mt-3">
+        </app-widget>
+        <app-widget title="Outline button" class="mt-3">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-btn color="success" outline="">Success</v-btn>
@@ -41,8 +41,8 @@
               <v-btn color="info" outline>Info</v-btn>
             </div>
           </div>
-        </v-widget>
-        <v-widget title="Rounded button" class="mt-3">
+        </app-widget>
+        <app-widget title="Rounded button" class="mt-3">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-btn color="success" round>Success</v-btn>
@@ -51,8 +51,8 @@
               <v-btn color="info" round>Info</v-btn>
             </div>
           </div>
-        </v-widget>
-        <v-widget title="Floating button" class="mt-3">
+        </app-widget>
+        <app-widget title="Floating button" class="mt-3">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-btn color="success" dark fab>
@@ -66,8 +66,8 @@
               </v-btn>
             </div>
           </div>
-        </v-widget>
-        <v-widget title="Loading button" class="mt-3">
+        </app-widget>
+        <app-widget title="Loading button" class="mt-3">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-btn
@@ -113,10 +113,10 @@
               </v-btn>
             </div>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex xl6>
-        <v-widget title="Icon button">
+        <app-widget title="Icon button">
           <div slot="widget-content">
             <v-container fluid class="pa-0">
               <v-layout row wrap>
@@ -171,8 +171,8 @@
               </v-layout>
             </v-container>
           </div>
-        </v-widget>
-        <v-widget title="Sizing button" class="mt-3">
+        </app-widget>
+        <app-widget title="Sizing button" class="mt-3">
           <div slot="widget-content">
             <v-container fluid class="pa-0">
               <v-layout row wrap align-center>
@@ -211,8 +211,8 @@
               </v-layout>
             </v-container>
           </div>
-        </v-widget>
-        <v-widget title="Block button" class="mt-3">
+        </app-widget>
+        <app-widget title="Block button" class="mt-3">
           <div slot="widget-content">
             <div>
               <v-btn color="success" block>Success</v-btn>
@@ -221,10 +221,10 @@
               <v-btn color="info" block>Info</v-btn>
             </div>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex xl12>
-        <v-widget title="Toggle button">
+        <app-widget title="Toggle button">
           <div slot="widget-content">
             <v-container fluid class="pa-0">
               <v-layout row wrap>
@@ -337,19 +337,19 @@
               </v-layout>
             </v-container>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Buttons',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     text: 'center',

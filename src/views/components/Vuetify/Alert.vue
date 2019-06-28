@@ -2,7 +2,7 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex xs12 sm6>
-        <v-widget title="Basic Usage">
+        <app-widget title="Basic Usage">
           <div slot="widget-content">
             <v-alert type="success" :value="true">
               This is a success alert.
@@ -17,10 +17,10 @@
               This is a error alert.
             </v-alert>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex xs12 sm6>
-        <v-widget title="Custom Icons">
+        <app-widget title="Custom Icons">
           <div slot="widget-content">
             <v-alert color="success" icon="new_releases" :value="true">
               This is a success alert with a custom icon.
@@ -35,10 +35,10 @@
               This is an error alert with no icon.
             </v-alert>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex xs12 sm6>
-        <v-widget title="Outline Alerts">
+        <app-widget title="Outline Alerts">
           <div slot="widget-content">
             <v-alert outline color="success" icon="check_circle" :value="true">
               This is a success alert.
@@ -53,10 +53,10 @@
               This is a error alert.
             </v-alert>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex xs12 sm6>
-        <v-widget title="Closable Alerts">
+        <app-widget title="Closable Alerts">
           <div slot="widget-content">
             <v-alert
               type="success" dismissible v-model="alert.showSuccess" transition="scale-transition">
@@ -78,19 +78,19 @@
               <v-btn color="primary" dark @click="handleReset">Reset</v-btn>
             </div>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Alert',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     alert: {

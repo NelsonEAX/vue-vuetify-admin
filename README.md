@@ -75,7 +75,7 @@ Understanding and learning this knowledge in advance will greatly help the use o
 
 - Global Features
   - I18n
-  - Multiple dynamic themes [expected]
+  - Multiple dynamic themes
   - Dynamic sidebar (supports multi-level routing)
   - Dynamic breadcrumb
   - Tags-view (Tab page Support right-click operation) [expected]
@@ -108,15 +108,15 @@ Understanding and learning this knowledge in advance will greatly help the use o
   - 500
 
 - Components
-  - Avatar Upload [expected]
-  - Back To Top [expected]
+  - Avatar Upload
+  - Back To Top
   - Drag Dialog [expected]
   - Drag Select [expected]
-  - Drag Kanban [expected]
+  - Drag Kanban
   - Drag List [expected]
-  - SplitPane [expected]
-  - Dropzone [expected]
-  - Sticky [expected]
+  - SplitPane 
+  - Dropzone 
+  - Sticky
   - CountTo
 
 - Advanced Example [expected]
@@ -125,7 +125,7 @@ Understanding and learning this knowledge in advance will greatly help the use o
 - Guide Page
 - ECharts
 - Clipboard [expected]
-- Markdown to html [expected]
+- Markdown to html
 ```
 
 ## Getting started

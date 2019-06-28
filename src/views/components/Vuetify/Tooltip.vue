@@ -2,7 +2,7 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex lg6>
-        <v-widget title="Basic Usage">
+        <app-widget title="Basic Usage">
           <div slot="widget-content">
             <div class="text-xs-center d-flex align-center">
               <v-tooltip bottom>
@@ -19,10 +19,10 @@
               </v-tooltip>
             </div>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex lg6>
-        <v-widget title="Alignment">
+        <app-widget title="Alignment">
           <div slot="widget-content">
             <div class="text-xs-center">
               <v-tooltip left>
@@ -43,10 +43,10 @@
               </v-tooltip>
             </div>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex lg6>
-        <v-widget title="Icon Badge">
+        <app-widget title="Icon Badge">
           <div slot="widget-content">
             <v-container fluid class="text-xs-center">
               <v-layout flex wrap row justify-space-between>
@@ -64,19 +64,19 @@
               </v-layout>
             </v-container>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Tooltip',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     show: false

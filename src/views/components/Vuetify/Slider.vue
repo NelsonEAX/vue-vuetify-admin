@@ -2,7 +2,7 @@
   <v-container grid-list-lg fluid>
     <v-layout row wrap>
       <v-flex xs12>
-        <v-widget title="Basic Usage">
+        <app-widget title="Basic Usage">
           <div slot="widget-content">
             <v-subheader>Default</v-subheader>
             <div class="container">
@@ -69,19 +69,19 @@
               </div>
             </div>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Slider',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     slider1: 0,

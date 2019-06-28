@@ -2,7 +2,7 @@
   <v-container grid-list-xl fluid>
     <v-layout row wrap>
       <v-flex lg6 xs12>
-        <v-widget title="Basic Usage">
+        <app-widget title="Basic Usage">
           <div slot="widget-content">
             <v-carousel>
               <v-carousel-item
@@ -12,10 +12,10 @@
               ></v-carousel-item>
             </v-carousel>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
       <v-flex lg6 xs12>
-        <v-widget title="Hide Controls">
+        <app-widget title="Hide Controls">
           <div slot="widget-content">
             <v-carousel hide-controls hide-delimiters>
               <v-carousel-item
@@ -25,19 +25,19 @@
               ></v-carousel-item>
             </v-carousel>
           </div>
-        </v-widget>
+        </app-widget>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import VWidget from '@/views/components/Dashboard/DWidget.vue';
+import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'Carousels',
   components: {
-    VWidget
+    AppWidget
   },
   data: () => ({
     items: [
