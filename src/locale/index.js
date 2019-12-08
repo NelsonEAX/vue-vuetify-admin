@@ -41,20 +41,15 @@ const i18n = new VueI18n({
   messages,
 });
 
-export function changeLocale(newLocale) {
-  return new Promise((resolve, reject) => {
-    try {
-      if (i18n.locale !== newLocale) {
-        console.log(`Change locale to "${newLocale}"`);
-        i18n.locale = newLocale || defaultLocale.locale;
-      } else {
-        console.warn(`"${newLocale}" is current locale `);
-      }
-      resolve(i18n.locale);
-    } catch (e) {
-      reject(e);
-    }
-  });
+export async function changeLocale(newLocale, store) {
+  if (i18n.locale !== newLocale) {
+    console.log(`Change locale to "${newLocale}"`);
+    i18n.locale = newLocale || defaultLocale.locale;
+
+    store.dispatch('LanguageToggle', { state: i18n.locale });
+  } else {
+    console.warn(`"${newLocale}" is current locale `);
+  }
 }
 
 export default i18n;

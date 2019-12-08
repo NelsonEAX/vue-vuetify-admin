@@ -46,7 +46,7 @@ class SyncStorage {
     // init and apply settings state from storage
     if (this.initSettingsState(store)) {
       console.log('initSettingsState');
-      changeLocale(store.getters.language);
+      changeLocale(store.getters.language, store);
       // store.dispatch('LanguageToggle', { roles: store.getters.roles });
     } else {
       console.warn('No user settings in "Storage"');

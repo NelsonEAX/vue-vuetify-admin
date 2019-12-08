@@ -98,7 +98,6 @@
                 </v-btn>
                 <v-spacer />
                 <v-btn
-                  block
                   color="primary"
                   :loading="loading"
                   @click="login"

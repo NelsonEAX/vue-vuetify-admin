@@ -80,29 +80,51 @@
         offset-sm2
         class="text-center"
       >
-        <v-btn>{{ $t('ui.default') }}</v-btn>
-        <v-btn color="primary">
+        <v-btn
+          class="mx-2"
+        >
+          {{ $t('ui.default') }}
+        </v-btn>
+        <v-btn
+          class="mx-2"
+          color="primary"
+        >
           {{ $t('ui.primary') }}
         </v-btn>
-        <v-btn color="secondary">
+        <v-btn
+          class="mx-2"
+          color="secondary"
+        >
           {{ $t('ui.secondary') }}
         </v-btn>
-        <v-btn color="success">
+        <v-btn
+          class="mx-2"
+          color="success"
+        >
           {{ $t('ui.success') }}
         </v-btn>
-        <v-btn color="error">
+        <v-btn
+          class="mx-2"
+          color="error"
+        >
           {{ $t('ui.error') }}
         </v-btn>
-        <v-btn color="warning">
+        <v-btn
+          class="mx-2"
+          color="warning"
+        >
           {{ $t('ui.warning') }}
         </v-btn>
-        <v-btn color="info">
+        <v-btn
+          class="mx-2"
+          color="info"
+        >
           {{ $t('ui.info') }}
         </v-btn>
       </v-flex>
 
       <v-flex
-        flex-grow-1
+        d-md-flex
         xs12
         sm8
         offset-sm2
@@ -192,14 +214,8 @@ export default {
     ]),
   },
   methods: {
-    changeLocale(lang) {
-      changeLocale(lang)
-        .then((state) => {
-          this.$store.dispatch('LanguageToggle', { state });
-        })
-        .catch((err) => {
-          console.log(`${err}`);
-        });
+    async changeLocale(lang) {
+      await changeLocale(lang, this.$store);
     },
   },
 };

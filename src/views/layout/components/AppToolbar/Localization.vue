@@ -41,14 +41,8 @@ export default {
     locales,
   }),
   methods: {
-    changeLocale(lang) {
-      changeLocale(lang)
-        .then((state) => {
-          this.$store.dispatch('LanguageToggle', { state });
-        })
-        .catch((err) => {
-          console.log(`${err}`);
-        });
+    async changeLocale(lang) {
+      await changeLocale(lang, this.$store);
     },
   },
 };

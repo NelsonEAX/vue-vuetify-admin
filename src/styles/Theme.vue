@@ -7,7 +7,7 @@
       v-for="(item, index) in themes"
       :key="index"
       text-center
-      :class="[{'elevation-10 pa-2': themeIndex == index}, xs]"
+      :class="[{'elevation-5 pa-2': themeIndex == index}, xs]"
       @click.stop="toggleTheme(index)"
     >
       <div
