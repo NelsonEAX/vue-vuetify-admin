@@ -1,5 +1,9 @@
 <template>
-  <v-breadcrumbs class="hidden-sm-and-down" :items="levelList" divider="/">
+  <v-breadcrumbs
+    class="hidden-sm-and-down"
+    :items="levelList"
+    divider="/"
+  >
     <template v-slot:item="props">
       <a @click.prevent="handleLink(props.item)">
         {{ generateTitle(props.item.meta.title) }}
@@ -9,17 +13,17 @@
 </template>
 
 <script>
-import pathToRegexp from 'path';
+const pathToRegexp = require('path');
 
 export default {
   name: 'Breadcrumbs',
   data: () => ({
-    levelList: null
+    levelList: null,
   }),
   watch: {
     $route() {
       this.getBreadcrumb();
-    }
+    },
   },
   created() {
     this.getBreadcrumb();
@@ -40,14 +44,14 @@ export default {
       return title;
     },
     getBreadcrumb() {
-      let matched = this.$route.matched.filter(item => item.name);
+      let matched = this.$route.matched.filter((item) => item.name);
 
       const first = matched[0];
       if (first && first.name.trim().toLocaleLowerCase() !== 'dashboard') {
         matched = [{ path: '/dashboard', meta: { title: 'route.dashboard' } }].concat(matched);
       }
 
-      this.levelList = matched.filter(item => item.meta
+      this.levelList = matched.filter((item) => item.meta
         && item.meta.title && item.meta.breadcrumb !== false);
     },
     pathCompile(path) {
@@ -67,7 +71,7 @@ export default {
       }
       this.$router.push(this.pathCompile(path));
       console.groupEnd();
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,12 +1,25 @@
 <template>
   <div class="grey lighten-3">
-    <github-corner class="github-corner"/>
-    <v-container fluid grid-list-md text-xs-center>
-      <panel-group @handleSetLineChartData="handleSetLineChartData"/>
-      <v-layout row wrap>
-        <v-flex d-flex xs12>
+    <github-corner class="github-corner" />
+    <v-container
+      container--fluid
+      grid-list-md
+      text-center
+    >
+      <panel-group @handleSetLineChartData="handleSetLineChartData" />
+      <v-layout
+        row
+        wrap
+      >
+        <v-flex
+          flex-grow-1
+          xs12
+        >
           <app-widget title="Line Chart">
-            <v-btn icon slot="widget-header-action">
+            <v-btn
+              slot="widget-header-action"
+              icon
+            >
               <v-icon>flare</v-icon>
             </v-btn>
             <option-chart
@@ -18,8 +31,15 @@
           </app-widget>
         </v-flex>
       </v-layout>
-      <v-layout row wrap>
-        <v-flex xs12 sm6 md4>
+      <v-layout
+        row
+        wrap
+      >
+        <v-flex
+          xs12
+          sm6
+          md4
+        >
           <app-widget title="Raddar Chart">
             <option-chart
               slot="widget-content"
@@ -29,7 +49,11 @@
             />
           </app-widget>
         </v-flex>
-        <v-flex xs12 sm6 md4>
+        <v-flex
+          xs12
+          sm6
+          md4
+        >
           <app-widget title="Pie Chart">
             <option-chart
               slot="widget-content"
@@ -39,7 +63,11 @@
             />
           </app-widget>
         </v-flex>
-        <v-flex xs12 sm6 md4>
+        <v-flex
+          xs12
+          sm6
+          md4
+        >
           <app-widget title="Bar Chart">
             <option-chart
               slot="widget-content"
@@ -50,15 +78,32 @@
           </app-widget>
         </v-flex>
       </v-layout>
-      <v-layout row wrap>
-        <v-flex lg7 sm12 xs12>
-          <app-widget title="Projects" :padding="false">
-            <plain-table slot="widget-content"/>
+      <v-layout
+        row
+        wrap
+      >
+        <v-flex
+          lg7
+          sm12
+          xs12
+        >
+          <app-widget
+            title="Projects"
+            :padding="false"
+          >
+            <plain-table slot="widget-content" />
           </app-widget>
         </v-flex>
-        <v-flex lg5 sm12 xs12>
-          <app-widget title="Orders" :padding="false">
-            <plain-table-order slot="widget-content"/>
+        <v-flex
+          lg5
+          sm12
+          xs12
+        >
+          <app-widget
+            title="Orders"
+            :padding="false"
+          >
+            <plain-table-order slot="widget-content" />
           </app-widget>
         </v-flex>
       </v-layout>
@@ -72,7 +117,7 @@ import {
   getLineChartOption,
   getRaddarChartOption,
   getPieChartOption,
-  getBarChartOption
+  getBarChartOption,
 } from '@/api/mock';
 import * as Activity from '@/api/mock_activity';
 
@@ -91,15 +136,15 @@ export default {
     OptionChart,
     PlainTable,
     PlainTableOrder,
-    AppWidget
+    AppWidget,
   },
   data: () => ({
-    lineChartData: lineChartData.newVisitis
+    lineChartData: lineChartData.newVisitis,
   }),
   computed: {
     activity() {
       return Activity.default.getActivity();
-    }
+    },
   },
   methods: {
     handleSetLineChartData(type) {
@@ -118,7 +163,7 @@ export default {
         default:
           return {};
       }
-    }
-  }
+    },
+  },
 };
 </script>

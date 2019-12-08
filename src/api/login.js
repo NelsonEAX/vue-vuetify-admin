@@ -10,7 +10,7 @@ export function loginByEmail(email, password) {
     }
     if (user) {
       return resolve({
-        data: { user }
+        data: { user },
       });
     }
     return reject(new Error('Пользователь с такими учетными данными не обнаружен'));
@@ -27,7 +27,7 @@ export function getUserInfo(token) {
       }
 
       return resolve({
-        data: { user }
+        data: { user },
       });
     }
     return reject(new Error('Токен пуст'));

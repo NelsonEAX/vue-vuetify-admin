@@ -8,16 +8,16 @@ NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
 // Generate white list
 const whiteList = (['/landing', '/land']
-  .concat(Array.from(authRouter, route => route.path))
-  .concat(Array.from(authRouter, route => route.alias)))
-  .filter(route => route); // remove undefined element
+  .concat(Array.from(authRouter, (route) => route.path))
+  .concat(Array.from(authRouter, (route) => route.alias)))
+  .filter((route) => route); // remove undefined element
 console.log('whiteList', whiteList);
 
 // permission judge function
 function hasPermission(roles, permissionRoles) {
   if (roles.includes('admin')) return true; // admin permission passed directly
   if (!permissionRoles) return true;
-  return roles.some(role => permissionRoles.includes(role));
+  return roles.some((role) => permissionRoles.includes(role));
 }
 
 router.beforeEach((to, from, next) => {
@@ -38,25 +38,25 @@ router.beforeEach((to, from, next) => {
         console.warn('roles.length === 0');
         // Determine whether the current user has pulled the user_info information
         store.dispatch('GetUserInfo')
-          .then(res => {
+          .then((res) => {
             console.log('GetUserInfo', res);
             // Pull user_info
             const { roles } = res.data.user; // note: roles must be a object array! such as:
             // [{id: '1', name: 'editor'}, {id: '2', name: 'developer'}]
             store.dispatch('GenerateRoutes', { roles })
-              .then(accessRoutes => {
+              .then((accessRoutes) => {
                 console.log('GenerateRoutes', accessRoutes);
                 // Dynamically add accessible routing tables
                 router.addRoutes(accessRoutes, { override: true });
                 next({ ...to, replace: true }); // Hack method to ensure that addRoutes is complete,
                 // set the replace: true so the navigation will not leave a history record
               })
-              .catch(err => {
+              .catch((err) => {
                 console.log(`GenerateRoutes ${err}`);
                 next({ path: '/' });
               });
           })
-          .catch(err => {
+          .catch((err) => {
             store.dispatch('LogOut')
               .then(() => {
                 // Message.error(err);

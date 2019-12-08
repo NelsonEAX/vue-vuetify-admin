@@ -1,36 +1,67 @@
 <template>
-  <v-container grid-list-xl fluid>
-    <v-layout row wrap>
-      <v-flex lg6 sm12>
+  <v-container
+    grid-list-xl
+    container--fluid
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        lg6
+        sm12
+      >
         <app-widget title="Basic Usage">
-          <div slot="widget-content" class="text-xs-center">
-            <v-time-picker color="primary lighten-1" v-model="picker"></v-time-picker>
+          <div
+            slot="widget-content"
+            class="text-center"
+          >
+            <v-time-picker
+              v-model="picker"
+              color="primary lighten-1"
+            />
           </div>
         </app-widget>
       </v-flex>
-      <v-flex lg6 sm12 class="hidden-sm-and-down">
+      <v-flex
+        lg6
+        sm12
+        class="hidden-sm-and-down"
+      >
         <app-widget title="Full Width">
           <div slot="widget-content">
             <v-time-picker
+              v-model="picker"
               landscape
               full-width
               color="green lighten-1"
-              v-model="picker"
-            ></v-time-picker>
+            />
           </div>
         </app-widget>
       </v-flex>
-      <v-flex lg6 sm12>
-        <app-widget title="In dialog and menu" class="mt-3">
+      <v-flex
+        lg6
+        sm12
+      >
+        <app-widget
+          title="In dialog and menu"
+          class="mt-3"
+        >
           <div slot="widget-content">
             <v-container>
-              <v-layout row wrap>
-                <v-flex xs11 sm5>
+              <v-layout
+                row
+                wrap
+              >
+                <v-flex
+                  xs11
+                  sm5
+                >
                   <v-menu
                     ref="menu"
+                    v-model="menu"
                     lazy
                     :close-on-content-click="false"
-                    v-model="menu"
                     transition="scale-transition"
                     offset-y
                     full-width
@@ -40,24 +71,43 @@
                   >
                     <v-text-field
                       slot="activator"
-                      label="Picker in menu"
                       v-model="date"
+                      label="Picker in menu"
                       prepend-icon="event"
                       readonly
-                    ></v-text-field>
-                    <v-time-picker v-model="date" no-title scrollable>
-                      <v-spacer></v-spacer>
-                      <v-btn flat color="primary" @click="menu = false">Cancel</v-btn>
-                      <v-btn flat color="primary" @click="$refs.menu.save(date)">OK</v-btn>
+                    />
+                    <v-time-picker
+                      v-model="date"
+                      no-title
+                      scrollable
+                    >
+                      <v-spacer />
+                      <v-btn
+                        flat
+                        color="primary"
+                        @click="menu = false"
+                      >
+                        Cancel
+                      </v-btn>
+                      <v-btn
+                        flat
+                        color="primary"
+                        @click="$refs.menu.save(date)"
+                      >
+                        OK
+                      </v-btn>
                     </v-time-picker>
                   </v-menu>
                 </v-flex>
-                <v-spacer></v-spacer>
-                <v-flex xs11 sm5>
+                <v-spacer />
+                <v-flex
+                  xs11
+                  sm5
+                >
                   <v-dialog
                     ref="dialog"
-                    persistent
                     v-model="modal"
+                    persistent
                     lazy
                     full-width
                     width="290px"
@@ -65,15 +115,30 @@
                   >
                     <v-text-field
                       slot="activator"
-                      label="Picker in dialog"
                       v-model="date"
+                      label="Picker in dialog"
                       prepend-icon="event"
                       readonly
-                    ></v-text-field>
-                    <v-time-picker v-model="date" scrollable>
-                      <v-spacer></v-spacer>
-                      <v-btn flat color="primary" @click="modal = false">Cancel</v-btn>
-                      <v-btn flat color="primary" @click="$refs.dialog.save(date)">OK</v-btn>
+                    />
+                    <v-time-picker
+                      v-model="date"
+                      scrollable
+                    >
+                      <v-spacer />
+                      <v-btn
+                        flat
+                        color="primary"
+                        @click="modal = false"
+                      >
+                        Cancel
+                      </v-btn>
+                      <v-btn
+                        flat
+                        color="primary"
+                        @click="$refs.dialog.save(date)"
+                      >
+                        OK
+                      </v-btn>
                     </v-time-picker>
                   </v-dialog>
                 </v-flex>
@@ -92,7 +157,7 @@ import AppWidget from '@/views/layout/components/AppWidget.vue';
 export default {
   name: 'Timepicker',
   components: {
-    AppWidget
+    AppWidget,
   },
   data: () => ({
     picker: null,
@@ -102,7 +167,7 @@ export default {
     date2: null,
     date: null,
     menu: false,
-    modal: false
-  })
+    modal: false,
+  }),
 };
 </script>

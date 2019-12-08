@@ -4,12 +4,12 @@ import store from '@/store';
 // create an axios instance
 const service = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com/', // process.env.BASE_API,
-  timeout: 5000 // request timeout
+  timeout: 5000, // request timeout
 });
 
 // request interceptor
 service.interceptors.request.use(
-  config => {
+  (config) => {
     // Do something before request is sent
     if (store.getters.token) {
       // Let each request carry a token-- ['X-Token']
@@ -19,20 +19,20 @@ service.interceptors.request.use(
     }
     return config;
   },
-  error => {
+  (error) => {
     // Do something with request error
     console.log(error); // for debug
     Promise.reject(error);
-  }
+  },
 );
 
 // response interceptor
 service.interceptors.response.use(
-  response => response,
-  error => {
+  (response) => response,
+  (error) => {
     console.log(`err ${error}`); // for debug
     return Promise.reject(error);
-  }
+  },
 );
 
 export default service;

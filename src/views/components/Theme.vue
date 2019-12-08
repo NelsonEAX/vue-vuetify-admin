@@ -1,11 +1,20 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12>
+  <v-container
+    container--fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <v-alert
           :value="true"
           color="info"
-          outline
+          outlined
         >
           {{ $t('components.palette') }}
           <a
@@ -15,10 +24,15 @@
         </v-alert>
       </v-flex>
 
-      <v-flex d-flex xs12 sm4 offset-sm4>
+      <v-flex
+        flex-grow-1
+        xs12
+        sm4
+        offset-sm4
+      >
         <app-widget
           :title="$t('ui.theme')"
-          class="text-xs-center"
+          class="text-center"
           :padding="false"
           icon="color_lens"
         >
@@ -28,46 +42,68 @@
             </v-card-title>
 
             <v-card-title primary-title>
-              <theme-widget xs="xs3"/>
+              <theme-widget xs="xs3" />
             </v-card-title>
           </div>
         </app-widget>
       </v-flex>
     </v-layout>
 
-    <v-layout row wrap align-center>
-      <v-flex xs6 md2 text-xs-center>
-        <v-flex xs12
-                v-for="item in items"
-                :key="item.color">
+    <v-layout
+      row
+      wrap
+      align-center
+    >
+      <v-flex
+        xs6
+        md2
+        text-center
+      >
+        <v-flex
+          v-for="item in items"
+          :key="item.color"
+          xs12
+        >
           <v-btn
             :color="item.color"
-          >{{ $t(`ui.${item.color}`) }}</v-btn>
+          >
+            {{ $t(`ui.${item.color}`) }}
+          </v-btn>
         </v-flex>
       </v-flex>
-      <v-flex xs6 md2 text-xs-center>
+      <v-flex
+        xs6
+        md2
+        text-center
+      >
         <v-switch
           v-for="item in items"
           :key="item.color"
+          v-model="sw_on"
           :color="item.color"
           :label="item.color"
-          v-model="sw_on"
           hide-details
-        ></v-switch>
+        />
       </v-flex>
-      <v-flex xs6 md4>
+      <v-flex
+        xs6
+        md4
+      >
         <v-alert
           v-for="item in items"
           :key="item.color"
           :color="item.color"
           :value="true"
           :icon="item.icon"
-          outline
+          outlined
         >
           This is a {{ item.color }} outline alert.
         </v-alert>
       </v-flex>
-      <v-flex xs6 md4>
+      <v-flex
+        xs6
+        md4
+      >
         <v-alert
           v-for="item in items"
           :key="item.color"
@@ -100,13 +136,13 @@ export default {
       { color: 'success', icon: 'check_circle' },
       { color: 'error', icon: 'warning' },
       { color: 'warning', icon: 'priority_high' },
-      { color: 'info', icon: 'info' }
-    ]
+      { color: 'info', icon: 'info' },
+    ],
   }),
   computed: {
     ...mapGetters([
-      'toolbarDense'
-    ])
-  }
+      'toolbarDense',
+    ]),
+  },
 };
 </script>

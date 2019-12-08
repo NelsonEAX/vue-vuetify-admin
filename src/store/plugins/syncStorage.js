@@ -23,7 +23,7 @@ class SyncStorage {
   }
 
   /** vuex plugin function */
-  subscribe = store => {
+  subscribe = (store) => {
     if (!this.checkStorage()) {
       throw new Error('Invalid "Storage" instance given');
     }
@@ -32,11 +32,11 @@ class SyncStorage {
     if (this.initUserState(store)) {
       console.log(store.getters.roles);
       store.dispatch('GenerateRoutes', { roles: store.getters.roles })
-        .then(accessRoutes => {
+        .then((accessRoutes) => {
           console.log('SyncStorage GenerateRoutes', accessRoutes);
           router.addRoutes(accessRoutes, { override: true });
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(`SyncStorage GenerateRoutes ${err}`);
         });
     } else {

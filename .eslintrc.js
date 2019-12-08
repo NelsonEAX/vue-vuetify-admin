@@ -1,32 +1,47 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
   extends: [
     'plugin:vue/essential',
-    '@vue/airbnb'
+    'plugin:vue/strongly-recommended',
+    'plugin:vue/recommended',
+    '@vue/airbnb',
+  ],
+  plugins: [
+    'vuetify',
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    // 'no-param-reassign': 0,
-    'no-param-reassign': ['error',
-      {
-        props: true,
-        ignorePropertyModificationsFor: ['state']
-      }],
-    'arrow-parens': ['error', 'as-needed'],
-    // 'arrow-body-style': ['error', 'never'],
-    'comma-dangle': ['error', {
-      arrays: 'never'
-      // 'objects': 'never',
-      // 'imports': 'never',
-      // 'exports': 'never',
-      // 'functions': 'ignore',
-    }]
+    'vue/array-bracket-spacing': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/arrow-spacing': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/block-spacing': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/brace-style': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/camelcase': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/comma-dangle': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/component-name-in-template-casing': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/dot-location': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/eqeqeq': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/key-spacing': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/keyword-spacing': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/match-component-file-name': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/no-boolean-default': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/no-deprecated-scope-attribute': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/no-empty-pattern': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/no-restricted-syntax': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/object-curly-spacing': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/require-direct-export': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/script-indent': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/space-infix-ops': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/space-unary-ops': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vue/v-on-function-call': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vuetify/no-deprecated-classes': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vuetify/grid-unknown-attributes': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'vuetify/no-legacy-grid': process.env.NODE_ENV === 'production' ? 'error' : 'off',
   },
   parserOptions: {
-    parser: 'babel-eslint'
-  }
+    parser: 'babel-eslint',
+  },
 };

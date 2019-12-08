@@ -1,26 +1,67 @@
 <template>
   <div id="page-pagination">
-    <v-container grid-list-xl fluid>
-      <v-layout row wrap>
+    <v-container
+      grid-list-xl
+      container--fluid
+    >
+      <v-layout
+        row
+        wrap
+      >
         <v-flex lg12>
           <app-widget title="Default">
-            <div slot="widget-content" class="text-xs-center">
-              <v-pagination :length="6" v-model="page"></v-pagination>
+            <div
+              slot="widget-content"
+              class="text-center"
+            >
+              <v-pagination
+                v-model="page"
+                :length="6"
+              />
             </div>
           </app-widget>
-          <app-widget title="Visiable Limit" class="mt-3">
-            <div slot="widget-content" class="text-xs-center">
-              <v-pagination :length="15" v-model="page" :total-visible="7"></v-pagination>
+          <app-widget
+            title="Visiable Limit"
+            class="mt-3"
+          >
+            <div
+              slot="widget-content"
+              class="text-center"
+            >
+              <v-pagination
+                v-model="page"
+                :length="15"
+                :total-visible="7"
+              />
             </div>
           </app-widget>
-          <app-widget title="Short" class="mt-3">
-            <div slot="widget-content" class="text-xs-center">
-              <v-pagination :length="5" v-model="page"></v-pagination>
+          <app-widget
+            title="Short"
+            class="mt-3"
+          >
+            <div
+              slot="widget-content"
+              class="text-center"
+            >
+              <v-pagination
+                v-model="page"
+                :length="5"
+              />
             </div>
           </app-widget>
-          <app-widget title="Round" class="mt-3">
-            <div slot="widget-content" class="text-xs-center">
-              <v-pagination :length="5" v-model="page" circle></v-pagination>
+          <app-widget
+            title="Round"
+            class="mt-3"
+          >
+            <div
+              slot="widget-content"
+              class="text-center"
+            >
+              <v-pagination
+                v-model="page"
+                :length="5"
+                circle
+              />
             </div>
           </app-widget>
         </v-flex>
@@ -36,10 +77,10 @@ import AppWidget from '@/views/layout/components/AppWidget.vue';
 export default {
   name: 'Pagination',
   components: {
-    AppWidget
+    AppWidget,
   },
   data: () => ({
-    page: 1
-  })
+    page: 1,
+  }),
 };
 </script>

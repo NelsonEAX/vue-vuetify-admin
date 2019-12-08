@@ -1,7 +1,16 @@
 <template>
-  <v-container fluid fill-height>
-    <v-layout justify-center align-center>
-      <v-flex class="display-4" text-xs-center>
+  <v-container
+    container--fluid
+    fill-height
+  >
+    <v-layout
+      justify-center
+      align-center
+    >
+      <v-flex
+        class="display-4"
+        text-center
+      >
         Visitor
       </v-flex>
     </v-layout>
@@ -10,7 +19,7 @@
 
 <script>
 export default {
-  name: 'visitor'
+  name: 'Visitor',
 };
 </script>
 

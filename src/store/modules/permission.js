@@ -7,7 +7,7 @@ import { asyncRoutes, constantRoutes } from '@/router';
  */
 function hasPermission(roles, route) {
   if (route.meta && route.meta.roles) {
-    return roles.some(role => route.meta.roles.includes(role));
+    return roles.some((role) => route.meta.roles.includes(role));
   }
   return true;
 }
@@ -21,7 +21,7 @@ function hasPermission(roles, route) {
 export function filterAsyncRoutes(routes, roles) {
   const res = [];
 
-  routes.forEach(route => {
+  routes.forEach((route) => {
     const tmp = { ...route };
     if (hasPermission(roles, tmp)) {
       if (tmp.children) {
@@ -37,12 +37,12 @@ export function filterAsyncRoutes(routes, roles) {
 const permission = {
   state: {
     routes: [],
-    addRoutes: []
+    addRoutes: [],
   },
 
   getters: {
-    permissionRoutes: state => state.routes,
-    addRoutes: state => state.addRoutes
+    permissionRoutes: (state) => state.routes,
+    addRoutes: (state) => state.addRoutes,
   },
 
   mutations: {
@@ -52,12 +52,12 @@ const permission = {
 
       console.log('SET_ROUTES state.addRoutes', state.addRoutes);
       console.log('SET_ROUTES state.routes', state.routes);
-    }
+    },
   },
   actions: {
     GenerateRoutes: async ({ commit }, data) => {
       console.log('GenerateRoutes');
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         const { roles } = data;
         let accessedRoutes;
         console.groupCollapsed('GenerateRoutes');
@@ -75,8 +75,8 @@ const permission = {
         console.groupEnd();
         resolve(accessedRoutes);
       });
-    }
-  }
+    },
+  },
 };
 
 export default permission;

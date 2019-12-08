@@ -12,5 +12,5 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.resizeHandler);
-  }
+  },
 };

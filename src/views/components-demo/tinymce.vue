@@ -1,11 +1,20 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12>
+  <v-container
+    container--fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <v-alert
           :value="true"
           color="info"
-          outline
+          outlined
         >
           {{ $t('components.tinymceTips') }}
           <a
@@ -16,14 +25,22 @@
           </a>
         </v-alert>
       </v-flex>
-      <v-flex d-flex xs12>
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <tinymce
           v-model="content"
           :init="options"
         />
       </v-flex>
-      <v-flex d-flex xs12>
-        <div class="editor-content" v-html="content" />
+      <v-flex
+        flex-grow-1
+        xs12
+      >
+        <div class="editor-content">
+          {{ content }}
+        </div>
       </v-flex>
     </v-layout>
   </v-container>
@@ -32,9 +49,9 @@
 <script>
 import Tinymce from '@tinymce/tinymce-vue';
 // import EditorImage from '@/components/Tinymce/EditorImage.vue';
+import { mapGetters } from 'vuex';
 import plugins from '@/components/Tinymce/plugins';
 import toolbar from '@/components/Tinymce/toolbar';
-import { mapGetters } from 'vuex';
 
 export default {
   name: 'TinymceDemo',
@@ -81,14 +98,14 @@ export default {
         imagetools_cors_hosts: ['www.tinymce.com', 'codepen.io'],
         default_link_target: '_blank',
         link_title: false,
-        nonbreaking_force_tab: true
-      }
+        nonbreaking_force_tab: true,
+      },
     };
   },
   computed: {
     ...mapGetters([
-      'language'
-    ])
-  }
+      'language',
+    ]),
+  },
 };
 </script>

@@ -4,26 +4,25 @@
       v-for="item in routes.filter(item => { return !item.hidden; })"
       :key="item.title"
     >
-      <v-list-tile
+      <v-list-item
         v-if="hasOneShowingChild(item.children, item) &&
-        (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow"
+          (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow"
         class="reset_vuetify_icon_padding"
         :to="resolvePath(onlyOneChild.path)"
         ripple="ripple"
       >
-        <v-list-tile-action
+        <v-list-item-action
           v-if="iconShow"
         >
           <v-icon>{{ onlyOneChild.meta ? onlyOneChild.meta.icon : null }}</v-icon>
-        </v-list-tile-action>
+        </v-list-item-action>
 
-        <v-list-tile-content class="font-weight-light">
-          <v-list-tile-title>
+        <v-list-item-content class="font-weight-light">
+          <v-list-item-title>
             {{ onlyOneChild.meta ? $t( onlyOneChild.meta.title ) : '' }}
-          </v-list-tile-title>
-        </v-list-tile-content>
-
-      </v-list-tile>
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
 
       <v-list-group
         v-else
@@ -31,44 +30,46 @@
         no-action
       >
         <template v-slot:activator>
-          <v-list-tile>
-            <v-list-tile-content class="font-weight-light">
-              <v-list-tile-title>{{  item.meta ? $t( item.meta.title ) : '' }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
+          <v-list-item>
+            <v-list-item-content class="font-weight-light">
+              <v-list-item-title>{{ item.meta ? $t( item.meta.title ) : '' }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </template>
 
-        <app-drawer-list :routes="item.children" :base-path="resolvePath(item.path)"/>
-
+        <app-drawer-list
+          :routes="item.children"
+          :base-path="resolvePath(item.path)"
+        />
       </v-list-group>
-
     </div>
   </v-list>
 </template>
 
 <script>
-import path from 'path';
 import { isExternal } from '@/utils/validate';
+
+const path = require('path');
 
 export default {
   name: 'AppDrawerList',
   props: {
     routes: {
       type: Array,
-      default: () => {}
+      default: () => {},
     },
     iconShow: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isNest: {
       type: Boolean,
-      default: false
+      default: false,
     },
     basePath: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     this.onlyOneChild = null;
@@ -76,7 +77,7 @@ export default {
   },
   methods: {
     hasOneShowingChild(children = [], parent) {
-      const showingChildren = children.filter(item => {
+      const showingChildren = children.filter((item) => {
         if (item.hidden) return false;
         // Temp set(will be used if only has one showing child)
         this.onlyOneChild = item;
@@ -106,8 +107,8 @@ export default {
       const full = path.resolve(this.basePath, routePath);
       console.log(`${this.basePath} | ${routePath} | ${full}`);
       return full; // path.resolve(this.basePath, routePath);
-    }
-  }
+    },
+  },
 };
 
 </script>

@@ -1,11 +1,20 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12>
+  <v-container
+    container--fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <v-alert
           :value="true"
           color="info"
-          outline
+          outlined
         >
           {{ $t('components.baseOnL18n') }}
           <a
@@ -15,66 +24,122 @@
         </v-alert>
       </v-flex>
 
-      <v-flex d-flex xs12 sm4 offset-sm4>
+      <v-flex
+        flex-grow-1
+        xs12
+        sm4
+        offset-sm4
+      >
         <app-widget
           :title="$t('ui.switch')"
-          class="text-xs-center"
+          class="text-center"
           :padding="false"
           icon="language"
         >
           <div slot="widget-content">
             <v-list
-              :dense="toolbarDense"
               v-for="item in locales"
               :key="item.abbr"
+              :dense="toolbarDense"
             >
-              <v-list-tile
-                @click="changeLocale(item.locale)"
+              <v-list-item
                 ripple="ripple"
                 :target="item.target"
+                @click="changeLocale(item.locale)"
               >
-                <v-list-tile-action>
+                <v-list-item-action>
                   <v-icon
                     v-if="item.locale === language"
                     color="success"
-                  >radio_button_checked</v-icon>
-                  <v-icon v-else>radio_button_unchecked</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                </v-list-tile-content>
-                <v-list-tile-avatar>{{ item.abbr }}</v-list-tile-avatar>
-              </v-list-tile>
+                  >
+                    radio_button_checked
+                  </v-icon>
+                  <v-icon v-else>
+                    radio_button_unchecked
+                  </v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item-content>
+                <v-list-item-avatar>{{ item.abbr }}</v-list-item-avatar>
+              </v-list-item>
             </v-list>
           </div>
         </app-widget>
       </v-flex>
     </v-layout>
 
-    <v-layout row wrap align-center>
-      <v-flex xs12 sm8 offset-sm2 class="text-xs-center">
+    <v-layout
+      row
+      wrap
+      align-center
+    >
+      <v-flex
+        xs12
+        sm8
+        offset-sm2
+        class="text-center"
+      >
         <v-btn>{{ $t('ui.default') }}</v-btn>
-        <v-btn color="primary">{{ $t('ui.primary') }}</v-btn>
-        <v-btn color="secondary">{{ $t('ui.secondary') }}</v-btn>
-        <v-btn color="success">{{ $t('ui.success') }}</v-btn>
-        <v-btn color="error">{{ $t('ui.error') }}</v-btn>
-        <v-btn color="warning">{{ $t('ui.warning') }}</v-btn>
-        <v-btn color="info">{{ $t('ui.info') }}</v-btn>
+        <v-btn color="primary">
+          {{ $t('ui.primary') }}
+        </v-btn>
+        <v-btn color="secondary">
+          {{ $t('ui.secondary') }}
+        </v-btn>
+        <v-btn color="success">
+          {{ $t('ui.success') }}
+        </v-btn>
+        <v-btn color="error">
+          {{ $t('ui.error') }}
+        </v-btn>
+        <v-btn color="warning">
+          {{ $t('ui.warning') }}
+        </v-btn>
+        <v-btn color="info">
+          {{ $t('ui.info') }}
+        </v-btn>
       </v-flex>
 
-      <v-flex d-flex xs12 sm8 offset-sm2 class="text-xs-center">
-        <v-flex xs12 md4>
-          <v-text-field :counter="10" :label="$t('ui.firstName')"></v-text-field>
+      <v-flex
+        flex-grow-1
+        xs12
+        sm8
+        offset-sm2
+        class="text-center"
+      >
+        <v-flex
+          xs12
+          md4
+        >
+          <v-text-field
+            :counter="10"
+            :label="$t('ui.firstName')"
+          />
         </v-flex>
-        <v-flex xs12 md4>
-          <v-text-field :counter="10" :label="$t('ui.lastName')"></v-text-field>
+        <v-flex
+          xs12
+          md4
+        >
+          <v-text-field
+            :counter="10"
+            :label="$t('ui.lastName')"
+          />
         </v-flex>
-        <v-flex xs12 md4>
-          <v-text-field :label="$t('ui.email')"></v-text-field>
+        <v-flex
+          xs12
+          md4
+        >
+          <v-text-field :label="$t('ui.email')" />
         </v-flex>
       </v-flex>
 
-      <v-flex xs12 sm8 offset-sm2 class="text-xs-center">
+      <v-flex
+        xs12
+        sm8
+        offset-sm2
+        class="text-center"
+      >
         <v-data-table
           :headers="headers"
           :items="desserts"
@@ -82,11 +147,21 @@
         >
           <template v-slot:items="props">
             <td>{{ props.item.name }}</td>
-            <td class="text-xs-right">{{ props.item.calories }}</td>
-            <td class="text-xs-right">{{ props.item.fat }}</td>
-            <td class="text-xs-right">{{ props.item.carbs }}</td>
-            <td class="text-xs-right">{{ props.item.protein }}</td>
-            <td class="text-xs-right">{{ props.item.iron }}</td>
+            <td class="text-xs-right">
+              {{ props.item.calories }}
+            </td>
+            <td class="text-xs-right">
+              {{ props.item.fat }}
+            </td>
+            <td class="text-xs-right">
+              {{ props.item.carbs }}
+            </td>
+            <td class="text-xs-right">
+              {{ props.item.protein }}
+            </td>
+            <td class="text-xs-right">
+              {{ props.item.iron }}
+            </td>
           </template>
         </v-data-table>
       </v-flex>
@@ -95,37 +170,37 @@
 </template>
 
 <script>
-import { locales, changeLocale } from '@/locale';
 import { mapGetters } from 'vuex';
+import { locales, changeLocale } from '@/locale';
 import { headers, desserts } from '@/api/mock_table';
 import AppWidget from '@/views/layout/components/AppWidget.vue';
 
 export default {
   name: 'I18n',
   components: {
-    AppWidget
+    AppWidget,
   },
   data: () => ({
     locales,
     headers,
-    desserts
+    desserts,
   }),
   computed: {
     ...mapGetters([
       'toolbarDense',
-      'language'
-    ])
+      'language',
+    ]),
   },
   methods: {
     changeLocale(lang) {
       changeLocale(lang)
-        .then(state => {
+        .then((state) => {
           this.$store.dispatch('LanguageToggle', { state });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(`${err}`);
         });
-    }
-  }
+    },
+  },
 };
 </script>

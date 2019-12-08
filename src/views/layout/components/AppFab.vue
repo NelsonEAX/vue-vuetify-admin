@@ -1,9 +1,10 @@
 <template>
   <v-content
-    id="app-fab">
+    id="app-fab"
+  >
     <v-btn
-      id="app-fab-btn"
       v-if="settingsPanelBtn"
+      id="app-fab-btn"
       small
       fab
       dark
@@ -26,7 +27,7 @@
       :value="settingsPanelShow"
       @input="stateSettingsPanel"
     >
-      <v-toolbar
+      <v-app-bar
         :dense="toolbarDense"
         color="secondary"
         dark
@@ -37,7 +38,6 @@
         <v-tooltip left>
           <template v-slot:activator="{ on }">
             <v-btn
-              v-on="on"
               absolute
               dark
               fab
@@ -45,6 +45,7 @@
               right
               small
               color="error"
+              v-on="on"
               @click.stop="setDefaultSettingsPanel"
             >
               <v-icon>refresh</v-icon>
@@ -52,42 +53,41 @@
           </template>
           <span>{{ $t('settings.default') }}</span>
         </v-tooltip>
-      </v-toolbar>
+      </v-app-bar>
 
       <v-subheader>{{ $t('settings.position') }}</v-subheader>
-      <v-divider></v-divider>
+      <v-divider />
 
-      <v-container fluid>
+      <v-container container--fluid>
         <v-switch
           color="secondary"
           :input-value="toolbarDense"
           :label="`${$t('settings.toolbarDense')}: ${toolbarDense ? 'on' : 'off'}`"
-          @change="toggleToolbarDense"
           hide-details
-        ></v-switch>
+          @change="toggleToolbarDense"
+        />
         <v-switch
           color="secondary"
           :input-value="navbarLogo"
           :label="`${$t('settings.navbarLogo')}: ${navbarLogo ? 'on' : 'off'}`"
-          @change="toggleNavbarLogo"
           hide-details
-        ></v-switch>
+          @change="toggleNavbarLogo"
+        />
         <v-switch
           color="secondary"
           :input-value="settingsPanelBtn"
           :label="`${$t('settings.settingsBtn')}: ${settingsPanelBtn ? 'on' : 'off'}`"
-          @change="toggleSettingsPanelBtn"
           hide-details
-        ></v-switch>
+          @change="toggleSettingsPanelBtn"
+        />
       </v-container>
 
       <v-subheader>{{ $t('settings.theme') }}</v-subheader>
-      <v-divider></v-divider>
+      <v-divider />
 
       <v-container grid-list-md>
-        <theme xs="xs6"/>
+        <theme xs="xs6" />
       </v-container>
-
     </v-navigation-drawer>
   </v-content>
 </template>
@@ -102,15 +102,15 @@ export default {
   data: () => ({
     temporary: true,
     fixed: true,
-    app: true
+    app: true,
   }),
   computed: {
     ...mapGetters([
       'settingsPanelBtn',
       'settingsPanelShow',
       'toolbarDense',
-      'navbarLogo'
-    ])
+      'navbarLogo',
+    ]),
   },
   methods: {
     stateSettingsPanel(state) {
@@ -131,8 +131,8 @@ export default {
     },
     setDefaultSettingsPanel() {
       this.$store.dispatch('SettingsPanelDefault');
-    }
-  }
+    },
+  },
 };
 </script>
 

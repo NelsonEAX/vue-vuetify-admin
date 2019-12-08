@@ -5,7 +5,7 @@ const Projects = [
     name: 'Template PSD',
     deadline: '2 days later',
     progress: 90,
-    color: 'pink'
+    color: 'pink',
   },
   {
     username: 'Jakayla',
@@ -13,7 +13,7 @@ const Projects = [
     name: 'Logo Design',
     deadline: '1 weeks later',
     progress: 70,
-    color: 'success'
+    color: 'success',
   },
   {
     username: 'Ludwiczakpawel',
@@ -21,7 +21,7 @@ const Projects = [
     name: 'REST API',
     deadline: '1 Month later',
     progress: 50,
-    color: 'info'
+    color: 'info',
   },
   {
     username: 'Damenleeturks',
@@ -29,7 +29,7 @@ const Projects = [
     name: 'API Unit Test',
     deadline: '2 Month later',
     progress: 30,
-    color: 'teal'
+    color: 'teal',
   },
   {
     username: 'Caspergrl',
@@ -37,16 +37,16 @@ const Projects = [
     name: 'Project Deploy',
     deadline: 'half year later',
     progress: 15,
-    color: 'grey'
-  }
+    color: 'grey',
+  },
 ];
 
-const getProject = limit => {
+const getProject = (limit) => {
   console.log(`[getProject] limit=${limit}`);
   return (limit) ? Projects.slice(0, limit) : Projects;
 };
 
 export {
   Projects,
-  getProject
+  getProject,
 };

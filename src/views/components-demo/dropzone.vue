@@ -1,19 +1,39 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12>
+  <v-container
+    container--fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <v-alert
           :value="true"
           color="info"
-          outline
+          outlined
         >
           {{ $t('components.thisBaseOn') }}
-          <a class="link-type" href="https://github.com/rowanwins/vue-dropzone">dropzone</a>.
+          <a
+            class="link-type"
+            href="https://github.com/rowanwins/vue-dropzone"
+          >dropzone</a>.
           {{ $t('components.dropzoneTips') }}
         </v-alert>
       </v-flex>
-      <v-flex d-flex xs12>
-        <dropzone id="myVueDropzone" url="https://httpbin.org/post" @dropzone-removedFile="dropzoneR" @dropzone-success="dropzoneS" />
+      <v-flex
+        flex-grow-1
+        xs12
+      >
+        <dropzone
+          id="myVueDropzone"
+          url="https://httpbin.org/post"
+          @dropzone-removedFile="dropzoneR"
+          @dropzone-success="dropzoneS"
+        />
       </v-flex>
     </v-layout>
   </v-container>
@@ -33,7 +53,7 @@ export default {
     dropzoneR(file) {
       console.log(file);
       this.$message({ message: 'Delete success', type: 'success' });
-    }
-  }
+    },
+  },
 };
 </script>

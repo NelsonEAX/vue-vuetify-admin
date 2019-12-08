@@ -1,61 +1,129 @@
 <template>
-  <v-layout row wrap class="panel-group">
-    <v-flex d-flex xs12 sm6 md3 class="card-panel-col">
+  <v-layout
+    row
+    wrap
+    class="panel-group"
+  >
+    <v-flex
+      flex-grow-1
+      xs12
+      sm6
+      md3
+      class="card-panel-col"
+    >
       <v-card>
-        <div class="card-panel" @click.stop="handleSetLineChartData('newVisitis')">
+        <div
+          class="card-panel"
+          @click.stop="handleSetLineChartData('newVisitis')"
+        >
           <div class="card-panel-icon-wrapper icon-people">
-            <v-icon class-name="card-panel-icon">people</v-icon>
+            <v-icon class-name="card-panel-icon">
+              people
+            </v-icon>
           </div>
           <div class="card-panel-description">
             <div class="card-panel-text">
               New Visits
             </div>
-            <count-to :start-val="0" :end-val="102400" :duration="2600" class="card-panel-num"/>
+            <count-to
+              :start-val="0"
+              :end-val="102400"
+              :duration="2600"
+              class="card-panel-num"
+            />
           </div>
         </div>
       </v-card>
     </v-flex>
-    <v-flex d-flex xs12 sm6 md3 class="card-panel-col">
+    <v-flex
+      flex-grow-1
+      xs12
+      sm6
+      md3
+      class="card-panel-col"
+    >
       <v-card>
-        <div class="card-panel" @click.stop="handleSetLineChartData('messages')">
+        <div
+          class="card-panel"
+          @click.stop="handleSetLineChartData('messages')"
+        >
           <div class="card-panel-icon-wrapper icon-message">
-            <v-icon class-name="card-panel-icon">message</v-icon>
+            <v-icon class-name="card-panel-icon">
+              message
+            </v-icon>
           </div>
           <div class="card-panel-description">
             <div class="card-panel-text">
               Messages
             </div>
-            <count-to :start-val="0" :end-val="81212" :duration="3000" class="card-panel-num"/>
+            <count-to
+              :start-val="0"
+              :end-val="81212"
+              :duration="3000"
+              class="card-panel-num"
+            />
           </div>
         </div>
       </v-card>
     </v-flex>
-    <v-flex d-flex xs12 sm6 md3 class="card-panel-col">
+    <v-flex
+      flex-grow-1
+      xs12
+      sm6
+      md3
+      class="card-panel-col"
+    >
       <v-card>
-        <div class="card-panel" @click.stop="handleSetLineChartData('purchases')">
+        <div
+          class="card-panel"
+          @click.stop="handleSetLineChartData('purchases')"
+        >
           <div class="card-panel-icon-wrapper icon-money">
-            <v-icon class-name="card-panel-icon">attach_money</v-icon>
+            <v-icon class-name="card-panel-icon">
+              attach_money
+            </v-icon>
           </div>
           <div class="card-panel-description">
             <div class="card-panel-text">
               Purchases
             </div>
-            <count-to :start-val="0" :end-val="9280" :duration="3200" class="card-panel-num"/>
+            <count-to
+              :start-val="0"
+              :end-val="9280"
+              :duration="3200"
+              class="card-panel-num"
+            />
           </div>
         </div>
       </v-card>
     </v-flex>
-    <v-flex d-flex xs12 sm6 md3 class="card-panel-col">
+    <v-flex
+      flex-grow-1
+      xs12
+      sm6
+      md3
+      class="card-panel-col"
+    >
       <v-card>
-        <div class="card-panel" @click.stop="handleSetLineChartData('shoppings')">
+        <div
+          class="card-panel"
+          @click.stop="handleSetLineChartData('shoppings')"
+        >
           <div class="card-panel-icon-wrapper icon-shopping">
-            <v-icon class-name="card-panel-icon">shopping_cart</v-icon>
+            <v-icon class-name="card-panel-icon">
+              shopping_cart
+            </v-icon>
           </div>
           <div class="card-panel-description">
             <div class="card-panel-text">
               Shoppings
             </div>
-            <count-to :start-val="0" :end-val="13600" :duration="3600" class="card-panel-num"/>
+            <count-to
+              :start-val="0"
+              :end-val="13600"
+              :duration="3600"
+              class="card-panel-num"
+            />
           </div>
         </div>
       </v-card>
@@ -69,14 +137,14 @@ import CountTo from 'vue-count-to';
 export default {
   name: 'PanelGroup',
   components: {
-    CountTo
+    CountTo,
   },
   methods: {
     handleSetLineChartData(type) {
       console.log(type);
       this.$emit('handleSetLineChartData', type);
-    }
-  }
+    },
+  },
 };
 </script>
 

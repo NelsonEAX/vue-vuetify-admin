@@ -1,5 +1,8 @@
 <template>
-  <v-btn icon @click="toggleFullScreen()">
+  <v-btn
+    icon
+    @click="toggleFullScreen()"
+  >
     <v-icon>{{ toggleFullScreenIcon }}</v-icon>
   </v-btn>
 </template>
@@ -32,15 +35,15 @@ const toggleFullScreen = () => {
 
 export default {
   name: 'FullScreenToggle',
-  methods: {
-    toggleFullScreen() {
-      this.$store.dispatch('FullscreenToggle', { state: toggleFullScreen() });
-    }
-  },
   computed: {
     toggleFullScreenIcon() {
       return this.$store.getters.fullscreenState ? 'fullscreen_exit' : 'fullscreen';
-    }
-  }
+    },
+  },
+  methods: {
+    toggleFullScreen() {
+      this.$store.dispatch('FullscreenToggle', { state: toggleFullScreen() });
+    },
+  },
 };
 </script>

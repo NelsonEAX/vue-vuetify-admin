@@ -11,19 +11,19 @@ const user = {
     code: '',
     introduction: '',
     setting: {
-      articlePlatform: []
-    }
+      articlePlatform: [],
+    },
   },
 
   getters: {
-    token: state => state.token,
-    roles: state => state.roles,
-    name: state => state.name,
-    user: state => state.user,
-    avatar: state => state.avatar,
-    status: state => state.status,
-    introduction: state => state.introduction,
-    setting: state => state.setting
+    token: (state) => state.token,
+    roles: (state) => state.roles,
+    name: (state) => state.name,
+    user: (state) => state.user,
+    avatar: (state) => state.avatar,
+    status: (state) => state.status,
+    introduction: (state) => state.introduction,
+    setting: (state) => state.setting,
   },
 
   mutations: {
@@ -46,7 +46,7 @@ const user = {
     },
     SET_TOKEN: (state, token) => {
       state.token = token;
-    }
+    },
   },
 
   actions: {
@@ -54,11 +54,11 @@ const user = {
     LoginByEmail: async ({ commit }, payload) => {
       console.log('LoginByEmail');
       return new Promise((resolve, reject) => {
-        loginByEmail(payload.email.trim(), payload.password).then(response => {
+        loginByEmail(payload.email.trim(), payload.password).then((response) => {
           const { data } = response;
           commit('SET_TOKEN', data.user.token);
           resolve(data);
-        }).catch(error => {
+        }).catch((error) => {
           reject(error);
         });
       });
@@ -68,7 +68,7 @@ const user = {
     GetUserInfo: async ({ commit, state }) => {
       console.log('GetUserInfo');
       return new Promise((resolve, reject) => {
-        getUserInfo(state.token).then(response => {
+        getUserInfo(state.token).then((response) => {
           // Since mockjs does not support custom status codes, it can only be hacked like this
           if (!response.data) {
             reject(new Error('Verification failed, please login again.'));
@@ -82,7 +82,7 @@ const user = {
 
           commit('SET_USER_INFO', data.user);
           resolve(response);
-        }).catch(error => {
+        }).catch((error) => {
           reject(error);
         });
       });
@@ -91,7 +91,7 @@ const user = {
     // Front end
     LogOut: async ({ commit }) => {
       console.log('LogOut');
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         commit('SET_USER_INFO', { logout: true });
         resolve();
       });
@@ -100,9 +100,9 @@ const user = {
     // Dynamically modify permissions
     ChangeRoles: async ({ commit, dispatch }, role) => {
       console.log('ChangeRoles');
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         commit('SET_TOKEN', role);
-        getUserInfo(role).then(response => {
+        getUserInfo(role).then((response) => {
           const { data } = response;
           commit('SET_USER_INFO', data);
           // Redraw the side menu after dynamically modifying the permissions
@@ -110,8 +110,8 @@ const user = {
           resolve();
         });
       });
-    }
-  }
+    },
+  },
 };
 
 export default user;

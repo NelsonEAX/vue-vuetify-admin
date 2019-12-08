@@ -1,31 +1,52 @@
 <template>
-  <v-container id="page-colors" fluid grid-list-xl>
-    <v-layout row wrap>
+  <v-container
+    id="page-colors"
+    container--fluid
+    grid-list-xl
+  >
+    <v-layout
+      row
+      wrap
+    >
       <v-flex xs12>
         <v-text-field
+          v-model="search"
           prepend-icon="filter_list"
           solo="solo"
           label="Search Materil Colors"
           single-line="single-line"
-          v-model="search"
-        ></v-text-field>
+        />
       </v-flex>
-      <v-flex xs12 sm6 md3 v-for="(color, key) in computedColors" :key="key">
-        <v-card :color="key" tile="tile">
+      <v-flex
+        v-for="(color, key) in computedColors"
+        :key="key"
+        xs12
+        sm6
+        md3
+      >
+        <v-card
+          :color="key"
+          tile="tile"
+        >
           <v-card-text>
-            <h3 :class="getColorClass(key)">{{ key }}</h3>
+            <h3 :class="getColorClass(key)">
+              {{ key }}
+            </h3>
           </v-card-text>
         </v-card>
         <v-card
           v-for="(subColor, key2) in color"
+          :key="key2"
           :color="`${key} ${convertToClass(key2)}`"
           :class="getColorClass(key2)"
-          :key="key2"
           tile="tile"
         >
           <v-card-text>
             <v-layout>
-              <v-flex class="caption" xs8="xs8">
+              <v-flex
+                class="caption"
+                xs8="xs8"
+              >
                 <span v-if="key !== 'shades'">
                   {{ key }}
                 </span>
@@ -33,7 +54,10 @@
                   {{ key2.replace(/(.*)(\d)/, '$1-$2') }}
                 </span>
               </v-flex>
-              <v-flex class="text-xs-right" xs4="xs4">
+              <v-flex
+                class="text-xs-right"
+                xs4="xs4"
+              >
                 <span v-if="subColor !== 'transparent'">
                   {{ subColor.toUpperCase() }}
                 </span>
@@ -49,7 +73,7 @@
 <script>
 import colors from 'vuetify/es5/util/colors';
 
-const kebab = str => {
+const kebab = (str) => {
   const result = (str || '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
   return result;
 };
@@ -58,14 +82,14 @@ export default {
   name: 'Colors',
   data: () => ({
     colors,
-    search: ''
+    search: '',
   }),
   computed: {
     computedColors() {
       const computed = {};
       const search = this.search.toLowerCase();
 
-      Object.keys(this.colors).forEach(key => {
+      Object.keys(this.colors).forEach((key) => {
         const kebabKey = kebab(key).toLowerCase();
 
         if (kebabKey.indexOf(search) > -1) {
@@ -73,7 +97,7 @@ export default {
         }
       });
       return computed;
-    }
+    },
   },
   methods: {
     convertToClass(str) {
@@ -88,7 +112,7 @@ export default {
         || key.indexOf('accent') > -1
       ) return 'black--text';
       return 'white--text';
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,13 +1,26 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap align-center>
-      <v-flex xs12 text-xs-center>
+  <v-container
+    container--fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+      align-center
+    >
+      <v-flex
+        xs12
+        text-center
+      >
         <v-alert
           :value="true"
           color="info"
-          outline
+          outlined
         >
-          <a href="https://github.com/PanJiaChen/vue-countTo" target="_blank">countTo-component</a>
+          <a
+            href="https://github.com/PanJiaChen/vue-countTo"
+            target="_blank"
+          >countTo-component</a>
         </v-alert>
         <count-to
           ref="example"
@@ -23,56 +36,84 @@
         />
       </v-flex>
 
-      <v-flex xs4 sm2 offset-sm2>
+      <v-flex
+        xs4
+        sm2
+        offset-sm2
+      >
         <v-text-field
           v-model="startVal"
           label="startVal"
-        ></v-text-field>
+        />
       </v-flex>
 
-      <v-flex xs4 sm2>
+      <v-flex
+        xs4
+        sm2
+      >
         <v-text-field
           v-model="endVal"
           label="endVal"
-        ></v-text-field>
+        />
       </v-flex>
 
-      <v-flex xs4 sm2>
+      <v-flex
+        xs4
+        sm2
+      >
         <v-text-field
           v-model="duration"
           label="duration"
-        ></v-text-field>
+        />
       </v-flex>
 
-      <v-flex xs4 sm2>
+      <v-flex
+        xs4
+        sm2
+      >
         <v-text-field
           v-model="decimals"
           label="decimals"
-        ></v-text-field>
+        />
       </v-flex>
 
-      <v-flex xs4 sm2 offset-sm3>
+      <v-flex
+        xs4
+        sm2
+        offset-sm3
+      >
         <v-text-field
           v-model="separator"
           label="separator"
-        ></v-text-field>
+        />
       </v-flex>
 
-      <v-flex xs4 sm2>
+      <v-flex
+        xs4
+        sm2
+      >
         <v-text-field
           v-model="prefix"
           label="prefix"
-        ></v-text-field>
+        />
       </v-flex>
 
-      <v-flex xs4 sm2 offset-xs4 offset-sm0>
+      <v-flex
+        xs4
+        sm2
+        offset-xs4
+        offset-sm0
+      >
         <v-text-field
           v-model="suffix"
           label="suffix"
-        ></v-text-field>
+        />
       </v-flex>
 
-      <v-flex xs12 text-xs-center>
+      <v-flex
+        xs12
+        text-center
+      >
         <v-btn
           color="success"
           @click.stop="start"
@@ -87,7 +128,10 @@
         </v-btn>
       </v-flex>
 
-      <v-flex xs12 text-xs-center>
+      <v-flex
+        xs12
+        text-center
+      >
         <code>
           {{ countTo }}
         </code>
@@ -109,7 +153,7 @@ export default {
     decimals: 0,
     separator: ',',
     suffix: ' usd',
-    prefix: '$ '
+    prefix: '$ ',
   }),
   computed: {
     countTo() {
@@ -117,7 +161,7 @@ export default {
         + `:duration="${this.duration}" :decimals="${this.decimals}" `
         + `:separator="${this.separator}" :prefix="${this.prefix}" `
         + `:suffix="${this.suffix}" :autoplay=false >`;
-    }
+    },
   },
   methods: {
     start() {
@@ -125,7 +169,7 @@ export default {
     },
     pauseResume() {
       this.$refs.example.pauseResume();
-    }
-  }
+    },
+  },
 };
 </script>

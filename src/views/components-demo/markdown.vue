@@ -1,12 +1,22 @@
 <template>
-  <v-container fluid grid-list-xs>
-    <v-layout row wrap>
-      <v-flex d-flex xs12>
+  <v-container
+    container--fluid
+    grid-list-xs
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <v-alert
           :value="true"
           color="info"
-          outline
-        >Markdown {{ $t('components.baseOn') }}
+          outlined
+        >
+          Markdown {{ $t('components.baseOn') }}
           <a
             href="https://github.com/nhnent/tui.editor"
             target="_blank"
@@ -17,9 +27,21 @@
       </v-flex>
     </v-layout>
 
-    <v-layout row wrap>
-      <v-chip label outline color="info">Basic:</v-chip>
-      <v-flex d-flex xs12>
+    <v-layout
+      row
+      wrap
+    >
+      <v-chip
+        label
+        outlined
+        color="info"
+      >
+        Basic:
+      </v-chip>
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <markdown-editor
           v-model="content"
           height="300px"
@@ -27,9 +49,21 @@
       </v-flex>
     </v-layout>
 
-    <v-layout row wrap>
-      <v-chip label outline color="info">Markdown Mode:</v-chip>
-      <v-flex d-flex xs12>
+    <v-layout
+      row
+      wrap
+    >
+      <v-chip
+        label
+        outlined
+        color="info"
+      >
+        Markdown Mode:
+      </v-chip>
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <markdown-editor
           ref="markdownEditor"
           v-model="content"
@@ -39,9 +73,21 @@
       </v-flex>
     </v-layout>
 
-    <v-layout row wrap>
-      <v-chip label outline color="info">Customize Toolbar:</v-chip>
-      <v-flex d-flex xs12>
+    <v-layout
+      row
+      wrap
+    >
+      <v-chip
+        label
+        outlined
+        color="info"
+      >
+        Customize Toolbar:
+      </v-chip>
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <markdown-editor
           ref="markdownEditor"
           v-model="content"
@@ -50,17 +96,34 @@
       </v-flex>
     </v-layout>
 
-    <v-layout row wrap>
-      <v-chip label outline color="info">I18n:</v-chip>
-      <v-flex d-flex xs12>
+    <v-layout
+      row
+      wrap
+    >
+      <v-chip
+        label
+        outlined
+        color="info"
+      >
+        I18n:
+      </v-chip>
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <v-alert
           :value="true"
           color="success"
           icon="check_circle"
-          outline
-        >You can change the language of the admin system to see the effect</v-alert>
+          outlined
+        >
+          You can change the language of the admin system to see the effect
+        </v-alert>
       </v-flex>
-      <v-flex d-flex xs12>
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <markdown-editor
           v-model="content"
           :language="language"
@@ -69,19 +132,29 @@
       </v-flex>
     </v-layout>
 
-    <v-layout row wrap>
+    <v-layout
+      row
+      wrap
+    >
       <v-btn
         color="primary"
         @click="getHtml"
       >
-        <v-icon left dark>file_copy</v-icon>
+        <v-icon
+          left
+          dark
+        >
+          file_copy
+        </v-icon>
         Get HTML
       </v-btn>
 
-      <v-flex d-flex xs12>
-        <div v-html="html" />
+      <v-flex
+        flex-grow-1
+        xs12
+      >
+        <div>{{ html }}</div>
       </v-flex>
-
     </v-layout>
   </v-container>
 </template>
@@ -106,19 +179,19 @@ export default {
     languageTypeList: {
       en: 'en_US',
       ru: 'ru_RU',
-      es: 'es_ES'
-    }
+      es: 'es_ES',
+    },
   }),
   computed: {
     language() {
       return this.languageTypeList[this.$store.getters.language];
-    }
+    },
   },
   methods: {
     getHtml() {
       this.html = this.$refs.markdownEditor.getHtml();
       console.log(this.html);
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,24 +1,34 @@
 <template>
-  <v-container grid-list-xl fluid>
-    <app-widget title="Complex Table" :padding="false">
+  <v-container
+    grid-list-xl
+    container--fluid
+  >
+    <app-widget
+      title="Complex Table"
+      :padding="false"
+    >
       <div slot="widget-content">
-        <v-toolbar card color="white">
+        <v-app-bar
+          card
+          color="white"
+        >
           <v-text-field
+            v-model="search"
             flat
             solo
             prepend-icon="search"
             placeholder="Type something"
-            v-model="search"
             hide-details
             class="hidden-sm-and-down"
-          ></v-text-field>
+          />
           <v-btn icon>
             <v-icon>filter_list</v-icon>
           </v-btn>
-        </v-toolbar>
-        <v-divider></v-divider>
+        </v-app-bar>
+        <v-divider />
         <v-card-text class="pa-0">
           <v-data-table
+            v-model="complex.selected"
             :headers="complex.headers"
             :search="search"
             :items="complex.items"
@@ -26,29 +36,50 @@
             class="elevation-1"
             item-key="name"
             select-all
-            v-model="complex.selected"
           >
-            <template slot="items" slot-scope="props">
+            <template
+              slot="items"
+              slot-scope="props"
+            >
               <td>
                 <v-checkbox
+                  v-model="props.selected"
                   primary
                   hide-details
-                  v-model="props.selected"
-                ></v-checkbox>
+                />
               </td>
               <td>
                 <v-avatar size="32">
-                  <img :src="props.item.avatar" alt="">
+                  <img
+                    :src="props.item.avatar"
+                    alt=""
+                  >
                 </v-avatar>
               </td>
               <td>{{ props.item.name }}</td>
               <td>{{ props.item.email }}</td>
               <td>{{ props.item.phone }}</td>
               <td>
-                <v-btn depressed outline icon fab dark color="primary" small>
+                <v-btn
+                  depressed
+                  outlined
+                  icon
+                  fab
+                  dark
+                  color="primary"
+                  small
+                >
                   <v-icon>edit</v-icon>
                 </v-btn>
-                <v-btn depressed outline icon fab dark color="pink" small>
+                <v-btn
+                  depressed
+                  outlined
+                  icon
+                  fab
+                  dark
+                  color="pink"
+                  small
+                >
                   <v-icon>delete</v-icon>
                 </v-btn>
               </td>
@@ -58,21 +89,37 @@
       </div>
     </app-widget>
     <br>
-    <app-widget title="Basic Table" :padding="false">
+    <app-widget
+      title="Basic Table"
+      :padding="false"
+    >
       <div slot="widget-content">
         <v-data-table
           :headers="basic.headers"
           :items="basic.items"
-          hide-actions
+          hide-default-footer
           class="elevation-1"
         >
-          <template slot="items" slot-scope="props">
+          <template
+            slot="items"
+            slot-scope="props"
+          >
             <td>{{ props.item.name }}</td>
-            <td class="text-xs-right">{{ props.item.calories }}</td>
-            <td class="text-xs-right">{{ props.item.fat }}</td>
-            <td class="text-xs-right">{{ props.item.carbs }}</td>
-            <td class="text-xs-right">{{ props.item.protein }}</td>
-            <td class="text-xs-right">{{ props.item.iron }}</td>
+            <td class="text-xs-right">
+              {{ props.item.calories }}
+            </td>
+            <td class="text-xs-right">
+              {{ props.item.fat }}
+            </td>
+            <td class="text-xs-right">
+              {{ props.item.carbs }}
+            </td>
+            <td class="text-xs-right">
+              {{ props.item.protein }}
+            </td>
+            <td class="text-xs-right">
+              {{ props.item.iron }}
+            </td>
           </template>
         </v-data-table>
       </div>
@@ -88,7 +135,7 @@ import AppWidget from '@/views/layout/components/AppWidget.vue';
 export default {
   name: 'Tables',
   components: {
-    AppWidget
+    AppWidget,
   },
   data: () => ({
     search: '',
@@ -97,26 +144,26 @@ export default {
       headers: [
         {
           text: 'Avatar',
-          value: 'avatar'
+          value: 'avatar',
         },
         {
           text: 'Name',
-          value: 'name'
+          value: 'name',
         },
         {
           text: 'Email',
-          value: 'email'
+          value: 'email',
         },
         {
           text: 'Phone',
-          value: 'phone'
+          value: 'phone',
         },
         {
           text: 'Action',
-          value: ''
-        }
+          value: '',
+        },
       ],
-      items: Users
+      items: Users,
     },
     basic: {
       headers: [
@@ -124,13 +171,13 @@ export default {
           text: 'Dessert (100g serving)',
           align: 'left',
           sortable: false,
-          value: 'name'
+          value: 'name',
         },
         { text: 'Calories', value: 'calories' },
         { text: 'Fat (g)', value: 'fat' },
         { text: 'Carbs (g)', value: 'carbs' },
         { text: 'Protein (g)', value: 'protein' },
-        { text: 'Iron (%)', value: 'iron' }
+        { text: 'Iron (%)', value: 'iron' },
       ],
       items: [
         {
@@ -140,7 +187,7 @@ export default {
           fat: 6.0,
           carbs: 24,
           protein: 4.0,
-          iron: '1%'
+          iron: '1%',
         },
         {
           value: false,
@@ -149,7 +196,7 @@ export default {
           fat: 9.0,
           carbs: 37,
           protein: 4.3,
-          iron: '1%'
+          iron: '1%',
         },
         {
           value: false,
@@ -158,7 +205,7 @@ export default {
           fat: 16.0,
           carbs: 23,
           protein: 6.0,
-          iron: '7%'
+          iron: '7%',
         },
         {
           value: false,
@@ -167,7 +214,7 @@ export default {
           fat: 3.7,
           carbs: 67,
           protein: 4.3,
-          iron: '8%'
+          iron: '8%',
         },
         {
           value: false,
@@ -176,7 +223,7 @@ export default {
           fat: 16.0,
           carbs: 49,
           protein: 3.9,
-          iron: '16%'
+          iron: '16%',
         },
         {
           value: false,
@@ -185,7 +232,7 @@ export default {
           fat: 0.0,
           carbs: 94,
           protein: 0.0,
-          iron: '0%'
+          iron: '0%',
         },
         {
           value: false,
@@ -194,7 +241,7 @@ export default {
           fat: 0.2,
           carbs: 98,
           protein: 0,
-          iron: '2%'
+          iron: '2%',
         },
         {
           value: false,
@@ -203,7 +250,7 @@ export default {
           fat: 3.2,
           carbs: 87,
           protein: 6.5,
-          iron: '45%'
+          iron: '45%',
         },
         {
           value: false,
@@ -212,7 +259,7 @@ export default {
           fat: 25.0,
           carbs: 51,
           protein: 4.9,
-          iron: '22%'
+          iron: '22%',
         },
         {
           value: false,
@@ -221,10 +268,10 @@ export default {
           fat: 26.0,
           carbs: 65,
           protein: 7,
-          iron: '6%'
-        }
-      ]
-    }
-  })
+          iron: '6%',
+        },
+      ],
+    },
+  }),
 };
 </script>

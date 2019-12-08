@@ -1,11 +1,20 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12>
+  <v-container
+    container--fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <v-alert
           :value="true"
           color="info"
-          outline
+          outlined
         >
           {{ $t('components.backToTop') }}
         </v-alert>
@@ -124,7 +133,7 @@
         </div>
       </v-flex>
     </v-layout>
-    <app-to-top-fab/>
+    <app-to-top-fab />
   </v-container>
 </template>
 
@@ -134,7 +143,7 @@ import AppToTopFab from '@/views/layout/components/AppToTopFab.vue';
 export default {
   name: 'BackToTopDemo',
   components: { AppToTopFab },
-  data: () => ({})
+  data: () => ({}),
 };
 </script>
 

@@ -1,5 +1,9 @@
 <template>
-  <div :id="id" :class="className" :style="{height:height,width:width}" />
+  <div
+    :id="id"
+    :class="className"
+    :style="{height:height,width:width}"
+  />
 </template>
 
 <script>
@@ -12,23 +16,23 @@ export default {
   props: {
     className: {
       type: String,
-      default: 'chart'
+      default: 'chart',
     },
     id: {
       type: String,
-      default: 'chart'
+      default: 'chart',
     },
     width: {
       type: String,
-      default: '200px'
+      default: '200px',
     },
     height: {
       type: String,
-      default: '200px'
-    }
+      default: '200px',
+    },
   },
   data: () => ({
-    chart: null
+    chart: null,
   }),
   mounted() {
     this.initChart();
@@ -56,14 +60,14 @@ export default {
         backgroundColor: '#08263a',
         grid: {
           left: '5%',
-          right: '5%'
+          right: '5%',
         },
         xAxis: [{
           show: false,
-          data: xAxisData
+          data: xAxisData,
         }, {
           show: false,
-          data: xAxisData
+          data: xAxisData,
         }],
         visualMap: {
           show: false,
@@ -71,27 +75,27 @@ export default {
           max: 50,
           dimension: 0,
           inRange: {
-            color: ['#4a657a', '#308e92', '#b1cfa5', '#f5d69f', '#f5898b', '#ef5055']
-          }
+            color: ['#4a657a', '#308e92', '#b1cfa5', '#f5d69f', '#f5898b', '#ef5055'],
+          },
         },
         yAxis: {
           axisLine: {
-            show: false
+            show: false,
           },
           axisLabel: {
             textStyle: {
-              color: '#4a657a'
-            }
+              color: '#4a657a',
+            },
           },
           splitLine: {
             show: true,
             lineStyle: {
-              color: '#08263f'
-            }
+              color: '#08263f',
+            },
           },
           axisTick: {
-            show: false
-          }
+            show: false,
+          },
         },
         series: [{
           name: 'back',
@@ -103,9 +107,9 @@ export default {
               opacity: 0.4,
               barBorderRadius: 5,
               shadowBlur: 3,
-              shadowColor: '#111'
-            }
-          }
+              shadowColor: '#111',
+            },
+          },
         }, {
           name: 'Simulate Shadow',
           type: 'line',
@@ -117,16 +121,16 @@ export default {
           animationDuration: 1200,
           lineStyle: {
             normal: {
-              color: 'transparent'
-            }
+              color: 'transparent',
+            },
           },
           areaStyle: {
             normal: {
               color: '#08263a',
               shadowBlur: 50,
-              shadowColor: '#000'
-            }
-          }
+              shadowColor: '#000',
+            },
+          },
         }, {
           name: 'front',
           type: 'bar',
@@ -135,9 +139,9 @@ export default {
           z: 3,
           itemStyle: {
             normal: {
-              barBorderRadius: 5
-            }
-          }
+              barBorderRadius: 5,
+            },
+          },
         }],
         animationEasing: 'elasticOut',
         animationEasingUpdate: 'elasticOut',
@@ -146,9 +150,9 @@ export default {
         },
         animationDelayUpdate(idx) {
           return idx * 20;
-        }
+        },
       });
-    }
-  }
+    },
+  },
 };
 </script>

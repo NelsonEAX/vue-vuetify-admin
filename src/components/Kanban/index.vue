@@ -1,18 +1,22 @@
 <template>
-  <v-flex xs6 sm3 md2>
+  <v-flex
+    xs6
+    sm3
+    md2
+  >
     <v-card>
-      <v-toolbar
+      <v-app-bar
         dark
         :color="headerColor"
         :dense="toolbarDense"
       >
-        <v-toolbar-side-icon></v-toolbar-side-icon>
+        <v-toolbar-side-icon />
         <v-toolbar-title>{{ headerText }}</v-toolbar-title>
-        <v-spacer></v-spacer>
+        <v-spacer />
         <v-btn icon>
           <v-icon>more_vert</v-icon>
         </v-btn>
-      </v-toolbar>
+      </v-app-bar>
 
       <draggable
         :list="list"
@@ -22,32 +26,32 @@
       >
         <template v-for="(item, index) in list">
           <div :key="item.id">
-            <v-list-tile
+            <v-list-item
               avatar
               ripple
             >
-              <v-list-tile-content>
-                <v-list-tile-title>
+              <v-list-item-content>
+                <v-list-item-title>
                   {{ item.title }} {{ index }}
-                </v-list-tile-title>
-                <v-list-tile-sub-title class="text--primary">
+                </v-list-item-title>
+                <v-list-item-subtitle class="text--primary">
                   {{ item.headline }}
-                </v-list-tile-sub-title>
-                <v-list-tile-sub-title>
+                </v-list-item-subtitle>
+                <v-list-item-subtitle>
                   {{ item.subtitle }}
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
+                </v-list-item-subtitle>
+              </v-list-item-content>
 
-              <v-list-tile-action>
-                <v-list-tile-action-text>
+              <v-list-item-action>
+                <v-list-item-action-text>
                   {{ item.action }}
-                </v-list-tile-action-text>
-              </v-list-tile-action>
-            </v-list-tile>
+                </v-list-item-action-text>
+              </v-list-item-action>
+            </v-list-item>
             <v-divider
               v-if="index + 1 < list.length"
               :key="index"
-            ></v-divider>
+            />
           </div>
         </template>
       </draggable>
@@ -62,39 +66,39 @@ import draggable from 'vuedraggable';
 export default {
   name: 'Kanban',
   components: {
-    draggable
+    draggable,
   },
   props: {
     headerText: {
       type: String,
-      default: 'Header'
+      default: 'Header',
     },
     headerColor: {
       type: String,
-      default: 'pink'
+      default: 'pink',
     },
     options: {
       type: Object,
       default() {
         return {};
-      }
+      },
     },
     list: {
       type: Array,
       default() {
         return [];
-      }
-    }
+      },
+    },
   },
   computed: {
     ...mapGetters([
-      'toolbarDense'
-    ])
+      'toolbarDense',
+    ]),
   },
   methods: {
-    log: evt => {
+    log: (evt) => {
       window.console.log(evt);
-    }
-  }
+    },
+  },
 };
 </script>

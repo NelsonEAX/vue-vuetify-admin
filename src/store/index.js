@@ -12,17 +12,17 @@ export default new Vuex.Store({
   modules: {
     permission,
     settings,
-    user
+    user,
   },
 
   plugins: [
-    syncStorage({})
+    syncStorage({}),
   ],
 
   state: {},
   mutations: {},
   actions: {},
   getters: {
-    ...getters
-  }
+    ...getters,
+  },
 });

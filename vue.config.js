@@ -18,8 +18,8 @@ module.exports = {
     name,
     resolve: {
       alias: {
-        '@': resolve('src')
-      }
-    }
-  }
+        '@': resolve('src'),
+      },
+    },
+  },
 };

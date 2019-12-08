@@ -7,6 +7,6 @@ export default {
   },
   render(h) {
     return h(); // avoid warning message
-  }
+  },
 };
 </script>

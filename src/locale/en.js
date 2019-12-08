@@ -10,7 +10,7 @@ export default {
     permission: {
       admin: 'Admin',
       editor: 'Editor',
-      visitor: 'Visitor'
+      visitor: 'Visitor',
     },
     components: 'Components',
     component: {
@@ -23,7 +23,7 @@ export default {
       markdown: 'Markdown',
       splitPane: 'Split Pane',
       sticky: 'Sticky',
-      tinymce: 'Tinymce'
+      tinymce: 'Tinymce',
     },
     vuetify: 'Vuetify UI',
     vuetifyComponents: {
@@ -49,7 +49,7 @@ export default {
       tables: 'Tables',
       timepicker: 'Timepicker',
       tooltip: 'Tooltip',
-      typography: 'Typography'
+      typography: 'Typography',
     },
     errors: 'Errors',
     errorPages: {
@@ -57,30 +57,30 @@ export default {
       page401: '401',
       page403: '403',
       page404: '404',
-      page500: '500'
+      page500: '500',
     },
     charts: 'Charts',
     chart: {
       keyboardChart: 'Keyboard Chart',
       lineChart: 'Line Chart',
-      mixChart: 'Mix Chart'
+      mixChart: 'Mix Chart',
     },
     nested: {
       nested: 'Nested',
       nested1: 'Level 1',
       nested2: 'Level 2',
-      nested3: 'Level 3'
+      nested3: 'Level 3',
     },
     i18n: 'i18n',
     theme: 'Theme',
     clipboard: 'Clipboard',
-    externalLink: 'External Link'
+    externalLink: 'External Link',
   },
   toolbar: {
     appname: 'Application',
     settings: 'Settings',
     profile: 'Profile',
-    logout: 'Logout'
+    logout: 'Logout',
   },
   settings: {
     title: 'Theme Settings',
@@ -89,7 +89,7 @@ export default {
     theme: 'Theme',
     toolbarDense: 'Toolbar dense',
     navbarLogo: 'Navbar logo',
-    settingsBtn: 'Setting btn'
+    settingsBtn: 'Setting btn',
   },
   login: {
     titleIn: 'Sing In Form',
@@ -98,7 +98,7 @@ export default {
     singUp: 'Sing up',
     email: 'Email',
     password: 'Password',
-    confirm: 'Confirm'
+    confirm: 'Confirm',
   },
   errors: {
     whoops: 'Whoops',
@@ -107,12 +107,12 @@ export default {
     401: 'Unauthorized',
     403: 'Forbidden',
     404: 'Not Found',
-    500: 'Internal Server Error'
+    500: 'Internal Server Error',
   },
   guide: {
     description: 'The guide page is useful for some people who entered the project for '
       + 'the first time. You can briefly introduce the features of the project. Demo is based on',
-    button: 'Show Guide'
+    button: 'Show Guide',
   },
   components: {
     thisBaseOn: 'This is based on',
@@ -128,7 +128,7 @@ export default {
     stickyTips: 'when the page is scrolled to the preset position will be sticky on the top.',
     backToTop: 'When the page is scrolled to the specified position, '
       + 'the Back to Top button appears in the lower right corner',
-    draggable: 'Allows you to drag and panel and items inside'
+    draggable: 'Allows you to drag and panel and items inside',
   },
   ui: {
     switch: 'Switch Language',
@@ -143,6 +143,6 @@ export default {
     accent: 'Accent',
     firstName: 'First Name',
     lastName: 'Last Name',
-    email: 'E-mail'
-  }
+    email: 'E-mail',
+  },
 };

@@ -1,6 +1,13 @@
 <template>
-  <v-container fluid fill-height>
-    <v-layout justify-center align-center wrap>
+  <v-container
+    container--fluid
+    fill-height
+  >
+    <v-layout
+      justify-center
+      align-center
+      wrap
+    >
       <v-flex
         xs12
         class="mb-3"
@@ -12,14 +19,14 @@
             :type="type"
             :end="end"
             color="primary"
-          ></v-calendar>
+          />
         </v-sheet>
       </v-flex>
 
       <v-flex
         sm4
         xs12
-        class="text-sm-left text-xs-center"
+        class="text-sm-left text-center"
       >
         <v-btn @click="$refs.calendar.prev()">
           <v-icon
@@ -34,18 +41,18 @@
       <v-flex
         sm4
         xs12
-        class="text-xs-center"
+        class="text-center"
       >
         <v-autocomplete
           v-model="type"
           :items="typeOptions"
           label="Type"
-        ></v-autocomplete>
+        />
       </v-flex>
       <v-flex
         sm4
         xs12
-        class="text-sm-right text-xs-center"
+        class="text-sm-right text-center"
       >
         <v-btn @click="$refs.calendar.next()">
           Next
@@ -59,7 +66,6 @@
       </v-flex>
     </v-layout>
   </v-container>
-
 </template>
 
 <script>
@@ -75,8 +81,8 @@ export default {
       { text: 'Week', value: 'week' },
       { text: 'Month', value: 'month' },
       { text: 'Custom Daily', value: 'custom-daily' },
-      { text: 'Custom Weekly', value: 'custom-weekly' }
-    ]
-  })
+      { text: 'Custom Weekly', value: 'custom-weekly' },
+    ],
+  }),
 };
 </script>

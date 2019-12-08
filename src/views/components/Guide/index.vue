@@ -1,12 +1,24 @@
 <template>
-  <v-container fluid fill-height>
-    <v-layout justify-center align-center>
-      <v-flex text-xs-center>
+  <v-container
+    container--fluid
+    fill-height
+  >
+    <v-layout
+      justify-center
+      align-center
+    >
+      <v-flex text-center>
         <p class="warn-content">
           {{ $t('guide.description') }}
-          <a href="https://github.com/kamranahmedse/driver.js" target="_blank">driver.js.</a>
+          <a
+            href="https://github.com/kamranahmedse/driver.js"
+            target="_blank"
+          >driver.js.</a>
         </p>
-        <v-btn color="success" @click.prevent.stop="guide">
+        <v-btn
+          color="success"
+          @click.prevent.stop="guide"
+        >
           {{ $t('guide.button') }}
         </v-btn>
       </v-flex>
@@ -22,7 +34,7 @@ import steps from './defineSteps';
 export default {
   name: 'Guide',
   data: () => ({
-    driver: null
+    driver: null,
   }),
   mounted() {
     this.driver = new Driver();
@@ -31,7 +43,7 @@ export default {
     guide() {
       this.driver.defineSteps(steps);
       this.driver.start();
-    }
-  }
+    },
+  },
 };
 </script>

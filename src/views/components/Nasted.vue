@@ -1,11 +1,20 @@
 <template>
-  <v-container fluid fill-height>
-    <v-layout justify-center align-center>
-      <v-flex text-xs-center>
+  <v-container
+    container--fluid
+    fill-height
+  >
+    <v-layout
+      justify-center
+      align-center
+    >
+      <v-flex text-center>
         <v-card :class="`cyan accent-${nestedLevel}`">
           <v-card-text>{{ $t(this.$route.meta.title) }}</v-card-text>
-          <transition name="fade-transform" mode="out-in">
-            <router-view :nested-level="nestedLevel+1"/>
+          <transition
+            name="fade-transform"
+            mode="out-in"
+          >
+            <router-view :nested-level="nestedLevel+1" />
           </transition>
         </v-card>
       </v-flex>
@@ -19,11 +28,11 @@ export default {
   props: {
     nestedLevel: {
       type: Number,
-      default: 1
-    }
+      default: 1,
+    },
   },
   beforeMount() {
     console.log(this.$route);
-  }
+  },
 };
 </script>

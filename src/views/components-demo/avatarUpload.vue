@@ -1,11 +1,20 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12>
+  <v-container
+    container--fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <v-alert
           :value="true"
           color="info"
-          outline
+          outlined
         >
           {{ $t('components.thisBaseOn') }}
           <a
@@ -15,7 +24,12 @@
           {{ $t('components.imageUploadTips') }}
         </v-alert>
       </v-flex>
-      <v-flex d-flex xs12 sm5 md3>
+      <v-flex
+        flex-grow-1
+        xs12
+        sm5
+        md3
+      >
         <pan-thumb :image="image" />
 
         <v-btn
@@ -23,7 +37,12 @@
           @click="imagecropperShow=true"
         >
           Change Avatar
-          <v-icon right dark>cloud_upload</v-icon>
+          <v-icon
+            right
+            dark
+          >
+            cloud_upload
+          </v-icon>
         </v-btn>
 
         <image-cropper
@@ -51,17 +70,17 @@ export default {
   data: () => ({
     imagecropperShow: false,
     imagecropperKey: 0,
-    image: 'https://wpimg.wallstcn.com/577965b9-bb9e-4e02-9f0c-095b41417191'
+    image: 'https://wpimg.wallstcn.com/577965b9-bb9e-4e02-9f0c-095b41417191',
   }),
   methods: {
     cropSuccess(resData) {
       this.imagecropperShow = false;
-      this.imagecropperKey = this.imagecropperKey + 1;
+      this.imagecropperKey += 1;
       this.image = resData.files.avatar;
     },
     close() {
       this.imagecropperShow = false;
-    }
-  }
+    },
+  },
 };
 </script>

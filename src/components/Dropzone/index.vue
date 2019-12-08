@@ -1,6 +1,14 @@
 <template>
-  <div :id="id" :ref="id" :action="url" class="dropzone">
-    <input type="file" name="file">
+  <div
+    :id="id"
+    :ref="id"
+    :action="url"
+    class="dropzone"
+  >
+    <input
+      type="file"
+      name="file"
+    >
   </div>
 </template>
 
@@ -15,65 +23,65 @@ export default {
   props: {
     id: {
       type: String,
-      required: true
+      required: true,
     },
     url: {
       type: String,
-      required: true
+      required: true,
     },
     clickable: {
       type: Boolean,
-      default: true
+      default: true,
     },
     defaultMsg: {
       type: String,
-      default: 'upload image'
+      default: 'upload image',
     },
     acceptedFiles: {
       type: String,
-      default: ''
+      default: '',
     },
     thumbnailHeight: {
       type: Number,
-      default: 200
+      default: 200,
     },
     thumbnailWidth: {
       type: Number,
-      default: 200
+      default: 200,
     },
     showRemoveLink: {
       type: Boolean,
-      default: true
+      default: true,
     },
     maxFilesize: {
       type: Number,
-      default: 2
+      default: 2,
     },
     maxFiles: {
       type: Number,
-      default: 3
+      default: 3,
     },
     autoProcessQueue: {
       type: Boolean,
-      default: true
+      default: true,
     },
     useCustomDropzoneOptions: {
       type: Boolean,
-      default: false
+      default: false,
     },
     defaultImg: {
       default: '',
-      type: [String, Array]
+      type: [String, Array],
     },
     couldPaste: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
       dropzone: '',
-      initOnce: true
+      initOnce: true,
     };
   },
   watch: {
@@ -85,7 +93,7 @@ export default {
       if (!this.initOnce) return;
       this.initImages(val);
       this.initOnce = false;
-    }
+    },
   },
   mounted() {
     const element = document.getElementById(this.id);
@@ -125,7 +133,7 @@ export default {
           mockFile.previewElement.classList.add('dz-complete');
           vm.initOnce = false;
         }
-      } /* ,
+      }, /* ,
       accept: (file, done) => {
         // const token = this.$store.getters.token;
         // getToken(token).then(response => {
@@ -148,13 +156,13 @@ export default {
       document.addEventListener('paste', this.pasteImg);
     }
 
-    this.dropzone.on('success', file => {
+    this.dropzone.on('success', (file) => {
       vm.$emit('dropzone-success', file, vm.dropzone.element);
     });
-    this.dropzone.on('addedfile', file => {
+    this.dropzone.on('addedfile', (file) => {
       vm.$emit('dropzone-fileAdded', file);
     });
-    this.dropzone.on('removedfile', file => {
+    this.dropzone.on('removedfile', (file) => {
       vm.$emit('dropzone-removedFile', file);
     });
     this.dropzone.on('error', (file, error, xhr) => {
@@ -199,8 +207,8 @@ export default {
         mockFile.previewElement.classList.add('dz-success');
         mockFile.previewElement.classList.add('dz-complete');
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

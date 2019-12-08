@@ -16,49 +16,49 @@ export default {
   props: {
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     id: {
       type: String,
       required: false,
       default() {
         return `markdown-editor-${new Date()}${((Math.random() * 1000).toFixed(0))}`;
-      }
+      },
     },
     options: {
       type: Object,
       default() {
         return defaultOptions;
-      }
+      },
     },
     mode: {
       type: String,
-      default: 'markdown'
+      default: 'markdown',
     },
     height: {
       type: String,
       required: false,
-      default: '300px'
+      default: '300px',
     },
     language: {
       type: String,
       required: false,
-      default: 'en_US' // https://github.com/nhnent/tui.editor/tree/master/src/js/langs
-    }
+      default: 'en_US', // https://github.com/nhnent/tui.editor/tree/master/src/js/langs
+    },
   },
   data() {
     return {
-      editor: null
+      editor: null,
     };
   },
   computed: {
     editorOptions() {
-      const options = Object.assign({}, defaultOptions, this.options);
+      const options = { ...defaultOptions, ...this.options };
       options.initialEditType = this.mode;
       options.height = this.height;
       options.language = this.language;
       return options;
-    }
+    },
   },
   watch: {
     value(newValue, preValue) {
@@ -75,7 +75,7 @@ export default {
     },
     mode(newValue) {
       this.editor.changeMode(newValue);
-    }
+    },
   },
   mounted() {
     this.initEditor();
@@ -87,7 +87,7 @@ export default {
     initEditor() {
       this.editor = new Editor({
         el: document.getElementById(this.id),
-        ...this.editorOptions
+        ...this.editorOptions,
       });
       if (this.value) {
         this.editor.setValue(this.value);
@@ -112,7 +112,7 @@ export default {
     },
     getHtml() {
       return this.editor.getHtml();
-    }
-  }
+    },
+  },
 };
 </script>

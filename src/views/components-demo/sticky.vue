@@ -1,9 +1,17 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap class="hide-overflow" style="position: relative;">
+  <v-container
+    container--fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+      class="overflow-hidden"
+      style="position: relative;"
+    >
       <v-flex xs12>
         <sticky :z-index="1000000">
-          <v-toolbar
+          <v-app-bar
             absolute
             color="info"
             dark
@@ -11,26 +19,30 @@
             scroll-target="#scrolling-techniques"
             :dense="toolbarDense"
           >
-            <v-spacer></v-spacer>
+            <v-spacer />
 
             <v-flex xs4>
               <v-autocomplete
                 :items="items"
                 label="Box style"
-              ></v-autocomplete>
+              />
             </v-flex>
 
             <v-btn icon>
               <v-icon>more_vert</v-icon>
             </v-btn>
-          </v-toolbar>
+          </v-app-bar>
         </sticky>
       </v-flex>
-      <v-flex d-flex xs12 class="components-container " >
+      <v-flex
+        flex-grow-1
+        xs12
+        class="components-container "
+      >
         <v-alert
           :value="true"
           color="info"
-          outline
+          outlined
         >
           Sticky header: {{ $t('components.stickyTips') }}
         </v-alert>
@@ -50,7 +62,9 @@
         <div>placeholder</div>
         <div>placeholder</div>
         <sticky :sticky-top="200">
-          <v-btn color="info">placeholder</v-btn>
+          <v-btn color="info">
+            placeholder
+          </v-btn>
         </sticky>
         <div>placeholder</div>
         <div>placeholder</div>
@@ -103,13 +117,13 @@ export default {
   name: 'StickyDemo',
   components: { Sticky },
   data: () => ({
-    items: ['Foo', 'Bar', 'Fizz', 'Buzz']
+    items: ['Foo', 'Bar', 'Fizz', 'Buzz'],
   }),
   computed: {
     ...mapGetters([
-      'toolbarDense'
-    ])
-  }
+      'toolbarDense',
+    ]),
+  },
 };
 </script>
 

@@ -1,54 +1,86 @@
 <template>
-  <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
-    <v-btn icon large flat slot="activator">
-      <v-avatar size="36px">
-        <img v-if="avatar" :src="avatar" alt="name"/>
-        <v-icon v-else x-large class="blue--text">person</v-icon>
-      </v-avatar>
-    </v-btn>
+  <v-menu
+    offset-y
+    origin="center center"
+    :nudge-bottom="10"
+    transition="scale-transition"
+  >
+    <template v-slot:activator="{ on }">
+      <v-btn
+        icon
+        large
+        flat
+        v-on="on"
+      >
+        <v-avatar size="36px">
+          <img
+            v-if="avatar"
+            :src="avatar"
+            alt="name"
+          >
+          <v-icon
+            v-else
+            x-large
+            class="blue--text"
+          >
+            person
+          </v-icon>
+        </v-avatar>
+      </v-btn>
+    </template>
     <v-list class="pa-0">
       <v-list>
-        <v-list-tile avatar>
-          <v-list-tile-avatar>
-            <img v-if="avatar" :src="avatar" alt="name"/>
-            <v-icon v-else x-large class="blue--text">person</v-icon>
-          </v-list-tile-avatar>
+        <v-list-item avatar>
+          <v-list-item-avatar>
+            <img
+              v-if="avatar"
+              :src="avatar"
+              alt="name"
+            >
+            <v-icon
+              v-else
+              x-large
+              class="blue--text"
+            >
+              person
+            </v-icon>
+          </v-list-item-avatar>
 
-          <v-list-tile-content>
-            <v-list-tile-title>{{ name }}</v-list-tile-title>
-            <v-list-tile-sub-title>{{ user }}</v-list-tile-sub-title>
-          </v-list-tile-content>
+          <v-list-item-content>
+            <v-list-item-title>{{ name }}</v-list-item-title>
+            <v-list-item-subtitle>{{ user }}</v-list-item-subtitle>
+          </v-list-item-content>
 
-          <!--<v-list-tile-action>-->
-            <!--<v-btn-->
-              <!--:class="fav ? 'red&#45;&#45;text' : ''"-->
-              <!--icon-->
-              <!--@click="fav = !fav"-->
-            <!--&gt;-->
-              <!--<v-icon>favorite</v-icon>-->
-            <!--</v-btn>-->
-          <!--</v-list-tile-action>-->
-        </v-list-tile>
+          <!--<v-list-item-action>-->
+          <!--<v-btn-->
+          <!--:class="fav ? 'red&#45;&#45;text' : ''"-->
+          <!--icon-->
+          <!--@click="fav = !fav"-->
+          <!--&gt;-->
+          <!--<v-icon>favorite</v-icon>-->
+          <!--</v-btn>-->
+          <!--</v-list-item-action>-->
+        </v-list-item>
       </v-list>
-      <v-divider></v-divider>
-      <v-list-tile
+      <v-divider />
+      <v-list-item
         v-for="(item,index) in menuitems"
+        :key="index"
         :to="!item.href ? { name: item.name } : null"
         :href="item.href"
-        @click="item.click"
         ripple="ripple"
         :disabled="item.disabled"
         :target="item.target"
         rel="noopener"
-        :key="index"
+        @click="item.click"
       >
-        <v-list-tile-action v-if="item.icon">
+        <v-list-item-action v-if="item.icon">
           <v-icon>{{ item.icon }}</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-content>
-          <v-list-tile-title>{{ $t(item.title) }}</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+        </v-list-item-action>
+        <v-list-item-content>
+          <v-list-item-title>{{ $t(item.title) }}</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
   </v-menu>
 </template>
@@ -65,9 +97,9 @@ export default {
           icon: 'account_circle',
           href: '#',
           title: 'toolbar.profile',
-          click: e => {
+          click: (e) => {
             console.log(e);
-          }
+          },
         },
         {
           icon: 'settings',
@@ -76,7 +108,7 @@ export default {
           click: () => {
             console.log('this.toggleSettingsPanel()');
             this.toggleSettingsPanel();
-          }
+          },
         },
         {
           icon: 'exit_to_app',
@@ -84,9 +116,9 @@ export default {
           title: 'toolbar.logout',
           click: () => {
             this.logout();
-          }
-        }
-      ]
+          },
+        },
+      ],
     };
   },
   computed: {
@@ -94,8 +126,8 @@ export default {
       'user',
       'name',
       'avatar',
-      'status'
-    ])
+      'status',
+    ]),
   },
   methods: {
     logout() {
@@ -106,7 +138,7 @@ export default {
       console.log('this.toggleSettingsPanel()111');
       this.$vuetify.goTo(0);
       this.$store.dispatch('SettingsPanelToggle');
-    }
-  }
+    },
+  },
 };
 </script>

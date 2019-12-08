@@ -1,28 +1,43 @@
 <template>
-  <v-container grid-list-xl fluid>
-    <v-layout row wrap>
-      <v-flex lg6 xs12>
+  <v-container
+    grid-list-xl
+    container--fluid
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        lg6
+        xs12
+      >
         <app-widget title="Basic Usage">
           <div slot="widget-content">
             <v-carousel>
               <v-carousel-item
                 v-for="(item,i) in items"
-                :src="item.src"
                 :key="i"
-              ></v-carousel-item>
+                :src="item.src"
+              />
             </v-carousel>
           </div>
         </app-widget>
       </v-flex>
-      <v-flex lg6 xs12>
+      <v-flex
+        lg6
+        xs12
+      >
         <app-widget title="Hide Controls">
           <div slot="widget-content">
-            <v-carousel hide-controls hide-delimiters>
+            <v-carousel
+              hide-controls
+              hide-delimiters
+            >
               <v-carousel-item
                 v-for="(item,i) in items"
-                :src="item.src"
                 :key="i"
-              ></v-carousel-item>
+                :src="item.src"
+              />
             </v-carousel>
           </div>
         </app-widget>
@@ -37,15 +52,15 @@ import AppWidget from '@/views/layout/components/AppWidget.vue';
 export default {
   name: 'Carousels',
   components: {
-    AppWidget
+    AppWidget,
   },
   data: () => ({
     items: [
       { src: './static/nature/n1.jpeg' },
       { src: './static/nature/n2.jpeg' },
       { src: './static/nature/n3.jpeg' },
-      { src: './static/nature/n4.jpeg' }
-    ]
-  })
+      { src: './static/nature/n4.jpeg' },
+    ],
+  }),
 };
 </script>

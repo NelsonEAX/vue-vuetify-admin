@@ -3,34 +3,34 @@ const settingsDefault = {
   dense: true,
   navbar: {
     show: true,
-    logo: false
+    logo: false,
   },
   fullscreen: {
     show: false,
-    btn: true
+    btn: true,
   },
   settingsPanel: {
     show: false,
-    btn: true
+    btn: true,
   },
   theme: {
-    index: 0
-  }
+    index: 0,
+  },
 };
 
 const settings = {
   state: JSON.parse(JSON.stringify(settingsDefault)), // Deep Clone
 
   getters: {
-    language: state => state.language,
-    toolbarDense: state => state.dense,
-    navbarShow: state => state.navbar.show,
-    navbarLogo: state => state.navbar.logo,
-    fullscreenBtn: state => state.fullscreen.btn,
-    fullscreenShow: state => state.fullscreen.show,
-    settingsPanelBtn: state => state.settingsPanel.btn,
-    settingsPanelShow: state => state.settingsPanel.show,
-    themeIndex: state => state.theme.index
+    language: (state) => state.language,
+    toolbarDense: (state) => state.dense,
+    navbarShow: (state) => state.navbar.show,
+    navbarLogo: (state) => state.navbar.logo,
+    fullscreenBtn: (state) => state.fullscreen.btn,
+    fullscreenShow: (state) => state.fullscreen.show,
+    settingsPanelBtn: (state) => state.settingsPanel.btn,
+    settingsPanelShow: (state) => state.settingsPanel.show,
+    themeIndex: (state) => state.theme.index,
   },
 
   mutations: {
@@ -56,13 +56,13 @@ const settings = {
     THEME_TOGGLE: (state, payload) => {
       state.theme.index = payload.index;
     },
-    TOOLBAR_DENSE_TOGGLE: state => {
+    TOOLBAR_DENSE_TOGGLE: (state) => {
       state.dense = !state.dense;
     },
-    NAVBAR_LOGO_TOGGLE: state => {
+    NAVBAR_LOGO_TOGGLE: (state) => {
       state.navbar.logo = !state.navbar.logo;
     },
-    NAVBAR_TOGGLE: state => {
+    NAVBAR_TOGGLE: (state) => {
       state.navbar.show = !state.navbar.show;
     },
     NAVBAR_STATE: (state, payload) => {
@@ -74,15 +74,15 @@ const settings = {
     FULLSCREEN_BTN: (state, payload) => {
       state.fullscreen.btn = payload.state;
     },
-    SETTINGS_PANEL_BTN_TOGGLE: state => {
+    SETTINGS_PANEL_BTN_TOGGLE: (state) => {
       state.settingsPanel.btn = !state.settingsPanel.btn;
     },
-    SETTINGS_PANEL_TOGGLE: state => {
+    SETTINGS_PANEL_TOGGLE: (state) => {
       state.settingsPanel.show = !state.settingsPanel.show;
     },
     SETTINGS_PANEL_STATE: (state, payload) => {
       state.settingsPanel.show = payload.state;
-    }
+    },
   },
   actions: {
     LanguageToggle: async (context, payload) => {
@@ -91,7 +91,7 @@ const settings = {
     ThemeToggle: async (context, payload) => {
       context.commit('THEME_TOGGLE', payload);
     },
-    ToolbarDenseToggle: async context => {
+    ToolbarDenseToggle: async (context) => {
       context.commit('TOOLBAR_DENSE_TOGGLE');
     },
     NavbarLogoToggle: async (context, payload) => {
@@ -118,10 +118,10 @@ const settings = {
     SettingsPanelState: async (context, payload) => {
       context.commit('SETTINGS_PANEL_STATE', payload);
     },
-    SettingsPanelDefault: async context => {
+    SettingsPanelDefault: async (context) => {
       context.commit('SET_SETTINGS_DEFAULT', JSON.parse(JSON.stringify(settingsDefault)));
-    }
-  }
+    },
+  },
 };
 
 export default settings;

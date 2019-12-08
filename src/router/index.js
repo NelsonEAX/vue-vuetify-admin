@@ -45,15 +45,15 @@ export const constantRoutes = [
     children: [
       {
         path: '/redirect/:path*',
-        component: () => import('@/views/redirect/index')
-      }
-    ]
+        component: () => import('@/views/redirect/index'),
+      },
+    ],
   },
   {
     path: '/landing',
     alias: '/land',
     component: Landing,
-    hidden: true
+    hidden: true,
   },
   {
     path: '/dashboard',
@@ -66,8 +66,8 @@ export const constantRoutes = [
         name: 'Dashboard',
         // eslint-disable-next-line
         meta: { title: 'route.dashboard', icon: 'dashboard', noCache: true, affix: true }
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/dashboard',
@@ -80,8 +80,8 @@ export const constantRoutes = [
         name: 'Documentation',
         // eslint-disable-next-line
         meta: { title: 'route.documentation', icon: 'subject', noCache: true, affix: true }
-      }
-    ]
+      },
+    ],
   },
   {
     path: '/dashboard',
@@ -94,17 +94,17 @@ export const constantRoutes = [
         name: 'Guide',
         // eslint-disable-next-line
         meta: { title: 'route.guide', icon: 'near_me', noCache: true, affix: true }
-      }
-    ]
+      },
+    ],
   },
   errorsRouter,
-  ...authRouter
+  ...authRouter,
 ];
 
 export default new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
+  routes: constantRoutes,
 });
 
 export const asyncRoutes = [
@@ -114,5 +114,5 @@ export const asyncRoutes = [
   nestedRouter,
   ...componentsRouter,
   // chartsRouter,
-  { path: '*', redirect: '/error/404', hidden: true }
+  { path: '*', redirect: '/error/404', hidden: true },
 ];

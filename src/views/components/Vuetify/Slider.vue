@@ -1,6 +1,12 @@
 <template>
-  <v-container grid-list-lg fluid>
-    <v-layout row wrap>
+  <v-container
+    grid-list-lg
+    container--fluid
+  >
+    <v-layout
+      row
+      wrap
+    >
       <v-flex xs12>
         <app-widget title="Basic Usage">
           <div slot="widget-content">
@@ -8,7 +14,10 @@
             <div class="container">
               <div class="layout column">
                 <div class="flex">
-                  <v-slider v-model="slider1" step="0"></v-slider>
+                  <v-slider
+                    v-model="slider1"
+                    step="0"
+                  />
                 </div>
               </div>
             </div>
@@ -16,7 +25,11 @@
             <div class="container">
               <div class="layout column">
                 <div class="flex">
-                  <v-slider v-model="slider2" step="0" disabled></v-slider>
+                  <v-slider
+                    v-model="slider2"
+                    step="0"
+                    disabled
+                  />
                 </div>
               </div>
             </div>
@@ -25,14 +38,14 @@
               <div class="layout column">
                 <div class="flex">
                   <v-slider
+                    v-model="slider3"
                     placeholder="step"
                     color="pink"
                     :max="255"
                     thumb-label
                     step="10"
                     ticks
-                    v-model="slider3"
-                  ></v-slider>
+                  />
                 </div>
               </div>
             </div>
@@ -40,8 +53,14 @@
             <div class="container">
               <div class="layout column">
                 <div class="flex">
-                  <v-slider prepend-icon="volume_up" v-model="media1"></v-slider>
-                  <v-slider prepend-icon="volume_down" v-model="media2"></v-slider>
+                  <v-slider
+                    v-model="media1"
+                    prepend-icon="volume_up"
+                  />
+                  <v-slider
+                    v-model="media2"
+                    prepend-icon="volume_down"
+                  />
                 </div>
               </div>
             </div>
@@ -50,21 +69,21 @@
               <div class="layout column">
                 <div class="flex">
                   <v-slider
-                    :label="ex1.label"
                     v-model="ex1.val"
+                    :label="ex1.label"
                     :color="ex1.color"
-                  ></v-slider>
+                  />
                   <v-slider
-                    :label="ex2.label"
                     v-model="ex2.val"
+                    :label="ex2.label"
                     :track-color="ex2.color"
-                  ></v-slider>
+                  />
                   <v-slider
-                    :label="ex3.label"
                     v-model="ex3.val"
+                    :label="ex3.label"
                     :thumb-color="ex3.color"
                     thumb-label
-                  ></v-slider>
+                  />
                 </div>
               </div>
             </div>
@@ -81,7 +100,7 @@ import AppWidget from '@/views/layout/components/AppWidget.vue';
 export default {
   name: 'Slider',
   components: {
-    AppWidget
+    AppWidget,
   },
   data: () => ({
     slider1: 0,
@@ -91,7 +110,7 @@ export default {
     media2: 0,
     ex1: { label: 'color', val: 25, color: 'orange darken-3' },
     ex2: { label: 'track-color', val: 75, color: 'green lighten-1' },
-    ex3: { label: 'thumb-color', val: 50, color: 'red' }
-  })
+    ex3: { label: 'thumb-color', val: 50, color: 'red' },
+  }),
 };
 </script>

@@ -1,20 +1,20 @@
 <template>
-  <v-toolbar
+  <v-app-bar
     id="app-toolbar"
     app
     :dense="toolbarDense"
   >
-    <v-toolbar-side-icon
+    <v-app-bar-nav-icon
       id="hamburger-container"
       @click.stop="toggleNavbar"
-    ></v-toolbar-side-icon>
-    <breadcrumbs id="breadcrumbs-container"/>
-    <v-spacer></v-spacer>
-    <full-screen-toggle id="fullscreen-container"/>
-    <notification id="notification-container"/>
-    <localization id="localization-container"/>
-    <profile id="profile-container"/>
-  </v-toolbar>
+    />
+    <breadcrumbs id="breadcrumbs-container" />
+    <v-spacer />
+    <full-screen-toggle id="fullscreen-container" />
+    <notification id="notification-container" />
+    <localization id="localization-container" />
+    <profile id="profile-container" />
+  </v-app-bar>
 </template>
 
 <script>
@@ -32,18 +32,18 @@ export default {
     FullScreenToggle,
     Localization,
     Notification,
-    Profile
+    Profile,
   },
   data: () => ({}),
   computed: {
     ...mapGetters([
-      'toolbarDense'
-    ])
+      'toolbarDense',
+    ]),
   },
   methods: {
     toggleNavbar() {
       this.$store.dispatch('NavbarToggle');
-    }
-  }
+    },
+  },
 };
 </script>

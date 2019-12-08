@@ -10,7 +10,7 @@ export default {
     permission: {
       admin: 'Админ',
       editor: 'Редактор',
-      visitor: 'Посетитель'
+      visitor: 'Посетитель',
     },
     components: 'Компоненты',
     component: {
@@ -23,7 +23,7 @@ export default {
       markdown: 'Markdown',
       splitPane: 'Split Pane',
       sticky: 'Sticky',
-      tinymce: 'Tinymce'
+      tinymce: 'Tinymce',
     },
     vuetify: 'Vuetify UI',
     vuetifyComponents: {
@@ -49,7 +49,7 @@ export default {
       tables: 'Tables',
       timepicker: 'Timepicker',
       tooltip: 'Tooltip',
-      typography: 'Typography'
+      typography: 'Typography',
     },
     errors: 'Ошибки',
     errorPages: {
@@ -57,30 +57,30 @@ export default {
       page401: '401',
       page403: '403',
       page404: '404',
-      page500: '500'
+      page500: '500',
     },
     charts: 'Графики',
     chart: {
       keyboardChart: 'Гистограмма',
       lineChart: 'Линейный',
-      mixChart: 'Смешанный'
+      mixChart: 'Смешанный',
     },
     nested: {
       nested: 'Вложенные',
       nested1: 'Уровень 1',
       nested2: 'Уровень 2',
-      nested3: 'Уровень 3'
+      nested3: 'Уровень 3',
     },
     i18n: 'i18n',
     theme: 'Оформление',
     clipboard: 'Буфер обмена',
-    externalLink: 'Внешняя ссылка'
+    externalLink: 'Внешняя ссылка',
   },
   toolbar: {
     appname: 'Приложение',
     settings: 'Настройки',
     profile: 'Профиль',
-    logout: 'Выйти'
+    logout: 'Выйти',
   },
   settings: {
     title: 'Внешний Вид',
@@ -89,7 +89,7 @@ export default {
     theme: 'Цветовая схема',
     toolbarDense: 'Toolbar dense',
     navbarLogo: 'Navbar logo',
-    settingsBtn: 'Setting btn'
+    settingsBtn: 'Setting btn',
   },
   login: {
     titleIn: 'Форма авторизации',
@@ -98,7 +98,7 @@ export default {
     singUp: 'Войти', // "Зарегистрироваться" - верстка плывет, если не убрать кнопки
     email: 'Эл. почта',
     password: 'Пароль',
-    confirm: 'Подтвердить'
+    confirm: 'Подтвердить',
   },
   errors: {
     whoops: 'Упс',
@@ -107,12 +107,12 @@ export default {
     401: 'Неавторизовано',
     403: 'Запрещено',
     404: 'Не найден',
-    500: 'Внутренняя ошибка сервера'
+    500: 'Внутренняя ошибка сервера',
   },
   guide: {
     description: 'Страница руководства полезна для людей, которые впервые знакомятся с проектом.'
       + ' Вы можете кратко представить особенности проекта. Демо основано на',
-    button: 'Показать руководство'
+    button: 'Показать руководство',
   },
   components: {
     thisBaseOn: 'Основан на',
@@ -129,7 +129,7 @@ export default {
     stickyTips: 'при прокрутке странице будет закреплен вверху',
     backToTop: 'Когда страница прокручивается до указанной позиции, '
       + 'в правом нижнем углу появляется кнопка «Вверх»',
-    draggable: 'Позволяет перетаскивать и панели и элементы внутри'
+    draggable: 'Позволяет перетаскивать и панели и элементы внутри',
   },
   ui: {
     switch: 'Сменить язык',
@@ -144,6 +144,6 @@ export default {
     accent: 'Акцент',
     firstName: 'Имя',
     lastName: 'Фамилия',
-    email: 'Электронная почта'
-  }
+    email: 'Электронная почта',
+  },
 };

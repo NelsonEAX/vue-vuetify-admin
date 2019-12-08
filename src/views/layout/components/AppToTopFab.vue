@@ -1,8 +1,8 @@
 <template>
   <v-fab-transition>
     <v-btn
-      id="app-to-top-btn"
       v-show="fab"
+      id="app-to-top-btn"
       v-scroll="onScroll"
       fab
       dark
@@ -21,7 +21,7 @@
 export default {
   name: 'AppToTopFab',
   data: () => ({
-    fab: false
+    fab: false,
   }),
   methods: {
     onScroll() {
@@ -32,7 +32,7 @@ export default {
     toTop() {
       this.$router.push({ hash: '' });
       this.$vuetify.goTo(0);
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,7 +1,10 @@
 <template>
   <div class="upload-container">
-
-    <v-dialog v-model="dialogVisible" persistent max-width="600px">
+    <v-dialog
+      v-model="dialogVisible"
+      persistent
+      max-width="600px"
+    >
       <template v-slot:activator="{ on }">
         <v-btn
           class="info"
@@ -9,32 +12,51 @@
           @click=" dialogVisible=true"
         >
           upload
-          <v-icon right dark>cloud_upload</v-icon>
+          <v-icon
+            right
+            dark
+          >
+            cloud_upload
+          </v-icon>
         </v-btn>
       </template>
       <v-card>
         <v-responsive :aspect-ratio="16/9">
           <v-card-text>
-            <v-btn color="primary">Click upload</v-btn>
+            <v-btn color="primary">
+              Click upload
+            </v-btn>
           </v-card-text>
         </v-responsive>
         <!--<el-upload-->
-          <!--:multiple="true"-->
-          <!--:file-list="fileList"-->
-          <!--:show-file-list="true"-->
-          <!--:on-remove="handleRemove"-->
-          <!--:on-success="handleSuccess"-->
-          <!--:before-upload="beforeUpload"-->
-          <!--class="editor-slide-upload"-->
-          <!--action="https://httpbin.org/post"-->
-          <!--list-type="picture-card"-->
+        <!--:multiple="true"-->
+        <!--:file-list="fileList"-->
+        <!--:show-file-list="true"-->
+        <!--:on-remove="handleRemove"-->
+        <!--:on-success="handleSuccess"-->
+        <!--:before-upload="beforeUpload"-->
+        <!--class="editor-slide-upload"-->
+        <!--action="https://httpbin.org/post"-->
+        <!--list-type="picture-card"-->
         <!--&gt;-->
-          <!--<v-btn color="primary">Click upload</v-btn>-->
+        <!--<v-btn color="primary">Click upload</v-btn>-->
         <!--</el-upload>-->
         <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="error" flat @click="dialogVisible = false">Cancel</v-btn>
-          <v-btn color="success" flat @click="handleSubmit">Confirm</v-btn>
+          <v-spacer />
+          <v-btn
+            color="error"
+            flat
+            @click="dialogVisible = false"
+          >
+            Cancel
+          </v-btn>
+          <v-btn
+            color="success"
+            flat
+            @click="handleSubmit"
+          >
+            Confirm
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -47,22 +69,22 @@ export default {
   props: {
     color: {
       type: String,
-      default: '#1890ff'
-    }
+      default: '#1890ff',
+    },
   },
   data() {
     return {
       dialogVisible: false,
       listObj: {},
-      fileList: []
+      fileList: [],
     };
   },
   methods: {
     checkAllSuccess() {
-      return Object.keys(this.listObj).every(item => this.listObj[item].hasSuccess);
+      return Object.keys(this.listObj).every((item) => this.listObj[item].hasSuccess);
     },
     handleSubmit() {
-      const arr = Object.keys(this.listObj).map(v => this.listObj[v]);
+      const arr = Object.keys(this.listObj).map((v) => this.listObj[v]);
       if (!this.checkAllSuccess()) {
         this.$message('Please wait for all images to be uploaded successfully. '
           + 'If there is a network problem, please refresh the page and upload again!');
@@ -101,7 +123,7 @@ export default {
       const URL = window.URL || window.webkitURL;
       const fileName = file.uid;
       this.listObj[fileName] = {};
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         const img = new Image();
         img.src = URL.createObjectURL(file);
         img.onload = () => {
@@ -109,13 +131,13 @@ export default {
             hasSuccess: false,
             uid: file.uid,
             width: this.width,
-            height: this.height
+            height: this.height,
           };
         };
         resolve(true);
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,30 +1,55 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12>
+  <v-container
+    container--fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <v-alert
           :value="true"
           color="info"
-          outline
+          outlined
         >
           <strong>SplitPane</strong> If you've used
-          <a href="http://codepen.io/" target="_blank">codepen</a>,
-          <a href="https://jsfiddle.net/" target="_blank">jsfiddle</a>will not be unfamiliar.
-          <a href="https://github.com/PanJiaChen/vue-split-pane" target="_blank">Github</a>
+          <a
+            href="http://codepen.io/"
+            target="_blank"
+          >codepen</a>,
+          <a
+            href="https://jsfiddle.net/"
+            target="_blank"
+          >jsfiddle</a>will not be unfamiliar.
+          <a
+            href="https://github.com/PanJiaChen/vue-split-pane"
+            target="_blank"
+          >Github</a>
         </v-alert>
       </v-flex>
-      <v-flex d-flex xs12 class="components-container">
-        <split-pane split="vertical" @resize="resize">
+      <v-flex
+        flex-grow-1
+        xs12
+        class="components-container"
+      >
+        <split-pane
+          split="vertical"
+          @resize="resize"
+        >
           <template slot="paneL">
-            <div class="left-container"/>
+            <div class="left-container" />
           </template>
           <template slot="paneR">
             <split-pane split="horizontal">
               <template slot="paneL">
-                <div class="top-container"/>
+                <div class="top-container" />
               </template>
               <template slot="paneR">
-                <div class="bottom-container"/>
+                <div class="bottom-container" />
               </template>
             </split-pane>
           </template>
@@ -43,8 +68,8 @@ export default {
   methods: {
     resize() {
       console.log('resize');
-    }
-  }
+    },
+  },
 };
 </script>
 

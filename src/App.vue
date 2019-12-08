@@ -1,9 +1,9 @@
 <template>
   <v-app id="inspire">
-     <transition>
+    <transition>
       <keep-alive>
-        <router-view/>
-        <layout/>
+        <router-view />
+        <layout />
       </keep-alive>
     </transition>
   </v-app>
@@ -15,8 +15,8 @@ import Layout from './views/layout/Layout.vue';
 export default {
   name: 'App',
   components: {
-    Layout
+    Layout,
   },
-  data: () => ({})
+  data: () => ({}),
 };
 </script>

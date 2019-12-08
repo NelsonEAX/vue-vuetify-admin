@@ -1,36 +1,34 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
-import enLocaleVuetify from 'vuetify/es5/locale/en'; // vuetify lang
-import ruLocaleVuetify from 'vuetify/es5/locale/ru'; // vuetify lang
-
-import enLocale from './en';
-import ruLocale from './ru';
+import vuetify from '@/locale/vuetify';
+import en from './en';
+import ru from './ru';
 
 Vue.use(VueI18n);
 
 const messages = {
   en: {
-    ...enLocale,
-    $vuetify: enLocaleVuetify
+    ...en,
+    $vuetify: vuetify.en,
   },
   ru: {
-    ...ruLocale,
-    $vuetify: ruLocaleVuetify
-  }
+    ...ru,
+    $vuetify: vuetify.ru,
+  },
 };
 
 export const locales = [
   {
     title: 'English',
     locale: 'en',
-    abbr: 'ENG'
+    abbr: 'ENG',
   },
   {
     title: 'Русский',
     locale: 'ru',
-    abbr: 'RUS'
-  }
+    abbr: 'RUS',
+  },
 ];
 
 const defaultLocale = locales[1];
@@ -40,7 +38,7 @@ const i18n = new VueI18n({
   // options: en | ru
   locale: defaultLocale.locale,
   // set locale messages
-  messages
+  messages,
 });
 
 export function changeLocale(newLocale) {

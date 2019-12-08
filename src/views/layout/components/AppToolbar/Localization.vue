@@ -1,18 +1,33 @@
 <template>
-  <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
-    <v-btn icon large flat slot="activator">
-      <v-icon>language</v-icon>
-    </v-btn>
+  <v-menu
+    offset-y
+    origin="center center"
+    :nudge-bottom="10"
+    transition="scale-transition"
+  >
+    <template v-slot:activator="{ on }">
+      <v-btn
+        icon
+        large
+        flat
+        v-on="on"
+      >
+        <v-icon>language</v-icon>
+      </v-btn>
+    </template>
     <v-list class="pa-0">
-      <v-list-tile
+      <v-list-item
         v-for="(item,index) in locales"
-        @click="changeLocale(item.locale)"
+        :key="index"
         ripple="ripple"
-        :target="item.target" rel="noopener" :key="index">
-        <v-list-tile-content>
-          <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+        :target="item.target"
+        rel="noopener"
+        @click="changeLocale(item.locale)"
+      >
+        <v-list-item-content>
+          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
   </v-menu>
 </template>
@@ -23,18 +38,18 @@ import { locales, changeLocale } from '@/locale';
 export default {
   name: 'Localization',
   data: () => ({
-    locales
+    locales,
   }),
   methods: {
     changeLocale(lang) {
       changeLocale(lang)
-        .then(state => {
+        .then((state) => {
           this.$store.dispatch('LanguageToggle', { state });
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(`${err}`);
         });
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,20 +1,20 @@
 export const lineChartData = {
   newVisitis: {
     expectedData: [100, 120, 161, 134, 105, 160, 165],
-    actualData: [120, 82, 91, 154, 162, 140, 145]
+    actualData: [120, 82, 91, 154, 162, 140, 145],
   },
   messages: {
     expectedData: [200, 192, 120, 144, 160, 130, 140],
-    actualData: [180, 160, 151, 106, 145, 150, 130]
+    actualData: [180, 160, 151, 106, 145, 150, 130],
   },
   purchases: {
     expectedData: [80, 100, 121, 104, 105, 90, 100],
-    actualData: [120, 90, 100, 138, 142, 130, 130]
+    actualData: [120, 90, 100, 138, 142, 130, 130],
   },
   shoppings: {
     expectedData: [130, 140, 141, 142, 145, 150, 160],
-    actualData: [120, 82, 91, 154, 162, 140, 130]
-  }
+    actualData: [120, 82, 91, 154, 162, 140, 130],
+  },
 };
 
 export function getLineChartOption({ expectedData, actualData } = {}) {
@@ -23,30 +23,30 @@ export function getLineChartOption({ expectedData, actualData } = {}) {
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       boundaryGap: false,
       axisTick: {
-        show: false
-      }
+        show: false,
+      },
     },
     grid: {
       left: 10,
       right: 10,
       bottom: 20,
       top: 30,
-      containLabel: true
+      containLabel: true,
     },
     tooltip: {
       trigger: 'axis',
       axisPointer: {
-        type: 'cross'
+        type: 'cross',
       },
-      padding: [5, 10]
+      padding: [5, 10],
     },
     yAxis: {
       axisTick: {
-        show: false
-      }
+        show: false,
+      },
     },
     legend: {
-      data: ['expected', 'actual']
+      data: ['expected', 'actual'],
     },
     series: [{
       name: 'expected',
@@ -55,15 +55,15 @@ export function getLineChartOption({ expectedData, actualData } = {}) {
           color: '#FF005A',
           lineStyle: {
             color: '#FF005A',
-            width: 2
-          }
-        }
+            width: 2,
+          },
+        },
       },
       smooth: true,
       type: 'line',
       data: expectedData,
       animationDuration: 2800,
-      animationEasing: 'cubicInOut'
+      animationEasing: 'cubicInOut',
     },
     {
       name: 'actual',
@@ -74,17 +74,17 @@ export function getLineChartOption({ expectedData, actualData } = {}) {
           color: '#3888fa',
           lineStyle: {
             color: '#3888fa',
-            width: 2
+            width: 2,
           },
           areaStyle: {
-            color: '#f3f8ff'
-          }
-        }
+            color: '#f3f8ff',
+          },
+        },
       },
       data: actualData,
       animationDuration: 2800,
-      animationEasing: 'quadraticOut'
-    }]
+      animationEasing: 'quadraticOut',
+    }],
   };
 }
 
@@ -93,8 +93,8 @@ export function getRaddarChartOption({ animationDuration } = {}) {
     tooltip: {
       trigger: 'axis',
       axisPointer: { // 坐标轴指示器，坐标轴触发有效
-        type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-      }
+        type: 'shadow', // 默认为直线，可选为：'line' | 'shadow'
+      },
     },
     radar: {
       radius: '66%',
@@ -107,8 +107,8 @@ export function getRaddarChartOption({ animationDuration } = {}) {
           shadowBlur: 45,
           shadowColor: 'rgba(0,0,0,.5)',
           shadowOffsetX: 0,
-          shadowOffsetY: 15
-        }
+          shadowOffsetY: 15,
+        },
       },
       indicator: [
         { name: 'Sales', max: 10000 },
@@ -116,13 +116,13 @@ export function getRaddarChartOption({ animationDuration } = {}) {
         { name: 'Information Techology', max: 20000 },
         { name: 'Customer Support', max: 20000 },
         { name: 'Development', max: 20000 },
-        { name: 'Marketing', max: 20000 }
-      ]
+        { name: 'Marketing', max: 20000 },
+      ],
     },
     legend: {
       left: 'center',
       bottom: '10',
-      data: ['Allocated Budget', 'Expected Spending', 'Actual Spending']
+      data: ['Allocated Budget', 'Expected Spending', 'Actual Spending'],
     },
     series: [{
       type: 'radar',
@@ -133,25 +133,25 @@ export function getRaddarChartOption({ animationDuration } = {}) {
           shadowColor: 'rgba(0,0,0,.2)',
           shadowOffsetX: 0,
           shadowOffsetY: 10,
-          opacity: 1
-        }
+          opacity: 1,
+        },
       },
       data: [
         {
           value: [5000, 7000, 12000, 11000, 15000, 14000],
-          name: 'Allocated Budget'
+          name: 'Allocated Budget',
         },
         {
           value: [4000, 9000, 15000, 15000, 13000, 11000],
-          name: 'Expected Spending'
+          name: 'Expected Spending',
         },
         {
           value: [5500, 11000, 12000, 15000, 12000, 12000],
-          name: 'Actual Spending'
-        }
+          name: 'Actual Spending',
+        },
       ],
-      animationDuration
-    }]
+      animationDuration,
+    }],
   };
 }
 
@@ -159,12 +159,12 @@ export function getPieChartOption() {
   return {
     tooltip: {
       trigger: 'item',
-      formatter: '{a} <br/>{b} : {c} ({d}%)'
+      formatter: '{a} <br/>{b} : {c} ({d}%)',
     },
     legend: {
       left: 'center',
       bottom: '10',
-      data: ['Industries', 'Technology', 'Forex', 'Gold', 'Forecasts']
+      data: ['Industries', 'Technology', 'Forex', 'Gold', 'Forecasts'],
     },
     calculable: true,
     series: [
@@ -179,12 +179,12 @@ export function getPieChartOption() {
           { value: 240, name: 'Technology' },
           { value: 149, name: 'Forex' },
           { value: 100, name: 'Gold' },
-          { value: 59, name: 'Forecasts' }
+          { value: 59, name: 'Forecasts' },
         ],
         animationEasing: 'cubicInOut',
-        animationDuration: 2600
-      }
-    ]
+        animationDuration: 2600,
+      },
+    ],
   };
 }
 
@@ -193,28 +193,28 @@ export function getBarChartOption({ animationDuration } = {}) {
     tooltip: {
       trigger: 'axis',
       axisPointer: { // 坐标轴指示器，坐标轴触发有效
-        type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-      }
+        type: 'shadow', // 默认为直线，可选为：'line' | 'shadow'
+      },
     },
     grid: {
       top: 10,
       left: '2%',
       right: '2%',
       bottom: '3%',
-      containLabel: true
+      containLabel: true,
     },
     xAxis: [{
       type: 'category',
       data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       axisTick: {
-        alignWithLabel: true
-      }
+        alignWithLabel: true,
+      },
     }],
     yAxis: [{
       type: 'value',
       axisTick: {
-        show: false
-      }
+        show: false,
+      },
     }],
     series: [{
       name: 'pageA',
@@ -222,21 +222,21 @@ export function getBarChartOption({ animationDuration } = {}) {
       stack: 'vistors',
       barWidth: '60%',
       data: [79, 52, 200, 334, 390, 330, 220],
-      animationDuration
+      animationDuration,
     }, {
       name: 'pageB',
       type: 'bar',
       stack: 'vistors',
       barWidth: '60%',
       data: [80, 52, 200, 334, 390, 330, 220],
-      animationDuration
+      animationDuration,
     }, {
       name: 'pageC',
       type: 'bar',
       stack: 'vistors',
       barWidth: '60%',
       data: [30, 52, 200, 334, 390, 330, 220],
-      animationDuration
-    }]
+      animationDuration,
+    }],
   };
 }

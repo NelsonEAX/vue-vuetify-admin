@@ -1,8 +1,20 @@
 <template>
   <div class="chart-container">
-    <keyboard-chart v-if="keyboard" height="100%" width="100%"/>
-    <line-chart v-if="line" height="100%" width="100%"/>
-    <mix-chart v-if="mix" height="100%" width="100%"/>
+    <keyboard-chart
+      v-if="keyboard"
+      height="100%"
+      width="100%"
+    />
+    <line-chart
+      v-if="line"
+      height="100%"
+      width="100%"
+    />
+    <mix-chart
+      v-if="mix"
+      height="100%"
+      width="100%"
+    />
   </div>
 </template>
 
@@ -17,17 +29,17 @@ export default {
   props: {
     keyboard: {
       type: Boolean,
-      default: false
+      default: false,
     },
     line: {
       type: Boolean,
-      default: false
+      default: false,
     },
     mix: {
       type: Boolean,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 };
 </script>
 

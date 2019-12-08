@@ -1,18 +1,23 @@
 <template>
-  <v-layout row wrap>
+  <v-layout
+    row
+    wrap
+  >
     <v-flex
-      text-xs-center
       v-for="(item, index) in themes"
       :key="index"
-      @click.stop="toggleTheme(index)"
+      text-center
       :class="[{'elevation-10 pa-2': themeIndex == index}, xs]"
+      @click.stop="toggleTheme(index)"
     >
       <div
-        v-for="(color, title) in item"
+        v-for="(color, title) in item.light"
         :key="title"
         class="white--text"
         :style="{ background: color }"
-      >{{title}}</div>
+      >
+        {{ title }}
+      </div>
     </v-flex>
   </v-layout>
 </template>
@@ -26,27 +31,28 @@ export default {
   props: {
     xs: {
       type: String,
-      default: 'xs6'
-    }
+      default: 'xs6',
+    },
   },
   data: () => ({
-    themes
+    themes,
   }),
   computed: {
     ...mapGetters([
-      'themeIndex'
-    ])
+      'themeIndex',
+    ]),
   },
   methods: {
     toggleTheme(index) {
-      if (this.$vuetify.theme !== this.themes[index]) {
+      if (this.$vuetify.theme.themes !== this.themes[index]) {
         console.log(`Change theme to "${index}"`);
-        this.$vuetify.theme = this.themes[index] || this.themes[0];
+        this.$vuetify.theme.themes.light = this.themes[index].light || this.themes[0].light;
+        this.$vuetify.theme.themes.dark = this.themes[index].dark || this.themes[0].dark;
         this.$store.dispatch('ThemeToggle', { index });
       } else {
         console.warn(`"${index}" is current theme `);
       }
-    }
-  }
+    },
+  },
 };
 </script>

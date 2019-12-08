@@ -1,7 +1,16 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12>
+  <v-container
+    container--fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <v-alert
           :value="true"
           color="info"
@@ -14,8 +23,14 @@
           >CodeMirrorr</a>, lint {{ $t('components.baseOn') }} json-lint
         </v-alert>
       </v-flex>
-      <v-flex d-flex xs12>
-        <json-editor ref="jsonEditor" v-model="value"/>
+      <v-flex
+        flex-grow-1
+        xs12
+      >
+        <json-editor
+          ref="jsonEditor"
+          v-model="value"
+        />
       </v-flex>
     </v-layout>
   </v-container>
@@ -43,7 +58,7 @@ export default {
   name: 'JsonEditorDemo',
   components: { JsonEditor },
   data: () => ({
-    value: JSON.parse(jsonData)
-  })
+    value: JSON.parse(jsonData),
+  }),
 };
 </script>

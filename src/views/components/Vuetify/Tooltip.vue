@@ -1,16 +1,38 @@
 <template>
-  <v-container grid-list-xl fluid>
-    <v-layout row wrap>
+  <v-container
+    grid-list-xl
+    container--fluid
+  >
+    <v-layout
+      row
+      wrap
+    >
       <v-flex lg6>
         <app-widget title="Basic Usage">
           <div slot="widget-content">
-            <div class="text-xs-center d-flex align-center">
+            <div class="text-center flex-grow-1 align-center">
               <v-tooltip bottom>
-                <v-btn dark color="primary" slot="activator">Button</v-btn>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    dark
+                    color="primary"
+                    v-on="on"
+                  >
+                    Button
+                  </v-btn>
+                </template>
                 <span>Tooltip</span>
               </v-tooltip>
               <v-tooltip bottom>
-                <v-icon dark color="primary" slot="activator">home</v-icon>
+                <template v-slot:activator="{ on }">
+                  <v-icon
+                    dark
+                    color="primary"
+                    v-on="on"
+                  >
+                    home
+                  </v-icon>
+                </template>
                 <span>Tooltip</span>
               </v-tooltip>
               <v-tooltip bottom>
@@ -24,21 +46,53 @@
       <v-flex lg6>
         <app-widget title="Alignment">
           <div slot="widget-content">
-            <div class="text-xs-center">
+            <div class="text-center">
               <v-tooltip left>
-                <v-btn dark color="primary" slot="activator">Left</v-btn>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    dark
+                    color="primary"
+                    v-on="on"
+                  >
+                    Left
+                  </v-btn>
+                </template>
                 <span>Left tooltip</span>
               </v-tooltip>
               <v-tooltip top>
-                <v-btn dark color="primary" slot="activator">Top</v-btn>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    dark
+                    color="primary"
+                    v-on="on"
+                  >
+                    Top
+                  </v-btn>
+                </template>
                 <span>Top tooltip</span>
               </v-tooltip>
               <v-tooltip bottom>
-                <v-btn dark color="primary" slot="activator">Bottom</v-btn>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    dark
+                    color="primary"
+                    v-on="on"
+                  >
+                    Bottom
+                  </v-btn>
+                </template>
                 <span>Bottom tooltip</span>
               </v-tooltip>
               <v-tooltip right>
-                <v-btn dark color="primary" slot="activator">Right</v-btn>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    dark
+                    color="primary"
+                    v-on="on"
+                  >
+                    Right
+                  </v-btn>
+                </template>
                 <span>Right tooltip</span>
               </v-tooltip>
             </div>
@@ -48,16 +102,39 @@
       <v-flex lg6>
         <app-widget title="Icon Badge">
           <div slot="widget-content">
-            <v-container fluid class="text-xs-center">
-              <v-layout flex wrap row justify-space-between>
+            <v-container
+              container--fluid
+              class="text-center"
+            >
+              <v-layout
+                flex
+                wrap
+                row
+                justify-space-between
+              >
                 <v-flex xs12>
-                  <v-btn @click.native="show = !show">toggle</v-btn>
+                  <v-btn @click.native="show = !show">
+                    toggle
+                  </v-btn>
                 </v-flex>
-                <v-flex xs12 class="mt-5">
-                  <v-tooltip v-model="show" top>
-                    <v-btn icon slot="activator">
-                      <v-icon color="grey lighten-1">shopping_cart</v-icon>
-                    </v-btn>
+                <v-flex
+                  xs12
+                  class="mt-5"
+                >
+                  <v-tooltip
+                    v-model="show"
+                    top
+                  >
+                    <template v-slot:activator="{ on }">
+                      <v-btn
+                        icon
+                        v-on="on"
+                      >
+                        <v-icon color="grey lighten-1">
+                          shopping_cart
+                        </v-icon>
+                      </v-btn>
+                    </template>
                     <span>Programmatic tooltip</span>
                   </v-tooltip>
                 </v-flex>
@@ -76,10 +153,10 @@ import AppWidget from '@/views/layout/components/AppWidget.vue';
 export default {
   name: 'Tooltip',
   components: {
-    AppWidget
+    AppWidget,
   },
   data: () => ({
-    show: false
-  })
+    show: false,
+  }),
 };
 </script>

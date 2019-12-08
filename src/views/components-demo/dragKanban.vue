@@ -1,11 +1,20 @@
 <template>
-  <v-container fluid grid-list-md>
-    <v-layout row wrap>
-      <v-flex d-flex xs12>
+  <v-container
+    container--fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        flex-grow-1
+        xs12
+      >
         <v-alert
           :value="true"
           color="info"
-          outline
+          outlined
         >
           {{ $t('components.thisBaseOn') }}
           <a
@@ -23,21 +32,21 @@
         :options="{ group: 'kanban', class: 'v-list two-line' }"
         header-text="Kanban1"
         header-color="pink"
-      ></kanban>
+      />
       <kanban
         :key="2"
         :list="items2"
         :options="{ group: 'kanban', class: 'v-list two-line' }"
         header-text="Kanban2"
         header-color="blue"
-      ></kanban>
+      />
       <kanban
         :key="3"
         :list="items3"
         :options="{ group: 'kanban', class: 'v-list two-line' }"
         header-text="Kanban3"
         header-color="green"
-      ></kanban>
+      />
     </draggable>
   </v-container>
 </template>
@@ -50,7 +59,7 @@ export default {
   name: 'DragKanbanDemo',
   components: {
     Kanban,
-    draggable
+    draggable,
   },
   data: () => ({
     items1: [
@@ -59,36 +68,36 @@ export default {
         action: '15 min',
         headline: 'Brunch this weekend?',
         title: 'Ali Connors',
-        subtitle: "I'll be in your neighborhood doing errands this weekend."
+        subtitle: "I'll be in your neighborhood doing errands this weekend.",
       },
       {
         id: 2,
         action: '2 hr',
         headline: 'Summer BBQ',
         title: 'me, Scrott, Jennifer',
-        subtitle: "Wish I could come, but I'm out of town this weekend."
+        subtitle: "Wish I could come, but I'm out of town this weekend.",
       },
       {
         id: 3,
         action: '6 hr',
         headline: 'Oui oui',
         title: 'Sandra Adams',
-        subtitle: 'Do you have Paris recommendations? Have you ever been?'
+        subtitle: 'Do you have Paris recommendations? Have you ever been?',
       },
       {
         id: 4,
         action: '12 hr',
         headline: 'Birthday gift',
         title: 'Trevor Hansen',
-        subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+        subtitle: 'Have any ideas about what we should get Heidi for her birthday?',
       },
       {
         id: 5,
         action: '18hr',
         headline: 'Recipe to try',
         title: 'Britta Holt',
-        subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
-      }
+        subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+      },
     ],
     items2: [
       {
@@ -96,29 +105,29 @@ export default {
         action: '15 min',
         headline: 'Brunch this weekend?',
         title: 'Ali Connors',
-        subtitle: "I'll be in your neighborhood doing errands this weekend."
+        subtitle: "I'll be in your neighborhood doing errands this weekend.",
       },
       {
         id: 7,
         action: '2 hr',
         headline: 'Summer BBQ',
         title: 'me, Scrott, Jennifer',
-        subtitle: "Wish I could come, but I'm out of town this weekend."
+        subtitle: "Wish I could come, but I'm out of town this weekend.",
       },
       {
         id: 8,
         action: '6 hr',
         headline: 'Oui oui',
         title: 'Sandra Adams',
-        subtitle: 'Do you have Paris recommendations? Have you ever been?'
+        subtitle: 'Do you have Paris recommendations? Have you ever been?',
       },
       {
         id: 9,
         action: '12 hr',
         headline: 'Birthday gift',
         title: 'Trevor Hansen',
-        subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
-      }
+        subtitle: 'Have any ideas about what we should get Heidi for her birthday?',
+      },
     ],
     items3: [
       {
@@ -126,44 +135,44 @@ export default {
         action: '15 min',
         headline: 'Brunch this weekend?',
         title: 'Ali Connors',
-        subtitle: "I'll be in your neighborhood doing errands this weekend."
+        subtitle: "I'll be in your neighborhood doing errands this weekend.",
       },
       {
         id: 16,
         action: '18hr',
         headline: 'Recipe to try',
         title: 'Britta Holt',
-        subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
+        subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
       },
       {
         id: 17,
         action: '2 hr',
         headline: 'Summer BBQ',
         title: 'me, Scrott, Jennifer',
-        subtitle: "Wish I could come, but I'm out of town this weekend."
+        subtitle: "Wish I could come, but I'm out of town this weekend.",
       },
       {
         id: 18,
         action: '6 hr',
         headline: 'Oui oui',
         title: 'Sandra Adams',
-        subtitle: 'Do you have Paris recommendations? Have you ever been?'
+        subtitle: 'Do you have Paris recommendations? Have you ever been?',
       },
       {
         id: 19,
         action: '12 hr',
         headline: 'Birthday gift',
         title: 'Trevor Hansen',
-        subtitle: 'Have any ideas about what we should get Heidi for her birthday?'
+        subtitle: 'Have any ideas about what we should get Heidi for her birthday?',
       },
       {
         id: 20,
         action: '18hr',
         headline: 'Recipe to try',
         title: 'Britta Holt',
-        subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.'
-      }
-    ]
-  })
+        subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+      },
+    ],
+  }),
 };
 </script>

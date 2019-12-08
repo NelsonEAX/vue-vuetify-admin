@@ -5,14 +5,14 @@ const authRouter = [
     path: '/login',
     alias: '/singin',
     component: () => import('@/views/auth/SingIn.vue'),
-    hidden: true
+    hidden: true,
   },
   {
     path: '/registration',
     alias: '/singup',
     component: () => import('@/views/auth/SingUp.vue'),
-    hidden: true
-  }
+    hidden: true,
+  },
 ];
 
 export default authRouter;
