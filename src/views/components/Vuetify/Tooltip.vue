@@ -30,7 +30,7 @@
                     color="primary"
                     v-on="on"
                   >
-                    home
+                    mdi-home
                   </v-icon>
                 </template>
                 <span>Tooltip</span>
@@ -131,7 +131,7 @@
                         v-on="on"
                       >
                         <v-icon color="grey lighten-1">
-                          shopping_cart
+                          mdi-cart
                         </v-icon>
                       </v-btn>
                     </template>

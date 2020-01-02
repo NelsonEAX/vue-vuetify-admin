@@ -29,7 +29,7 @@
             </v-flex>
 
             <v-btn icon>
-              <v-icon>more_vert</v-icon>
+              <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
           </v-app-bar>
         </sticky>

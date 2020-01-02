@@ -17,7 +17,7 @@
           <v-icon>{{ onlyOneChild.meta ? onlyOneChild.meta.icon : null }}</v-icon>
         </v-list-item-action>
 
-        <v-list-item-content class="font-weight-light">
+        <v-list-item-content>
           <v-list-item-title>
             {{ onlyOneChild.meta ? $t( onlyOneChild.meta.title ) : '' }}
           </v-list-item-title>
@@ -31,8 +31,10 @@
       >
         <template v-slot:activator>
           <v-list-item>
-            <v-list-item-content class="font-weight-light">
-              <v-list-item-title>{{ item.meta ? $t( item.meta.title ) : '' }}</v-list-item-title>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ item.meta ? $t( item.meta.title ) : '' }}
+              </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </template>

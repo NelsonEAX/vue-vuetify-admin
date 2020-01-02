@@ -16,7 +16,7 @@
                 text-color="white"
               >
                 <v-avatar>
-                  <v-icon>account_circle</v-icon>
+                  <v-icon>mdi-account</v-icon>
                 </v-avatar>
                 Ranee
               </v-chip>
@@ -35,7 +35,7 @@
               >
                 1 Year
                 <v-icon right>
-                  cake
+                  mdi-cake-variant
                 </v-icon>
               </v-chip>
               <v-chip
@@ -54,7 +54,7 @@
                 text-color="white"
               >
                 <v-avatar>
-                  <v-icon>check_circle</v-icon>
+                  <v-icon>mdi-check-circle</v-icon>
                 </v-avatar>
                 Confirmed
               </v-chip>
@@ -142,7 +142,7 @@
                 text-color="white"
               >
                 <v-icon left>
-                  label
+                  mdi-label
                 </v-icon>Tags
               </v-chip>
               <v-chip
@@ -224,7 +224,7 @@
               chips
               tags
               solo
-              prepend-icon="filter_list"
+              prepend-icon="mdi-filter"
               append-icon=""
               clearable
             >

@@ -55,11 +55,11 @@
                 <div class="flex">
                   <v-slider
                     v-model="media1"
-                    prepend-icon="volume_up"
+                    prepend-icon="mdi-volume-high"
                   />
                   <v-slider
                     v-model="media2"
-                    prepend-icon="volume_down"
+                    prepend-icon="mdi-volume-medium"
                   />
                 </div>
               </div>

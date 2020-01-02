@@ -73,7 +73,7 @@
                       slot="activator"
                       v-model="date"
                       label="Picker in menu"
-                      prepend-icon="event"
+                      prepend-icon="mdi-calendar"
                       readonly
                     />
                     <v-time-picker
@@ -117,7 +117,7 @@
                       slot="activator"
                       v-model="date"
                       label="Picker in dialog"
-                      prepend-icon="event"
+                      prepend-icon="mdi-calendar"
                       readonly
                     />
                     <v-time-picker

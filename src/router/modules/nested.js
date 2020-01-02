@@ -10,7 +10,7 @@ const nestedRouter = {
   name: 'NestedMenu',
   meta: {
     title: 'route.nested.nested',
-    icon: 'looks_one',
+    icon: 'mdi-file-tree',
   },
   children: [
     {

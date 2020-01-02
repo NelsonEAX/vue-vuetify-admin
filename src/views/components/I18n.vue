@@ -34,7 +34,7 @@
           :title="$t('ui.switch')"
           class="text-center"
           :padding="false"
-          icon="language"
+          icon="mdi-translate"
         >
           <div slot="widget-content">
             <v-list
@@ -52,10 +52,10 @@
                     v-if="item.locale === language"
                     color="success"
                   >
-                    radio_button_checked
+                    mdi-radiobox-marked
                   </v-icon>
                   <v-icon v-else>
-                    radio_button_unchecked
+                    mdi-radiobox-blank
                   </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>

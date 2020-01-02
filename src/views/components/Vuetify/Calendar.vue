@@ -33,7 +33,7 @@
             dark
             left
           >
-            keyboard_arrow_left
+            mdi-chevron-left
           </v-icon>
           Prev
         </v-btn>
@@ -60,7 +60,7 @@
             right
             dark
           >
-            keyboard_arrow_right
+            mdi-chevron-right
           </v-icon>
         </v-btn>
       </v-flex>

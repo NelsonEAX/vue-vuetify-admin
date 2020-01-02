@@ -34,7 +34,7 @@
           :title="$t('ui.theme')"
           class="text-center"
           :padding="false"
-          icon="color_lens"
+          icon="mdi-palette"
         >
           <div slot="widget-content">
             <v-card-title primary-title>
@@ -129,14 +129,14 @@ export default {
   data: () => ({
     sw_on: true,
     items: [
-      // { color: 'default', icon: 'check_circle' },
-      { color: 'primary', icon: 'check_circle' },
-      { color: 'secondary', icon: 'check_circle' },
-      { color: 'accent', icon: 'check_circle' },
-      { color: 'success', icon: 'check_circle' },
-      { color: 'error', icon: 'warning' },
-      { color: 'warning', icon: 'priority_high' },
-      { color: 'info', icon: 'info' },
+      // { color: 'default', icon: 'mdi-check-circle' },
+      { color: 'primary', icon: 'mdi-check-circle' },
+      { color: 'secondary', icon: 'mdi-check-circle' },
+      { color: 'accent', icon: 'mdi-check-circle' },
+      { color: 'success', icon: 'mdi-check-circle' },
+      { color: 'error', icon: 'mdi-alert' },
+      { color: 'warning', icon: 'mdi-alert' },
+      { color: 'info', icon: 'mdi-alert-circle' },
     ],
   }),
   computed: {

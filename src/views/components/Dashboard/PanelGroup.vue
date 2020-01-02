@@ -18,7 +18,7 @@
         >
           <div class="card-panel-icon-wrapper icon-people">
             <v-icon class-name="card-panel-icon">
-              people
+              mdi-account-multiple
             </v-icon>
           </div>
           <div class="card-panel-description">
@@ -49,7 +49,7 @@
         >
           <div class="card-panel-icon-wrapper icon-message">
             <v-icon class-name="card-panel-icon">
-              message
+              mdi-message-bulleted
             </v-icon>
           </div>
           <div class="card-panel-description">
@@ -80,7 +80,7 @@
         >
           <div class="card-panel-icon-wrapper icon-money">
             <v-icon class-name="card-panel-icon">
-              attach_money
+              mdi-currency-usd
             </v-icon>
           </div>
           <div class="card-panel-description">
@@ -111,7 +111,7 @@
         >
           <div class="card-panel-icon-wrapper icon-shopping">
             <v-icon class-name="card-panel-icon">
-              shopping_cart
+              mdi-cart
             </v-icon>
           </div>
           <div class="card-panel-description">

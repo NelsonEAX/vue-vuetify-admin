@@ -420,7 +420,8 @@ const Items = [
   },
 ];
 
-const getUserById = (uuid) => ((uuid === undefined) ? Items[0] : Items.find((x) => x.uuid === uuid));
+const getUserById = (uuid) => ((uuid === undefined) ? Items[0]
+  : Items.find((x) => x.uuid === uuid));
 
 const getUser = (limit) => ((limit) ? Items.slice(0, limit) : Items);
 

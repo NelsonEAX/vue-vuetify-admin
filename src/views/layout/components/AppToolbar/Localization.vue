@@ -8,11 +8,12 @@
     <template v-slot:activator="{ on }">
       <v-btn
         icon
-        large
         flat
         v-on="on"
       >
-        <v-icon>language</v-icon>
+        <v-icon>
+          mdi-translate
+        </v-icon>
       </v-btn>
     </template>
     <v-list class="pa-0">

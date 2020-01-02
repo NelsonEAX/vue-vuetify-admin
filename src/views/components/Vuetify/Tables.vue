@@ -22,7 +22,7 @@
             class="hidden-sm-and-down"
           />
           <v-btn icon>
-            <v-icon>filter_list</v-icon>
+            <v-icon>mdi-filter</v-icon>
           </v-btn>
         </v-app-bar>
         <v-divider />

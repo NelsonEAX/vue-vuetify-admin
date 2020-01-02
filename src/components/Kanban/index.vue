@@ -14,7 +14,7 @@
         <v-toolbar-title>{{ headerText }}</v-toolbar-title>
         <v-spacer />
         <v-btn icon>
-          <v-icon>more_vert</v-icon>
+          <v-icon>mdi-dots-vertical</v-icon>
         </v-btn>
       </v-app-bar>
 

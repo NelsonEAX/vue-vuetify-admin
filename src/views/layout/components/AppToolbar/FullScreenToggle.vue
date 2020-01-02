@@ -8,6 +8,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 const toggleFullScreen = () => {
   const doc = window.document;
   const docEl = doc.documentElement;
@@ -36,8 +38,11 @@ const toggleFullScreen = () => {
 export default {
   name: 'FullScreenToggle',
   computed: {
+    ...mapGetters([
+      'fullscreenShow',
+    ]),
     toggleFullScreenIcon() {
-      return this.$store.getters.fullscreenState ? 'fullscreen_exit' : 'fullscreen';
+      return this.fullscreenShow ? 'mdi-fullscreen-exit' : 'mdi-fullscreen';
     },
   },
   methods: {

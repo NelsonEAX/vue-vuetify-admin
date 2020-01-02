@@ -10,7 +10,7 @@ const errorsRouter = {
   name: 'ErrorPages',
   meta: {
     title: 'route.errors',
-    icon: 'error',
+    icon: 'mdi-information',
   },
   children: [
     {

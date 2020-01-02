@@ -10,7 +10,7 @@ const componentsRouter = [
     name: 'ComponentDemo',
     meta: {
       title: 'route.components',
-      icon: 'view_module',
+      icon: 'mdi-view-module',
     },
     children: [
       {
@@ -82,7 +82,7 @@ const componentsRouter = [
     name: 'Charts',
     meta: {
       title: 'route.charts',
-      icon: 'bar_chart',
+      icon: 'mdi-chart-bar',
     },
     children: [
       {
@@ -191,7 +191,7 @@ const componentsRouter = [
         path: 'index',
         component: () => import('@/views/components/Theme.vue'),
         name: 'Theme',
-        meta: { title: 'route.theme', icon: 'color_lens' },
+        meta: { title: 'route.theme', icon: 'mdi-palette' },
       },
     ],
   },
@@ -218,7 +218,7 @@ const componentsRouter = [
         path: 'index',
         component: () => import('@/views/components/I18n.vue'),
         name: 'I18n',
-        meta: { title: 'route.i18n', icon: 'language' },
+        meta: { title: 'route.i18n', icon: 'mdi-translate' },
       },
     ],
   },

@@ -7,7 +7,6 @@
       id="app-fab-btn"
       small
       fab
-      dark
       falt
       fixed
       top="top"
@@ -15,7 +14,7 @@
       color="error"
       @click="toggleSettingsPanel"
     >
-      <v-icon>settings</v-icon>
+      <v-icon>mdi-settings</v-icon>
     </v-btn>
     <v-navigation-drawer
       id="app-fab-drawer"
@@ -48,7 +47,7 @@
               v-on="on"
               @click.stop="setDefaultSettingsPanel"
             >
-              <v-icon>refresh</v-icon>
+              <v-icon>mdi-refresh</v-icon>
             </v-btn>
           </template>
           <span>{{ $t('settings.default') }}</span>

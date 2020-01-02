@@ -8,11 +8,10 @@
     <template v-slot:activator="{ on }">
       <v-btn
         icon
-        large
         flat
         v-on="on"
       >
-        <v-icon>notifications</v-icon>
+        <v-icon>mdi-bell</v-icon>
       </v-btn>
     </template>
     <v-list
@@ -47,7 +46,7 @@
             ripple
           >
             <v-icon color="grey lighten-1">
-              info
+              mdi-information
             </v-icon>
           </v-btn>
         </v-list-item-action>
@@ -64,19 +63,19 @@ export default {
   data: () => ({
     items: [
       {
-        icon: 'folder',
+        icon: 'mdi-folder',
         iconClass: 'grey lighten-1 white--text',
         title: 'Photos',
         subtitle: 'Jan 9, 2014',
       },
       {
-        icon: 'folder',
+        icon: 'mdi-folder',
         iconClass: 'grey lighten-1 white--text',
         title: 'Recipes',
         subtitle: 'Jan 17, 2014',
       },
       {
-        icon: 'folder',
+        icon: 'mdi-folder',
         iconClass: 'grey lighten-1 white--text',
         title: 'Work',
         subtitle: 'Jan 28, 2014',
@@ -84,13 +83,13 @@ export default {
     ],
     items2: [
       {
-        icon: 'assignment',
+        icon: 'mdi-message',
         iconClass: 'blue white--text',
         title: 'Vacation itinerary',
         subtitle: 'Jan 20, 2014',
       },
       {
-        icon: 'call_to_action',
+        icon: 'mdi-alarm',
         iconClass: 'amber white--text',
         title: 'Kitchen remodel',
         subtitle: 'Jan 10, 2014',

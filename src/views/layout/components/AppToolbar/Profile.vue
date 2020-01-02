@@ -57,7 +57,7 @@
           <!--icon-->
           <!--@click="fav = !fav"-->
           <!--&gt;-->
-          <!--<v-icon>favorite</v-icon>-->
+          <!--<v-icon>mdi-heart</v-icon>-->
           <!--</v-btn>-->
           <!--</v-list-item-action>-->
         </v-list-item>
@@ -94,7 +94,7 @@ export default {
     return {
       menuitems: [
         {
-          icon: 'account_circle',
+          icon: 'mdi-account',
           href: '#',
           title: 'toolbar.profile',
           click: (e) => {
@@ -102,7 +102,7 @@ export default {
           },
         },
         {
-          icon: 'settings',
+          icon: 'mdi-settings',
           href: '#',
           title: 'toolbar.settings',
           click: () => {
@@ -111,7 +111,7 @@ export default {
           },
         },
         {
-          icon: 'exit_to_app',
+          icon: 'mdi-exit-to-app',
           href: '#',
           title: 'toolbar.logout',
           click: () => {

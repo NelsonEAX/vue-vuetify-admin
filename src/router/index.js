@@ -65,7 +65,7 @@ export const constantRoutes = [
         component: () => import('@/views/components/Dashboard/index'),
         name: 'Dashboard',
         // eslint-disable-next-line
-        meta: { title: 'route.dashboard', icon: 'dashboard', noCache: true, affix: true }
+        meta: { title: 'route.dashboard', icon: 'mdi-view-dashboard', noCache: true, affix: true }
       },
     ],
   },
@@ -79,7 +79,7 @@ export const constantRoutes = [
         component: () => import('@/views/components/Documentation'),
         name: 'Documentation',
         // eslint-disable-next-line
-        meta: { title: 'route.documentation', icon: 'subject', noCache: true, affix: true }
+        meta: { title: 'route.documentation', icon: 'mdi-text-subject', noCache: true, affix: true }
       },
     ],
   },
@@ -93,7 +93,7 @@ export const constantRoutes = [
         component: () => import('@/views/components/Guide'),
         name: 'Guide',
         // eslint-disable-next-line
-        meta: { title: 'route.guide', icon: 'near_me', noCache: true, affix: true }
+        meta: { title: 'route.guide', icon: 'mdi-near-me', noCache: true, affix: true }
       },
     ],
   },

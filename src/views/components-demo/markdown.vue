@@ -114,7 +114,7 @@
         <v-alert
           :value="true"
           color="success"
-          icon="check_circle"
+          icon="mdi-check-circle"
           outlined
         >
           You can change the language of the admin system to see the effect
@@ -144,7 +144,7 @@
           left
           dark
         >
-          file_copy
+          mdi-content-copy
         </v-icon>
         Get HTML
       </v-btn>

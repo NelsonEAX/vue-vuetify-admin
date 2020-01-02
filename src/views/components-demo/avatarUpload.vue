@@ -41,7 +41,7 @@
             right
             dark
           >
-            cloud_upload
+            mdi-cloud-upload
           </v-icon>
         </v-btn>
 

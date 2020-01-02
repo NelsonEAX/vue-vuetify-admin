@@ -48,21 +48,21 @@
           <div slot="widget-content">
             <v-alert
               color="success"
-              icon="new_releases"
+              icon="mdi-alert-decagram"
               :value="true"
             >
               This is a success alert with a custom icon.
             </v-alert>
             <v-alert
               color="warning"
+              icon="mdi-message-bulleted"
               :value="true"
-              icon="message"
             >
               This is a warning alert with a custom icon.
             </v-alert>
             <v-alert
               color="info"
-              icon="star"
+              icon="mdi-star"
               :value="true"
             >
               This is a info alert with a custom icon.
@@ -85,7 +85,7 @@
             <v-alert
               outlined
               color="success"
-              icon="check_circle"
+              icon="mdi-check-circle"
               :value="true"
             >
               This is a success alert.
@@ -93,7 +93,7 @@
             <v-alert
               outlined
               color="info"
-              icon="info"
+              icon="mdi-alert-circle"
               :value="true"
             >
               This is an info alert.
@@ -101,7 +101,7 @@
             <v-alert
               outlined
               color="warning"
-              icon="priority_high"
+              icon="mdi-alert"
               :value="true"
             >
               This is a warning alert.
@@ -109,7 +109,7 @@
             <v-alert
               outlined
               color="error"
-              icon="warning"
+              icon="mdi-alert"
               :value="true"
             >
               This is a error alert.

@@ -18,7 +18,7 @@
             >
               <v-avatar class="indigo">
                 <v-icon dark>
-                  account_circle
+                  mdi-account
                 </v-icon>
               </v-avatar>
               <v-avatar>
@@ -31,7 +31,7 @@
                 <span slot="badge">3</span>
                 <v-avatar class="purple red--after">
                   <v-icon dark>
-                    notifications
+                    mdi-bell
                   </v-icon>
                 </v-avatar>
               </v-badge>

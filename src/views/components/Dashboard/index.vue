@@ -20,7 +20,7 @@
               slot="widget-header-action"
               icon
             >
-              <v-icon>flare</v-icon>
+              <v-icon>mdi-flare</v-icon>
             </v-btn>
             <option-chart
               slot="widget-content"

@@ -170,7 +170,7 @@
                 fab
               >
                 <v-icon dark>
-                  remove
+                  mdi-minus
                 </v-icon>
               </v-btn>
               <v-btn
@@ -179,7 +179,7 @@
                 fab
               >
                 <v-icon dark>
-                  favorite
+                  mdi-heart
                 </v-icon>
               </v-btn>
               <v-btn
@@ -188,7 +188,7 @@
                 fab
               >
                 <v-icon dark>
-                  add
+                  mdi-plus
                 </v-icon>
               </v-btn>
             </div>
@@ -221,7 +221,7 @@
                   right
                   dark
                 >
-                  cloud_upload
+                  mdi-cloud-upload
                 </v-icon>
               </v-btn>
 
@@ -273,7 +273,7 @@
                     icon
                     color="pink"
                   >
-                    <v-icon>favorite</v-icon>
+                    <v-icon>mdi-heart</v-icon>
                   </v-btn>
                 </v-flex>
                 <v-flex xs3>
@@ -282,7 +282,7 @@
                     icon
                     color="indigo"
                   >
-                    <v-icon>star</v-icon>
+                    <v-icon>mdi-star</v-icon>
                   </v-btn>
                 </v-flex>
                 <v-flex xs3>
@@ -291,7 +291,7 @@
                     icon
                     color="green"
                   >
-                    <v-icon>cached</v-icon>
+                    <v-icon>mdi-autorenew</v-icon>
                   </v-btn>
                 </v-flex>
                 <v-flex xs3>
@@ -300,7 +300,7 @@
                     icon
                     color="deep-orange"
                   >
-                    <v-icon>thumb_up</v-icon>
+                    <v-icon>mdi-thumb-up</v-icon>
                   </v-btn>
                 </v-flex>
               </v-layout>
@@ -317,7 +317,7 @@
                     icon
                     disabled
                   >
-                    <v-icon>favorite</v-icon>
+                    <v-icon>mdi-heart</v-icon>
                   </v-btn>
                 </v-flex>
                 <v-flex xs3>
@@ -325,7 +325,7 @@
                     icon
                     disabled
                   >
-                    <v-icon>star</v-icon>
+                    <v-icon>mdi-star</v-icon>
                   </v-btn>
                 </v-flex>
                 <v-flex xs3>
@@ -333,7 +333,7 @@
                     icon
                     disabled
                   >
-                    <v-icon>cached</v-icon>
+                    <v-icon>mdi-autorenew</v-icon>
                   </v-btn>
                 </v-flex>
                 <v-flex xs3>
@@ -341,7 +341,7 @@
                     icon
                     disabled
                   >
-                    <v-icon>thumb_up</v-icon>
+                    <v-icon>mdi-thumb-up</v-icon>
                   </v-btn>
                 </v-flex>
               </v-layout>
@@ -401,7 +401,7 @@
                         small
                         dark
                       >
-                        <v-icon>edit</v-icon>
+                        <v-icon>mdi-border-color</v-icon>
                       </v-btn>
                     </div>
                     <div>
@@ -410,7 +410,7 @@
                         fab
                         dark
                       >
-                        <v-icon>account_circle</v-icon>
+                        <v-icon>mdi-account</v-icon>
                       </v-btn>
                     </div>
                     <div>
@@ -420,7 +420,7 @@
                         large
                         dark
                       >
-                        <v-icon>alarm</v-icon>
+                        <v-icon>mdi-alarm</v-icon>
                       </v-btn>
                     </div>
                   </div>
@@ -482,16 +482,16 @@
                   <p>Exclusive</p>
                   <v-btn-toggle v-model="toggle_exclusive">
                     <v-btn flat>
-                      <v-icon>format_align_left</v-icon>
+                      <v-icon>mdi-format-align-left</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_align_center</v-icon>
+                      <v-icon>mdi-format-align-center</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_align_right</v-icon>
+                      <v-icon>mdi-format-align-right</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_align_justify</v-icon>
+                      <v-icon>mdi-format-align-justify</v-icon>
                     </v-btn>
                   </v-btn-toggle>
                 </v-flex>
@@ -506,16 +506,16 @@
                     multiple
                   >
                     <v-btn flat>
-                      <v-icon>format_bold</v-icon>
+                      <v-icon>mdi-format-bold</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_italic</v-icon>
+                      <v-icon>mdi-format-italic</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_underlined</v-icon>
+                      <v-icon>mdi-format-underline</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_color_fill</v-icon>
+                      <v-icon>mdi-format-color-fill</v-icon>
                     </v-btn>
                   </v-btn-toggle>
                 </v-flex>
@@ -527,16 +527,16 @@
                   <p>No Options Selected</p>
                   <v-btn-toggle v-model="toggle_none">
                     <v-btn flat>
-                      <v-icon>format_align_left</v-icon>
+                      <v-icon>mdi-format-align-left</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_align_center</v-icon>
+                      <v-icon>mdi-format-align-center</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_align_right</v-icon>
+                      <v-icon>mdi-format-align-right</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_align_justify</v-icon>
+                      <v-icon>mdi-format-align-justify</v-icon>
                     </v-btn>
                   </v-btn-toggle>
                 </v-flex>
@@ -551,16 +551,16 @@
                     mandatory
                   >
                     <v-btn flat>
-                      <v-icon>format_align_left</v-icon>
+                      <v-icon>mdi-format-align-left</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_align_center</v-icon>
+                      <v-icon>mdi-format-align-center</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_align_right</v-icon>
+                      <v-icon>mdi-format-align-right</v-icon>
                     </v-btn>
                     <v-btn flat>
-                      <v-icon>format_align_justify</v-icon>
+                      <v-icon>mdi-format-align-justify</v-icon>
                     </v-btn>
                   </v-btn-toggle>
                 </v-flex>
@@ -609,28 +609,28 @@
                       value="left"
                     >
                       <span>Left</span>
-                      <v-icon>format_align_left</v-icon>
+                      <v-icon>mdi-format-align-left</v-icon>
                     </v-btn>
                     <v-btn
                       flat
                       value="center"
                     >
                       <span>Center</span>
-                      <v-icon>format_align_center</v-icon>
+                      <v-icon>mdi-format-align-center</v-icon>
                     </v-btn>
                     <v-btn
                       flat
                       value="right"
                     >
                       <span>Right</span>
-                      <v-icon>format_align_right</v-icon>
+                      <v-icon>mdi-format-align-right</v-icon>
                     </v-btn>
                     <v-btn
                       flat
                       value="justify"
                     >
                       <span>Justify</span>
-                      <v-icon>format_align_justify</v-icon>
+                      <v-icon>mdi-format-align-justify</v-icon>
                     </v-btn>
                   </v-btn-toggle>
                 </v-flex>

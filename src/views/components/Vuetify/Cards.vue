@@ -175,7 +175,7 @@
               dark
               class="right mt-45"
             >
-              <v-icon>favorite</v-icon>
+              <v-icon>mdi-heart</v-icon>
             </v-btn>
             <div>
               {{ cardText }}

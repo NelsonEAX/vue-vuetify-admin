@@ -7,7 +7,9 @@
     <v-app-bar-nav-icon
       id="hamburger-container"
       @click.stop="toggleNavbar"
-    />
+    >
+      <v-icon>{{ toggleNavbarIcon }}</v-icon>
+    </v-app-bar-nav-icon>
     <breadcrumbs id="breadcrumbs-container" />
     <v-spacer />
     <full-screen-toggle id="fullscreen-container" />
@@ -38,7 +40,11 @@ export default {
   computed: {
     ...mapGetters([
       'toolbarDense',
+      'navbarShow',
     ]),
+    toggleNavbarIcon() {
+      return this.navbarShow ? 'mdi-format-indent-decrease' : 'mdi-format-indent-increase';
+    },
   },
   methods: {
     toggleNavbar() {

@@ -9,7 +9,7 @@ const permissionRouter = {
   name: 'Permission',
   meta: {
     title: 'route.permissions',
-    icon: 'group',
+    icon: 'mdi-account-group',
   },
   children: [
     {

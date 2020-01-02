@@ -9,7 +9,7 @@ const vuetifyRouter = {
   name: 'VuetifyDemo',
   meta: {
     title: 'route.vuetify',
-    icon: 'view_compact',
+    icon: 'mdi-view-compact',
   },
   children: [
     {

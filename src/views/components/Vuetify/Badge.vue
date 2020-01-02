@@ -20,7 +20,7 @@
                   large
                   color="grey lighten-1"
                 >
-                  shopping_cart
+                  mdi-cart
                 </v-icon>
               </v-badge>
               <v-badge color="red">
@@ -29,7 +29,7 @@
                   large
                   color="grey"
                 >
-                  mail
+                  mdi-email
                 </v-icon>
               </v-badge>
               <v-label>Label</v-label>
@@ -55,7 +55,7 @@
                   dark
                   small
                 >
-                  list
+                  mdi-format-list-bulleted
                 </v-icon>
                 <span>Lists</span>
               </v-badge>
@@ -79,23 +79,10 @@
                   dark
                   small
                 >
-                  layers
+                  mdi-layers
                 </v-icon>
                 <span>
                   MDI icon
-                </span>
-              </v-badge>
-
-              <v-badge color="orange">
-                <v-icon
-                  slot="badge"
-                  dark
-                  small
-                >
-                  fa fa-apple
-                </v-icon>
-                <span>
-                  Font Awesome icon
                 </span>
               </v-badge>
             </div>

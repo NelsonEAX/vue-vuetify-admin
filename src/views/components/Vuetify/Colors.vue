@@ -11,7 +11,7 @@
       <v-flex xs12>
         <v-text-field
           v-model="search"
-          prepend-icon="filter_list"
+          prepend-icon="mdi-filter"
           solo="solo"
           label="Search Materil Colors"
           single-line="single-line"

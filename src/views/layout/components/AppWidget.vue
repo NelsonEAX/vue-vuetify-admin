@@ -42,7 +42,7 @@ export default {
     },
     icon: {
       type: String,
-      default: 'more_vert',
+      default: 'mdi-dots-vertical',
     },
     padding: {
       type: Boolean,
