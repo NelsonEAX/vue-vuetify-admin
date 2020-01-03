@@ -26,9 +26,11 @@
 
       <v-flex
         flex-grow-1
+        md4
+        offset-md4
+        sm8
+        offset-sm2
         xs12
-        sm4
-        offset-sm4
       >
         <app-widget
           :title="$t('ui.switch')"

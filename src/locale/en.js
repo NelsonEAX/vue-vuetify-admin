@@ -88,6 +88,7 @@ export default {
     position: 'Position of elements',
     theme: 'Theme',
     toolbarDense: 'Toolbar dense',
+    navbarDense: 'Navbar dense',
     navbarLogo: 'Navbar logo',
     settingsBtn: 'Setting btn',
   },

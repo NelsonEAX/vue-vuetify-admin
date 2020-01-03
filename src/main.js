@@ -1,10 +1,12 @@
 import 'normalize.css/normalize.css';
-import '@/styles/index.scss'; // global css
+// import '@/styles/variables.scss'; // global variables
+// import '@/styles/index.scss'; // global css
 import 'vuetify/dist/vuetify.min.css';
 
 /* icons */
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
-import 'font-awesome/css/font-awesome.css';
+// import '@mdi/font/css/materialdesignicons.css';
+// import 'material-design-icons-iconfont/dist/material-design-icons.css';
+// import 'font-awesome/css/font-awesome.css';
 /* fonts */
 import 'roboto-fontface/css/roboto/roboto-fontface.css';
 

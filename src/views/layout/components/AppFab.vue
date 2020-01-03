@@ -59,6 +59,7 @@
 
       <v-container container--fluid>
         <v-switch
+          dense
           color="secondary"
           :input-value="toolbarDense"
           :label="`${$t('settings.toolbarDense')}: ${toolbarDense ? 'on' : 'off'}`"
@@ -66,6 +67,15 @@
           @change="toggleToolbarDense"
         />
         <v-switch
+          dense
+          color="secondary"
+          :input-value="navbarDense"
+          :label="`${$t('settings.navbarDense')}: ${navbarDense ? 'on' : 'off'}`"
+          hide-details
+          @change="toggleNavbarDense"
+        />
+        <v-switch
+          dense
           color="secondary"
           :input-value="navbarLogo"
           :label="`${$t('settings.navbarLogo')}: ${navbarLogo ? 'on' : 'off'}`"
@@ -73,6 +83,7 @@
           @change="toggleNavbarLogo"
         />
         <v-switch
+          dense
           color="secondary"
           :input-value="settingsPanelBtn"
           :label="`${$t('settings.settingsBtn')}: ${settingsPanelBtn ? 'on' : 'off'}`"
@@ -108,6 +119,7 @@ export default {
       'settingsPanelBtn',
       'settingsPanelShow',
       'toolbarDense',
+      'navbarDense',
       'navbarLogo',
     ]),
   },
@@ -121,6 +133,9 @@ export default {
     },
     toggleToolbarDense() {
       this.$store.dispatch('ToolbarDenseToggle');
+    },
+    toggleNavbarDense() {
+      this.$store.dispatch('NavbarDenseToggle');
     },
     toggleNavbarLogo() {
       this.$store.dispatch('NavbarLogoToggle');

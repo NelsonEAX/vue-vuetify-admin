@@ -88,6 +88,7 @@ export default {
     position: 'Положение елементов',
     theme: 'Цветовая схема',
     toolbarDense: 'Toolbar dense',
+    navbarDense: 'Navbar dense',
     navbarLogo: 'Navbar logo',
     settingsBtn: 'Setting btn',
   },

@@ -28,6 +28,7 @@
     </v-app-bar>
     <v-divider />
     <app-drawer-list
+      :dense="navbarDense"
       :routes="permissionRoutes"
       :icon-show="true"
     />
@@ -47,6 +48,7 @@ export default {
   computed: {
     ...mapGetters([
       'permissionRoutes',
+      'navbarDense',
       'navbarShow',
       'navbarLogo',
       'toolbarDense',

@@ -2,6 +2,7 @@ const settingsDefault = {
   language: 'ru',
   dense: true,
   navbar: {
+    dense: false,
     show: true,
     logo: false,
   },
@@ -24,6 +25,7 @@ const settings = {
   getters: {
     language: (state) => state.language,
     toolbarDense: (state) => state.dense,
+    navbarDense: (state) => state.navbar.dense,
     navbarShow: (state) => state.navbar.show,
     navbarLogo: (state) => state.navbar.logo,
     fullscreenBtn: (state) => state.fullscreen.btn,
@@ -59,6 +61,9 @@ const settings = {
     TOOLBAR_DENSE_TOGGLE: (state) => {
       state.dense = !state.dense;
     },
+    NAVBAR_DENSE_TOGGLE: (state) => {
+      state.navbar.dense = !state.navbar.dense;
+    },
     NAVBAR_LOGO_TOGGLE: (state) => {
       state.navbar.logo = !state.navbar.logo;
     },
@@ -93,6 +98,9 @@ const settings = {
     },
     ToolbarDenseToggle: async (context) => {
       context.commit('TOOLBAR_DENSE_TOGGLE');
+    },
+    NavbarDenseToggle: async (context) => {
+      context.commit('NAVBAR_DENSE_TOGGLE');
     },
     NavbarLogoToggle: async (context, payload) => {
       context.commit('NAVBAR_LOGO_TOGGLE', payload);

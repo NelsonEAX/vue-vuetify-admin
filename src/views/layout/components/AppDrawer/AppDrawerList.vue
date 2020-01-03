@@ -1,45 +1,41 @@
 <template>
-  <v-list>
+  <v-list
+    :dense="dense"
+  >
     <div
       v-for="item in routes.filter(item => { return !item.hidden; })"
       :key="item.title"
     >
       <v-list-item
-        v-if="hasOneShowingChild(item.children, item) &&
-          (!onlyOneChild.children || onlyOneChild.noShowingChildren) && !item.alwaysShow"
-        class="reset_vuetify_icon_padding"
+        v-if="isVisibleItem(item)"
         :to="resolvePath(onlyOneChild.path)"
         ripple="ripple"
       >
-        <v-list-item-action
-          v-if="iconShow"
-        >
-          <v-icon>{{ onlyOneChild.meta ? onlyOneChild.meta.icon : null }}</v-icon>
-        </v-list-item-action>
+        <v-list-item-icon>
+          <v-icon>{{ getListIcon(onlyOneChild) }}</v-icon>
+        </v-list-item-icon>
 
         <v-list-item-content>
           <v-list-item-title>
-            {{ onlyOneChild.meta ? $t( onlyOneChild.meta.title ) : '' }}
+            {{ getListTitle(onlyOneChild) }}
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
       <v-list-group
         v-else
-        :prepend-icon="iconShow && item.meta ? item.meta.icon : null"
-        no-action
+        :prepend-icon="getListIcon(item)"
       >
         <template v-slot:activator>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-title>
-                {{ item.meta ? $t( item.meta.title ) : '' }}
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>
+              {{ getListTitle(item) }}
+            </v-list-item-title>
+          </v-list-item-content>
         </template>
 
         <app-drawer-list
+          :dense="dense"
           :routes="item.children"
           :base-path="resolvePath(item.path)"
         />
@@ -56,6 +52,10 @@ const path = require('path');
 export default {
   name: 'AppDrawerList',
   props: {
+    dense: {
+      type: Boolean,
+      default: false,
+    },
     routes: {
       type: Array,
       default: () => {},
@@ -78,16 +78,21 @@ export default {
     return {};
   },
   methods: {
-    hasOneShowingChild(children = [], parent) {
-      const showingChildren = children.filter((item) => {
+    isVisibleItem(item) {
+      return this.hasOneVisibleChild(item.children, item)
+        && (!this.onlyOneChild.children || this.onlyOneChild.noVisibleChildren)
+        && !item.alwaysShow;
+    },
+    hasOneVisibleChild(children = [], parent) {
+      const visibleChildren = children.filter((item) => {
         if (item.hidden) return false;
-        // Temp set(will be used if only has one showing child)
+        // Temp set(will be used if only has one visible child)
         this.onlyOneChild = item;
         return true;
       });
 
       // When there is only one child router, the child router is displayed by default
-      if (showingChildren.length === 1) {
+      if (visibleChildren.length === 1) {
         this.onlyOneChild.path = path.resolve(parent.path, this.onlyOneChild.path);
         this.onlyOneChild.meta.icon = this.onlyOneChild.meta.icon || parent.meta.icon || '';
 
@@ -95,8 +100,8 @@ export default {
       }
 
       // Show parent if there are no child router to display
-      if (showingChildren.length === 0) {
-        this.onlyOneChild = { ...parent, noShowingChildren: true };
+      if (visibleChildren.length === 0) {
+        this.onlyOneChild = { ...parent, noVisibleChildren: true };
         return true;
       }
 
@@ -107,8 +112,14 @@ export default {
         return routePath;
       }
       const full = path.resolve(this.basePath, routePath);
-      console.log(`${this.basePath} | ${routePath} | ${full}`);
+      // console.log(`${this.basePath} | ${routePath} | ${full}`);
       return full; // path.resolve(this.basePath, routePath);
+    },
+    getListIcon(item) {
+      return this.iconShow && item.meta ? item.meta.icon : ' ';
+    },
+    getListTitle(item) {
+      return item.meta ? this.$t(item.meta.title) : '';
     },
   },
 };
@@ -116,4 +127,12 @@ export default {
 </script>
 
 <style >
+  .v-list {
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+  .v-list-item__icon {
+    margin-bottom: 8px;
+    margin-top: 8px;
+  }
 </style>
