@@ -1,8 +1,8 @@
 <template>
-  <v-flex
-    xs6
-    sm3
-    md2
+  <v-col
+    cols="6"
+    sm="3"
+    md="2"
   >
     <v-card>
       <v-app-bar
@@ -56,7 +56,7 @@
         </template>
       </draggable>
     </v-card>
-  </v-flex>
+  </v-col>
 </template>
 
 <script>

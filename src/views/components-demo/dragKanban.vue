@@ -1,20 +1,15 @@
 <template>
-  <v-container
-    container--fluid
-    grid-list-md
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        flex-grow-1
-        xs12
+  <v-container class="container--fluid grid-list-md">
+    <v-row>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <v-alert
           :value="true"
           color="info"
           outlined
+          dense
         >
           {{ $t('components.thisBaseOn') }}
           <a
@@ -23,27 +18,27 @@
           >Vue.Draggable</a>.
           {{ $t('components.draggable') }}
         </v-alert>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
     <draggable class="layout row wrap">
       <kanban
         :key="1"
         :list="items1"
-        :options="{ group: 'kanban', class: 'v-list two-line' }"
+        :options="{group: 'kanban', class: 'v-list two-line'}"
         header-text="Kanban1"
         header-color="pink"
       />
       <kanban
         :key="2"
         :list="items2"
-        :options="{ group: 'kanban', class: 'v-list two-line' }"
+        :options="{group: 'kanban', class: 'v-list two-line'}"
         header-text="Kanban2"
         header-color="blue"
       />
       <kanban
         :key="3"
         :list="items3"
-        :options="{ group: 'kanban', class: 'v-list two-line' }"
+        :options="{group: 'kanban', class: 'v-list two-line'}"
         header-text="Kanban3"
         header-color="green"
       />

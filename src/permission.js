@@ -28,12 +28,12 @@ router.beforeEach((to, from, next) => {
     /* has token */
     console.log('has token');
     if (whiteList.includes(to.path)) {
-      console.log('/login');
+      console.log('/singin');
       next({ path: '/' });
       // if current page is dashboard will not trigger afterEach hook, so manually handle it
       NProgress.done();
     } else {
-      console.log('not /login');
+      console.log('not /singin');
       if (!store.getters.roles || store.getters.roles.length === 0) {
         console.warn('roles.length === 0');
         // Determine whether the current user has pulled the user_info information
@@ -86,7 +86,7 @@ router.beforeEach((to, from, next) => {
       next();
     } else {
       console.warn(`not whiteList.indexOf(${to.path})`);
-      next(`/login?redirect=${to.path}`); // Otherwise redirect all to the login page
+      next(`/singin?redirect=${to.path}`); // Otherwise redirect all to the login page
       // if current page is login will not trigger afterEach hook, so manually handle it
       NProgress.done();
     }

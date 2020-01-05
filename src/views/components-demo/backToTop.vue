@@ -1,25 +1,20 @@
 <template>
-  <v-container
-    container--fluid
-    grid-list-md
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        flex-grow-1
-        xs12
+  <v-container class="container--fluid grid-list-md">
+    <v-row>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <v-alert
           :value="true"
           color="info"
           outlined
+          dense
         >
           {{ $t('components.backToTop') }}
         </v-alert>
-      </v-flex>
-      <v-flex xs12>
+      </v-col>
+      <v-col cols="12">
         <div class="placeholder-container">
           <div>placeholder</div>
           <div>placeholder</div>
@@ -131,8 +126,8 @@
           <div>placeholder</div>
           <div>placeholder</div>
         </div>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
     <app-to-top-fab />
   </v-container>
 </template>

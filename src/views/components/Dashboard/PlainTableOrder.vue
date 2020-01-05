@@ -13,13 +13,13 @@
             slot-scope="props"
           >
             <td>{{ props.item.id }}</td>
-            <td class="text-xs-left">
+            <td class="text-left">
               {{ props.item.product }}
             </td>
-            <td class="text-xs-left">
+            <td class="text-left">
               {{ props.item.price }}
             </td>
-            <td class="text-xs-left">
+            <td class="text-left">
               <v-chip
                 label
                 small

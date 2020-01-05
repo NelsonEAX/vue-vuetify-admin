@@ -1,15 +1,10 @@
 <template>
-  <v-container
-    container--fluid
-    grid-list-md
-  >
-    <v-layout
-      row
-      wrap
+  <v-container class="container--fluid grid-list-md">
+    <v-row
       class="overflow-hidden"
       style="position: relative;"
     >
-      <v-flex xs12>
+      <v-col cols="12">
         <sticky :z-index="1000000">
           <v-app-bar
             absolute
@@ -21,33 +16,33 @@
           >
             <v-spacer />
 
-            <v-flex xs4>
+            <v-col cols="4">
               <v-autocomplete
                 :items="items"
                 label="Box style"
               />
-            </v-flex>
+            </v-col>
 
             <v-btn icon>
               <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
           </v-app-bar>
         </sticky>
-      </v-flex>
-      <v-flex
-        flex-grow-1
-        xs12
-        class="components-container "
+      </v-col>
+      <v-col
+        class="flex-grow-1 components-container"
+        cols="12"
       >
         <v-alert
           :value="true"
           color="info"
           outlined
+          dense
         >
           Sticky header: {{ $t('components.stickyTips') }}
         </v-alert>
-      </v-flex>
-      <v-flex xs12>
+      </v-col>
+      <v-col cols="12">
         <div>placeholder</div>
         <div>placeholder</div>
         <div>placeholder</div>
@@ -104,8 +99,8 @@
         <div>placeholder</div>
         <div>placeholder</div>
         <div>placeholder</div>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

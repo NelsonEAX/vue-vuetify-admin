@@ -1,20 +1,15 @@
 <template>
-  <v-container
-    container--fluid
-    grid-list-xs
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        flex-grow-1
-        xs12
+  <v-container class="container--fluid grid-list-xs">
+    <v-row>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <v-alert
           :value="true"
           color="info"
           outlined
+          dense
         >
           Markdown {{ $t('components.baseOn') }}
           <a
@@ -24,13 +19,10 @@
             tui.editor
           </a>.
         </v-alert>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
 
-    <v-layout
-      row
-      wrap
-    >
+    <v-row>
       <v-chip
         label
         outlined
@@ -38,21 +30,18 @@
       >
         Basic:
       </v-chip>
-      <v-flex
-        flex-grow-1
-        xs12
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <markdown-editor
           v-model="content"
           height="300px"
         />
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
 
-    <v-layout
-      row
-      wrap
-    >
+    <v-row>
       <v-chip
         label
         outlined
@@ -60,23 +49,20 @@
       >
         Markdown Mode:
       </v-chip>
-      <v-flex
-        flex-grow-1
-        xs12
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <markdown-editor
           ref="markdownEditor"
           v-model="content"
-          :options="{hideModeSwitch:true,previewStyle:'tab'}"
+          :options="{hideModeSwitch: true, previewStyle: 'tab'}"
           height="200px"
         />
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
 
-    <v-layout
-      row
-      wrap
-    >
+    <v-row>
       <v-chip
         label
         outlined
@@ -84,22 +70,19 @@
       >
         Customize Toolbar:
       </v-chip>
-      <v-flex
-        flex-grow-1
-        xs12
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <markdown-editor
           ref="markdownEditor"
           v-model="content"
-          :options="{ toolbarItems: ['heading','bold','italic']}"
+          :options="{toolbarItems: ['heading','bold','italic']}"
         />
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
 
-    <v-layout
-      row
-      wrap
-    >
+    <v-row>
       <v-chip
         label
         outlined
@@ -107,35 +90,33 @@
       >
         I18n:
       </v-chip>
-      <v-flex
-        flex-grow-1
-        xs12
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <v-alert
           :value="true"
           color="success"
           icon="mdi-check-circle"
           outlined
+          dense
         >
           You can change the language of the admin system to see the effect
         </v-alert>
-      </v-flex>
-      <v-flex
-        flex-grow-1
-        xs12
+      </v-col>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <markdown-editor
           v-model="content"
           :language="language"
           height="300px"
         />
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
 
-    <v-layout
-      row
-      wrap
-    >
+    <v-row>
       <v-btn
         color="primary"
         @click="getHtml"
@@ -149,13 +130,13 @@
         Get HTML
       </v-btn>
 
-      <v-flex
-        flex-grow-1
-        xs12
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <div>{{ html }}</div>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

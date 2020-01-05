@@ -5,7 +5,7 @@
     :nudge-bottom="10"
     transition="scale-transition"
   >
-    <template v-slot:activator="{ on }">
+    <template v-slot:activator="{on}">
       <v-btn
         icon
         large
@@ -66,7 +66,7 @@
       <v-list-item
         v-for="(item,index) in menuitems"
         :key="index"
-        :to="!item.href ? { name: item.name } : null"
+        :to="!item.href ? {name: item.name} : null"
         :href="item.href"
         ripple="ripple"
         :disabled="item.disabled"

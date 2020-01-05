@@ -12,6 +12,7 @@
     </v-app-bar-nav-icon>
     <breadcrumbs id="breadcrumbs-container" />
     <v-spacer />
+    <error-log />
     <full-screen-toggle id="fullscreen-container" />
     <notification id="notification-container" />
     <localization id="localization-container" />
@@ -22,6 +23,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import Breadcrumbs from './Breadcrumbs.vue';
+import ErrorLog from './ErrorLog.vue';
 import FullScreenToggle from './FullScreenToggle.vue';
 import Localization from './Localization.vue';
 import Notification from './Notification.vue';
@@ -31,6 +33,7 @@ export default {
   name: 'AppToolbar',
   components: {
     Breadcrumbs,
+    ErrorLog,
     FullScreenToggle,
     Localization,
     Notification,

@@ -9,7 +9,8 @@
         <v-btn
           class="info"
           :style="{background:color,borderColor:color}"
-          @click=" dialogVisible=true"
+          @click="dialogVisible=true"
+          v-on="on"
         >
           upload
           <v-icon

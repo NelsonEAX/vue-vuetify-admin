@@ -26,11 +26,10 @@
         <span>{{ $t('toolbar.appname') }}</span>
       </v-toolbar-title>
     </v-app-bar>
-    <v-divider />
     <app-drawer-list
       :dense="navbarDense"
       :routes="permissionRoutes"
-      :icon-show="true"
+      icon-show
     />
   </v-navigation-drawer>
 </template>

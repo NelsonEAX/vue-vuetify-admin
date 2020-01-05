@@ -21,17 +21,17 @@
               </v-avatar>
             </td>
             <td>{{ props.item.name }}</td>
-            <td class="text-xs-left">
+            <td class="text-left">
               {{ props.item.deadline }}
             </td>
-            <td class="text-xs-left">
+            <td class="text-left">
               <v-progress-linear
                 :value="props.item.progress"
                 height="5"
                 :color="props.item.color"
               />
             </td>
-            <td class="text-xs-right">
+            <td class="text-right">
               <v-btn
                 small
                 flat

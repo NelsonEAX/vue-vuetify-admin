@@ -5,7 +5,7 @@
   >
     <app-widget
       title="Complex Table"
-      :padding="false"
+      padding-hide
     >
       <div slot="widget-content">
         <v-app-bar
@@ -91,7 +91,7 @@
     <br>
     <app-widget
       title="Basic Table"
-      :padding="false"
+      padding-hide
     >
       <div slot="widget-content">
         <v-data-table

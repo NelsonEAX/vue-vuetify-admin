@@ -1,20 +1,15 @@
 <template>
-  <v-container
-    container--fluid
-    grid-list-md
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        flex-grow-1
-        xs12
+  <v-container class="container--fluid grid-list-md">
+    <v-row>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <v-alert
           :value="true"
           color="info"
           outlined
+          dense
         >
           <strong>SplitPane</strong> If you've used
           <a
@@ -30,11 +25,10 @@
             target="_blank"
           >Github</a>
         </v-alert>
-      </v-flex>
-      <v-flex
-        flex-grow-1
-        xs12
-        class="components-container"
+      </v-col>
+      <v-col
+        class="flex-grow-1 components-container"
+        cols="12"
       >
         <split-pane
           split="vertical"
@@ -54,8 +48,8 @@
             </split-pane>
           </template>
         </split-pane>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

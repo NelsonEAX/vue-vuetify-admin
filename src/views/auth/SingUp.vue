@@ -4,19 +4,17 @@
     class="primary"
   >
     <v-content>
-      <v-container
-        container--fluid
-        fill-height
-      >
-        <v-layout
-          align-center
-          justify-center
+      <v-container class="container--fluid fill-height">
+        <v-row
+          no-gutters
+          align="center"
+          justify="center"
         >
-          <v-flex
-            xs12
-            sm8
-            md4
-            lg4
+          <v-col
+            cols="12"
+            sm="8"
+            md="4"
+            lg="4"
           >
             <v-card class="elevation-5 pa-3">
               <v-card-text>
@@ -34,7 +32,7 @@
                 <v-form>
                   <v-text-field
                     v-model="model.username"
-                    append-icon="person"
+                    append-icon="mdi-account"
                     name="login"
                     :label="$t('login.email')"
                     type="text"
@@ -43,7 +41,7 @@
                   <v-text-field
                     id="password"
                     v-model="model.password"
-                    append-icon="lock"
+                    append-icon="mdi-lock"
                     name="password"
                     :label="$t('login.password')"
                     type="password"
@@ -52,7 +50,7 @@
                   <v-text-field
                     id="confirm"
                     v-model="model.confirm"
-                    append-icon="lock"
+                    append-icon="mdi-lock"
                     name="confirm"
                     :label="$t('login.confirm')"
                     type="password"
@@ -64,20 +62,27 @@
                 <localization />
                 <v-btn icon>
                   <v-icon color="blue">
-                    fa fa-facebook-square fa-lg
+                    mdi-facebook
                   </v-icon>
                 </v-btn>
                 <v-btn icon>
                   <v-icon color="red">
-                    fa fa-google fa-lg
+                    mdi-google
                   </v-icon>
                 </v-btn>
                 <v-btn icon>
                   <v-icon color="light-blue">
-                    fa fa-twitter fa-lg
+                    mdi-twitter
                   </v-icon>
                 </v-btn>
                 <v-spacer />
+                <v-btn
+                  color="primary"
+                  outlined
+                  to="/singin"
+                >
+                  {{ $t('login.singIn') }}
+                </v-btn>
                 <v-btn
                   color="primary"
                   :loading="loading"
@@ -87,8 +92,8 @@
                 </v-btn>
               </v-card-actions>
             </v-card>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </v-container>
     </v-content>
   </v-app>

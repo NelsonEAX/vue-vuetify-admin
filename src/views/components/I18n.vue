@@ -1,20 +1,12 @@
 <template>
-  <v-container
-    container--fluid
-    grid-list-md
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        flex-grow-1
-        xs12
-      >
+  <v-container class="container--fluid grid-list-md">
+    <v-row no-gutters>
+      <v-col cols="12">
         <v-alert
           :value="true"
           color="info"
           outlined
+          dense
         >
           {{ $t('components.baseOnL18n') }}
           <a
@@ -22,27 +14,25 @@
             href="//github.com/kazupon/vue-i18n"
           >vue-i18n</a>
         </v-alert>
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        flex-grow-1
-        md4
-        offset-md4
-        sm8
-        offset-sm2
-        xs12
+      <v-col
+        md="4"
+        offset-md="4"
+        sm="8"
+        offset-sm="2"
+        cols="12"
       >
         <app-widget
           :title="$t('ui.switch')"
           class="text-center"
-          :padding="false"
           icon="mdi-translate"
+          padding-hide
         >
           <div slot="widget-content">
             <v-list
               v-for="item in locales"
               :key="item.abbr"
-              :dense="toolbarDense"
             >
               <v-list-item
                 ripple="ripple"
@@ -68,18 +58,14 @@
             </v-list>
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
 
-    <v-layout
-      row
-      wrap
-      align-center
-    >
-      <v-flex
-        xs12
-        sm8
-        offset-sm2
+    <v-row align="center">
+      <v-col
+        cols="12"
+        sm="8"
+        offset-sm="2"
         class="text-center"
       >
         <v-btn
@@ -123,45 +109,44 @@
         >
           {{ $t('ui.info') }}
         </v-btn>
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        d-md-flex
-        xs12
-        sm8
-        offset-sm2
-        class="text-center"
+      <v-col
+        cols="12"
+        sm="8"
+        offset-sm="2"
+        class="text-center d-md-flex"
       >
-        <v-flex
-          xs12
-          md4
+        <v-col
+          cols="12"
+          md="4"
         >
           <v-text-field
             :counter="10"
             :label="$t('ui.firstName')"
           />
-        </v-flex>
-        <v-flex
-          xs12
-          md4
+        </v-col>
+        <v-col
+          cols="12"
+          md="4"
         >
           <v-text-field
             :counter="10"
             :label="$t('ui.lastName')"
           />
-        </v-flex>
-        <v-flex
-          xs12
-          md4
+        </v-col>
+        <v-col
+          cols="12"
+          md="4"
         >
           <v-text-field :label="$t('ui.email')" />
-        </v-flex>
-      </v-flex>
+        </v-col>
+      </v-col>
 
-      <v-flex
-        xs12
-        sm8
-        offset-sm2
+      <v-col
+        cols="12"
+        sm="8"
+        offset-sm="2"
         class="text-center"
       >
         <v-data-table
@@ -171,25 +156,25 @@
         >
           <template v-slot:items="props">
             <td>{{ props.item.name }}</td>
-            <td class="text-xs-right">
+            <td class="text-right">
               {{ props.item.calories }}
             </td>
-            <td class="text-xs-right">
+            <td class="text-right">
               {{ props.item.fat }}
             </td>
-            <td class="text-xs-right">
+            <td class="text-right">
               {{ props.item.carbs }}
             </td>
-            <td class="text-xs-right">
+            <td class="text-right">
               {{ props.item.protein }}
             </td>
-            <td class="text-xs-right">
+            <td class="text-right">
               {{ props.item.iron }}
             </td>
           </template>
         </v-data-table>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -211,7 +196,6 @@ export default {
   }),
   computed: {
     ...mapGetters([
-      'toolbarDense',
       'language',
     ]),
   },

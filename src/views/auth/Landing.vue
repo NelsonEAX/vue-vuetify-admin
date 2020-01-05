@@ -1,8 +1,6 @@
 <template>
   <div>
-    <v-app-bar
-      class="white"
-    >
+    <v-app-bar class="white">
       <v-toolbar-title>{{ info.title }}</v-toolbar-title>
     </v-app-bar>
     <v-content>
@@ -11,10 +9,9 @@
           src="/img/land/hero.jpeg"
           height="600"
         >
-          <v-layout
-            column
-            align-center
-            justify-center
+          <v-row
+            align="center"
+            justify="center"
             class="white--text"
           >
             <img
@@ -32,25 +29,19 @@
               class="blue lighten-2 mt-5"
               dark
               large
-              to="/login"
+              to="/singin"
             >
               Get Started
             </v-btn>
-          </v-layout>
+          </v-row>
         </v-parallax>
       </section>
 
       <section>
-        <v-layout
-          column
-          wrap
-          class="my-5"
-          align-center
-        >
-          <v-flex
-            xs12
-            sm4
-            class="my-3"
+        <v-row align="center">
+          <v-col
+            cols="12"
+            class="text-center"
           >
             <div class="text-center">
               <h2 class="headline">
@@ -60,17 +51,13 @@
                 Cras facilisis mi vitae nunc
               </span>
             </div>
-          </v-flex>
-          <v-flex xs12>
-            <v-container grid-list-xl>
-              <v-layout
-                row
-                wrap
-                align-center
-              >
-                <v-flex
-                  xs12
-                  md4
+          </v-col>
+          <v-col cols="12">
+            <v-container>
+              <v-row align="enter">
+                <v-col
+                  cols="12"
+                  md="4"
                 >
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-center">
@@ -78,7 +65,7 @@
                         x-large
                         class="blue--text text--lighten-2"
                       >
-                        color_lens
+                        mdi-material-design
                       </v-icon>
                     </v-card-text>
                     <v-card-title
@@ -93,10 +80,10 @@
                       {{ lorem }}
                     </v-card-text>
                   </v-card>
-                </v-flex>
-                <v-flex
-                  xs12
-                  md4
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="4"
                 >
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-center">
@@ -104,7 +91,7 @@
                         x-large
                         class="blue--text text--lighten-2"
                       >
-                        flash_on
+                        mdi-flash
                       </v-icon>
                     </v-card-text>
                     <v-card-title
@@ -119,10 +106,10 @@
                       {{ lorem }}
                     </v-card-text>
                   </v-card>
-                </v-flex>
-                <v-flex
-                  xs12
-                  md4
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="4"
                 >
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-center">
@@ -130,7 +117,7 @@
                         x-large
                         class="blue--text text--lighten-2"
                       >
-                        build
+                        mdi-open-source-initiative
                       </v-icon>
                     </v-card-text>
                     <v-card-title
@@ -145,11 +132,11 @@
                       {{ lorem }}
                     </v-card-text>
                   </v-card>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </section>
 
       <section>
@@ -157,10 +144,9 @@
           src="/img/land/section.jpg"
           height="380"
         >
-          <v-layout
-            column
-            align-center
-            justify-center
+          <v-row
+            align="center"
+            justify="center"
           >
             <div class="headline white--text mb-3 text-center">
               Web development has never been easier
@@ -170,25 +156,23 @@
               class="blue lighten-2 mt-5"
               dark
               large
-              to="/login"
+              to="/singin"
             >
               Get Started
             </v-btn>
-          </v-layout>
+          </v-row>
         </v-parallax>
       </section>
 
       <section>
-        <v-container grid-list-xl>
-          <v-layout
-            row
-            wrap
-            justify-center
+        <v-container>
+          <v-row
+            justify="center"
             class="my-5"
           >
-            <v-flex
-              xs12
-              sm4
+            <v-col
+              cols="12"
+              sm="4"
             >
               <v-card class="elevation-0 transparent">
                 <v-card-title
@@ -203,11 +187,11 @@
                   {{ lorem }}
                 </v-card-text>
               </v-card>
-            </v-flex>
-            <v-flex
-              xs12
-              sm4
-              offset-sm1
+            </v-col>
+            <v-col
+              cols="12"
+              sm="4"
+              offset-sm="1"
             >
               <v-card class="elevation-0 transparent">
                 <v-card-title
@@ -225,7 +209,7 @@
                   <v-list-item>
                     <v-list-item-action>
                       <v-icon class="blue--text text--lighten-2">
-                        phone
+                        mdi-cellphone
                       </v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
@@ -235,7 +219,7 @@
                   <v-list-item>
                     <v-list-item-action>
                       <v-icon class="blue--text text--lighten-2">
-                        place
+                        mdi-map-marker
                       </v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
@@ -245,7 +229,7 @@
                   <v-list-item>
                     <v-list-item-action>
                       <v-icon class="blue--text text--lighten-2">
-                        email
+                        mdi-email
                       </v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
@@ -254,20 +238,16 @@
                   </v-list-item>
                 </v-list>
               </v-card>
-            </v-flex>
-          </v-layout>
+            </v-col>
+          </v-row>
         </v-container>
       </section>
 
       <v-footer class="blue darken-2">
-        <v-layout
-          row
-          wrap
-          align-center
-        >
-          <v-flex
-            xs12
-            text-center
+        <v-row align="center">
+          <v-col
+            cols="12"
+            class="text-center"
           >
             <div class="white--text">
               Made with by
@@ -289,8 +269,8 @@
                 target="_blank"
               >NelsonEAX</a>
             </div>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </v-footer>
     </v-content>
   </div>

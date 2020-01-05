@@ -5,10 +5,10 @@
     :nudge-bottom="10"
     transition="scale-transition"
   >
-    <template v-slot:activator="{ on }">
+    <template v-slot:activator="{on}">
       <v-btn
         icon
-        flat
+        text
         v-on="on"
       >
         <v-icon>

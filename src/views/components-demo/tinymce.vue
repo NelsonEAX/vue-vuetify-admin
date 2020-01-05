@@ -1,20 +1,15 @@
 <template>
-  <v-container
-    container--fluid
-    grid-list-md
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        flex-grow-1
-        xs12
+  <v-container class="container--fluid grid-list-md">
+    <v-row>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <v-alert
           :value="true"
           color="info"
           outlined
+          dense
         >
           {{ $t('components.tinymceTips') }}
           <a
@@ -24,25 +19,25 @@
             {{ $t('components.documentation') }}
           </a>
         </v-alert>
-      </v-flex>
-      <v-flex
-        flex-grow-1
-        xs12
+      </v-col>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <tinymce
           v-model="content"
           :init="options"
         />
-      </v-flex>
-      <v-flex
-        flex-grow-1
-        xs12
+      </v-col>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <div class="editor-content">
           {{ content }}
         </div>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -59,7 +54,7 @@ export default {
   data() {
     return {
       content:
-      `<h1 style="text-align: center;">Welcome to the TinyMCE demo!</h1>
+        `<h1 style="text-align: center;">Welcome to the TinyMCE demo!</h1>
         <p style="text-align: center; font-size: 15px;">
         <img
           title="TinyMCE Logo"

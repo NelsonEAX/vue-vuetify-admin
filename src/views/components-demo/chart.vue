@@ -27,18 +27,9 @@ export default {
   name: 'Chart',
   components: { KeyboardChart, LineChart, MixChart },
   props: {
-    keyboard: {
-      type: Boolean,
-      default: false,
-    },
-    line: {
-      type: Boolean,
-      default: false,
-    },
-    mix: {
-      type: Boolean,
-      default: false,
-    },
+    keyboard: Boolean,
+    line: Boolean,
+    mix: Boolean,
   },
 };
 </script>

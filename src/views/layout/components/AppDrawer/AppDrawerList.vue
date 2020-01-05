@@ -3,7 +3,7 @@
     :dense="dense"
   >
     <div
-      v-for="item in routes.filter(item => { return !item.hidden; })"
+      v-for="item in routes.filter(item => !item.hidden)"
       :key="item.title"
     >
       <v-list-item
@@ -52,21 +52,12 @@ const path = require('path');
 export default {
   name: 'AppDrawerList',
   props: {
-    dense: {
-      type: Boolean,
-      default: false,
-    },
+    dense: Boolean,
+    iconShow: Boolean,
+    isNest: Boolean,
     routes: {
       type: Array,
       default: () => {},
-    },
-    iconShow: {
-      type: Boolean,
-      default: false,
-    },
-    isNest: {
-      type: Boolean,
-      default: false,
     },
     basePath: {
       type: String,

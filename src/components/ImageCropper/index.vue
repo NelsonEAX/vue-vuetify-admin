@@ -12,7 +12,7 @@
       </div>
 
       <div
-        v-show="step == 1"
+        v-show="step === 1"
         class="vicp-step1"
       >
         <div
@@ -24,7 +24,7 @@
           @drop="handleChange"
         >
           <i
-            v-show="loading != 1"
+            v-show="loading !== 1"
             class="vicp-icon1"
           >
             <i class="vicp-icon1-arrow" />
@@ -41,7 +41,7 @@
           >{{ lang.noSupported }}</span>
           <input
             v-show="false"
-            v-if="step == 1"
+            v-if="step === 1"
             ref="fileinput"
             type="file"
             @change="handleChange"
@@ -62,7 +62,7 @@
       </div>
 
       <div
-        v-if="step == 2"
+        v-if="step === 2"
         class="vicp-step2"
       >
         <div class="vicp-crop">
@@ -184,7 +184,7 @@
       </div>
 
       <div
-        v-if="step == 3"
+        v-if="step === 3"
         class="vicp-step3"
       >
         <div class="vicp-upload">

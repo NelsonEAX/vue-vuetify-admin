@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-app-bar
-      v-if="headerShow"
+      v-if="!headerHide"
       flat
       dense
       color="transparent"
@@ -16,9 +16,9 @@
         </v-btn>
       </slot>
     </v-app-bar>
-    <v-divider v-if="headerShow" />
+    <v-divider v-if="!headerHide" />
 
-    <v-card-text v-if="padding">
+    <v-card-text v-if="!paddingHide">
       <slot name="widget-content" />
     </v-card-text>
     <slot
@@ -36,18 +36,12 @@ export default {
       type: String,
       default: '',
     },
-    headerShow: {
-      type: Boolean,
-      default: true,
-    },
     icon: {
       type: String,
       default: 'mdi-dots-vertical',
     },
-    padding: {
-      type: Boolean,
-      default: true,
-    },
+    headerHide: Boolean,
+    paddingHide: Boolean,
   },
   data: () => ({}),
 };

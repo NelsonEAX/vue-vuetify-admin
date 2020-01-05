@@ -1,13 +1,6 @@
 <template>
-  <v-container
-    container--fluid
-    fill-height
-  >
-    <v-layout
-      justify-center
-      align-center
-      column
-    >
+  <app-center>
+    <template v-slot:page>
       <v-btn
         color="info"
         href="https://github.com/NelsonEAX/vue-vuetify-admin/blob/master/README.md"
@@ -22,12 +15,17 @@
       >
         Github Repository
       </v-btn>
-    </v-layout>
-  </v-container>
+    </template>
+  </app-center>
 </template>
 
 <script>
+import AppCenter from '@/views/layout/components/AppCenter.vue';
+
 export default {
   name: 'Documentation',
+  components: {
+    AppCenter,
+  },
 };
 </script>

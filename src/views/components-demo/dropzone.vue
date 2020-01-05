@@ -1,20 +1,15 @@
 <template>
-  <v-container
-    container--fluid
-    grid-list-md
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        flex-grow-1
-        xs12
+  <v-container class="container--fluid grid-list-md">
+    <v-row>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <v-alert
           :value="true"
           color="info"
           outlined
+          dense
         >
           {{ $t('components.thisBaseOn') }}
           <a
@@ -23,19 +18,22 @@
           >dropzone</a>.
           {{ $t('components.dropzoneTips') }}
         </v-alert>
-      </v-flex>
-      <v-flex
-        flex-grow-1
-        xs12
+      </v-col>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <dropzone
           id="myVueDropzone"
           url="https://httpbin.org/post"
+          clickable
+          show-remove-link
+          auto-process-queue
           @dropzone-removedFile="dropzoneR"
           @dropzone-success="dropzoneS"
         />
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

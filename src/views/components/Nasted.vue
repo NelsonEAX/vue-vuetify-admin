@@ -1,24 +1,22 @@
 <template>
-  <v-container
-    container--fluid
-    fill-height
-  >
-    <v-layout
-      justify-center
-      align-center
+  <v-container class="fill-height">
+    <v-row
+      no-gutters
+      align="center"
+      justify="center"
     >
-      <v-flex text-center>
+      <v-col class="text-center">
         <v-card :class="`cyan accent-${nestedLevel}`">
           <v-card-text>{{ $t(this.$route.meta.title) }}</v-card-text>
           <transition
             name="fade-transform"
             mode="out-in"
           >
-            <router-view :nested-level="nestedLevel+1" />
+            <router-view :nested-level="nestedLevel + 1" />
           </transition>
         </v-card>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

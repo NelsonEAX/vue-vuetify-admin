@@ -1,7 +1,7 @@
 <template>
   <v-btn
     icon
-    @click="toggleFullScreen()"
+    @click="toggleFullScreen"
   >
     <v-icon>{{ toggleFullScreenIcon }}</v-icon>
   </v-btn>

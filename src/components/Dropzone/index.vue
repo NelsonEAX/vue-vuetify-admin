@@ -29,10 +29,6 @@ export default {
       type: String,
       required: true,
     },
-    clickable: {
-      type: Boolean,
-      default: true,
-    },
     defaultMsg: {
       type: String,
       default: 'upload image',
@@ -49,10 +45,6 @@ export default {
       type: Number,
       default: 200,
     },
-    showRemoveLink: {
-      type: Boolean,
-      default: true,
-    },
     maxFilesize: {
       type: Number,
       default: 2,
@@ -61,22 +53,15 @@ export default {
       type: Number,
       default: 3,
     },
-    autoProcessQueue: {
-      type: Boolean,
-      default: true,
-    },
-    useCustomDropzoneOptions: {
-      type: Boolean,
-      default: false,
-    },
     defaultImg: {
       default: '',
       type: [String, Array],
     },
-    couldPaste: {
-      type: Boolean,
-      default: false,
-    },
+    clickable: Boolean,
+    showRemoveLink: Boolean,
+    autoProcessQueue: Boolean,
+    useCustomDropzoneOptions: Boolean,
+    couldPaste: Boolean,
   },
   data() {
     return {

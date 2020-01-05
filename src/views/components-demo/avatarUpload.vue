@@ -1,20 +1,15 @@
 <template>
-  <v-container
-    container--fluid
-    grid-list-md
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        flex-grow-1
-        xs12
+  <v-container class="container--fluid grid-list-md">
+    <v-row>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
       >
         <v-alert
           :value="true"
           color="info"
           outlined
+          dense
         >
           {{ $t('components.thisBaseOn') }}
           <a
@@ -23,18 +18,18 @@
           >vue-image-crop-upload</a>.
           {{ $t('components.imageUploadTips') }}
         </v-alert>
-      </v-flex>
-      <v-flex
-        flex-grow-1
-        xs12
-        sm5
-        md3
+      </v-col>
+      <v-col
+        class="flex-grow-1"
+        cols="12"
+        sm="5"
+        md="3"
       >
         <pan-thumb :image="image" />
 
         <v-btn
           color="info"
-          @click="imagecropperShow=true"
+          @click="imagecropperShow = true"
         >
           Change Avatar
           <v-icon
@@ -55,8 +50,8 @@
           @close="close"
           @crop-upload-success="cropSuccess"
         />
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

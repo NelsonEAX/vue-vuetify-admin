@@ -1,20 +1,10 @@
 <template>
-  <div class="grey lighten-3">
+  <div>
     <github-corner class="github-corner" />
-    <v-container
-      container--fluid
-      grid-list-md
-      text-center
-    >
+    <v-container class="container--fluid grid-list-md text-center">
       <panel-group @handleSetLineChartData="handleSetLineChartData" />
-      <v-layout
-        row
-        wrap
-      >
-        <v-flex
-          flex-grow-1
-          xs12
-        >
+      <v-row dense>
+        <v-col cols="12">
           <app-widget title="Line Chart">
             <v-btn
               slot="widget-header-action"
@@ -29,16 +19,13 @@
               :chart-data="getChartOption('line')"
             />
           </app-widget>
-        </v-flex>
-      </v-layout>
-      <v-layout
-        row
-        wrap
-      >
-        <v-flex
-          xs12
-          sm6
-          md4
+        </v-col>
+      </v-row>
+      <v-row dense>
+        <v-col
+          cols="12"
+          sm="6"
+          md="4"
         >
           <app-widget title="Raddar Chart">
             <option-chart
@@ -48,11 +35,11 @@
               :chart-data="getChartOption('raddar')"
             />
           </app-widget>
-        </v-flex>
-        <v-flex
-          xs12
-          sm6
-          md4
+        </v-col>
+        <v-col
+          cols="12"
+          sm="6"
+          md="4"
         >
           <app-widget title="Pie Chart">
             <option-chart
@@ -62,11 +49,11 @@
               :chart-data="getChartOption('pie')"
             />
           </app-widget>
-        </v-flex>
-        <v-flex
-          xs12
-          sm6
-          md4
+        </v-col>
+        <v-col
+          cols="12"
+          sm="6"
+          md="4"
         >
           <app-widget title="Bar Chart">
             <option-chart
@@ -76,37 +63,34 @@
               :chart-data="getChartOption('bar')"
             />
           </app-widget>
-        </v-flex>
-      </v-layout>
-      <v-layout
-        row
-        wrap
-      >
-        <v-flex
-          lg7
-          sm12
-          xs12
+        </v-col>
+      </v-row>
+      <v-row dense>
+        <v-col
+          lg="7"
+          sm="12"
+          cols="12"
         >
           <app-widget
             title="Projects"
-            :padding="false"
+            padding-hide
           >
             <plain-table slot="widget-content" />
           </app-widget>
-        </v-flex>
-        <v-flex
-          lg5
-          sm12
-          xs12
+        </v-col>
+        <v-col
+          lg="5"
+          sm="12"
+          cols="12"
         >
           <app-widget
             title="Orders"
-            :padding="false"
+            padding-hide
           >
             <plain-table-order slot="widget-content" />
           </app-widget>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>

@@ -1,27 +1,23 @@
 <template>
-  <v-container
-    container--fluid
-    grid-list-md
-  >
-    <v-layout
-      row
-      wrap
-      align-center
-    >
-      <v-flex
-        xs12
-        text-center
-      >
+  <v-container class="container--fluid grid-list-md">
+    <v-row align="center">
+      <v-col cols="12">
         <v-alert
           :value="true"
           color="info"
           outlined
+          dense
         >
           <a
             href="https://github.com/PanJiaChen/vue-countTo"
             target="_blank"
           >countTo-component</a>
         </v-alert>
+      </v-col>
+      <v-col
+        cols="12"
+        class="text-center"
+      >
         <count-to
           ref="example"
           :start-val="Number(startVal)"
@@ -34,85 +30,85 @@
           :autoplay="false"
           class="display-4 font-weight-medium red--text text--lighten-1"
         />
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        xs4
-        sm2
-        offset-sm2
+      <v-col
+        cols="4"
+        sm="2"
+        offset-sm="2"
       >
         <v-text-field
           v-model="startVal"
           label="startVal"
         />
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        xs4
-        sm2
+      <v-col
+        cols="4"
+        sm="2"
       >
         <v-text-field
           v-model="endVal"
           label="endVal"
         />
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        xs4
-        sm2
+      <v-col
+        cols="4"
+        sm="2"
       >
         <v-text-field
           v-model="duration"
           label="duration"
         />
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        xs4
-        sm2
+      <v-col
+        cols="4"
+        sm="2"
       >
         <v-text-field
           v-model="decimals"
           label="decimals"
         />
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        xs4
-        sm2
-        offset-sm3
+      <v-col
+        cols="4"
+        sm="2"
+        offset-sm="3"
       >
         <v-text-field
           v-model="separator"
           label="separator"
         />
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        xs4
-        sm2
+      <v-col
+        cols="4"
+        sm="2"
       >
         <v-text-field
           v-model="prefix"
           label="prefix"
         />
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        xs4
-        sm2
-        offset-xs4
-        offset-sm0
+      <v-col
+        cols="4"
+        sm="2"
+        offset="4"
+        offset-sm="0"
       >
         <v-text-field
           v-model="suffix"
           label="suffix"
         />
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        xs12
-        text-center
+      <v-col
+        cols="12"
+        class="text-center"
       >
         <v-btn
           color="success"
@@ -126,17 +122,17 @@
         >
           Pause/Resume
         </v-btn>
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        xs12
-        text-center
+      <v-col
+        cols="12"
+        class="text-center"
       >
         <code>
           {{ countTo }}
         </code>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
