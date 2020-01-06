@@ -31,9 +31,9 @@ Vue.use(Router);
     roles: ['admin','editor']    will control the page roles (you can set multiple roles)
     title: 'title'               the name show in sub-menu and breadcrumb (recommend set)
     icon: 'svg-name'             the icon show in the sidebar
-    noCache: true                if true, the page will no be cached(default is false)
-    breadcrumb: false            if false, the item will hidden in breadcrumb(default is true)
-    affix: true                  if true, the tag will affix in the tags-view
+    [expected] noCache: true     if true, the page will no be cached(default is false)
+    [expected] breadcrumb: false if false, the item will hidden in breadcrumb(default is true)
+    [expected] affix: true       if true, the tag will affix in the tags-view
   }
  */
 
@@ -56,12 +56,12 @@ export const constantRoutes = [
     hidden: true,
   },
   {
-    path: '/dashboard',
-    alias: '/dash',
+    path: '/',
     component: Layout,
     children: [
       {
         path: '/dashboard',
+        alias: '/dash',
         component: () => import('@/views/components/Dashboard/index'),
         name: 'Dashboard',
         // eslint-disable-next-line
@@ -70,8 +70,7 @@ export const constantRoutes = [
     ],
   },
   {
-    path: '/dashboard',
-    alias: '/dash',
+    path: '/',
     component: Layout,
     children: [
       {
@@ -84,8 +83,7 @@ export const constantRoutes = [
     ],
   },
   {
-    path: '/dashboard',
-    alias: '/dash',
+    path: '/',
     component: Layout,
     children: [
       {
@@ -97,7 +95,44 @@ export const constantRoutes = [
       },
     ],
   },
-  errorsRouter,
+  {
+    path: '/',
+    component: Layout,
+    children: [
+      {
+        path: '/roadmap',
+        component: () => import('@/views/components/Roadmap'),
+        name: 'Roadmap',
+        // eslint-disable-next-line
+        meta: { title: 'route.roadmap', icon: 'mdi-timeline-text', noCache: true, affix: true }
+      },
+    ],
+  },
+  {
+    path: '/',
+    component: Layout,
+    children: [
+      {
+        path: '/theme',
+        component: () => import('@/views/components/Theme.vue'),
+        name: 'Theme',
+        meta: { title: 'route.theme', icon: 'mdi-palette' },
+      },
+    ],
+  },
+  {
+    path: '/',
+    component: Layout,
+    children: [
+      {
+        path: '/i18n',
+        component: () => import('@/views/components/I18n.vue'),
+        name: 'I18n',
+        meta: { title: 'route.i18n', icon: 'mdi-translate' },
+      },
+    ],
+  },
+
   ...authRouter,
 ];
 
@@ -111,8 +146,9 @@ export const asyncRoutes = [
   /** When your routing table is too long, you can split it into small modules */
   permissionRouter,
   vuetifyRouter,
-  nestedRouter,
   ...componentsRouter,
+  nestedRouter,
+  errorsRouter,
   // chartsRouter,
   { path: '*', redirect: '/error/404', hidden: true },
 ];

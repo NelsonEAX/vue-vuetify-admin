@@ -182,20 +182,6 @@ const componentsRouter = [
     hidden: true
   }, */
 
-  {
-    path: '/theme',
-    component: Layout,
-    redirect: '/theme/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/components/Theme.vue'),
-        name: 'Theme',
-        meta: { title: 'route.theme', icon: 'mdi-palette' },
-      },
-    ],
-  },
-
   /* {
     path: '/clipboard',
     component: Layout,
@@ -208,20 +194,6 @@ const componentsRouter = [
       }
     ]
   }, */
-
-  {
-    path: '/i18n',
-    component: Layout,
-    redirect: '/i18n/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/components/I18n.vue'),
-        name: 'I18n',
-        meta: { title: 'route.i18n', icon: 'mdi-translate' },
-      },
-    ],
-  },
 
   /* {
     path: 'external-link',

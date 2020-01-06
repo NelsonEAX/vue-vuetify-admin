@@ -29,8 +29,5 @@ export default {
       default: 1,
     },
   },
-  beforeMount() {
-    console.log(this.$route);
-  },
 };
 </script>
