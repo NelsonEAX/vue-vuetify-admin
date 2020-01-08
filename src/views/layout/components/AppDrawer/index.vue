@@ -19,7 +19,7 @@
           tile
         >
           <img
-            src="/img/icons/Android/Icon-36.png"
+            src="img/icons/Android/Icon-36.png"
             alt="VVA"
           >
         </v-avatar>

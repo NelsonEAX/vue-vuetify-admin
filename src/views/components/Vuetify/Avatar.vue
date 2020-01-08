@@ -23,7 +23,7 @@
               </v-avatar>
               <v-avatar>
                 <img
-                  src="/static/avatar/me.jpeg"
+                  src="static/avatar/me.jpeg"
                   alt="John"
                 >
               </v-avatar>
@@ -77,7 +77,7 @@
                       >
                         <img
                           v-if="message.avatar"
-                          src="/static/avatar/me.jpeg"
+                          src="static/avatar/me.jpeg"
                           alt=""
                         >
                         <v-icon
@@ -174,7 +174,7 @@
                     class="grey lighten-4"
                   >
                     <img
-                      src="/static/avatar/me.jpeg"
+                      src="static/avatar/me.jpeg"
                       alt="avatar"
                     >
                   </v-avatar>

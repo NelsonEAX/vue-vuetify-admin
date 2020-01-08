@@ -6,7 +6,7 @@
     <v-content>
       <section>
         <v-parallax
-          src="/img/land/hero.jpeg"
+          src="img/land/hero.jpeg"
           height="600"
         >
           <v-row
@@ -15,7 +15,7 @@
             class="white--text"
           >
             <img
-              src="/img/land/vva.png"
+              src="img/land/vva.png"
               alt="VVA"
               height="200"
             >
@@ -141,7 +141,7 @@
 
       <section>
         <v-parallax
-          src="/img/land/section.jpg"
+          src="img/land/section.jpg"
           height="380"
         >
           <v-row
