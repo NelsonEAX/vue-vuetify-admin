@@ -19,8 +19,8 @@
           tile
         >
           <img
-            src="https://cdn.vuetifyjs.com/images/logos/v-alt.svg"
-            alt="Vuetify"
+            src="/img/icons/Android/Icon-36.png"
+            alt="VVA"
           >
         </v-avatar>
         <span>{{ $t('toolbar.appname') }}</span>

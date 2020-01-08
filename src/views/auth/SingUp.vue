@@ -20,12 +20,12 @@
               <v-card-text>
                 <div class="layout column align-center">
                   <img
-                    src="https://cdn.vuetifyjs.com/images/logos/v-alt.svg"
-                    alt="Vue Vuetify Admin"
+                    src="/img/icons/Android/Icon-144.png"
+                    alt="Vue Vuetify Admin Logo"
                     width="120"
                     height="120"
                   >
-                  <h1 class="text-center  my-4 primary--text">
+                  <h1 class="text-center my-4 primary--text">
                     Vue Vuetify Admin Template
                   </h1>
                 </div>

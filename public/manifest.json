@@ -1,20 +1,20 @@
 {
-  "name": "web",
-  "short_name": "web",
+  "name": "Vue Vuetify Admin",
+  "short_name": "VVA",
   "icons": [
     {
-      "src": "./img/icons/android-chrome-192x192.png",
+      "src": "./img/icons/Android/Icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./img/icons/android-chrome-512x512.png",
+      "src": "./img/icons/Android/Icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "./dashboard",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#4DBA87"
+  "background_color": "#424242",
+  "theme_color": "#FFFFFF"
 }

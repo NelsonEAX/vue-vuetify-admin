@@ -15,8 +15,8 @@
             class="white--text"
           >
             <img
-              src="/img/land/vuetify.png"
-              alt="Vuetify.js"
+              src="/img/land/vva.png"
+              alt="VVA"
               height="200"
             >
             <h1 class="white--text mb-2 display-1 text-center">

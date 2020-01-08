@@ -1,15 +1,17 @@
 # vue-vuetify-admin
 
 <p align="center">
-  <img width="320" src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-300.png">
+  <img width="100" src="https://camo.githubusercontent.com/728ce9f78c3139e76fa69925ad7cc502e32795d2/68747470733a2f2f7675656a732e6f72672f696d616765732f6c6f676f2e706e67">
+  <img width="100" src="https://github.com/NelsonEAX/vue-vuetify-admin/blob/master/public/img/icons/Android/Icon-192.png?raw=true">
+  <img width="100" src="https://camo.githubusercontent.com/41759602ad091b02adf7b4986b55b0a870471b98/68747470733a2f2f63646e2e767565746966796a732e636f6d2f696d616765732f6c6f676f732f6c6f676f2e737667">
 </p>
 
 <p align="center">
   <a href="https://github.com/vuejs/vue">
-    <img src="https://img.shields.io/badge/vue-2.6.6-brightgreen.svg" alt="vue">
+    <img src="https://img.shields.io/badge/vue-2.6.11-brightgreen.svg" alt="vue">
   </a>
   <a href="https://github.com/vuetifyjs/vuetify">
-    <img src="https://img.shields.io/badge/vuetify-1.5.14-brightgreen.svg" alt="element-ui">
+    <img src="https://img.shields.io/badge/vuetify-2.1.15-brightgreen.svg" alt="element-ui">
   </a>
   <a href="https://travis-ci.org/NelsonEAX/vue-vuetify-admin" rel="nofollow">
     <img src="https://travis-ci.org/NelsonEAX/vue-vuetify-admin.svg?branch=master" alt="Build Status">
