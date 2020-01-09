@@ -1,18 +1,12 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex lg6>
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col lg="6">
         <app-widget title="Basic Usage">
           <div slot="widget-content">
             <div class="text-center flex-grow-1 align-center">
               <v-tooltip bottom>
-                <template v-slot:activator="{ on }">
+                <template v-slot:activator="{on}">
                   <v-btn
                     dark
                     color="primary"
@@ -24,7 +18,7 @@
                 <span>Tooltip</span>
               </v-tooltip>
               <v-tooltip bottom>
-                <template v-slot:activator="{ on }">
+                <template v-slot:activator="{on}">
                   <v-icon
                     dark
                     color="primary"
@@ -42,13 +36,13 @@
             </div>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex lg6>
+      </v-col>
+      <v-col lg="6">
         <app-widget title="Alignment">
           <div slot="widget-content">
             <div class="text-center">
               <v-tooltip left>
-                <template v-slot:activator="{ on }">
+                <template v-slot:activator="{on}">
                   <v-btn
                     dark
                     color="primary"
@@ -60,7 +54,7 @@
                 <span>Left tooltip</span>
               </v-tooltip>
               <v-tooltip top>
-                <template v-slot:activator="{ on }">
+                <template v-slot:activator="{on}">
                   <v-btn
                     dark
                     color="primary"
@@ -72,7 +66,7 @@
                 <span>Top tooltip</span>
               </v-tooltip>
               <v-tooltip bottom>
-                <template v-slot:activator="{ on }">
+                <template v-slot:activator="{on}">
                   <v-btn
                     dark
                     color="primary"
@@ -84,7 +78,7 @@
                 <span>Bottom tooltip</span>
               </v-tooltip>
               <v-tooltip right>
-                <template v-slot:activator="{ on }">
+                <template v-slot:activator="{on}">
                   <v-btn
                     dark
                     color="primary"
@@ -98,34 +92,34 @@
             </div>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex lg6>
+      </v-col>
+      <v-col lg="6">
         <app-widget title="Icon Badge">
           <div slot="widget-content">
             <v-container
-              container--fluid
-              class="text-center"
+
+              class="text-center container--fluid"
             >
-              <v-layout
-                flex
-                wrap
-                row
-                justify-space-between
+              <v-row
+                class="flex"
+
+
+                justify="space-between"
               >
-                <v-flex xs12>
+                <v-col cols="12">
                   <v-btn @click.native="show = !show">
                     toggle
                   </v-btn>
-                </v-flex>
-                <v-flex
-                  xs12
+                </v-col>
+                <v-col
+                  cols="12"
                   class="mt-5"
                 >
                   <v-tooltip
                     v-model="show"
                     top
                   >
-                    <template v-slot:activator="{ on }">
+                    <template v-slot:activator="{on}">
                       <v-btn
                         icon
                         v-on="on"
@@ -137,13 +131,13 @@
                     </template>
                     <span>Programmatic tooltip</span>
                   </v-tooltip>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

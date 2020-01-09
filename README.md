@@ -2,7 +2,7 @@
 
 <p align="center">
   <img width="100" src="https://camo.githubusercontent.com/728ce9f78c3139e76fa69925ad7cc502e32795d2/68747470733a2f2f7675656a732e6f72672f696d616765732f6c6f676f2e706e67">
-  <img width="100" src="https://github.com/NelsonEAX/vue-vuetify-admin/blob/master/public/img/icons/Android/Icon-192.png?raw=true">
+  <img width="100" src="https://github.com/NelsonEAX/vue-vuetify-admin/blob/master/public/img/icons/android-icon-96x96.png?raw=true">
   <img width="100" src="https://camo.githubusercontent.com/41759602ad091b02adf7b4986b55b0a870471b98/68747470733a2f2f63646e2e767565746966796a732e636f6d2f696d616765732f6c6f676f732f6c6f676f2e737667">
 </p>
 

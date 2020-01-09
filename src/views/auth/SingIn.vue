@@ -20,7 +20,7 @@
               <v-card-text>
                 <div class="layout column align-center">
                   <img
-                    src="img/icons/Android/Icon-144.png"
+                    src="img/icons/android-icon-144x144.png"
                     alt="Vue Vuetify Admin Logo"
                     width="120"
                     height="120"
