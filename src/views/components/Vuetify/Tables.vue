@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
+  <v-container class="container--fluid">
     <app-widget
       title="Complex Table"
       padding-hide
@@ -32,7 +29,7 @@
             :headers="complex.headers"
             :search="search"
             :items="complex.items"
-            :rows-per-page-items="[10,25,50,{text:'All','value':-1}]"
+            :rows-per-page-items="[10,25,50,{text: 'All','value': -1}]"
             class="elevation-1"
             item-key="name"
             select-all
@@ -105,19 +102,19 @@
             slot-scope="props"
           >
             <td>{{ props.item.name }}</td>
-            <td class="text-xs-right">
+            <td class="text-right">
               {{ props.item.calories }}
             </td>
-            <td class="text-xs-right">
+            <td class="text-right">
               {{ props.item.fat }}
             </td>
-            <td class="text-xs-right">
+            <td class="text-right">
               {{ props.item.carbs }}
             </td>
-            <td class="text-xs-right">
+            <td class="text-right">
               {{ props.item.protein }}
             </td>
-            <td class="text-xs-right">
+            <td class="text-right">
               {{ props.item.iron }}
             </td>
           </template>

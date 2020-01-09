@@ -1,15 +1,8 @@
 <template>
   <div>
-    <v-container
-      container--fluid
-      grid-list-md
-      text-center
-    >
-      <v-layout
-        row
-        wrap
-      >
-        <v-flex xs12>
+    <v-container class="container--fluid text-center">
+      <v-row>
+        <v-col cols="12">
           <v-card
             dark
             color="primary"
@@ -18,11 +11,11 @@
               12
             </v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex
+        </v-col>
+        <v-col
           v-for="i in 2"
           :key="`6${i}`"
-          xs6
+          cols="6"
         >
           <v-card
             dark
@@ -32,11 +25,11 @@
               6
             </v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex
+        </v-col>
+        <v-col
           v-for="i in 3"
           :key="`4${i}`"
-          xs4
+          cols="4"
         >
           <v-card
             dark
@@ -46,11 +39,11 @@
               4
             </v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex
+        </v-col>
+        <v-col
           v-for="i in 4"
           :key="`3${i}`"
-          xs3
+          cols="3"
         >
           <v-card
             dark
@@ -60,11 +53,11 @@
               3
             </v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex
+        </v-col>
+        <v-col
           v-for="i in 6"
           :key="`2${i}`"
-          xs2
+          cols="2"
         >
           <v-card
             dark
@@ -74,11 +67,11 @@
               2
             </v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex
+        </v-col>
+        <v-col
           v-for="i in 12"
           :key="`1${i}`"
-          xs1
+          cols="1"
         >
           <v-card
             dark
@@ -88,114 +81,105 @@
               1
             </v-card-text>
           </v-card>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
-    <v-container
-      container--fluid
-      grid-list-xl
-    >
-      <v-layout
-        row
-        justify-space-between
+    <v-container class="container--fluid">
+      <v-row
+
+        justify="space-between"
       >
-        <v-flex xs2>
+        <v-col cols="2">
           <v-card
             dark
             color="primary"
           >
             <v-card-text>one</v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex xs2>
+        </v-col>
+        <v-col cols="2">
           <v-card
             dark
             color="secondary"
           >
             <v-card-text>two</v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex xs2>
+        </v-col>
+        <v-col cols="2">
           <v-card
             dark
             color="accent"
           >
             <v-card-text>three</v-card-text>
           </v-card>
-        </v-flex>
-      </v-layout>
-      <v-layout
-        row
-        justify-space-around
+        </v-col>
+      </v-row>
+      <v-row
+
+        justify="space-around"
       >
-        <v-flex xs2>
+        <v-col cols="2">
           <v-card
             dark
             color="primary"
           >
             <v-card-text>one</v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex xs2>
+        </v-col>
+        <v-col cols="2">
           <v-card
             dark
             color="secondary"
           >
             <v-card-text>two</v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex xs2>
+        </v-col>
+        <v-col cols="2">
           <v-card
             dark
             color="accent"
           >
             <v-card-text>three</v-card-text>
           </v-card>
-        </v-flex>
-      </v-layout>
-      <v-layout
-        row
-        justify-center
+        </v-col>
+      </v-row>
+      <v-row
+
+        justify="center"
       >
-        <v-flex xs2>
+        <v-col cols="2">
           <v-card
             dark
             color="primary"
           >
             <v-card-text>one</v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex xs2>
+        </v-col>
+        <v-col cols="2">
           <v-card
             dark
             color="secondary"
           >
             <v-card-text>two</v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex xs2>
+        </v-col>
+        <v-col cols="2">
           <v-card
             dark
             color="accent"
           >
             <v-card-text>three</v-card-text>
           </v-card>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
-    <v-container
-      container--fluid
-      grid-list-md
-    >
-      <v-layout
-        row
-        wrap
-      >
-        <v-flex
-          flex-grow-1
-          xs12
-          sm6
-          md4
+    <v-container class="container--fluid">
+      <v-row>
+        <v-col
+          class="flex-grow-1"
+          cols="12"
+          sm="6"
+          md="4"
         >
           <v-card
             color="purple"
@@ -209,35 +193,29 @@
             </v-card-title>
             <v-card-text>{{ lorem }}</v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex
-          flex-grow-1
-          xs12
-          sm6
-          md3
+        </v-col>
+        <v-col
+          class="flex-grow-1"
+          cols="12"
+          sm="6"
+          md="3"
         >
-          <v-layout
-            row
-            wrap
-          >
-            <v-flex flex-grow-1>
+          <v-row>
+            <v-col class="flex-grow-1">
               <v-card
                 color="indigo"
                 dark
               >
                 <v-card-text>{{ lorem.slice(0, 70) }}</v-card-text>
               </v-card>
-            </v-flex>
-            <v-flex flex-grow-1>
-              <v-layout
-                row
-                wrap
-              >
-                <v-flex
+            </v-col>
+            <v-col class="flex-grow-1">
+              <v-row>
+                <v-col
                   v-for="n in 2"
                   :key="n"
-                  flex-grow-1
-                  xs12
+                  cols="12"
+                  class="flex-grow-1"
                 >
                   <v-card
                     color="red lighten-2"
@@ -245,17 +223,16 @@
                   >
                     <v-card-text>{{ lorem.slice(0, 40) }}</v-card-text>
                   </v-card>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-        <v-flex
-          flex-grow-1
-          xs12
-          sm6
-          md2
-          child-flex
+                </v-col>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col
+          class="flex-grow-1 child-flex"
+          cols="12"
+          sm="6"
+          md="2"
         >
           <v-card
             color="green lighten-2"
@@ -263,12 +240,12 @@
           >
             <v-card-text>{{ lorem.slice(0, 90) }}</v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex
-          flex-grow-1
-          xs12
-          sm6
-          md3
+        </v-col>
+        <v-col
+          class="flex-grow-1"
+          cols="12"
+          sm="6"
+          md="3"
         >
           <v-card
             color="blue lighten-2"
@@ -276,24 +253,18 @@
           >
             <v-card-text>{{ lorem.slice(0, 100) }}</v-card-text>
           </v-card>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
-    <v-container
-      container--fluid
-      grid-list-sm
-    >
-      <v-layout
-        row
-        wrap
-      >
-        <v-flex
-          flex-grow-1
-          xs12
-          order-xs5
+    <v-container class="container--fluid">
+      <v-row>
+        <v-col
+          class="flex-grow-1"
+          cols="12"
+          order="5"
         >
-          <v-layout column>
-            <v-flex flex-grow-1>
+          <v-row>
+            <v-col class="flex-grow-1">
               <v-card
                 color="blue-grey"
                 dark
@@ -302,8 +273,8 @@
               >
                 <v-card-text>{{ lorem }}</v-card-text>
               </v-card>
-            </v-flex>
-            <v-flex flex-grow-1>
+            </v-col>
+            <v-col class="flex-grow-1">
               <v-card
                 color="brown"
                 dark
@@ -312,19 +283,16 @@
               >
                 <v-card-text>{{ lorem }}</v-card-text>
               </v-card>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-        <v-flex
-          flex-grow-1
-          xs12
-          sm7
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col
+          class="flex-grow-1"
+          cols="12"
+          sm="7"
         >
-          <v-layout
-            row
-            wrap
-          >
-            <v-flex flex-grow-1>
+          <v-row>
+            <v-col class="flex-grow-1">
               <v-card
                 color="indigo lighten-2"
                 dark
@@ -333,13 +301,13 @@
               >
                 <v-card-text>{{ lorem.slice(0, 70) }}</v-card-text>
               </v-card>
-            </v-flex>
-            <v-flex flex-grow-1>
-              <v-layout row>
-                <v-flex
+            </v-col>
+            <v-col class="flex-grow-1">
+              <v-row>
+                <v-col
                   v-for="n in 2"
                   :key="n"
-                  flex-grow-1
+                  class="flex-grow-1"
                 >
                   <v-card
                     color="amber lighten-2"
@@ -348,16 +316,15 @@
                   >
                     <v-card-text>{{ lorem.slice(0, 40) }}</v-card-text>
                   </v-card>
-                </v-flex>
-              </v-layout>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-        <v-flex
-          flex-grow-1
-          xs12
-          sm2
-          child-flex
+                </v-col>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-col>
+        <v-col
+          class="flex-grow-1 child-flex"
+          cols="12"
+          sm="2"
         >
           <v-card
             color="orange lighten-2"
@@ -366,11 +333,11 @@
           >
             <v-card-text>{{ lorem.slice(0, 90) }}</v-card-text>
           </v-card>
-        </v-flex>
-        <v-flex
-          flex-grow-1
-          xs12
-          sm3
+        </v-col>
+        <v-col
+          class="flex-grow-1"
+          cols="12"
+          sm="3"
         >
           <v-card
             color="red lighten-2"
@@ -380,8 +347,8 @@
           >
             <v-card-text>{{ lorem.slice(0, 100) }}</v-card-text>
           </v-card>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>

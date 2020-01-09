@@ -1,15 +1,9 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        xs12
-        sm6
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col
+        cols="12"
+        sm="6"
       >
         <app-widget title="Basic Usage">
           <div slot="widget-content">
@@ -39,10 +33,10 @@
             </v-alert>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex
-        xs12
-        sm6
+      </v-col>
+      <v-col
+        cols="12"
+        sm="6"
       >
         <app-widget title="Custom Icons">
           <div slot="widget-content">
@@ -75,10 +69,10 @@
             </v-alert>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex
-        xs12
-        sm6
+      </v-col>
+      <v-col
+        cols="12"
+        sm="6"
       >
         <app-widget title="Outlined Alerts">
           <div slot="widget-content">
@@ -116,10 +110,10 @@
             </v-alert>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex
-        xs12
-        sm6
+      </v-col>
+      <v-col
+        cols="12"
+        sm="6"
       >
         <app-widget title="Closable Alerts">
           <div slot="widget-content">
@@ -166,8 +160,8 @@
             </div>
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

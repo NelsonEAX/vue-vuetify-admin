@@ -1,15 +1,9 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        lg6
-        sm12
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col
+        lg="6"
+        sm="12"
       >
         <app-widget title="Basic Usage">
           <div slot="widget-content">
@@ -40,10 +34,10 @@
             />
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex
-        lg6
-        sm12
+      </v-col>
+      <v-col
+        lg="6"
+        sm="12"
       >
         <app-widget title="Month Picker">
           <div slot="widget-content">
@@ -155,8 +149,8 @@
             />
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

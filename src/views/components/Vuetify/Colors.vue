@@ -1,14 +1,10 @@
 <template>
   <v-container
     id="page-colors"
-    container--fluid
-    grid-list-xl
+    class="container--fluid"
   >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex xs12>
+    <v-row>
+      <v-col cols="12">
         <v-text-field
           v-model="search"
           prepend-icon="mdi-filter"
@@ -16,13 +12,13 @@
           label="Search Materil Colors"
           single-line="single-line"
         />
-      </v-flex>
-      <v-flex
+      </v-col>
+      <v-col
         v-for="(color, key) in computedColors"
         :key="key"
-        xs12
-        sm6
-        md3
+        cols="12"
+        sm="6"
+        md="3"
       >
         <v-card
           :color="key"
@@ -42,10 +38,10 @@
           tile="tile"
         >
           <v-card-text>
-            <v-layout>
-              <v-flex
+            <v-row>
+              <v-col
                 class="caption"
-                xs8="xs8"
+                cols="8"
               >
                 <span v-if="key !== 'shades'">
                   {{ key }}
@@ -53,20 +49,20 @@
                 <span v-if="key2 !== 'base'">
                   {{ key2.replace(/(.*)(\d)/, '$1-$2') }}
                 </span>
-              </v-flex>
-              <v-flex
-                class="text-xs-right"
-                xs4="xs4"
+              </v-col>
+              <v-col
+                class="text-right"
+                cols="4"
               >
                 <span v-if="subColor !== 'transparent'">
                   {{ subColor.toUpperCase() }}
                 </span>
-              </v-flex>
-            </v-layout>
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

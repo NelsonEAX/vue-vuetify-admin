@@ -1,15 +1,9 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        lg6
-        xs12
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col
+        lg="6"
+        cols="12"
       >
         <app-widget title="Basic Usage">
           <div slot="widget-content">
@@ -22,10 +16,10 @@
             </v-carousel>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex
-        lg6
-        xs12
+      </v-col>
+      <v-col
+        lg="6"
+        cols="12"
       >
         <app-widget title="Hide Controls">
           <div slot="widget-content">
@@ -41,8 +35,8 @@
             </v-carousel>
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

@@ -1,19 +1,13 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex lg12>
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col lg="12">
         <app-widget title="Basic Usage">
           <div slot="widget-content">
-            <v-layout
-              wrap
-              justify-space-around
-              align-center
+            <v-row
+
+              justify="space-around"
+              align="center"
               class="ma-0"
             >
               <v-avatar class="indigo">
@@ -41,16 +35,15 @@
               <v-avatar class="red">
                 <span class="white--text headline">J</span>
               </v-avatar>
-            </v-layout>
+            </v-row>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex lg12>
+      </v-col>
+      <v-col lg="12">
         <app-widget title="Advance usage">
           <div slot="widget-content">
-            <v-layout
-              justify-center
-              column
+            <v-row
+              justify="center"
               class="ma-0"
             >
               <v-subheader>Today</v-subheader>
@@ -60,16 +53,15 @@
                   :key="i"
                   hide-actions
                 >
-                  <v-layout
+                  <v-row
                     slot="header"
-                    align-center
-                    row
-                    spacer
+                    class="spacer"
+                    align="center"
                   >
-                    <v-flex
-                      xs4
-                      sm2
-                      md1
+                    <v-col
+                      cols="4"
+                      sm="2"
+                      md="1"
                     >
                       <v-avatar
                         slot="activator"
@@ -87,22 +79,22 @@
                           {{ message.icon }}
                         </v-icon>
                       </v-avatar>
-                    </v-flex>
-                    <v-flex
-                      sm5
-                      md3
-                      hidden-xs-only
+                    </v-col>
+                    <v-col
+                      class="hidden-xs-only"
+                      sm="5"
+                      md="3"
                     >
                       <strong>{{ message.name }}</strong>
                       <span
                         v-if="message.total"
                         class="grey--text"
                       >({{ message.total }})</span>
-                    </v-flex>
-                    <v-flex
-                      no-wrap
-                      xs5
-                      sm3
+                    </v-col>
+                    <v-col
+                      class="text-no-wrap"
+                      cols="5"
+                      sm="3"
                     >
                       <v-chip
                         v-if="message.new"
@@ -114,38 +106,33 @@
                         {{ message.new }} new
                       </v-chip>
                       <strong>{{ message.title }}</strong>
-                    </v-flex>
-                    <v-flex
+                    </v-col>
+                    <v-col
                       v-if="message.excerpt"
-                      class="grey--text"
-                      ellipsis
-                      hidden-sm-and-down
+                      class="grey--text text-truncate hidden-sm-and-down"
                     >
                       &mdash; {{ message.excerpt }}
-                    </v-flex>
-                  </v-layout>
+                    </v-col>
+                  </v-row>
                   <v-card>
                     <v-divider />
                     <v-card-text v-text="lorem" />
                   </v-card>
                 </v-expansion-panel-content>
               </v-expansion-panel>
-            </v-layout>
+            </v-row>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex lg12>
+      </v-col>
+      <v-col lg="12">
         <app-widget title="Resizable">
           <div slot="widget-content">
-            <v-container grid-list-md>
-              <v-layout
-                row
-                wrap
-              >
-                <v-flex
-                  xs12
-                  sm6
-                  md4
+            <v-container>
+              <v-row>
+                <v-col
+                  cols="12"
+                  sm="6"
+                  md="4"
                 >
                   <v-slider
                     v-model="slider"
@@ -158,15 +145,12 @@
                     v-model="tile"
                     label="Tile"
                   />
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm6
-                  md8
-                  text-center
-                  layout
-                  align-center
-                  justify-center
+                </v-col>
+                <v-col
+                  class="text-center layout align justify"
+                  cols="12"
+                  sm="6"
+                  md="8"
                 >
                   <v-avatar
                     :tile="tile"
@@ -178,13 +162,13 @@
                       alt="avatar"
                     >
                   </v-avatar>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

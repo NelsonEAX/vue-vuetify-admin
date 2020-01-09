@@ -1,13 +1,9 @@
 <template>
   <v-container
-    grid-list-xl
-    container--fluid
+    class="container--fluid"
   >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex lg6>
+    <v-row>
+      <v-col lg="6">
         <app-widget title="Icon Chip">
           <div slot="widget-content">
             <div class="text-center">
@@ -155,21 +151,18 @@
             </div>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex lg6>
+      </v-col>
+      <v-col lg="6">
         <app-widget title="Basic Usage">
           <div slot="widget-content">
             <v-container
-              container--fluid
-              class="pa-0"
+
+              class="pa-0 container--fluid"
             >
-              <v-layout
-                row
-                wrap
-              >
-                <v-flex
-                  md6
-                  sm12
+              <v-row>
+                <v-col
+                  md="6"
+                  sm="12"
                 >
                   <div class="text-center">
                     <v-chip
@@ -182,11 +175,11 @@
                   <div class="text-center">
                     <v-chip>Example Chip</v-chip>
                   </div>
-                </v-flex>
-                <v-flex
-                  md6
-                  sm12
-                  xs12
+                </v-col>
+                <v-col
+                  md="6"
+                  sm="12"
+                  cols="12"
                 >
                   <div class="text-center">
                     <v-chip close>
@@ -207,8 +200,8 @@
                       ANZ Bank
                     </v-chip>
                   </div>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
           </div>
         </app-widget>
@@ -244,8 +237,8 @@
             </v-combobox>
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

@@ -1,20 +1,17 @@
 <template>
-  <v-container
-    container--fluid
-    grid-list-lg
-  >
+  <v-container class="container--fluid">
     <app-widget title="Basic Usage">
       <div slot="widget-content">
         <div class="component-example">
           <div class="component-example__container">
             <dl class="headings">
-              <v-flex>
+              <v-col>
                 <div class="display-4 grey--text text--darken-1">
                   Light 112sp
                 </div>
                 <strong>.display-4</strong>
                 <span>font-weight 300</span>
-              </v-flex>
+              </v-col>
               <dd>
                 <div class="display-3 grey--text text--darken-1">
                   Regular 56sp

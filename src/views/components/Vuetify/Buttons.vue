@@ -1,13 +1,7 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex xl6>
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col xl="6">
         <app-widget title="Basic Usage">
           <div slot="widget-content">
             <div class="text-center">
@@ -34,25 +28,25 @@
             <div class="text-center">
               <v-btn
                 color="success"
-                flat
+                text
               >
                 Success
               </v-btn>
               <v-btn
                 color="error"
-                flat
+                text
               >
                 Error
               </v-btn>
               <v-btn
                 color="warning"
-                flat
+                text
               >
                 Warning
               </v-btn>
               <v-btn
                 color="info"
-                flat
+                text
               >
                 Info
               </v-btn>
@@ -133,25 +127,25 @@
             <div class="text-center">
               <v-btn
                 color="success"
-                round
+                rounded
               >
                 Success
               </v-btn>
               <v-btn
                 color="error"
-                round
+                rounded
               >
                 Error
               </v-btn>
               <v-btn
                 color="warning"
-                round
+                rounded
               >
                 Warning
               </v-btn>
               <v-btn
                 color="info"
-                round
+                rounded
               >
                 Info
               </v-btn>
@@ -252,99 +246,96 @@
             </div>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex xl6>
+      </v-col>
+      <v-col xl="6">
         <app-widget title="Icon button">
           <div slot="widget-content">
             <v-container
-              container--fluid
-              class="pa-0"
+
+              class="pa-0 container--fluid"
             >
-              <v-layout
-                row
-                wrap
-              >
-                <v-flex xs12>
+              <v-row>
+                <v-col cols="12">
                   <p>Normal</p>
-                </v-flex>
-                <v-flex xs3>
+                </v-col>
+                <v-col cols="3">
                   <v-btn
-                    flat
+                    text
                     icon
                     color="pink"
                   >
                     <v-icon>mdi-heart</v-icon>
                   </v-btn>
-                </v-flex>
-                <v-flex xs3>
+                </v-col>
+                <v-col cols="3">
                   <v-btn
-                    flat
+                    text
                     icon
                     color="indigo"
                   >
                     <v-icon>mdi-star</v-icon>
                   </v-btn>
-                </v-flex>
-                <v-flex xs3>
+                </v-col>
+                <v-col cols="3">
                   <v-btn
-                    flat
+                    text
                     icon
                     color="green"
                   >
                     <v-icon>mdi-autorenew</v-icon>
                   </v-btn>
-                </v-flex>
-                <v-flex xs3>
+                </v-col>
+                <v-col cols="3">
                   <v-btn
-                    flat
+                    text
                     icon
                     color="deep-orange"
                   >
                     <v-icon>mdi-thumb-up</v-icon>
                   </v-btn>
-                </v-flex>
-              </v-layout>
-              <v-layout
-                row
-                wrap
+                </v-col>
+              </v-row>
+              <v-row
+
+
                 class="mt-5"
               >
-                <v-flex xs12>
+                <v-col cols="12">
                   <p>Disabled</p>
-                </v-flex>
-                <v-flex xs3>
+                </v-col>
+                <v-col cols="3">
                   <v-btn
                     icon
                     disabled
                   >
                     <v-icon>mdi-heart</v-icon>
                   </v-btn>
-                </v-flex>
-                <v-flex xs3>
+                </v-col>
+                <v-col cols="3">
                   <v-btn
                     icon
                     disabled
                   >
                     <v-icon>mdi-star</v-icon>
                   </v-btn>
-                </v-flex>
-                <v-flex xs3>
+                </v-col>
+                <v-col cols="3">
                   <v-btn
                     icon
                     disabled
                   >
                     <v-icon>mdi-autorenew</v-icon>
                   </v-btn>
-                </v-flex>
-                <v-flex xs3>
+                </v-col>
+                <v-col cols="3">
                   <v-btn
                     icon
                     disabled
                   >
                     <v-icon>mdi-thumb-up</v-icon>
                   </v-btn>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
           </div>
         </app-widget>
@@ -354,15 +345,15 @@
         >
           <div slot="widget-content">
             <v-container
-              container--fluid
-              class="pa-0"
+
+              class="pa-0 container--fluid"
             >
-              <v-layout
-                row
-                wrap
-                align-center
+              <v-row
+
+
+                align="center"
               >
-                <v-flex xs6>
+                <v-col cols="6">
                   <div class="text-center">
                     <div>
                       <v-btn
@@ -391,8 +382,8 @@
                       </v-btn>
                     </div>
                   </div>
-                </v-flex>
-                <v-flex xs6>
+                </v-col>
+                <v-col cols="6">
                   <div class="text-center">
                     <div>
                       <v-btn
@@ -424,8 +415,8 @@
                       </v-btn>
                     </div>
                   </div>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
           </div>
         </app-widget>
@@ -462,184 +453,181 @@
             </div>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex xl12>
+      </v-col>
+      <v-col xl="12">
         <app-widget title="Toggle button">
           <div slot="widget-content">
             <v-container
-              container--fluid
-              class="pa-0"
+
+              class="pa-0 container--fluid"
             >
-              <v-layout
-                row
-                wrap
-              >
-                <v-flex
-                  xs12
-                  sm6
+              <v-row>
+                <v-col
+                  cols="12"
+                  sm="6"
                   class="py-2"
                 >
                   <p>Exclusive</p>
-                  <v-btn-toggle v-model="toggle_exclusive">
-                    <v-btn flat>
+                  <v-btn-toggle v-model="toggleExclusive">
+                    <v-btn text>
                       <v-icon>mdi-format-align-left</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-align-center</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-align-right</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-align-justify</v-icon>
                     </v-btn>
                   </v-btn-toggle>
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm6
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="6"
                   class="py-2"
                 >
                   <p>Multiple</p>
                   <v-btn-toggle
-                    v-model="toggle_multiple"
+                    v-model="toggleMultiple"
                     multiple
                   >
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-bold</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-italic</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-underline</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-color-fill</v-icon>
                     </v-btn>
                   </v-btn-toggle>
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm6
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="6"
                   class="py-2"
                 >
                   <p>No Options Selected</p>
-                  <v-btn-toggle v-model="toggle_none">
-                    <v-btn flat>
+                  <v-btn-toggle v-model="toggleNone">
+                    <v-btn text>
                       <v-icon>mdi-format-align-left</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-align-center</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-align-right</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-align-justify</v-icon>
                     </v-btn>
                   </v-btn-toggle>
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm6
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="6"
                   class="py-2"
                 >
                   <p>Mandatory</p>
                   <v-btn-toggle
-                    v-model="toggle_one"
+                    v-model="toggleOne"
                     mandatory
                   >
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-align-left</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-align-center</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-align-right</v-icon>
                     </v-btn>
-                    <v-btn flat>
+                    <v-btn text>
                       <v-icon>mdi-format-align-justify</v-icon>
                     </v-btn>
                   </v-btn-toggle>
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm6
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="6"
                   class="py-2"
                 >
                   <p>Text Options</p>
                   <v-btn-toggle v-model="text">
                     <v-btn
-                      flat
+                      text
                       value="left"
                     >
                       Left
                     </v-btn>
                     <v-btn
-                      flat
+                      text
                       value="center"
                     >
                       Center
                     </v-btn>
                     <v-btn
-                      flat
+                      text
                       value="right"
                     >
                       Right
                     </v-btn>
                     <v-btn
-                      flat
+                      text
                       value="justify"
                     >
                       Justify
                     </v-btn>
                   </v-btn-toggle>
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm6
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="6"
                   class="py-2"
                 >
                   <p>Text &amp; Icon Options</p>
                   <v-btn-toggle v-model="icon">
                     <v-btn
-                      flat
+                      text
                       value="left"
                     >
                       <span>Left</span>
                       <v-icon>mdi-format-align-left</v-icon>
                     </v-btn>
                     <v-btn
-                      flat
+                      text
                       value="center"
                     >
                       <span>Center</span>
                       <v-icon>mdi-format-align-center</v-icon>
                     </v-btn>
                     <v-btn
-                      flat
+                      text
                       value="right"
                     >
                       <span>Right</span>
                       <v-icon>mdi-format-align-right</v-icon>
                     </v-btn>
                     <v-btn
-                      flat
+                      text
                       value="justify"
                     >
                       <span>Justify</span>
                       <v-icon>mdi-format-align-justify</v-icon>
                     </v-btn>
                   </v-btn-toggle>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -654,10 +642,10 @@ export default {
   data: () => ({
     text: 'center',
     icon: 'justify',
-    toggle_none: null,
-    toggle_one: 0,
-    toggle_exclusive: 2,
-    toggle_multiple: [0, 1, 2],
+    toggleNone: null,
+    toggleOne: 0,
+    toggleExclusive: 2,
+    toggleMultiple: [0, 1, 2],
     loader: null,
     loading: false,
     loading2: false,

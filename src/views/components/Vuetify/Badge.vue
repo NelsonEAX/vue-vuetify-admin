@@ -1,15 +1,9 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        lg4
-        sm12
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col
+        lg="4"
+        sm="12"
       >
         <app-widget title="Basic Usage">
           <div slot="widget-content">
@@ -36,10 +30,10 @@
             </div>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex
-        lg4
-        sm12
+      </v-col>
+      <v-col
+        lg="4"
+        sm="12"
       >
         <app-widget title="Inline Badge">
           <div slot="widget-content">
@@ -62,10 +56,10 @@
             </div>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex
-        lg4
-        sm12
+      </v-col>
+      <v-col
+        lg="4"
+        sm="12"
       >
         <app-widget title="Icon Badge">
           <div slot="widget-content">
@@ -88,8 +82,8 @@
             </div>
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

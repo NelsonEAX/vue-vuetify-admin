@@ -1,13 +1,7 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex 12>
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col class="12">
         <v-tabs
           v-model="selectedTab"
           color="grey lighten-3"
@@ -78,8 +72,8 @@
             </v-tab-item>
           </v-tabs-items>
         </v-tabs>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

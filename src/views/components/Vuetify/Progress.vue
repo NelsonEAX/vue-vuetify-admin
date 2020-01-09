@@ -1,14 +1,8 @@
 <template>
   <div id="page-progress">
-    <v-container
-      grid-list-xl
-      container--fluid
-    >
-      <v-layout
-        row
-        wrap
-      >
-        <v-flex lg6>
+    <v-container class="container--fluid">
+      <v-row>
+        <v-col lg="6">
           <app-widget title="Circular">
             <div
               slot="widget-content"
@@ -151,8 +145,8 @@
               </v-progress-circular>
             </div>
           </app-widget>
-        </v-flex>
-        <v-flex lg6>
+        </v-col>
+        <v-col lg="6">
           <app-widget title="Linear">
             <div slot="widget-content">
               <v-progress-linear
@@ -226,8 +220,8 @@
               />
             </div>
           </app-widget>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>

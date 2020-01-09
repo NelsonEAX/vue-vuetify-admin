@@ -1,14 +1,8 @@
 <template>
   <div id="page-parallax">
-    <v-container
-      grid-list-xl
-      container--fluid
-    >
-      <v-layout
-        row
-        wrap
-      >
-        <v-flex lg12>
+    <v-container class="container--fluid">
+      <v-row>
+        <v-col lg="12">
           <app-widget title="Default">
             <div
               slot="widget-content"
@@ -26,10 +20,9 @@
               class="text-center"
             >
               <v-parallax src="static/bg/1.jpg">
-                <v-layout
-                  column
-                  align-center
-                  justify-center
+                <v-row
+                  align="center"
+                  justify="center"
                 >
                   <h1 class="white--text">
                     Vuetify.js
@@ -37,7 +30,7 @@
                   <h4 class="white--text">
                     Build your application today!
                   </h4>
-                </v-layout>
+                </v-row>
               </v-parallax>
             </div>
           </app-widget>
@@ -56,8 +49,8 @@
               />
             </div>
           </app-widget>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>

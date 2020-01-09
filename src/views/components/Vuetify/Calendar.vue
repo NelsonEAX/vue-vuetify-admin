@@ -1,15 +1,13 @@
 <template>
   <v-container
-    container--fluid
-    fill-height
+    class="container--fluid fill-height"
   >
-    <v-layout
-      justify-center
-      align-center
-      wrap
+    <v-row
+      justify="center"
+      align="center"
     >
-      <v-flex
-        xs12
+      <v-col
+        cols="12"
         class="mb-3"
       >
         <v-sheet height="500">
@@ -21,14 +19,14 @@
             color="primary"
           />
         </v-sheet>
-      </v-flex>
+      </v-col>
 
-      <v-flex
-        sm4
-        xs12
+      <v-col
+        sm="4"
+        cols="12"
         class="text-sm-left text-center"
       >
-        <v-btn @click="$refs.calendar.prev()">
+        <v-btn @click="$refs.calendar.prev">
           <v-icon
             dark
             left
@@ -37,10 +35,10 @@
           </v-icon>
           Prev
         </v-btn>
-      </v-flex>
-      <v-flex
-        sm4
-        xs12
+      </v-col>
+      <v-col
+        sm="4"
+        cols="12"
         class="text-center"
       >
         <v-autocomplete
@@ -48,13 +46,13 @@
           :items="typeOptions"
           label="Type"
         />
-      </v-flex>
-      <v-flex
-        sm4
-        xs12
+      </v-col>
+      <v-col
+        sm="4"
+        cols="12"
         class="text-sm-right text-center"
       >
-        <v-btn @click="$refs.calendar.next()">
+        <v-btn @click="$refs.calendar.next">
           Next
           <v-icon
             right
@@ -63,8 +61,8 @@
             mdi-chevron-right
           </v-icon>
         </v-btn>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

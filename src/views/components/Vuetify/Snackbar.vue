@@ -1,24 +1,15 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        lg12
-        sm12
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col
+        lg="12"
+        sm="12"
       >
         <app-widget title="Basic Usage">
           <section slot="widget-content">
-            <v-container container--fluid>
-              <v-layout
-                row
-                wrap
-              >
-                <v-flex xs12>
+            <v-container class="container--fluid">
+              <v-row>
+                <v-col cols="12">
                   <v-radio-group
                     v-model="color"
                     row
@@ -31,88 +22,88 @@
                       :color="colorValue"
                     />
                   </v-radio-group>
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm3
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="3"
                 >
                   <v-checkbox
                     v-model="x"
                     value="left"
                     label="Left"
                   />
-                </v-flex>
-                <v-flex
-                  xs6
-                  sm3
+                </v-col>
+                <v-col
+                  cols="6"
+                  sm="3"
                 >
                   <v-checkbox
                     v-model="x"
                     value="right"
                     label="Right"
                   />
-                </v-flex>
-                <v-flex
-                  xs6
-                  sm3
+                </v-col>
+                <v-col
+                  cols="6"
+                  sm="3"
                 >
                   <v-checkbox
                     v-model="y"
                     value="top"
                     label="Top"
                   />
-                </v-flex>
-                <v-flex
-                  xs6
-                  sm3
+                </v-col>
+                <v-col
+                  cols="6"
+                  sm="3"
                 >
                   <v-checkbox
                     v-model="y"
                     value="bottom"
                     label="Bottom"
                   />
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm3
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="3"
                 >
                   <v-checkbox
                     v-model="mode"
                     value="multi-line"
                     label="Multi-line (mobile)"
                   />
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm3
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="3"
                 >
                   <v-checkbox
                     v-model="mode"
                     value="vertical"
                     label="Vertical (mobile)"
                   />
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm4
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="4"
                 >
                   <v-text-field
                     v-model="text"
                     type="text"
                     label="Text"
                   />
-                </v-flex>
-                <v-flex
-                  xs12
-                  sm4
+                </v-col>
+                <v-col
+                  cols="12"
+                  sm="4"
                 >
                   <v-text-field
                     v-model.number="timeout"
                     type="number"
                     label="Timeout"
                   />
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
             <v-btn
               block
@@ -124,8 +115,8 @@
             </v-btn>
           </section>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
     <v-snackbar
       v-model="snackbar"
       :timeout="timeout"

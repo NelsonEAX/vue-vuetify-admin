@@ -1,15 +1,9 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        lg6
-        sm12
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col
+        lg="6"
+        sm="12"
       >
         <app-widget title="Basic Usage">
           <div
@@ -22,10 +16,10 @@
             />
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex
-        lg6
-        sm12
+      </v-col>
+      <v-col
+        lg="6"
+        sm="12"
         class="hidden-sm-and-down"
       >
         <app-widget title="Full Width">
@@ -38,10 +32,10 @@
             />
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex
-        lg6
-        sm12
+      </v-col>
+      <v-col
+        lg="6"
+        sm="12"
       >
         <app-widget
           title="In dialog and menu"
@@ -49,13 +43,10 @@
         >
           <div slot="widget-content">
             <v-container>
-              <v-layout
-                row
-                wrap
-              >
-                <v-flex
-                  xs11
-                  sm5
+              <v-row>
+                <v-col
+                  cols="11"
+                  sm="5"
                 >
                   <v-menu
                     ref="menu"
@@ -98,11 +89,11 @@
                       </v-btn>
                     </v-time-picker>
                   </v-menu>
-                </v-flex>
+                </v-col>
                 <v-spacer />
-                <v-flex
-                  xs11
-                  sm5
+                <v-col
+                  cols="11"
+                  sm="5"
                 >
                   <v-dialog
                     ref="dialog"
@@ -141,13 +132,13 @@
                       </v-btn>
                     </v-time-picker>
                   </v-dialog>
-                </v-flex>
-              </v-layout>
+                </v-col>
+              </v-row>
             </v-container>
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

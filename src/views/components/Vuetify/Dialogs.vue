@@ -1,13 +1,7 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex lg4>
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col lg="4">
         <app-widget
           title="Basic Usage"
           class="text-center"
@@ -33,32 +27,32 @@
                 </v-card-title>
                 <v-divider />
                 <v-card-text>
-                  <v-container grid-list-md>
-                    <v-layout wrap>
-                      <v-flex
-                        xs12
-                        sm6
-                        md4
+                  <v-container>
+                    <v-row>
+                      <v-col
+                        cols="12"
+                        sm="6"
+                        md="4"
                       >
                         <v-text-field
                           label="Legal first name"
                           required
                         />
-                      </v-flex>
-                      <v-flex
-                        xs12
-                        sm6
-                        md4
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        sm="6"
+                        md="4"
                       >
                         <v-text-field
                           label="Legal middle name"
                           hint="example of helper text only on focus"
                         />
-                      </v-flex>
-                      <v-flex
-                        xs12
-                        sm6
-                        md4
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        sm="6"
+                        md="4"
                       >
                         <v-text-field
                           label="Legal last name"
@@ -66,33 +60,33 @@
                           persistent-hint
                           required
                         />
-                      </v-flex>
-                      <v-flex xs12>
+                      </v-col>
+                      <v-col cols="12">
                         <v-text-field
                           label="Email"
                           required
                         />
-                      </v-flex>
-                      <v-flex xs12>
+                      </v-col>
+                      <v-col cols="12">
                         <v-text-field
                           label="Password"
                           type="password"
                           required
                         />
-                      </v-flex>
-                      <v-flex
-                        xs12
-                        sm6
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        sm="6"
                       >
                         <v-autocomplete
                           label="Age"
                           required
                           :items="['0-17', '18-29', '30-54', '54+']"
                         />
-                      </v-flex>
-                      <v-flex
-                        xs12
-                        sm6
+                      </v-col>
+                      <v-col
+                        cols="12"
+                        sm="6"
                       >
                         <v-autocomplete
                           label="Interests"
@@ -102,8 +96,8 @@
                           :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball',
                                    'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
                         />
-                      </v-flex>
-                    </v-layout>
+                      </v-col>
+                    </v-row>
                   </v-container>
                   <small>*indicates required field</small>
                 </v-card-text>
@@ -128,8 +122,8 @@
             </v-dialog>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex xl4>
+      </v-col>
+      <v-col xl="4">
         <app-widget
           title="Fullscreen Dialog"
           class="text-center"
@@ -238,8 +232,8 @@
             </v-dialog>
           </div>
         </app-widget>
-      </v-flex>
-      <v-flex xl4>
+      </v-col>
+      <v-col xl="4">
         <app-widget
           title="Scrollable Dialog"
           class="text-center"
@@ -360,8 +354,8 @@
             </v-dialog>
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

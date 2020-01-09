@@ -5,11 +5,11 @@
       persistent
       max-width="600px"
     >
-      <template v-slot:activator="{ on }">
+      <template v-slot:activator="{on}">
         <v-btn
           class="info"
-          :style="{background:color,borderColor:color}"
-          @click="dialogVisible=true"
+          :style="{background: color,borderColor: color}"
+          @click="dialogVisible= = rue"
           v-on="on"
         >
           upload
@@ -22,7 +22,7 @@
         </v-btn>
       </template>
       <v-card>
-        <v-responsive :aspect-ratio="16/9">
+        <v-responsive :aspect-ratio="16 / 9">
           <v-card-text>
             <v-btn color="primary">
               Click upload

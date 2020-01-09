@@ -1,14 +1,8 @@
 <template>
   <div id="page-pagination">
-    <v-container
-      grid-list-xl
-      container--fluid
-    >
-      <v-layout
-        row
-        wrap
-      >
-        <v-flex lg12>
+    <v-container class="container--fluid">
+      <v-row>
+        <v-col lg="12">
           <app-widget title="Default">
             <div
               slot="widget-content"
@@ -64,8 +58,8 @@
               />
             </div>
           </app-widget>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
     </v-container>
   </div>
 </template>

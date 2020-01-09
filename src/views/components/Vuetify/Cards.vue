@@ -1,18 +1,12 @@
 <template>
-  <v-container
-    grid-list-xl
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex sm12>
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col sm="12">
         <h3>Simple</h3>
-      </v-flex>
-      <v-flex
-        lg4
-        sm12
+      </v-col>
+      <v-col
+        lg="4"
+        sm="12"
       >
         <v-card
           color="purple"
@@ -33,10 +27,10 @@
             </v-btn>
           </v-card-actions>
         </v-card>
-      </v-flex>
-      <v-flex
-        lg4
-        sm12
+      </v-col>
+      <v-col
+        lg="4"
+        sm="12"
       >
         <v-card
           color="teal"
@@ -57,10 +51,10 @@
             </v-btn>
           </v-card-actions>
         </v-card>
-      </v-flex>
-      <v-flex
-        lg4
-        sm12
+      </v-col>
+      <v-col
+        lg="4"
+        sm="12"
       >
         <v-card>
           <v-card-title class="pb-0">
@@ -78,18 +72,15 @@
             </v-btn>
           </v-card-actions>
         </v-card>
-      </v-flex>
-    </v-layout>
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex sm12>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col sm="12">
         <h3>Image Card</h3>
-      </v-flex>
-      <v-flex
-        lg4
-        sm12
+      </v-col>
+      <v-col
+        lg="4"
+        sm="12"
       >
         <v-card>
           <v-img
@@ -115,10 +106,10 @@
             </v-btn>
           </v-card-actions>
         </v-card>
-      </v-flex>
-      <v-flex
-        lg4
-        sm12
+      </v-col>
+      <v-col
+        lg="4"
+        sm="12"
       >
         <v-card>
           <v-img
@@ -132,7 +123,7 @@
           <v-card-text>
             <v-avatar
               size="64px"
-              class="right mt-56"
+              class="float-right mt-56"
             >
               <img
                 src="static/avatar/man_2.jpg"
@@ -153,10 +144,10 @@
             </v-btn>
           </v-card-actions>
         </v-card>
-      </v-flex>
-      <v-flex
-        lg4
-        sm12
+      </v-col>
+      <v-col
+        lg="4"
+        sm="12"
       >
         <v-card>
           <v-img
@@ -173,7 +164,7 @@
               fab
               color="red"
               dark
-              class="right mt-45"
+              class="float-right mt-45"
             >
               <v-icon>mdi-heart</v-icon>
             </v-btn>
@@ -191,18 +182,15 @@
             </v-btn>
           </v-card-actions>
         </v-card>
-      </v-flex>
-    </v-layout>
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex sm12>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col sm="12">
         <h3>Carousel Cards</h3>
-      </v-flex>
-      <v-flex
-        lg4
-        sm12
+      </v-col>
+      <v-col
+        lg="4"
+        sm="12"
       >
         <v-carousel
           hide-controls
@@ -274,8 +262,8 @@
             </v-card>
           </v-carousel-item>
         </v-carousel>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

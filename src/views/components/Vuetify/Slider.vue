@@ -1,13 +1,7 @@
 <template>
-  <v-container
-    grid-list-lg
-    container--fluid
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex xs12>
+  <v-container class="container--fluid">
+    <v-row>
+      <v-col cols="12">
         <app-widget title="Basic Usage">
           <div slot="widget-content">
             <v-subheader>Default</v-subheader>
@@ -89,8 +83,8 @@
             </div>
           </div>
         </app-widget>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

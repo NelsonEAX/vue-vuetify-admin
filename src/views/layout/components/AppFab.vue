@@ -159,4 +159,7 @@ export default {
       border-radius: 0
     }
   }
+  .v-input--selection-controls {
+    margin-top: 4px;
+  }
 </style>
