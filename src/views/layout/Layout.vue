@@ -1,16 +1,16 @@
 <template>
-  <v-app id="inspire">
+  <div class="v-application--wrap">
     <app-drawer />
     <app-toolbar />
-    <app-main />
+    <app-content />
     <app-fab />
     <app-to-top-fab />
-  </v-app>
+  </div>
 </template>
 
 <script>
 import {
-  AppDrawer, AppToolbar, AppMain, AppFab, AppToTopFab,
+  AppDrawer, AppToolbar, AppContent, AppFab, AppToTopFab,
 } from './components';
 
 export default {
@@ -18,7 +18,7 @@ export default {
   components: {
     AppDrawer,
     AppToolbar,
-    AppMain,
+    AppContent,
     AppFab,
     AppToTopFab,
   },

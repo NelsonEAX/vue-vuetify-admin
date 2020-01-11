@@ -1,6 +1,7 @@
 const settingsDefault = {
   language: 'ru',
   dense: true,
+  footer: false,
   navbar: {
     dense: false,
     show: true,
@@ -16,6 +17,7 @@ const settingsDefault = {
   },
   theme: {
     index: 0,
+    dark: false,
   },
 };
 
@@ -32,7 +34,9 @@ const settings = {
     fullscreenShow: (state) => state.fullscreen.show,
     settingsPanelBtn: (state) => state.settingsPanel.btn,
     settingsPanelShow: (state) => state.settingsPanel.show,
+    footerShow: (state) => state.footer,
     themeIndex: (state) => state.theme.index,
+    themeDark: (state) => state.theme.dark,
   },
 
   mutations: {

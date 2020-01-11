@@ -4,14 +4,16 @@
       name="fade-transform"
       mode="out-in"
     >
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
     </transition>
   </v-content>
 </template>
 
 <script>
 export default {
-  name: 'AppMain',
+  name: 'AppContent',
   data: () => ({}),
 };
 </script>

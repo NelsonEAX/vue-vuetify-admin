@@ -117,7 +117,7 @@ export default {
 
 </script>
 
-<style >
+<style>
   .v-list {
     padding-bottom: 0px;
     padding-top: 0px;

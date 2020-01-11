@@ -49,14 +49,14 @@ export default {
       this.chart = echarts.init(document.getElementById(this.id));
 
       this.chart.setOption({
-        backgroundColor: '#394056',
+        backgroundColor: this.$vuetify.theme.themes.light.secondary,
         title: {
           top: 20,
           text: 'Requests',
           textStyle: {
             fontWeight: 'normal',
             fontSize: 16,
-            color: '#F1F1F3',
+            color: this.$vuetify.theme.themes.light.primary,
           },
           left: '1%',
         },

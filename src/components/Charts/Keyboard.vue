@@ -57,7 +57,7 @@ export default {
         data2.push((Math.sin(i / 5) * (i / 5 + 10) + i / 6) * 3);
       }
       this.chart.setOption({
-        backgroundColor: '#08263a',
+        backgroundColor: this.$vuetify.theme.themes.light.secondary,
         grid: {
           left: '5%',
           right: '5%',

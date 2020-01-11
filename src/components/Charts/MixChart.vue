@@ -49,17 +49,17 @@ export default {
       this.chart = echarts.init(document.getElementById(this.id));
       const xData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
       this.chart.setOption({
-        backgroundColor: '#344b58',
+        backgroundColor: this.$vuetify.theme.themes.light.secondary,
         title: {
           text: 'statistics',
           x: '20',
           top: '20',
           textStyle: {
-            color: '#fff',
+            color: this.$vuetify.theme.themes.light.accent,
             fontSize: '22',
           },
           subtextStyle: {
-            color: '#90979c',
+            color: this.$vuetify.theme.themes.light.primary,
             fontSize: '16',
           },
         },
@@ -67,7 +67,7 @@ export default {
           trigger: 'axis',
           axisPointer: {
             textStyle: {
-              color: '#fff',
+              color: this.$vuetify.theme.themes.light.accent,
             },
           },
         },
@@ -78,14 +78,14 @@ export default {
           top: 150,
           bottom: 95,
           textStyle: {
-            color: '#fff',
+            color: this.$vuetify.theme.themes.light.accent,
           },
         },
         legend: {
           x: '5%',
           top: '10%',
           textStyle: {
-            color: '#90979c',
+            color: this.$vuetify.theme.themes.light.primary,
           },
           data: ['female', 'male', 'average'],
         },

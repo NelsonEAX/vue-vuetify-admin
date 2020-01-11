@@ -20,9 +20,9 @@
       id="app-fab-drawer"
       right
       disable-resize-watcher
-      :temporary="temporary"
-      :fixed="fixed"
-      :app="app"
+      temporary
+      fixed
+      app
       :value="settingsPanelShow"
       @input="stateSettingsPanel"
     >
@@ -59,36 +59,15 @@
 
       <v-container class="container--fluid">
         <v-switch
+          v-for="(toggle, i) in switches"
+          :key="i"
           dense
-          color="secondary"
-          :input-value="toolbarDense"
-          :label="`${$t('settings.toolbarDense')}: ${toolbarDense ? 'on' : 'off'}`"
           hide-details
-          @change="toggleToolbarDense"
-        />
-        <v-switch
-          dense
           color="secondary"
-          :input-value="navbarDense"
-          :label="`${$t('settings.navbarDense')}: ${navbarDense ? 'on' : 'off'}`"
-          hide-details
-          @change="toggleNavbarDense"
-        />
-        <v-switch
-          dense
-          color="secondary"
-          :input-value="navbarLogo"
-          :label="`${$t('settings.navbarLogo')}: ${navbarLogo ? 'on' : 'off'}`"
-          hide-details
-          @change="toggleNavbarLogo"
-        />
-        <v-switch
-          dense
-          color="secondary"
-          :input-value="settingsPanelBtn"
-          :label="`${$t('settings.settingsBtn')}: ${settingsPanelBtn ? 'on' : 'off'}`"
-          hide-details
-          @change="toggleSettingsPanelBtn"
+          :disabled="toggle.value === null"
+          :input-value="toggle.value"
+          :label="toggle.label"
+          @change="toggle.change"
         />
       </v-container>
 
@@ -109,19 +88,52 @@ import Theme from '@/styles/Theme.vue';
 export default {
   name: 'AppFab',
   components: { Theme },
-  data: () => ({
-    temporary: true,
-    fixed: true,
-    app: true,
-  }),
+  data: () => ({}),
   computed: {
     ...mapGetters([
+      'themeDark',
       'settingsPanelBtn',
       'settingsPanelShow',
       'toolbarDense',
       'navbarDense',
       'navbarLogo',
+      'footerShow',
     ]),
+    switches() {
+      return [
+        {
+          value: this.toolbarDense,
+          label: `${this.$t('settings.toolbarDense')}: ${this.toolbarDense ? 'on' : 'off'}`,
+          change: this.toggleToolbarDense,
+        },
+        {
+          value: this.navbarDense,
+          label: `${this.$t('settings.navbarDense')}: ${this.navbarDense ? 'on' : 'off'}`,
+          change: this.toggleNavbarDense,
+        },
+        {
+          value: this.navbarLogo,
+          label: `${this.$t('settings.navbarLogo')}: ${this.navbarLogo ? 'on' : 'off'}`,
+          change: this.toggleNavbarLogo,
+        },
+        {
+          value: this.settingsPanelBtn,
+          label: `${this.$t('settings.settingsBtn')}: ${this.settingsPanelBtn ? 'on' : 'off'}`,
+          change: this.toggleSettingsPanelBtn,
+        },
+        // Expected ----------------------------------------------
+        {
+          value: null,
+          label: `${this.$t('settings.footer')}: 'off'`,
+          change: () => {},
+        },
+        {
+          value: null,
+          label: `${this.$t('settings.dark')}: 'off'`,
+          change: () => {},
+        },
+      ];
+    },
   },
   methods: {
     stateSettingsPanel(state) {
