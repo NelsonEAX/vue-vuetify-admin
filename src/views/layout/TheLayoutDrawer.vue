@@ -1,6 +1,5 @@
 <template>
   <v-navigation-drawer
-    id="app-drawer"
     dark
     fixed
     app
@@ -26,7 +25,7 @@
         <span>{{ $t('toolbar.appname') }}</span>
       </v-toolbar-title>
     </v-app-bar>
-    <app-drawer-list
+    <the-layout-drawer-list
       :dense="navbarDense"
       :routes="permissionRoutes"
       icon-show
@@ -36,12 +35,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import AppDrawerList from './AppDrawerList.vue';
+import TheLayoutDrawerList from './TheLayoutDrawerList.vue';
 
 export default {
-  name: 'AppDrawer',
+  name: 'TheLayoutDrawer',
   components: {
-    AppDrawerList,
+    TheLayoutDrawerList,
   },
   data: () => ({}),
   computed: {

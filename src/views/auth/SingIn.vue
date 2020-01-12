@@ -28,13 +28,12 @@
               <v-text-field
                 v-model="model.email"
                 append-icon="mdi-account"
-                name="login"
+                name="email"
                 :label="$t('login.email')"
                 type="email"
                 required
               />
               <v-text-field
-                id="password"
                 v-model="model.password"
                 append-icon="mdi-lock"
                 name="password"
@@ -110,7 +109,7 @@
 </template>
 
 <script>
-import Localization from '../layout/components/AppToolbar/Localization.vue';
+import Localization from '../widget/AppLocalization.vue';
 import { userAdmin, userEditor } from '@/api/mock';
 
 export default {

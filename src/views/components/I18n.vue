@@ -182,7 +182,7 @@
 import { mapGetters } from 'vuex';
 import { locales, changeLocale } from '@/locale';
 import { headers, desserts } from '@/api/mock_table';
-import AppWidget from '@/views/layout/components/AppWidget.vue';
+import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
   name: 'I18n',

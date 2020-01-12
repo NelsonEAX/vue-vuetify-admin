@@ -1,10 +1,7 @@
 <template>
-  <v-content
-    id="app-fab"
-  >
+  <v-content class="layout-fab">
     <v-btn
       v-if="settingsPanelBtn"
-      id="app-fab-btn"
       small
       fab
       falt
@@ -12,12 +9,12 @@
       top="top"
       right="right"
       color="error"
+      class="layout-fab__btn"
       @click="toggleSettingsPanel"
     >
       <v-icon>mdi-settings</v-icon>
     </v-btn>
     <v-navigation-drawer
-      id="app-fab-drawer"
       right
       disable-resize-watcher
       temporary
@@ -64,6 +61,7 @@
           dense
           hide-details
           color="secondary"
+          class="layout-fab__switch"
           :disabled="toggle.value === null"
           :input-value="toggle.value"
           :label="toggle.label"
@@ -75,7 +73,7 @@
       <v-divider />
 
       <v-container>
-        <theme cols="6" />
+        <app-theme cols="6" />
       </v-container>
     </v-navigation-drawer>
   </v-content>
@@ -83,11 +81,11 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import Theme from '@/styles/Theme.vue';
+import AppTheme from '@/views/widget/AppTheme.vue';
 
 export default {
-  name: 'AppFab',
-  components: { Theme },
+  name: 'TheLayoutFab',
+  components: { AppTheme },
   data: () => ({}),
   computed: {
     ...mapGetters([
@@ -121,16 +119,15 @@ export default {
           label: `${this.$t('settings.settingsBtn')}: ${this.settingsPanelBtn ? 'on' : 'off'}`,
           change: this.toggleSettingsPanelBtn,
         },
-        // Expected ----------------------------------------------
         {
-          value: null,
+          value: this.footerShow,
           label: `${this.$t('settings.footer')}: 'off'`,
-          change: () => {},
+          change: this.toggleFooterToggle,
         },
         {
-          value: null,
+          value: this.themeDark,
           label: `${this.$t('settings.dark')}: 'off'`,
-          change: () => {},
+          change: this.toogleThemeDark,
         },
       ];
     },
@@ -142,6 +139,10 @@ export default {
     toggleSettingsPanel() {
       this.$vuetify.goTo(0);
       this.$store.dispatch('SettingsPanelToggle');
+    },
+    toogleThemeDark() {
+      this.$store.dispatch('ThemeDarkToggle');
+      this.$vuetify.theme.dark = this.themeDark;
     },
     toggleToolbarDense() {
       this.$store.dispatch('ToolbarDenseToggle');
@@ -155,6 +156,9 @@ export default {
     toggleSettingsPanelBtn() {
       this.$store.dispatch('SettingsPanelBtnToggle');
     },
+    toggleFooterToggle() {
+      this.$store.dispatch('FooterToggle');
+    },
     setDefaultSettingsPanel() {
       this.$store.dispatch('SettingsPanelDefault');
     },
@@ -162,16 +166,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-  #app-fab {
+<style>
+  .layout-fab {
     position: absolute;
-    #app-fab-btn {
-      top: 50%!important;
-      right: 0;
-      border-radius: 0
-    }
   }
-  .v-input--selection-controls {
+  .layout-fab__btn {
+    top: 50% !important;
+    right: 0 !important;
+    border-radius: 0 !important;
+  }
+  .layout-fab__switch {
     margin-top: 4px;
   }
 </style>

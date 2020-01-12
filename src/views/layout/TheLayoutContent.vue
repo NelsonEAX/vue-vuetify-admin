@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'AppContent',
+  name: 'TheLayoutContent',
   data: () => ({}),
 };
 </script>

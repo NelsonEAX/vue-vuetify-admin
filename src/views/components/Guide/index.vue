@@ -22,7 +22,7 @@
 import Driver from 'driver.js'; // import driver.js
 import 'driver.js/dist/driver.min.css'; // import driver.js css
 import steps from './defineSteps';
-import AppCenter from '@/views/layout/components/AppCenter.vue';
+import AppCenter from '@/views/widget/AppCenter.vue';
 
 export default {
   name: 'Guide',

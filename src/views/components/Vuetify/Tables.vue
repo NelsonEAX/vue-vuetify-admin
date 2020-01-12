@@ -126,7 +126,7 @@
 
 <script>
 import { Items as Users } from '@/api/mock_user';
-import AppWidget from '@/views/layout/components/AppWidget.vue';
+import AppWidget from '@/views/widget/AppWidget.vue';
 
 
 export default {

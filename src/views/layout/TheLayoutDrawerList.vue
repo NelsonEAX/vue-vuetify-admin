@@ -1,6 +1,7 @@
 <template>
   <v-list
     :dense="dense"
+    class="layout-drawer"
   >
     <div
       v-for="item in routes.filter(item => !item.hidden)"
@@ -11,7 +12,7 @@
         :to="resolvePath(onlyOneChild.path)"
         ripple="ripple"
       >
-        <v-list-item-icon>
+        <v-list-item-icon class="layout-drawer__icon">
           <v-icon>{{ getListIcon(onlyOneChild) }}</v-icon>
         </v-list-item-icon>
 
@@ -34,7 +35,7 @@
           </v-list-item-content>
         </template>
 
-        <app-drawer-list
+        <the-layout-drawer-list
           :dense="dense"
           :routes="item.children"
           :base-path="resolvePath(item.path)"
@@ -50,7 +51,7 @@ import { isExternal } from '@/utils/validate';
 const path = require('path');
 
 export default {
-  name: 'AppDrawerList',
+  name: 'TheLayoutDrawerList',
   props: {
     dense: Boolean,
     iconShow: Boolean,
@@ -118,11 +119,11 @@ export default {
 </script>
 
 <style>
-  .v-list {
+  .layout-drawer {
     padding-bottom: 0px;
     padding-top: 0px;
   }
-  .v-list-item__icon {
+  .layout-drawer__icon {
     margin-bottom: 8px;
     margin-top: 8px;
   }

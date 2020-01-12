@@ -26,15 +26,14 @@
             </div>
             <v-form>
               <v-text-field
-                v-model="model.username"
+                v-model="model.email"
                 append-icon="mdi-account"
-                name="login"
+                name="email"
                 :label="$t('login.email')"
-                type="text"
+                type="email"
                 required
               />
               <v-text-field
-                id="password"
                 v-model="model.password"
                 append-icon="mdi-lock"
                 name="password"
@@ -43,7 +42,6 @@
                 required
               />
               <v-text-field
-                id="confirm"
                 v-model="model.confirm"
                 append-icon="mdi-lock"
                 name="confirm"
@@ -93,7 +91,7 @@
 </template>
 
 <script>
-import Localization from '../layout/components/AppToolbar/Localization.vue';
+import Localization from '../widget/AppLocalization.vue';
 
 export default {
   name: 'SingUp',
@@ -101,7 +99,7 @@ export default {
   data: () => ({
     loading: false,
     model: {
-      username: 'admin@isockde.com',
+      email: 'admin@vvadmin.io',
       password: 'password',
       confirm: 'password',
     },

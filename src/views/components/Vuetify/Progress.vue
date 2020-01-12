@@ -1,5 +1,5 @@
 <template>
-  <div id="page-progress">
+  <div>
     <v-container class="container--fluid">
       <v-row>
         <v-col lg="6">
@@ -227,7 +227,7 @@
 </template>
 
 <script>
-import AppWidget from '@/views/layout/components/AppWidget.vue';
+import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
   name: 'Progress',

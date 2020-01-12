@@ -632,7 +632,7 @@
 </template>
 
 <script>
-import AppWidget from '@/views/layout/components/AppWidget.vue';
+import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
   name: 'Buttons',

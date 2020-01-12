@@ -59,7 +59,7 @@
 
 <script>
 export default {
-  name: 'Notification',
+  name: 'AppNotification',
   data: () => ({
     items: [
       {

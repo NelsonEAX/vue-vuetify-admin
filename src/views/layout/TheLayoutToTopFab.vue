@@ -2,7 +2,6 @@
   <v-fab-transition>
     <v-btn
       v-show="fab"
-      id="app-to-top-btn"
       v-scroll="onScroll"
       fab
       dark
@@ -19,7 +18,7 @@
 
 <script>
 export default {
-  name: 'AppToTopFab',
+  name: 'TheLayoutToTopFab',
   data: () => ({
     fab: false,
   }),

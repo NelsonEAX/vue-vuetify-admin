@@ -1,40 +1,36 @@
 <template>
   <v-app-bar
-    id="app-toolbar"
     app
     :dense="toolbarDense"
   >
-    <v-app-bar-nav-icon
-      id="hamburger-container"
-      @click.stop="toggleNavbar"
-    >
+    <v-app-bar-nav-icon @click.stop="toggleNavbar">
       <v-icon>{{ toggleNavbarIcon }}</v-icon>
     </v-app-bar-nav-icon>
-    <breadcrumbs id="breadcrumbs-container" />
+    <breadcrumbs />
     <v-spacer />
     <error-log />
-    <full-screen-toggle id="fullscreen-container" />
-    <notification id="notification-container" />
-    <localization id="localization-container" />
-    <profile id="profile-container" />
+    <full-screen />
+    <notification />
+    <localization />
+    <profile />
   </v-app-bar>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import Breadcrumbs from './Breadcrumbs.vue';
-import ErrorLog from './ErrorLog.vue';
-import FullScreenToggle from './FullScreenToggle.vue';
-import Localization from './Localization.vue';
-import Notification from './Notification.vue';
-import Profile from './Profile.vue';
+import Breadcrumbs from '../widget/AppBreadcrumbs.vue';
+import ErrorLog from '../widget/AppErrorLog.vue';
+import FullScreen from '../widget/AppFullScreen.vue';
+import Localization from '../widget/AppLocalization.vue';
+import Notification from '../widget/AppNotification.vue';
+import Profile from '../widget/AppProfile.vue';
 
 export default {
-  name: 'AppToolbar',
+  name: 'TheLayoutToolbar',
   components: {
     Breadcrumbs,
     ErrorLog,
-    FullScreenToggle,
+    FullScreen,
     Localization,
     Notification,
     Profile,

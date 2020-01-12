@@ -23,7 +23,7 @@
             x-large
             class="blue--text"
           >
-            person
+            mdi-account
           </v-icon>
         </v-avatar>
       </v-btn>
@@ -42,7 +42,7 @@
               x-large
               class="blue--text"
             >
-              person
+              mdi-account
             </v-icon>
           </v-list-item-avatar>
 
@@ -89,7 +89,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'Profile',
+  name: 'AppProfile',
   data() {
     return {
       menuitems: [

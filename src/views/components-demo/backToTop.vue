@@ -128,16 +128,12 @@
         </div>
       </v-col>
     </v-row>
-    <app-to-top-fab />
   </v-container>
 </template>
 
 <script>
-import AppToTopFab from '@/views/layout/components/AppToTopFab.vue';
-
 export default {
   name: 'BackToTopDemo',
-  components: { AppToTopFab },
   data: () => ({}),
 };
 </script>

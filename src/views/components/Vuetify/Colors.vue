@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    id="page-colors"
-    class="container--fluid"
-  >
+  <v-container class="container--fluid">
     <v-row>
       <v-col cols="12">
         <v-text-field

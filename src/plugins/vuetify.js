@@ -3,7 +3,7 @@ import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
 
 import store from '@/store';
-import themes from '@/styles/themes';
+import themes from './vuetifyThemes';
 import i18n from '@/locale/index';
 import locales from '@/locale/vuetify';
 
@@ -18,7 +18,7 @@ export default new Vuetify({
     themes: themes[store.getters.themeIndex],
   },
   icons: {
-    iconfont: 'mdi', // 'fa4',
+    iconfont: 'mdi',
   },
   lang: {
     locales,

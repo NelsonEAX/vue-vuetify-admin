@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import AppCenter from '@/views/layout/components/AppCenter.vue';
+import AppCenter from '@/views/widget/AppCenter.vue';
 
 export default {
   name: 'Documentation',

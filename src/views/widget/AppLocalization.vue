@@ -37,7 +37,7 @@
 import { locales, changeLocale } from '@/locale';
 
 export default {
-  name: 'Localization',
+  name: 'AppLocalization',
   data: () => ({
     locales,
   }),

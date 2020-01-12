@@ -12,7 +12,7 @@
 import { mapGetters } from 'vuex';
 
 export default {
-  name: 'ErrorLog',
+  name: 'AppErrorLog',
   computed: {
     ...mapGetters([]),
   },

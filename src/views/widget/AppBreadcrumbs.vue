@@ -16,7 +16,7 @@
 const pathToRegexp = require('path');
 
 export default {
-  name: 'Breadcrumbs',
+  name: 'AppBreadcrumbs',
   data: () => ({
     levelList: null,
   }),

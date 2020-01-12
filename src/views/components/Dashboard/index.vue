@@ -108,9 +108,9 @@ import * as Activity from '@/api/mock_activity';
 import GithubCorner from '@/views/components/Dashboard/GithubCorner.vue';
 import PanelGroup from '@/views/components/Dashboard/PanelGroup.vue';
 import OptionChart from '@/views/components/Dashboard/OptionChart.vue';
-import AppWidget from '@/views/layout/components/AppWidget.vue';
 import PlainTable from '@/views/components/Dashboard/PlainTable.vue';
 import PlainTableOrder from '@/views/components/Dashboard/PlainTableOrder.vue';
+import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
   name: 'Dashboard',

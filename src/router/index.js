@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 /* Layout */
-import Layout from '@/views/layout/Layout.vue';
+import Layout from '@/views/layout/TheLayout.vue';
 import Landing from '@/views/auth/Landing.vue';
 
 /* Router Modules */

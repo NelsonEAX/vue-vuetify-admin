@@ -36,7 +36,7 @@ const toggleFullScreen = () => {
 };
 
 export default {
-  name: 'FullScreenToggle',
+  name: 'AppFullScreen',
   computed: {
     ...mapGetters([
       'fullscreenShow',

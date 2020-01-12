@@ -35,7 +35,7 @@
             </v-card-title>
 
             <v-card-text>
-              <theme-widget cols="3" />
+              <app-theme cols="3" />
             </v-card-text>
           </div>
         </app-widget>
@@ -112,12 +112,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import ThemeWidget from '@/styles/Theme.vue';
-import AppWidget from '@/views/layout/components/AppWidget.vue';
+import AppTheme from '@/views/widget/AppTheme.vue';
+import AppWidget from '@/views/widget/AppWidget.vue';
 
 export default {
   name: 'Theme',
-  components: { ThemeWidget, AppWidget },
+  components: { AppTheme, AppWidget },
   data: () => ({
     turn: true,
     items: [

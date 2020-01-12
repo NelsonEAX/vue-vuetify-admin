@@ -47,6 +47,7 @@ const settings = {
       state.fullscreen = payload.fullscreen || state.fullscreen;
       state.settingsPanel = payload.settingsPanel || state.settingsPanel;
       state.theme = payload.theme || state.theme || 0;
+      state.footer = payload.footer || state.footer;
     },
     SET_SETTINGS_DEFAULT: (state, payload) => {
       state.language = payload.language;
@@ -55,12 +56,16 @@ const settings = {
       state.fullscreen = payload.fullscreen;
       state.settingsPanel = payload.settingsPanel;
       state.theme = payload.theme;
+      state.footer = payload.footer;
     },
     LANGUAGE_TOGGLE: (state, payload) => {
       state.language = payload.state;
     },
     THEME_TOGGLE: (state, payload) => {
       state.theme.index = payload.index;
+    },
+    THEME_DARK_TOGGLE: (state) => {
+      state.theme.dark = !state.theme.dark;
     },
     TOOLBAR_DENSE_TOGGLE: (state) => {
       state.dense = !state.dense;
@@ -92,6 +97,9 @@ const settings = {
     SETTINGS_PANEL_STATE: (state, payload) => {
       state.settingsPanel.show = payload.state;
     },
+    FOOTER_TOGGLE: (state) => {
+      state.footer = !state.footer;
+    },
   },
   actions: {
     LanguageToggle: async (context, payload) => {
@@ -99,6 +107,9 @@ const settings = {
     },
     ThemeToggle: async (context, payload) => {
       context.commit('THEME_TOGGLE', payload);
+    },
+    ThemeDarkToggle: async (context) => {
+      context.commit('THEME_DARK_TOGGLE');
     },
     ToolbarDenseToggle: async (context) => {
       context.commit('TOOLBAR_DENSE_TOGGLE');
@@ -132,6 +143,9 @@ const settings = {
     },
     SettingsPanelDefault: async (context) => {
       context.commit('SET_SETTINGS_DEFAULT', JSON.parse(JSON.stringify(settingsDefault)));
+    },
+    FooterToggle: async (context) => {
+      context.commit('FOOTER_TOGGLE');
     },
   },
 };
