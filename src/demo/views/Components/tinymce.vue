@@ -45,8 +45,8 @@
 import Tinymce from '@tinymce/tinymce-vue';
 // import EditorImage from '@/components/Tinymce/EditorImage.vue';
 import { mapGetters } from 'vuex';
-import plugins from '@/components/Tinymce/plugins';
-import toolbar from '@/components/Tinymce/toolbar';
+import plugins from '@/demo/components/Tinymce/plugins';
+import toolbar from '@/demo/components/Tinymce/toolbar';
 
 export default {
   name: 'TinymceDemo',

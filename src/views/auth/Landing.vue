@@ -12,7 +12,7 @@
           <v-row
             align="center"
             justify="center"
-            class="white--text"
+            class="white--text flex-column"
           >
             <img
               src="img/land/vva.png"
@@ -147,6 +147,7 @@
           <v-row
             align="center"
             justify="center"
+            class="flex-column"
           >
             <div class="headline white--text mb-3 text-center">
               Web development has never been easier

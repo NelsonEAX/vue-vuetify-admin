@@ -125,7 +125,7 @@
 </template>
 
 <script>
-import { Items as Users } from '@/api/mock_user';
+import { Items as Users } from '@/demo/api/mock_user';
 import AppWidget from '@/views/widget/AppWidget.vue';
 
 

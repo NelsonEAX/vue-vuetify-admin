@@ -141,7 +141,7 @@
 </template>
 
 <script>
-import MarkdownEditor from '@/components/MarkdownEditor/index.vue';
+import MarkdownEditor from '@/demo/components/MarkdownEditor/index.vue';
 
 const content = `
 **This is test**

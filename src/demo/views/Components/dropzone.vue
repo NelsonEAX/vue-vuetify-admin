@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import Dropzone from '@/components/Dropzone/index.vue';
+import Dropzone from '@/demo/components/Dropzone/index.vue';
 
 export default {
   name: 'DropzoneDemo',

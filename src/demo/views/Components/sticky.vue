@@ -106,7 +106,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import Sticky from '@/components/Sticky/index.vue';
+import Sticky from '@/demo/components/Sticky/index.vue';
 
 export default {
   name: 'StickyDemo',

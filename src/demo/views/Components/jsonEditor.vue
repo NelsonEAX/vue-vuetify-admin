@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import JsonEditor from '@/components/JsonEditor/index.vue';
+import JsonEditor from '@/demo/components/JsonEditor/index.vue';
 
 const jsonData = '[{"items":[{"market_type":"forexdata","symbol":"XAUUSD"},'
   + '{"market_type":"forexdata","symbol":"UKOIL"},'

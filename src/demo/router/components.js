@@ -15,61 +15,55 @@ const componentsRouter = [
     children: [
       {
         path: 'tinymce',
-        component: () => import('@/views/components-demo/tinymce'),
+        component: () => import('@/demo/views/Components/tinymce'),
         name: 'TinymceDemo',
         meta: { title: 'route.component.tinymce' },
       },
       {
         path: 'markdown',
-        component: () => import('@/views/components-demo/markdown'),
+        component: () => import('@/demo/views/Components/markdown'),
         name: 'MarkdownDemo',
         meta: { title: 'route.component.markdown' },
       },
       {
         path: 'json-editor',
-        component: () => import('@/views/components-demo/jsonEditor'),
+        component: () => import('@/demo/views/Components/jsonEditor'),
         name: 'JsonEditorDemo',
         meta: { title: 'route.component.jsonEditor' },
       },
       {
         path: 'splitpane',
-        component: () => import('@/views/components-demo/splitpane'),
+        component: () => import('@/demo/views/Components/splitpane'),
         name: 'SplitpaneDemo',
         meta: { title: 'route.component.splitPane' },
       },
       {
-        path: 'avatar-upload',
-        component: () => import('@/views/components-demo/avatarUpload'),
-        name: 'AvatarUploadDemo',
-        meta: { title: 'route.component.avatarUpload' },
-      },
-      {
         path: 'dropzone',
-        component: () => import('@/views/components-demo/dropzone'),
+        component: () => import('@/demo/views/Components/dropzone'),
         name: 'DropzoneDemo',
         meta: { title: 'route.component.dropzone' },
       },
       {
         path: 'sticky',
-        component: () => import('@/views/components-demo/sticky'),
+        component: () => import('@/demo/views/Components/sticky'),
         name: 'StickyDemo',
         meta: { title: 'route.component.sticky' },
       },
       {
         path: 'count-to',
-        component: () => import('@/views/components-demo/countTo'),
+        component: () => import('@/demo/views/Components/countTo'),
         name: 'CountToDemo',
         meta: { title: 'route.component.countTo' },
       },
       {
         path: 'back-to-top',
-        component: () => import('@/views/components-demo/backToTop'),
+        component: () => import('@/demo/views/Components/backToTop'),
         name: 'BackToTopDemo',
         meta: { title: 'route.component.backToTop' },
       },
       {
         path: 'drag-kanban',
-        component: () => import('@/views/components-demo/dragKanban'),
+        component: () => import('@/demo/views/Components/dragKanban'),
         name: 'DragKanbanDemo',
         meta: { title: 'route.component.dragKanban' },
       },
@@ -87,21 +81,21 @@ const componentsRouter = [
     children: [
       {
         path: 'keyboard',
-        component: () => import('@/views/components-demo/chart.vue'),
+        component: () => import('@/demo/views/Components/chart.vue'),
         name: 'KeyboardChart',
         meta: { title: 'route.chart.keyboardChart', noCache: true },
         props: { keyboard: true },
       },
       {
         path: 'line',
-        component: () => import('@/views/components-demo/chart.vue'),
+        component: () => import('@/demo/views/Components/chart.vue'),
         name: 'LineChart',
         meta: { title: 'route.chart.lineChart', noCache: true },
         props: { line: true },
       },
       {
         path: 'mix-chart',
-        component: () => import('@/views/components-demo/chart.vue'),
+        component: () => import('@/demo/views/Components/chart.vue'),
         name: 'MixChart',
         meta: { title: 'route.chart.mixChart', noCache: true },
         props: { mix: true },
@@ -121,25 +115,25 @@ const componentsRouter = [
     children: [
       {
         path: 'export-excel',
-        component: () => import('@/views/excel/export-excel'),
+        component: () => import('@/demo/views/excel/export-excel'),
         name: 'ExportExcel',
         meta: { title: 'exportExcel' }
       },
       {
         path: 'export-selected-excel',
-        component: () => import('@/views/excel/select-excel'),
+        component: () => import('@/demo/views/excel/select-excel'),
         name: 'SelectExcel',
         meta: { title: 'selectExcel' }
       },
       {
         path: 'export-merge-header',
-        component: () => import('@/views/excel/merge-header'),
+        component: () => import('@/demo/views/excel/merge-header'),
         name: 'MergeHeader',
         meta: { title: 'mergeHeader' }
       },
       {
         path: 'upload-excel',
-        component: () => import('@/views/excel/upload-excel'),
+        component: () => import('@/demo/views/excel/upload-excel'),
         name: 'UploadExcel',
         meta: { title: 'uploadExcel' }
       }
@@ -156,7 +150,7 @@ const componentsRouter = [
     children: [
       {
         path: 'download',
-        component: () => import('@/views/zip/index'),
+        component: () => import('@/demo/views/zip/index'),
         name: 'ExportZip',
         meta: { title: 'exportZip' }
       }
@@ -170,7 +164,7 @@ const componentsRouter = [
     children: [
       {
         path: 'index',
-        component: () => import('@/views/pdf/index'),
+        component: () => import('@/demo/views/pdf/index'),
         name: 'PDF',
         meta: { title: 'pdf', icon: 'pdf' }
       }
@@ -178,7 +172,7 @@ const componentsRouter = [
   },
   {
     path: '/pdf/download',
-    component: () => import('@/views/pdf/download'),
+    component: () => import('@/demo/views/pdf/download'),
     hidden: true
   }, */
 
@@ -188,7 +182,7 @@ const componentsRouter = [
     children: [
       {
         path: 'index',
-        component: () => import('@/views/components-demo/clipboard.vue'),
+        component: () => import('@/demo/views/Components/clipboard.vue'),
         name: 'ClipboardDemo',
         meta: { title: 'route.clipboard', icon: 'clipboard' }
       }

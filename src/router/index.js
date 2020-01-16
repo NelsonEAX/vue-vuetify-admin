@@ -1,17 +1,15 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-/* Layout */
 import Layout from '@/views/layout/TheLayout.vue';
-import Landing from '@/views/auth/Landing.vue';
 
 /* Router Modules */
 import authRouter from './modules/auth';
 import errorsRouter from './modules/errors';
 import permissionRouter from './modules/permission';
-import vuetifyRouter from './modules/vuetify';
-import nestedRouter from './modules/nested';
-import componentsRouter from './modules/components';
+import vuetifyRouter from '@/demo/router/vuetify';
+import nestedRouter from '@/demo/router/nested';
+import componentsRouter from '@/demo/router/components';
 
 Vue.use(Router);
 
@@ -39,20 +37,9 @@ Vue.use(Router);
 
 export const constantRoutes = [
   {
-    path: '/redirect',
-    component: Layout,
-    hidden: true,
-    children: [
-      {
-        path: '/redirect/:path*',
-        component: () => import('@/views/redirect/index'),
-      },
-    ],
-  },
-  {
     path: '/landing',
     alias: '/land',
-    component: Landing,
+    component: () => import('@/views/auth/Landing.vue'),
     hidden: true,
   },
   {
@@ -61,11 +48,12 @@ export const constantRoutes = [
     children: [
       {
         path: '/dashboard',
-        alias: '/dash',
+        alias: '/',
         component: () => import('@/views/components/Dashboard/index'),
         name: 'Dashboard',
-        // eslint-disable-next-line
-        meta: { title: 'route.dashboard', icon: 'mdi-view-dashboard', noCache: true, affix: true }
+        meta: {
+          title: 'route.dashboard', icon: 'mdi-view-dashboard', noCache: true, affix: true,
+        },
       },
     ],
   },
@@ -77,8 +65,9 @@ export const constantRoutes = [
         path: '/documentation',
         component: () => import('@/views/components/Documentation'),
         name: 'Documentation',
-        // eslint-disable-next-line
-        meta: { title: 'route.documentation', icon: 'mdi-text-subject', noCache: true, affix: true }
+        meta: {
+          title: 'route.documentation', icon: 'mdi-text-subject', noCache: true, affix: true,
+        },
       },
     ],
   },
@@ -90,8 +79,9 @@ export const constantRoutes = [
         path: '/guide',
         component: () => import('@/views/components/Guide'),
         name: 'Guide',
-        // eslint-disable-next-line
-        meta: { title: 'route.guide', icon: 'mdi-near-me', noCache: true, affix: true }
+        meta: {
+          title: 'route.guide', icon: 'mdi-near-me', noCache: true, affix: true,
+        },
       },
     ],
   },
@@ -103,8 +93,12 @@ export const constantRoutes = [
         path: '/roadmap',
         component: () => import('@/views/components/Roadmap'),
         name: 'Roadmap',
-        // eslint-disable-next-line
-        meta: { title: 'route.roadmap', icon: 'mdi-timeline-text', noCache: true, affix: true }
+        meta: {
+          title: 'route.roadmap',
+          icon: 'mdi-timeline-text',
+          noCache: true,
+          affix: true,
+        },
       },
     ],
   },
@@ -137,7 +131,7 @@ export const constantRoutes = [
 ];
 
 export default new Router({
-  // mode: 'history', // require service support
+  mode: 'history',
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes,
 });
@@ -149,6 +143,5 @@ export const asyncRoutes = [
   ...componentsRouter,
   nestedRouter,
   errorsRouter,
-  // chartsRouter,
   { path: '*', redirect: '/error/404', hidden: true },
 ];

@@ -129,7 +129,7 @@ export default {
         password: this.model.password,
       }).then((res) => {
         console.info('LoginByEmail', res);
-        this.$router.push('/dashboard');
+        this.$router.push(this.$route.query.redirect || '/');
       }).catch((err) => {
         console.error('LoginByEmail', err);
       });

@@ -99,7 +99,6 @@ export default {
     handleSuccess(response, file) {
       const { uid } = file;
       const objKeyArr = Object.keys(this.listObj);
-      // eslint-disable-next-line
       for (let i = 0, len = objKeyArr.length; i < len; i++) {
         if (this.listObj[objKeyArr[i]].uid === uid) {
           this.listObj[objKeyArr[i]].url = response.files.file;
@@ -111,7 +110,6 @@ export default {
     handleRemove(file) {
       const { uid } = file;
       const objKeyArr = Object.keys(this.listObj);
-      // eslint-disable-next-line
       for (let i = 0, len = objKeyArr.length; i < len; i++) {
         if (this.listObj[objKeyArr[i]].uid === uid) {
           delete this.listObj[objKeyArr[i]];

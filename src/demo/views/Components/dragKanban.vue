@@ -48,7 +48,7 @@
 
 <script>
 import draggable from 'vuedraggable';
-import Kanban from '@/components/Kanban/index.vue';
+import Kanban from '@/demo/components/Kanban/index.vue';
 
 export default {
   name: 'DragKanbanDemo',

@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import KeyboardChart from '@/components/Charts/Keyboard.vue';
-import LineChart from '@/components/Charts/LineMarker.vue';
-import MixChart from '@/components/Charts/MixChart.vue';
+import KeyboardChart from '@/demo/components/Charts/Keyboard.vue';
+import LineChart from '@/demo/components/Charts/LineMarker.vue';
+import MixChart from '@/demo/components/Charts/MixChart.vue';
 
 export default {
   name: 'Chart',

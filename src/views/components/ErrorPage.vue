@@ -6,9 +6,9 @@
       </h1>
       <p>{{ $t(`errors.${errorCode}`) }}</p>
       <v-btn
-        to="/dashboard"
         outlined
         color="primary"
+        @click="$router.go(-1)"
       >
         {{ $t('errors.back') }}
       </v-btn>
@@ -30,8 +30,6 @@ export default {
       default: 404,
     },
   },
-  data: () => ({
-    lineChartData: '',
-  }),
+  data: () => ({}),
 };
 </script>

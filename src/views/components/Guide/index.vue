@@ -9,6 +9,7 @@
         >driver.js.</a>
       </p>
       <v-btn
+        class="mx-2"
         color="success"
         @click.prevent.stop="guide"
       >
