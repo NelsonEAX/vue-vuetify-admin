@@ -141,8 +141,7 @@ export default {
       this.$store.dispatch('SettingsPanelToggle');
     },
     toogleThemeDark() {
-      this.$store.dispatch('ThemeDarkToggle');
-      this.$vuetify.theme.dark = this.themeDark;
+      this.$store.dispatch('ThemeDarkToggle', { vuetify: this.$vuetify });
     },
     toggleToolbarDense() {
       this.$store.dispatch('ToolbarDenseToggle');
@@ -160,7 +159,7 @@ export default {
       this.$store.dispatch('FooterToggle');
     },
     setDefaultSettingsPanel() {
-      this.$store.dispatch('SettingsPanelDefault');
+      this.$store.dispatch('SettingsPanelDefault', { vuetify: this.$vuetify });
     },
   },
 };
@@ -171,6 +170,7 @@ export default {
     position: absolute;
   }
   .layout-fab__btn {
+    margin-top: 4px; /* fixme: vertical align */
     top: 50% !important;
     right: 0 !important;
     border-radius: 0 !important;

@@ -3,7 +3,7 @@ import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
 
 import store from '@/store';
-import themes from './vuetifyThemes';
+import { themes } from './vuetifyThemes';
 import i18n from '@/locale/index';
 import locales from '@/locale/vuetify';
 
@@ -14,7 +14,7 @@ export default new Vuetify({
     options: {
       customProperties: true,
     },
-    dark: false,
+    dark: store.getters.themeDark,
     themes: themes[store.getters.themeIndex],
   },
   icons: {

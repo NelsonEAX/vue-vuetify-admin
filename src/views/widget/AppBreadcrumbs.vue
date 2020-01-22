@@ -30,17 +30,11 @@ export default {
   },
   methods: {
     generateTitle(title) {
-      console.groupCollapsed(`generateTitle ${title}`);
       const hasKey = this.$te(`${title}`);
-      console.log(`title=${title}, hasKey=${hasKey}`);
       if (hasKey) {
-        // $t :this method from vue-i18n, inject in @/lang/index.js
         const translatedTitle = this.$t(`${title}`);
-        console.log(`translatedTitle=${translatedTitle}`);
-        console.groupEnd();
         return translatedTitle;
       }
-      console.groupEnd();
       return title;
     },
     getBreadcrumb() {

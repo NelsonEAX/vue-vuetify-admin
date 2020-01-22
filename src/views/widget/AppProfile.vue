@@ -9,7 +9,7 @@
       <v-btn
         icon
         large
-        flat
+        text
         v-on="on"
       >
         <v-avatar size="36px">

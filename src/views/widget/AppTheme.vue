@@ -21,7 +21,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import themes from '@/plugins/vuetifyThemes';
+import { themes } from '@/plugins/vuetifyThemes';
 
 export default {
   name: 'AppTheme',
@@ -41,14 +41,7 @@ export default {
   },
   methods: {
     toggleTheme(index) {
-      if (this.$vuetify.theme.themes !== this.themes[index]) {
-        console.log(`Change theme to "${index}"`);
-        this.$vuetify.theme.themes.light = this.themes[index].light || this.themes[0].light;
-        this.$vuetify.theme.themes.dark = this.themes[index].dark || this.themes[0].dark;
-        this.$store.dispatch('ThemeToggle', { index });
-      } else {
-        console.warn(`"${index}" is current theme `);
-      }
+      this.$store.dispatch('ThemeToggle', { index, vuetify: this.$vuetify });
     },
   },
 };

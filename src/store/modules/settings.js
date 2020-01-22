@@ -1,3 +1,5 @@
+import { vuetifyThemeToggle, vuetifyThemeDarkToggle } from '@/plugins/vuetifyThemes';
+
 const settingsDefault = {
   language: 'ru',
   dense: true,
@@ -107,9 +109,11 @@ const settings = {
     },
     ThemeToggle: async (context, payload) => {
       context.commit('THEME_TOGGLE', payload);
+      vuetifyThemeToggle(payload.vuetify, payload.index);
     },
-    ThemeDarkToggle: async (context) => {
-      context.commit('THEME_DARK_TOGGLE');
+    ThemeDarkToggle: async (context, payload) => {
+      await context.commit('THEME_DARK_TOGGLE');
+      vuetifyThemeDarkToggle(payload.vuetify, context.state.theme.dark);
     },
     ToolbarDenseToggle: async (context) => {
       context.commit('TOOLBAR_DENSE_TOGGLE');
@@ -141,8 +145,10 @@ const settings = {
     SettingsPanelState: async (context, payload) => {
       context.commit('SETTINGS_PANEL_STATE', payload);
     },
-    SettingsPanelDefault: async (context) => {
+    SettingsPanelDefault: async (context, payload) => {
       context.commit('SET_SETTINGS_DEFAULT', JSON.parse(JSON.stringify(settingsDefault)));
+      vuetifyThemeToggle(payload.vuetify, settingsDefault.theme.index);
+      vuetifyThemeDarkToggle(payload.vuetify, settingsDefault.theme.dark);
     },
     FooterToggle: async (context) => {
       context.commit('FOOTER_TOGGLE');

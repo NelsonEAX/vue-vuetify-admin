@@ -8,7 +8,7 @@
     <template v-slot:activator="{on}">
       <v-btn
         icon
-        flat
+        text
         v-on="on"
       >
         <v-icon>mdi-bell</v-icon>

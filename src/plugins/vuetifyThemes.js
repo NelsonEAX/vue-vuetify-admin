@@ -10,7 +10,7 @@ const dark = {
   info: '#2196F3',
 };
 
-const themes = [
+export const themes = [
   {
     light: {
       primary: '#1976D2',
@@ -108,4 +108,21 @@ const themes = [
     dark,
   },
 ];
-export default themes;
+
+export function vuetifyThemeDarkToggle(vuetify, themeDark) {
+  // eslint-disable-next-line
+  vuetify.theme.dark = themeDark;
+  console.log(`[Vuetify] Change theme to "${themeDark ? 'dark' : 'light'}"`);
+}
+
+export function vuetifyThemeToggle(vuetify, index) {
+  if (vuetify.theme.themes !== themes[index]) {
+    console.log(`[Vuetify] Change theme to "${index}"`);
+    // eslint-disable-next-line
+    vuetify.theme.themes.light = themes[index].light || themes[0].light;
+    // eslint-disable-next-line
+    vuetify.theme.themes.dark = themes[index].dark || themes[0].dark;
+  } else {
+    console.warn(`[Vuetify] "${index}" is current theme `);
+  }
+}
