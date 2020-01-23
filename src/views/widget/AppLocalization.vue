@@ -23,7 +23,7 @@
         ripple="ripple"
         :target="item.target"
         rel="noopener"
-        @click="changeLocale(item.locale)"
+        @click="setLocale(item.locale)"
       >
         <v-list-item-content>
           <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { locales, changeLocale } from '@/locale';
+import { locales } from '@/locale';
 
 export default {
   name: 'AppLocalization',
@@ -42,8 +42,8 @@ export default {
     locales,
   }),
   methods: {
-    async changeLocale(lang) {
-      await changeLocale(lang, this.$store);
+    async setLocale(locale) {
+      await this.$store.dispatch('SetLocale', { locale });
     },
   },
 };

@@ -37,7 +37,7 @@
               <v-list-item
                 ripple="ripple"
                 :target="item.target"
-                @click="changeLocale(item.locale)"
+                @click="setLocale(item.locale)"
               >
                 <v-list-item-action>
                   <v-icon
@@ -180,7 +180,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { locales, changeLocale } from '@/locale';
+import { locales } from '@/locale';
 import { headers, desserts } from '@/api/mock_table';
 import AppWidget from '@/views/widget/AppWidget.vue';
 
@@ -200,8 +200,8 @@ export default {
     ]),
   },
   methods: {
-    async changeLocale(lang) {
-      await changeLocale(lang, this.$store);
+    async setLocale(locale) {
+      await this.$store.dispatch('SetLocale', { locale });
     },
   },
 };

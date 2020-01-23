@@ -1,7 +1,8 @@
-import { vuetifyThemeToggle, vuetifyThemeDarkToggle } from '@/plugins/vuetifyThemes';
+import { setVuetifyThemeDark, setVuetifyTheme } from '@/plugins/vuetify';
+import { setLocale } from '@/locale';
 
 const settingsDefault = {
-  language: 'ru',
+  locale: 'ru',
   dense: true,
   footer: false,
   navbar: {
@@ -27,7 +28,7 @@ const settings = {
   state: JSON.parse(JSON.stringify(settingsDefault)), // Deep Clone
 
   getters: {
-    language: (state) => state.language,
+    locale: (state) => state.locale,
     toolbarDense: (state) => state.dense,
     navbarDense: (state) => state.navbar.dense,
     navbarShow: (state) => state.navbar.show,
@@ -43,25 +44,20 @@ const settings = {
 
   mutations: {
     SET_SETTINGS: (state, payload) => {
-      state.language = payload.language || state.language;
+      state.locale = payload.locale || state.locale;
       state.dense = typeof payload.dense === 'boolean' ? payload.dense : state.dense;
       state.navbar = payload.navbar || state.navbar;
       state.fullscreen = payload.fullscreen || state.fullscreen;
       state.settingsPanel = payload.settingsPanel || state.settingsPanel;
-      state.theme = payload.theme || state.theme || 0;
+      state.theme = payload.theme || state.theme;
       state.footer = payload.footer || state.footer;
+      // apply settings to plugins
+      setVuetifyTheme(state.theme.index);
+      setVuetifyThemeDark(state.theme.dark);
+      setLocale(state.locale);
     },
-    SET_SETTINGS_DEFAULT: (state, payload) => {
-      state.language = payload.language;
-      state.dense = payload.dense;
-      state.navbar = payload.navbar;
-      state.fullscreen = payload.fullscreen;
-      state.settingsPanel = payload.settingsPanel;
-      state.theme = payload.theme;
-      state.footer = payload.footer;
-    },
-    LANGUAGE_TOGGLE: (state, payload) => {
-      state.language = payload.state;
+    SET_LOCALE: (state, payload) => {
+      state.locale = payload.locale;
     },
     THEME_TOGGLE: (state, payload) => {
       state.theme.index = payload.index;
@@ -104,16 +100,17 @@ const settings = {
     },
   },
   actions: {
-    LanguageToggle: async (context, payload) => {
-      context.commit('LANGUAGE_TOGGLE', payload);
+    SetLocale: async (context, payload) => {
+      context.commit('SET_LOCALE', payload);
+      await setLocale(payload.locale);
     },
     ThemeToggle: async (context, payload) => {
       context.commit('THEME_TOGGLE', payload);
-      vuetifyThemeToggle(payload.vuetify, payload.index);
+      await setVuetifyTheme(payload.index);
     },
-    ThemeDarkToggle: async (context, payload) => {
-      await context.commit('THEME_DARK_TOGGLE');
-      vuetifyThemeDarkToggle(payload.vuetify, context.state.theme.dark);
+    ThemeDarkToggle: async (context) => {
+      context.commit('THEME_DARK_TOGGLE');
+      await setVuetifyThemeDark(context.state.theme.dark);
     },
     ToolbarDenseToggle: async (context) => {
       context.commit('TOOLBAR_DENSE_TOGGLE');
@@ -145,10 +142,8 @@ const settings = {
     SettingsPanelState: async (context, payload) => {
       context.commit('SETTINGS_PANEL_STATE', payload);
     },
-    SettingsPanelDefault: async (context, payload) => {
-      context.commit('SET_SETTINGS_DEFAULT', JSON.parse(JSON.stringify(settingsDefault)));
-      vuetifyThemeToggle(payload.vuetify, settingsDefault.theme.index);
-      vuetifyThemeDarkToggle(payload.vuetify, settingsDefault.theme.dark);
+    SettingsPanelDefault: async (context) => {
+      context.commit('SET_SETTINGS', JSON.parse(JSON.stringify(settingsDefault)));
     },
     FooterToggle: async (context) => {
       context.commit('FOOTER_TOGGLE');

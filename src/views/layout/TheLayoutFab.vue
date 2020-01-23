@@ -141,7 +141,7 @@ export default {
       this.$store.dispatch('SettingsPanelToggle');
     },
     toogleThemeDark() {
-      this.$store.dispatch('ThemeDarkToggle', { vuetify: this.$vuetify });
+      this.$store.dispatch('ThemeDarkToggle');
     },
     toggleToolbarDense() {
       this.$store.dispatch('ToolbarDenseToggle');
@@ -159,7 +159,7 @@ export default {
       this.$store.dispatch('FooterToggle');
     },
     setDefaultSettingsPanel() {
-      this.$store.dispatch('SettingsPanelDefault', { vuetify: this.$vuetify });
+      this.$store.dispatch('SettingsPanelDefault');
     },
   },
 };

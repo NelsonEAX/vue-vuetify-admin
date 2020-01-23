@@ -6,6 +6,7 @@
     <panel-group-item
       title="New Visits"
       icon="mdi-account-multiple"
+      color="orange"
       chart="newVisitis"
       :start="0"
       :end="102400"
@@ -14,6 +15,7 @@
     <panel-group-item
       title="Messages"
       icon="mdi-message-bulleted"
+      color="blue"
       chart="messages"
       :start="0"
       :end="81212"
@@ -22,6 +24,7 @@
     <panel-group-item
       title="Purchases"
       icon="mdi-currency-usd"
+      color="blue-grey"
       chart="purchases"
       :start="0"
       :end="9280"
@@ -30,6 +33,7 @@
     <panel-group-item
       title="Shoppings"
       icon="mdi-cart"
+      color="green"
       chart="shoppings"
       :start="0"
       :end="13600"

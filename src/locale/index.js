@@ -1,3 +1,9 @@
+/**
+ * vva v0.0.5
+ * (c) 2019 NelsonEAX
+ * @license MIT
+ */
+
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
@@ -18,6 +24,9 @@ const messages = {
   },
 };
 
+/**
+ * Available locales
+ */
 export const locales = [
   {
     title: 'English',
@@ -33,22 +42,27 @@ export const locales = [
 
 const defaultLocale = locales[1];
 
+/**
+ * VueI18n instance
+ */
 const i18n = new VueI18n({
-  // set locale
-  // options: en | ru
+  // set locale options: en | ru
   locale: defaultLocale.locale,
   // set locale messages
   messages,
 });
 
-export async function changeLocale(newLocale, store) {
-  if (i18n.locale !== newLocale) {
-    console.log(`Change locale to "${newLocale}"`);
-    i18n.locale = newLocale || defaultLocale.locale;
-
-    store.dispatch('LanguageToggle', { state: i18n.locale });
+/**
+ * Set locale to new value at Vue and Vuex.
+ *
+ * @param {Boolean} newLocale themeDark new value
+ */
+export async function setLocale(locale) {
+  if (i18n.locale !== locale) {
+    console.log(`[Locale] Set to "${locale}"`);
+    i18n.locale = locale || defaultLocale.locale;
   } else {
-    console.warn(`"${newLocale}" is current locale `);
+    console.warn(`[Locale] "${locale}" is current`);
   }
 }
 

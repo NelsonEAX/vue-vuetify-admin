@@ -21,7 +21,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { themes } from '@/plugins/vuetifyThemes';
+import themes from '@/plugins/vuetifyThemes';
 
 export default {
   name: 'AppTheme',

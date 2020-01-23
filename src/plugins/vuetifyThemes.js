@@ -1,3 +1,9 @@
+/**
+ * vva v0.0.5
+ * (c) 2019 NelsonEAX
+ * @license MIT
+ */
+
 import colors from 'vuetify/es5/util/colors';
 
 const dark = {
@@ -10,7 +16,10 @@ const dark = {
   info: '#2196F3',
 };
 
-export const themes = [
+/**
+ * Vuetify theme options.
+ */
+const themes = [
   {
     light: {
       primary: '#1976D2',
@@ -108,21 +117,4 @@ export const themes = [
     dark,
   },
 ];
-
-export function vuetifyThemeDarkToggle(vuetify, themeDark) {
-  // eslint-disable-next-line
-  vuetify.theme.dark = themeDark;
-  console.log(`[Vuetify] Change theme to "${themeDark ? 'dark' : 'light'}"`);
-}
-
-export function vuetifyThemeToggle(vuetify, index) {
-  if (vuetify.theme.themes !== themes[index]) {
-    console.log(`[Vuetify] Change theme to "${index}"`);
-    // eslint-disable-next-line
-    vuetify.theme.themes.light = themes[index].light || themes[0].light;
-    // eslint-disable-next-line
-    vuetify.theme.themes.dark = themes[index].dark || themes[0].dark;
-  } else {
-    console.warn(`[Vuetify] "${index}" is current theme `);
-  }
-}
+export default themes;
