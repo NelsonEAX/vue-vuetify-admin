@@ -52,14 +52,6 @@ export default {
       'toolbarDense',
     ]),
   },
-  beforeMount() {
-    console.groupCollapsed('NavbarItemsMount');
-  },
-  mounted() {
-    this.$nextTick(() => {
-      console.groupEnd();
-    });
-  },
   methods: {
     stateNavbarShow(state) {
       this.$store.dispatch('NavbarState', { state });

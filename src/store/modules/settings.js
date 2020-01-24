@@ -46,11 +46,11 @@ const settings = {
     SET_SETTINGS: (state, payload) => {
       state.locale = payload.locale || state.locale;
       state.dense = typeof payload.dense === 'boolean' ? payload.dense : state.dense;
+      state.footer = typeof payload.dense === 'boolean' ? payload.footer : state.footer;
       state.navbar = payload.navbar || state.navbar;
       state.fullscreen = payload.fullscreen || state.fullscreen;
       state.settingsPanel = payload.settingsPanel || state.settingsPanel;
       state.theme = payload.theme || state.theme;
-      state.footer = payload.footer || state.footer;
       // apply settings to plugins
       setVuetifyTheme(state.theme.index);
       setVuetifyThemeDark(state.theme.dark);

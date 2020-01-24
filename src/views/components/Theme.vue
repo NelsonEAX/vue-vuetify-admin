@@ -111,7 +111,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 import AppTheme from '@/views/widget/AppTheme.vue';
 import AppWidget from '@/views/widget/AppWidget.vue';
 
@@ -131,10 +130,5 @@ export default {
       { color: 'info', icon: 'mdi-alert-circle' },
     ],
   }),
-  computed: {
-    ...mapGetters([
-      'toolbarDense',
-    ]),
-  },
 };
 </script>

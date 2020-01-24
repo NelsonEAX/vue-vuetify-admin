@@ -17,36 +17,30 @@ class SyncStorage {
     this.settingsMutations = this.getModuleOptions(settings, 'mutations');
     this.settingsActions = this.getModuleOptions(settings, 'actions');
 
-    console.log('syncStorageOption: ', syncStorageOption);
-    console.log('syncStorageInit', this.prefix, this.storage, this.userMutations, this.userActions);
+    console.log('[vuex.SyncStorage] syncStorageOption: ', syncStorageOption);
+    console.log('[vuex.SyncStorage] syncStorageInit', this.prefix, this.storage, this.userMutations, this.userActions);
   }
 
   /** vuex plugin function */
-  subscribe = (store) => {
+  subscribe = async (store) => {
     if (!this.checkStorage()) {
-      throw new Error('Invalid "Storage" instance given');
+      throw new Error('[vuex.SyncStorage] Invalid "Storage" instance given');
     }
 
     // init and apply user state from storage
     if (this.initUserState(store)) {
-      console.log(store.getters.roles);
-      store.dispatch('GenerateRoutes', { roles: store.getters.roles })
-        .then((accessRoutes) => {
-          console.log('SyncStorage GenerateRoutes', accessRoutes);
-          router.addRoutes(accessRoutes, { override: true });
-        })
-        .catch((err) => {
-          console.error(`SyncStorage GenerateRoutes ${err}`);
-        });
+      const accessedRoutes = await store.dispatch('GenerateRoutes', { roles: store.getters.roles });
+      console.log('[vuex.SyncStorage] GenerateRoutes', accessedRoutes);
+      router.addRoutes(accessedRoutes, { override: true });
     } else {
-      console.warn('No user state in "Storage"');
+      console.warn('[vuex.SyncStorage] No user state in "Storage"');
     }
 
     // init and apply settings state from storage
     if (this.initSettingsState(store)) {
-      console.log('initSettingsState');
+      console.log('[vuex.SyncStorage] initSettingsState');
     } else {
-      console.warn('No user settings in "Storage"');
+      console.warn('[vuex.SyncStorage] No user settings in "Storage"');
     }
 
     store.subscribe((mutation, state) => {

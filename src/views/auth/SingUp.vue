@@ -40,6 +40,7 @@
                 :label="$t('login.password')"
                 type="password"
                 required
+                autocomplete="new-password"
               />
               <v-text-field
                 v-model="model.confirm"
@@ -48,6 +49,7 @@
                 :label="$t('login.confirm')"
                 type="password"
                 required
+                autocomplete="new-password"
               />
             </v-form>
           </v-card-text>

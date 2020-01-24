@@ -50,66 +50,61 @@ const user = {
   },
 
   actions: {
-    // Username login
+    // Login user
     LoginByEmail: async ({ commit }, payload) => {
-      console.log('LoginByEmail');
-      return new Promise((resolve, reject) => {
-        loginByEmail(payload.email.trim(), payload.password).then((response) => {
-          const { data } = response;
-          commit('SET_TOKEN', data.user.token);
-          resolve(data);
-        }).catch((error) => {
-          reject(error);
-        });
-      });
+      try {
+        const response = await loginByEmail(payload.email.trim(), payload.password);
+        console.log('[vuex.user] LoginByEmail', payload, response);
+        commit('SET_TOKEN', response.user.token);
+      } catch (err) {
+        console.warn('[vuex.user] LoginByEmail', err);
+      }
     },
 
-    // Get user information
     GetUserInfo: async ({ commit, state }) => {
-      console.log('GetUserInfo');
-      return new Promise((resolve, reject) => {
-        getUserInfo(state.token).then((response) => {
-          // Since mockjs does not support custom status codes, it can only be hacked like this
-          if (!response.data) {
-            reject(new Error('Verification failed, please login again.'));
-          }
-          const { data } = response;
+      console.log('[vuex.user] GetUserInfo');
+      try {
+        const response = await getUserInfo(state.token);
 
-          // Verify returned roles are a non-null array
-          if (data.user.roles && data.user.roles.length === 0) {
-            reject(new Error('getInfo: roles must be a non-null array!'));
-          }
+        // Since mockjs does not support custom status codes, it can only be hacked like this
+        if (!response) {
+          throw new Error('Verification failed, please login again.');
+        }
 
-          commit('SET_USER_INFO', data.user);
-          resolve(response);
-        }).catch((error) => {
-          reject(error);
-        });
-      });
+        // Verify returned roles are a non-null array
+        if (response.user.roles && response.user.roles.length === 0) {
+          throw new Error('getInfo: roles must be a non-null array!');
+        }
+
+        commit('SET_USER_INFO', response.user);
+        return response;
+      } catch (err) {
+        console.warn('[vuex.user] GetUserInfo', err);
+        return {};
+      }
     },
 
-    // Front end
     LogOut: async ({ commit }) => {
-      console.log('LogOut');
-      return new Promise((resolve) => {
-        commit('SET_USER_INFO', { logout: true });
-        resolve();
-      });
+      try {
+        console.log('[vuex.user] LogOut');
+        await commit('SET_USER_INFO', { logout: true });
+      } catch (err) {
+        console.warn('[vuex.user] LogOut', err);
+      }
     },
 
     // Dynamically modify permissions
     ChangeRoles: async ({ commit, dispatch }, role) => {
-      console.log('ChangeRoles');
-      return new Promise((resolve) => {
-        commit('SET_TOKEN', role);
-        getUserInfo(role).then((response) => {
-          const { data } = response;
-          commit('SET_USER_INFO', data);
-          // Redraw the side menu after dynamically modifying the permissions
-          dispatch('GenerateRoutes', data);
-          resolve();
-        });
-      });
+      try {
+        console.log('[vuex.user] ChangeRoles', role);
+        await commit('SET_TOKEN', role);
+        const data = await getUserInfo(role);
+        await commit('SET_USER_INFO', data);
+        // Redraw the side menu after dynamically modifying the permissions
+        await dispatch('GenerateRoutes', data);
+      } catch (err) {
+        console.warn('[vuex.user] ChangeRoles', err);
+      }
     },
   },
 };

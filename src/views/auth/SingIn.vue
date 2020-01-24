@@ -40,6 +40,7 @@
                 :label="$t('login.password')"
                 type="password"
                 required
+                autocomplete="current-password"
               />
             </v-form>
           </v-card-text>
@@ -123,16 +124,12 @@ export default {
     },
   }),
   methods: {
-    login() {
-      this.$store.dispatch('LoginByEmail', {
+    async login() {
+      await this.$store.dispatch('LoginByEmail', {
         email: this.model.email,
         password: this.model.password,
-      }).then((res) => {
-        console.info('LoginByEmail', res);
-        this.$router.push(this.$route.query.redirect || '/');
-      }).catch((err) => {
-        console.error('LoginByEmail', err);
       });
+      await this.$router.push(this.$route.query.redirect || '/');
     },
     setUserToLogin(id) {
       if (id) {

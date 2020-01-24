@@ -41,7 +41,7 @@
               >
                 <v-list-item-action>
                   <v-icon
-                    v-if="item.locale === language"
+                    v-if="item.locale === locale"
                     color="success"
                   >
                     mdi-radiobox-marked
@@ -196,7 +196,7 @@ export default {
   }),
   computed: {
     ...mapGetters([
-      'language',
+      'locale',
     ]),
   },
   methods: {

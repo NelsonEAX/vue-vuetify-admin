@@ -5,34 +5,32 @@ import { asyncRoutes, constantRoutes } from '@/router';
  * @param roles
  * @param route
  */
-function hasPermission(roles, route) {
+const hasPermission = (roles, route) => {
   if (route.meta && route.meta.roles) {
     return roles.some((role) => route.meta.roles.includes(role));
   }
   return true;
-}
+};
 
 /**
  * Recursively filter asynchronous routing tables to return routing tables
  * that meet user role permissions
- * @param routes asyncRoutes
  * @param roles
+ * @param routes asyncRoutes
  */
-export function filterAsyncRoutes(routes, roles) {
+export const filterAsyncRoutes = (roles, routes) => {
   const res = [];
-
   routes.forEach((route) => {
     const tmp = { ...route };
     if (hasPermission(roles, tmp)) {
       if (tmp.children) {
-        tmp.children = filterAsyncRoutes(tmp.children, roles);
+        tmp.children = filterAsyncRoutes(roles, tmp.children);
       }
       res.push(tmp);
     }
   });
-
   return res;
-}
+};
 
 const permission = {
   state: {
@@ -55,12 +53,10 @@ const permission = {
     },
   },
   actions: {
-    GenerateRoutes: async ({ commit }, data) => {
-      console.log('GenerateRoutes');
-      return new Promise((resolve) => {
-        const { roles } = data;
-        let accessedRoutes;
-        console.groupCollapsed('GenerateRoutes');
+    GenerateRoutes: async ({ commit }, { roles }) => {
+      let accessedRoutes;
+      console.groupCollapsed('[vuex.permission] GenerateRoutes', roles);
+      try {
         console.log('asyncRoutes ', asyncRoutes);
         console.log('constantRoutes ', constantRoutes);
 
@@ -68,13 +64,15 @@ const permission = {
           accessedRoutes = asyncRoutes;
           console.log('roles.includes(admin) ', accessedRoutes);
         } else {
-          accessedRoutes = filterAsyncRoutes(asyncRoutes, roles);
+          accessedRoutes = filterAsyncRoutes(roles, asyncRoutes);
           console.log('!roles.includes(admin) ', accessedRoutes);
         }
         commit('SET_ROUTES', accessedRoutes);
-        console.groupEnd();
-        resolve(accessedRoutes);
-      });
+      } catch (err) {
+        console.warn('[vuex.permission] GenerateRoutes', err);
+      }
+      console.groupEnd();
+      return accessedRoutes;
     },
   },
 };
