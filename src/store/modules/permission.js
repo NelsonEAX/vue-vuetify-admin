@@ -1,4 +1,4 @@
-import { asyncRoutes, constantRoutes } from '@/router';
+import router, { asyncRoutes, constantRoutes } from '@/router';
 
 /**
  * Through meta.role determines whether the current user rights match
@@ -47,30 +47,26 @@ const permission = {
     SET_ROUTES: (state, routes) => {
       state.addRoutes = routes;
       state.routes = constantRoutes.concat(routes);
-
-      console.log('SET_ROUTES state.addRoutes', state.addRoutes);
-      console.log('SET_ROUTES state.routes', state.routes);
     },
   },
   actions: {
     GenerateRoutes: async ({ commit }, { roles }) => {
-      console.groupCollapsed('[vuex.permission] GenerateRoutes', roles);
       try {
-        console.log('asyncRoutes ', asyncRoutes);
-        console.log('constantRoutes ', constantRoutes);
+        console.groupCollapsed(`[vuex.permission] GenerateRoutes [${roles}]`);
         let accessedRoutes;
         if (roles.includes('admin')) {
           accessedRoutes = asyncRoutes;
-          console.log('roles.includes(admin) ', accessedRoutes);
         } else {
           accessedRoutes = filterAsyncRoutes(roles, asyncRoutes);
-          console.log('!roles.includes(admin) ', accessedRoutes);
         }
         commit('SET_ROUTES', accessedRoutes);
+        // Apply selected allowed routes
+        router.addRoutes(accessedRoutes);
+        console.log('[vuex.permission] accessedRoutes ', constantRoutes);
+        console.groupEnd();
       } catch (err) {
         console.warn('[vuex.permission] GenerateRoutes', err);
       }
-      console.groupEnd();
     },
   },
 };

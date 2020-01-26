@@ -30,7 +30,7 @@
     </template>
     <v-list class="pa-0">
       <v-list>
-        <v-list-item avatar>
+        <v-list-item>
           <v-list-item-avatar>
             <img
               v-if="avatar"

@@ -94,7 +94,7 @@ const user = {
     },
 
     // Dynamically modify permissions
-    ChangeRoles: async ({ commit, dispatch }, role) => {
+    /* ChangeRoles: async ({ commit, dispatch }, role) => {
       try {
         console.log('[vuex.user] ChangeRoles', role);
         await commit('SET_TOKEN', role);
@@ -105,7 +105,7 @@ const user = {
       } catch (err) {
         console.warn('[vuex.user] ChangeRoles', err);
       }
-    },
+    }, */
   },
 };
 

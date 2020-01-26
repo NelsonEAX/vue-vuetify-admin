@@ -13,7 +13,7 @@ const whiteList = (['/landing', '/land']
   .concat(Array.from(authRouter, (route) => route.path))
   .concat(Array.from(authRouter, (route) => route.alias)))
   .filter((route) => route); // remove undefined element
-console.log('whiteList', whiteList);
+console.log('[router.whiteList]', whiteList);
 
 /**
  * Check user has permission for this routes.
@@ -29,23 +29,22 @@ function hasPermission(roles, permissionRoles) {
 
 router.beforeEach(async (to, from, next) => {
   NProgress.start();
-  console.groupCollapsed(`[router.beforeEach] ${to.path}`);
+  let logMsg = '[router.beforeEach]';
   try {
     // determine if there has token
     if (store.getters.token) {
-      console.log('has token');
+      logMsg += '\t[token]';
       if (whiteList.includes(to.path)) {
-        console.log(`${to.path} in whiteList`);
+        logMsg += '\t[whiteList]';
         next({ path: '/' });
       } else {
-        console.log(`${to.path} not in whiteList`);
+        logMsg += '\t[!whiteList]';
         if (!store.getters.roles || store.getters.roles.length === 0) {
-          console.log('user roles.length === 0', store.getters.roles);
-
+          logMsg += `\t[roles=${store.getters.roles}]`;
           // Determine whether the current user has pulled the user_info information
           await store.dispatch('GetUserInfo');
           if (!store.getters.user || !store.getters.user.roles) {
-            console.log('no user roles information, LogOut');
+            logMsg += '\t[LogOut]\t[next /]';
             await store.dispatch('LogOut');
             next({ path: '/' });
           }
@@ -54,42 +53,40 @@ router.beforeEach(async (to, from, next) => {
           // [{id: '1', name: 'editor'}, {id: '2', name: 'developer'}]
           await store.dispatch('GenerateRoutes', store.getters.user);
           if (!store.getters.permissionRoutes) {
-            console.log('no user accessed routes information, redirect /');
+            logMsg += '\t[Redirect]\t[next /]';
             next({ path: '/' });
           }
 
-          // Dynamically add accessible routing tables
-          router.addRoutes(store.getters.permissionRoutes, { override: true });
           // Hack method to ensure that addRoutes is complete,
           // set the replace: true so the navigation will not leave a history record
           next({ ...to, replace: true });
         } else {
-          console.log('user roles.length !== 0', store.getters.roles);
+          logMsg += `\t[roles=${store.getters.roles}]`;
           // No need to dynamically change permissions can be directly next()
           // delete the following permission judgment ↓
           if (hasPermission(store.getters.roles, to.meta.roles)) {
-            console.info(`hasPermission([${store.getters.roles}] => ${to.meta.roles})`);
+            logMsg += `\t[Permission=${to.meta.roles}]\t[next]`;
             next();
           } else {
-            console.warn(`not hasPermission([${store.getters.roles}] => ${to.meta.roles})`);
+            logMsg += `\t[!Permission=${to.meta.roles}]\t[next /401]`;
             next({ path: '/401', replace: true, query: { noGoBack: true } });
           }
         }
       }
     } else {
-      console.log('has no token');
+      logMsg += '\t[!token]';
       if (whiteList.includes(to.path)) {
-        console.info(`whiteList.indexOf(${to.path})`);
+        logMsg += '\t[whiteList]';
         next();
       } else {
-        console.warn(`not whiteList.indexOf(${to.path})`);
+        logMsg += '\t[!whiteList]';
         next(`/singin?redirect=${to.path}`);
       }
     }
   } catch (err) {
-    console.warn('[router.beforeEach]', err);
+    console.warn(`[router.beforeEach]\t${to.path}: ${err}`);
   }
-  console.groupEnd();
+  console.log(logMsg, to.path);
   NProgress.done();
 });
 

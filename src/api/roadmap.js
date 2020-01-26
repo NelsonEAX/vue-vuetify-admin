@@ -14,24 +14,24 @@ const steps = [
   {
     icon: 'https://avatars1.githubusercontent.com/u/13101802?s=60&v=4',
     date: null,
-    title: 'BEM methodology',
-    description: 'https://en.bem.info/methodology/',
-  },
-  {
-    icon: 'https://avatars1.githubusercontent.com/u/13101802?s=60&v=4',
-    date: null,
-    title: 'Dark theme',
-    description: null,
-  },
-  {
-    icon: 'https://avatars1.githubusercontent.com/u/13101802?s=60&v=4',
-    date: null,
     title: 'ErrorLog',
     description: null,
   },
 
 
   // Released ------------------------------------------------------
+  {
+    icon: 'https://avatars1.githubusercontent.com/u/13101802?s=60&v=4',
+    date: '01.2020',
+    title: 'BEM methodology',
+    description: 'Base components use BEM: https://en.bem.info/methodology/',
+  },
+  {
+    icon: 'https://avatars1.githubusercontent.com/u/13101802?s=60&v=4',
+    date: '01.2020',
+    title: 'Dark theme',
+    description: 'In settings panel can switch to light/dark theme style',
+  },
   {
     icon: 'https://avatars1.githubusercontent.com/u/13101802?s=60&v=4',
     date: '01.2020',

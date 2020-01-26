@@ -1,5 +1,4 @@
 import config from '@/config';
-import router from '@/router';
 import user from '@/store/modules/user';
 import settings from '@/store/modules/settings';
 
@@ -20,8 +19,8 @@ class SyncStorage {
     this.settingsMutations = this.getModuleOptions(settings, 'mutations');
     // this.settingsActions = this.getModuleOptions(settings, 'actions');
 
-    console.info('[vuex.SyncStorage] option: ',
-      option, this.prefix, this.storage, this.ttl);
+    console.log('[vuex.SyncStorage] option:',
+      option.storage || config.storage, this.prefix, this.ttl, option);
   }
 
   /**
@@ -36,8 +35,7 @@ class SyncStorage {
     // init and apply user state from storage
     if (this.initUserState(store)) {
       await store.dispatch('GenerateRoutes', { roles: store.getters.roles });
-      console.log('[vuex.SyncStorage] GenerateRoutes', store.getters.permissionRoutes);
-      router.addRoutes(store.getters.permissionRoutes, { override: true });
+      console.log('[vuex.SyncStorage] initUserState');
     } else {
       console.warn('[vuex.SyncStorage] No user state in "Storage"');
     }

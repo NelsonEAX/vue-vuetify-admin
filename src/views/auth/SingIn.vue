@@ -32,6 +32,7 @@
                 :label="$t('login.email')"
                 type="email"
                 required
+                autocomplete="username"
               />
               <v-text-field
                 v-model="model.password"
