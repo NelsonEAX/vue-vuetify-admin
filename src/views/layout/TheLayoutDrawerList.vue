@@ -46,9 +46,7 @@
 </template>
 
 <script>
-import { isExternal } from '@/utils/validate';
-
-const path = require('path');
+import { resolve } from 'path';
 
 export default {
   name: 'TheLayoutDrawerList',
@@ -70,6 +68,9 @@ export default {
     return {};
   },
   methods: {
+    isExternal(path) {
+      return /^(https?:|mailto:|tel:)/.test(path);
+    },
     isVisibleItem(item) {
       return this.hasOneVisibleChild(item.children, item)
         && (!this.onlyOneChild.children || this.onlyOneChild.noVisibleChildren)
@@ -85,7 +86,7 @@ export default {
 
       // When there is only one child router, the child router is displayed by default
       if (visibleChildren.length === 1) {
-        this.onlyOneChild.path = path.resolve(parent.path, this.onlyOneChild.path);
+        this.onlyOneChild.path = resolve(parent.path, this.onlyOneChild.path);
         this.onlyOneChild.meta.icon = this.onlyOneChild.meta.icon || parent.meta.icon || '';
 
         return true;
@@ -99,13 +100,11 @@ export default {
 
       return false;
     },
-    resolvePath(routePath) {
-      if (isExternal(routePath)) {
-        return routePath;
+    resolvePath(path) {
+      if (this.isExternal(path)) {
+        return path;
       }
-      const full = path.resolve(this.basePath, routePath);
-      // console.log(`${this.basePath} | ${routePath} | ${full}`);
-      return full; // path.resolve(this.basePath, routePath);
+      return resolve(this.basePath, path);
     },
     getListIcon(item) {
       return this.iconShow && item.meta ? item.meta.icon : ' ';

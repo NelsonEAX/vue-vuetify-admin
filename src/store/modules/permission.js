@@ -54,12 +54,11 @@ const permission = {
   },
   actions: {
     GenerateRoutes: async ({ commit }, { roles }) => {
-      let accessedRoutes;
       console.groupCollapsed('[vuex.permission] GenerateRoutes', roles);
       try {
         console.log('asyncRoutes ', asyncRoutes);
         console.log('constantRoutes ', constantRoutes);
-
+        let accessedRoutes;
         if (roles.includes('admin')) {
           accessedRoutes = asyncRoutes;
           console.log('roles.includes(admin) ', accessedRoutes);
@@ -72,7 +71,6 @@ const permission = {
         console.warn('[vuex.permission] GenerateRoutes', err);
       }
       console.groupEnd();
-      return accessedRoutes;
     },
   },
 };

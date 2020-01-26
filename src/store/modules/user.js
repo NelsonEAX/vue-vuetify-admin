@@ -30,7 +30,7 @@ const user = {
     SET_USER_INFO: (state, payload) => {
       if (payload.logout) {
         state.token = '';
-        state.roles = '';
+        state.roles = [];
         state.user = '';
         state.name = '';
         state.avatar = '';
@@ -51,11 +51,13 @@ const user = {
 
   actions: {
     // Login user
-    LoginByEmail: async ({ commit }, payload) => {
+    LoginByEmail: async ({ commit, dispatch }, payload) => {
       try {
         const response = await loginByEmail(payload.email.trim(), payload.password);
         console.log('[vuex.user] LoginByEmail', payload, response);
-        commit('SET_TOKEN', response.user.token);
+        await commit('SET_TOKEN', response.user.token);
+        await commit('SET_USER_INFO', response.user);
+        await dispatch('GenerateRoutes', response.user);
       } catch (err) {
         console.warn('[vuex.user] LoginByEmail', err);
       }
@@ -77,10 +79,8 @@ const user = {
         }
 
         commit('SET_USER_INFO', response.user);
-        return response;
       } catch (err) {
         console.warn('[vuex.user] GetUserInfo', err);
-        return {};
       }
     },
 

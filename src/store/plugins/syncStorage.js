@@ -1,27 +1,33 @@
-// import permission from '../modules/permission';
+import config from '@/config';
 import router from '@/router';
 import user from '@/store/modules/user';
 import settings from '@/store/modules/settings';
 
+/**
+ * Vuex plugin for save and sync 'settings' and 'user' from vuex modules.
+ */
 class SyncStorage {
-  constructor(syncStorageOption) {
+  constructor(option) {
     /** init options */
-    this.storage = syncStorageOption.storage || (window && window.localStorage);
-    this.prefix = syncStorageOption.prefix || 'vuex_';
+    this.storage = (window && window[option.storage]) || (window && window[config.storage]);
+    this.prefix = option.prefix || config.prefix;
+    this.ttl = option.ttl || config.ttl;
     this.user = 'user';
     this.settings = 'settings';
 
     this.userMutations = this.getModuleOptions(user, 'mutations');
-    this.userActions = this.getModuleOptions(user, 'actions');
-
+    // this.userActions = this.getModuleOptions(user, 'actions');
     this.settingsMutations = this.getModuleOptions(settings, 'mutations');
-    this.settingsActions = this.getModuleOptions(settings, 'actions');
+    // this.settingsActions = this.getModuleOptions(settings, 'actions');
 
-    console.log('[vuex.SyncStorage] syncStorageOption: ', syncStorageOption);
-    console.log('[vuex.SyncStorage] syncStorageInit', this.prefix, this.storage, this.userMutations, this.userActions);
+    console.info('[vuex.SyncStorage] option: ',
+      option, this.prefix, this.storage, this.ttl);
   }
 
-  /** vuex plugin function */
+  /**
+   * Vuex subscribe plugin function.
+   * @param {Object} store Vuex instance
+   */
   subscribe = async (store) => {
     if (!this.checkStorage()) {
       throw new Error('[vuex.SyncStorage] Invalid "Storage" instance given');
@@ -29,9 +35,9 @@ class SyncStorage {
 
     // init and apply user state from storage
     if (this.initUserState(store)) {
-      const accessedRoutes = await store.dispatch('GenerateRoutes', { roles: store.getters.roles });
-      console.log('[vuex.SyncStorage] GenerateRoutes', accessedRoutes);
-      router.addRoutes(accessedRoutes, { override: true });
+      await store.dispatch('GenerateRoutes', { roles: store.getters.roles });
+      console.log('[vuex.SyncStorage] GenerateRoutes', store.getters.permissionRoutes);
+      router.addRoutes(store.getters.permissionRoutes, { override: true });
     } else {
       console.warn('[vuex.SyncStorage] No user state in "Storage"');
     }
@@ -44,10 +50,13 @@ class SyncStorage {
     }
 
     store.subscribe((mutation, state) => {
-      // console.log('storage subscribe ', mutation.type);
+      // console.log('storage subscribe', mutation.type);
       if (this.userMutations.includes(mutation.type)) {
         // console.log('storage subscribe user_mutations', mutation, state);
         this.setToStorage(`${this.prefix}${this.user}`, JSON.stringify(state.user));
+        if (mutation.type === 'SET_TOKEN') {
+          this.setToStorage(`${this.prefix}ttl`, this.getSeconds(this.ttl));
+        }
       }
       if (this.settingsMutations.includes(mutation.type)) {
         // console.log('storage subscribe settings_mutations', mutation, state);
@@ -77,28 +86,45 @@ class SyncStorage {
     }); */
   };
 
-  /** declare methods */
-  // Get array of module matation types
+  /**
+   * Get current seconds + ttl.
+   * @param {Number} ttl Session lifetime
+   */
+  getSeconds = (ttl) => Math.floor(Date.now() / 1000) + (ttl || 0);
+
+  /**
+   * Get array of module mutation types.
+   */
   getModuleOptions = (module, key) => {
     if (!module || !module[key]) return [];
     return Object.keys(module[key]);
   };
 
-  // Check LocalStorage to read/write
+  /**
+   * Check LocalStorage to read/write.
+   */
   checkStorage() {
-    // console.time('checkStorage');
     try {
       this.storage.setItem(`${this.prefix}@@`, 1);
       this.storage.removeItem(`${this.prefix}@@`);
-    } catch (e) {
-      // console.error(`Check storage failed: ${e}`);
+    } catch (err) {
+      console.error(`[vuex.SyncStorage] Check storage failed: ${err}`);
       return false;
     }
-    // console.timeEnd('checkStorage');
     return true;
   }
 
+  /**
+   * Get user info from storage.
+   */
   initUserState(store) {
+    const userTTL = parseInt(this.getFromStorage(`${this.prefix}ttl`) || 0, 10);
+    if (userTTL < this.getSeconds()) {
+      console.warn('[vuex.SyncStorage] Session expired');
+      store.commit('SET_USER_INFO', { logout: true });
+      return false;
+    }
+
     const userState = this.getFromStorage(`${this.prefix}${this.user}`);
     if (userState) {
       store.commit('SET_USER_INFO', JSON.parse(userState));
@@ -107,6 +133,9 @@ class SyncStorage {
     return false;
   }
 
+  /**
+   * Get settings from storage.
+   */
   initSettingsState(store) {
     const settingsState = this.getFromStorage(`${this.prefix}${this.settings}`);
     if (settingsState) {
@@ -116,28 +145,31 @@ class SyncStorage {
     return false;
   }
 
-  // set state to Storage
+  /**
+   * Get data to storage.
+   * @param {String} key
+   * @param {String} value
+   */
   setToStorage(key, value) {
-    // console.time('setToStorage');
     try {
       this.storage.setItem(key, value);
-    } catch (e) {
-      // console.error(`setItem storage failed: ${e}`);
+    } catch (err) {
+      console.error(`[vuex.SyncStorage] setItem storage failed: ${err}`);
       return false;
     }
-    // console.timeEnd('setToStorage');
     return true;
   }
 
-  // get state from Storage
+  /**
+   * Get data from storage.
+   * @param {String} key
+   */
   getFromStorage(key) {
-    // console.time('getFromStorage');
     try {
       return this.storage.getItem(key);
-    } catch (e) {
-      // console.error(`getItem storage failed: ${e}`);
+    } catch (err) {
+      console.error(`[vuex.SyncStorage] getItem storage failed: ${err}`);
     }
-    // console.timeEnd('getFromStorage');
     return '';
   }
 }

@@ -1,8 +1,9 @@
 {
   "name": "vue-vuetify-admin",
+  "title": "Vue Vuetify Admin",
   "version": "0.3.0",
   "private": true,
-  "description": "vue vuetify admin",
+  "description": "Admin template based on Vue and Vuetify",
   "author": "NelsonEAX <nelsoneax@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve --https",

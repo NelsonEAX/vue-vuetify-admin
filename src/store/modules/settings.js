@@ -1,28 +1,6 @@
+import { settingsDefault } from '@/config';
 import { setVuetifyThemeDark, setVuetifyTheme } from '@/plugins/vuetify';
 import { setLocale } from '@/locale';
-
-const settingsDefault = {
-  locale: 'ru',
-  dense: true,
-  footer: false,
-  navbar: {
-    dense: false,
-    show: true,
-    logo: false,
-  },
-  fullscreen: {
-    show: false,
-    btn: true,
-  },
-  settingsPanel: {
-    show: false,
-    btn: true,
-  },
-  theme: {
-    index: 0,
-    dark: false,
-  },
-};
 
 const settings = {
   state: JSON.parse(JSON.stringify(settingsDefault)), // Deep Clone
