@@ -51,30 +51,41 @@
         </v-tooltip>
       </v-app-bar>
 
-      <v-subheader>{{ $t('settings.position') }}</v-subheader>
+      <v-subheader class="layout-fab__header">
+        {{ $t('settings.version') }}: {{ version }}
+      </v-subheader>
       <v-divider />
 
-      <v-container class="container--fluid">
-        <v-switch
-          v-for="(toggle, i) in switches"
-          :key="i"
-          dense
-          hide-details
-          color="secondary"
-          class="layout-fab__switch"
-          :disabled="toggle.value === null"
-          :input-value="toggle.value"
-          :label="toggle.label"
-          @change="toggle.change"
-        />
-      </v-container>
+      <v-expansion-panels accordion>
+        <v-expansion-panel>
+          <v-expansion-panel-header class="layout-fab__header">
+            {{ $t('settings.position') }}
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <v-switch
+              v-for="(toggle, i) in switches"
+              :key="i"
+              dense
+              hide-details
+              color="secondary"
+              class="layout-fab__switch"
+              :disabled="toggle.value === null"
+              :input-value="toggle.value"
+              :label="toggle.label"
+              @change="toggle.change"
+            />
+          </v-expansion-panel-content>
+        </v-expansion-panel>
 
-      <v-subheader>{{ $t('settings.theme') }}</v-subheader>
-      <v-divider />
-
-      <v-container>
-        <app-theme cols="6" />
-      </v-container>
+        <v-expansion-panel>
+          <v-expansion-panel-header class="layout-fab__header">
+            {{ $t('settings.theme') }}
+          </v-expansion-panel-header>
+          <v-expansion-panel-content>
+            <app-theme cols="6" />
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
     </v-navigation-drawer>
   </v-content>
 </template>
@@ -89,6 +100,7 @@ export default {
   data: () => ({}),
   computed: {
     ...mapGetters([
+      'version',
       'themeDark',
       'settingsPanelBtn',
       'settingsPanelShow',
@@ -177,5 +189,11 @@ export default {
   }
   .layout-fab__switch {
     margin-top: 4px;
+  }
+  .layout-fab__header {
+    padding: 0 12px 0 12px !important;
+  }
+  .v-expansion-panel-content__wrap {
+    padding:0 12px 12px;
   }
 </style>

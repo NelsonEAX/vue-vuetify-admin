@@ -13,6 +13,7 @@ export default {
   settings: {
     title: 'Theme Settings',
     default: 'Set Default',
+    version: 'Version',
     position: 'Position of elements',
     theme: 'Theme',
     dark: 'Dark theme',

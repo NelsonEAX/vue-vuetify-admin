@@ -13,6 +13,7 @@ export default {
   settings: {
     title: 'Внешний Вид',
     default: 'По умолчанию',
+    version: 'Версия',
     position: 'Положение елементов',
     theme: 'Цветовая схема',
     dark: 'Тёмная тема',

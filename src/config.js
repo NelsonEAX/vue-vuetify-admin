@@ -27,13 +27,13 @@ module.exports = {
    * @description User session storage time in seconds.
    * Default 7 days
    */
-  ttl: /* 7 * 24 * 60 * 60 */ 10,
+  ttl: /* 7 * 24 * 60 * */ 60,
 
   /**
    * @type {Object}
    * @description Default application settings.
    */
-  settingsDefault: {
+  settings: {
     locale: 'en',
     dense: true,
     footer: false,

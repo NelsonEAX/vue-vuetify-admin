@@ -1,11 +1,17 @@
-import { settingsDefault } from '@/config';
+import { settings as defaultSettings, version } from '@/config';
 import { setVuetifyThemeDark, setVuetifyTheme } from '@/plugins/vuetify';
 import { setLocale } from '@/locale';
 
+const getDefaultSettings = () => {
+  const settings = JSON.parse(JSON.stringify(defaultSettings));
+  return settings;
+};
+
 const settings = {
-  state: JSON.parse(JSON.stringify(settingsDefault)), // Deep Clone
+  state: getDefaultSettings(), // Deep Clone
 
   getters: {
+    version: () => version,
     locale: (state) => state.locale,
     toolbarDense: (state) => state.dense,
     navbarDense: (state) => state.navbar.dense,
@@ -121,7 +127,7 @@ const settings = {
       context.commit('SETTINGS_PANEL_STATE', payload);
     },
     SettingsPanelDefault: async (context) => {
-      context.commit('SET_SETTINGS', JSON.parse(JSON.stringify(settingsDefault)));
+      context.commit('SET_SETTINGS', getDefaultSettings());
     },
     FooterToggle: async (context) => {
       context.commit('FOOTER_TOGGLE');

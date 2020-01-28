@@ -7,6 +7,7 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 
+import { settings } from '@/config';
 import vuetify from '@/locale/vuetify';
 import en from './en';
 import ru from './ru';
@@ -40,14 +41,12 @@ export const locales = [
   },
 ];
 
-const defaultLocale = locales[1];
-
 /**
  * VueI18n instance
  */
 const i18n = new VueI18n({
   // set locale options: en | ru
-  locale: defaultLocale.locale,
+  locale: settings.locale,
   // set locale messages
   messages,
 });
@@ -60,7 +59,7 @@ const i18n = new VueI18n({
 export async function setLocale(locale) {
   if (i18n.locale !== locale) {
     console.log(`[Locale] Set to "${locale}"`);
-    i18n.locale = locale || defaultLocale.locale;
+    i18n.locale = locale || settings.locale;
   } else {
     console.warn(`[Locale] "${locale}" is current`);
   }

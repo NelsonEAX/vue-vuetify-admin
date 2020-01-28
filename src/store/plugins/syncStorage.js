@@ -32,6 +32,12 @@ class SyncStorage {
       throw new Error('[vuex.SyncStorage] Invalid "Storage" instance given');
     }
 
+    if (this.checkVersion(config.version)) {
+      console.log(`[vuex.SyncStorage] Current version of the application "${config.version}"`);
+    } else {
+      console.warn(`[vuex.SyncStorage] Application version updated to "${config.version}"`);
+    }
+
     // init and apply user state from storage
     if (this.initUserState(store)) {
       await store.dispatch('GenerateRoutes', { roles: store.getters.roles });
@@ -110,6 +116,26 @@ class SyncStorage {
       return false;
     }
     return true;
+  }
+
+  /**
+   * Check application version.
+   * If the version of the application has changed, then the storage is cleared of the session
+   * and settings. Required to apply the settings of the new version of the application
+   * @param {String} version version of the application
+   */
+  checkVersion(version) {
+    try {
+      if (this.getFromStorage(`${this.prefix}version`) === version) {
+        return true;
+      }
+
+      this.storage.clear();
+      this.setToStorage(`${this.prefix}version`, version);
+    } catch (err) {
+      console.error(`[vuex.SyncStorage] Check version failed: ${err}`);
+    }
+    return false;
   }
 
   /**
