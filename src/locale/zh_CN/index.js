@@ -1,5 +1,5 @@
 import route from './route';
-import components from '@/demo/locale/en/components';
+import components from '@/demo/locale/zh_CN/components';
 
 export default {
   route,
@@ -13,6 +13,7 @@ export default {
   settings: {
     title: '主题设置',
     default: '设为默认',
+    version: '版本',
     position: '元素位置',
     theme: '主题',
     dark: '暗黑主题',

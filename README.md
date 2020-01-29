@@ -70,13 +70,13 @@ Understanding and learning this knowledge in advance will greatly help the use o
   - Page permission [expected]
   - Directive permission [expected]
   - Permission configuration page [expected]
-  - Two-step login
+  - Two-step login [expected]
 
 - Multi-environment build
   - dev sit stage prod [expected]
 
 - Global Features
-  - I18n
+  - I18n (supports en_US | zh_CN | ru_RU)
   - Multiple dynamic themes
   - Dynamic sidebar (supports multi-level routing)
   - Dynamic breadcrumb
@@ -87,9 +87,9 @@ Understanding and learning this knowledge in advance will greatly help the use o
   - Responsive Sidebar
 
 - Editor
-  - Rich Text Editor [expected]
-  - Markdown Editor [expected]
-  - JSON Editor [expected]
+  - Rich Text Editor
+  - Markdown Editor
+  - JSON Editor
 
 - Excel
   - Export Excel [expected]

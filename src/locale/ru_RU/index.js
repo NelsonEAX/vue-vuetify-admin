@@ -1,5 +1,5 @@
 import route from './route';
-import components from '@/demo/locale/ru/components';
+import components from '@/demo/locale/ru_RU/components';
 
 export default {
   route,

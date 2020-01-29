@@ -29,7 +29,8 @@ export default {
   },
   vuetify: 'Vuetify UI',
   vuetifyComponents: {
-    /* There might be some different names of each component in this section, so the original English name of each component is reserved. */
+    /* There might be some different names of each component in this section,
+    so the original English name of each component is reserved. */
     components: '组件/Components',
     alert: '警告/Alert',
     avatar: '头像/Avatars',
